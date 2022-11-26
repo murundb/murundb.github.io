@@ -1,0 +1,105 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{fullpage}
+\usepackage[top=2cm, bottom=4.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor,colortbl}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
+%\usepackage{minted}
+
+\pagenumbering{gobble}
+
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue,
+  linkbordercolor={0 0 1}
+}
+ 
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+
+\lstdefinestyle{R}{
+    language        = R,
+    frame           = lines, 
+    basicstyle      = \footnotesize,
+    keywordstyle    = \color{blue},
+    stringstyle     = \color{green},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\setlength{\parindent}{0.0in}
+
+\setlength{\parskip}{0.05in}
+
+% Edit these as appropriate
+\newcommand\course{\today}
+\newcommand\hwnumber{}  
+\newcommand\NetIDa{}        
+
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{\NetIDa}
+\chead{\textbf{\Large Interesting Reads \hwnumber}}
+% \rhead{\course \\ \today}
+\lfoot{}
+\cfoot{}
+% \rfoot{\pagenum}
+\lfoot{\today}
+\headsep 1.5em
+
+\begin{document}
+
+\section*{CNN}
+\begin{enumerate}
+    \item Overview of CNN, the \href{https://cs231n.github.io/}{Stanford CS231n} course notes is great.
+    \item Krizhevsky et al., 
+    \href{https://proceedings.neurips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf}{"ImageNet Classification with Deep Convolutional Neural Networks"}, 2012
+    \item Simonyan et al., 
+    \href{https://arxiv.org/abs/1409.1556}{"Very Deep Convolutional Networks for Large-Scale Image Recognition"}, 2014 (aka VGG).
+    \item He et al.,
+    \href{https://arxiv.org/abs/1409.1556}{"Deep Residual Learning for Image Recognition"}, 2014 (aka ResNet). 
+    \item Shelhamer et al., 
+    \href{https://arxiv.org/abs/1605.06211}{"Fully Convolutional Networks for Semantic Segmentation"}
+    \item Selvaraju et al., 
+    \href{https://arxiv.org/abs/1610.02391}{"Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization"}
+    \item Zamir et al., 
+    \href{http://taskonomy.stanford.edu/taskonomy_CVPR2018.pdf}{"Taskonomy: Disentangling Task Transfer Learning"}
+\end{enumerate}
+
+\section*{Transformers}
+\begin{enumerate}
+    \item Start with \href{https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/}{attention}.
+    \item Then read
+    \href{https://jalammar.github.io/illustrated-transformer/}{the illustrated transformer}.
+    \item Vaswami et al., \href{https://arxiv.org/abs/1706.03762}{"Attention Is All You Need"}, 2017
+    \item Dosovitskiy et al., \href{https://arxiv.org/abs/2010.11929}{"An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"}, 2017
+    \item Raghu et al., \href{https://arxiv.org/abs/2010.11929}{"Do Vision Transformers See Like Convolutional Neural Networks?"}, 2021
+\end{enumerate} 
+
+\section*{Data}
+\begin{enumerate}
+    \item Cui et al., \href{https://arxiv.org/abs/1901.05555}{"Class-Balanced Loss Based on Effective Number of Samples?"}, 2019
+    \item Zhu et al., 
+    \href{https://arxiv.org/abs/1503.01508}{"Do We Need More Training Data?"}, 2015
+    \item \href{https://d2l.ai/chapter_computer-vision/image-augmentation.html}{Data/Image Augmentation}.
+\end{enumerate}
+\section*{Performance \& Monitoring}
+Some topics that are related to ML performance:
+\begin{enumerate}
+    \item Sculley et al., 
+    \href{https://storage.googleapis.com/pub-tools-public-publication-data/pdf/43146.pdf}{"CMachine Learning:
+The High-Interest Credit Card of Technical Debt"}, 2014
+    \item Breck et al.,\href{https://storage.googleapis.com/pub-tools-public-publication-data/pdf/aad9f93b86b7addfea4c419b9100c6cdd26cacea.pdf}{"The ML Test Score"}, 2017 (good paper on how to monitor ML systems and reducing technical debt)
+    \item Some keywords on model efficiency improvement - model compression & pruning, \href{https://blogs.nvidia.com/blog/2020/05/14/tensorfloat-32-precision-format/}{model quantization}, knowledge distillation
+    \item \href{https://pytorch.org/tutorials/beginner/dist_overview.html}{Distributed learning}
+    \item Zhang et al., \href{https://arxiv.org/abs/1906.10742}{"Machine Learning Testing: Survey, Landscapes and Horizons"}
+\end{enumerate}
+\end{document}
