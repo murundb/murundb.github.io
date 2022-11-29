@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+<head>
+  <title>Pandora's Jar</title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+</head>
+<body>
+  <div class="menu-container"></div>
+  <div class="content-container">
+    <div class="content">
+      <div class="content-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2><a href="kinematics.html" style="text-decoration:none">Kinematics</a>: Rotation and Transformation Matrices</h2>
+            <hr>
+          </div>
+        </div>
+        <div class="flex-row">
+            <div class="flex-item flex-column">
+              <h2>Direction Cosine Matrix</h2>
+              <p class="text">
+                Let \(\mathbf{x} \in \mathbb{R}^3\) be an arbitrary vector and coordinate frames \(\alpha\) and \(\beta\) be defined by set of orthonormal base vectors 
+                \(
+                \left[
+                \begin{array}{ccc}
+                \mathbf{u}_{\alpha x} & \mathbf{u}_{\alpha y} & \mathbf{u}_{\alpha z}
+                \end{array}
+                \right]
+                \)
+                and 
+                \(
+                \left[
+                \begin{array}{ccc}
+                \mathbf{u}_{\beta x} & \mathbf{u}_{\beta y} & \mathbf{u}_{\beta z}
+                \end{array}
+                \right]
+                \). Let 
+                \(\mathbf{x}^{\alpha} = 
+                \left[
+                \begin{array}{ccc} 
+                x^{\alpha}_1 & x^{\alpha}_2 &x^{\alpha}_3
+                \end{array}
+                \right]
+                \) be the coordinates of \(\mathbf{x}\) resolved in frame \(\alpha\) and 
+                \(\mathbf{x}^{\beta} = 
+                \left[
+                \begin{array}{ccc} 
+                x^{\beta}_1 & x^{\beta}_2 &x^{\beta}_3
+                \end{array}
+                \right]
+                \) be the coordinates of \(\mathbf{x}\) resolved in frame \(\beta\). Vector \(\mathbf{x}\) can be expressed as:
+                $$
+                \left[
+                \begin{array}{ccc}
+                \mathbf{u}_{\beta x} & \mathbf{u}_{\beta y} & \mathbf{u}_{\beta z}
+                \end{array}
+                \right]
+                \left[ 
+                \begin{array}{c}
+                x^{\beta}_1 \\
+                x^{\beta}_2 \\
+                x^{\beta}_3
+                \end{array}
+                \right] = 
+                \left[
+                \begin{array}{ccc}
+                \mathbf{u}_{\alpha x} & \mathbf{u}_{\alpha y} & \mathbf{u}_{\alpha z}
+                \end{array}
+                \right]
+                \left[ 
+                \begin{array}{c}
+                x^{\alpha}_1 \\
+                x^{\alpha}_2 \\
+                x^{\alpha}_3
+                \end{array}
+                \right] \tag{1.1}
+                $$
+
+                Multiplying both sides by 
+                \(
+                \left[
+                \begin{array}{ccc}
+                \mathbf{u}^T_{\beta x} & \mathbf{u}^T_{\beta y} & \mathbf{u}^T_{\beta z}
+                \end{array}
+                \right]^T
+                \), we get:
+                $$
+                \left[ 
+                \begin{array}{c}
+                x^{\beta}_1 \\
+                x^{\beta}_2 \\
+                x^{\beta}_3
+                \end{array}
+                \right] = 
+                \left[
+                \begin{array}{ccc}
+                \mathbf{u}^T_{\beta x} \cdot \mathbf{u}_{\alpha x} & \mathbf{u}^T_{\beta x} \cdot \mathbf{u}_{\alpha y} & \mathbf{u}^T_{\beta x} \cdot \mathbf{u}_{\alpha z} \\
+                \mathbf{u}^T_{\beta y} \cdot \mathbf{u}_{\alpha x} & \mathbf{u}^T_{\beta y} \cdot \mathbf{u}_{\alpha y} & \mathbf{u}^T_{\beta y} \cdot \mathbf{u}_{\alpha z} \\
+                \mathbf{u}^T_{\beta z} \cdot \mathbf{u}_{\alpha x} & \mathbf{u}^T_{\beta z} \cdot \mathbf{u}_{\alpha y} & \mathbf{u}^T_{\beta z} \cdot \mathbf{u}_{\alpha z} \\
+                \end{array}
+                \right]
+                \left[ 
+                \begin{array}{c}
+                x^{\alpha}_1 \\
+                x^{\alpha}_2 \\
+                x^{\alpha}_3
+                \end{array}
+                \right] \tag{1.2}
+                $$
+                Let \(\mathbf{C}^{\beta}_{\alpha}\) denote the direction cosine matrix (DCM). Then:
+                $$
+                \mathbf{C}^{\beta}_{\alpha} = 
+                \left[
+                \begin{array}{ccc}
+                \mathbf{u}^T_{\beta x} \cdot \mathbf{u}_{\alpha x} & \mathbf{u}^T_{\beta x} \cdot \mathbf{u}_{\alpha y} & \mathbf{u}^T_{\beta x} \cdot \mathbf{u}_{\alpha z} \\
+                \mathbf{u}^T_{\beta y} \cdot \mathbf{u}_{\alpha x} & \mathbf{u}^T_{\beta y} \cdot \mathbf{u}_{\alpha y} & \mathbf{u}^T_{\beta y} \cdot \mathbf{u}_{\alpha z} \\
+                \mathbf{u}^T_{\beta z} \cdot \mathbf{u}_{\alpha x} & \mathbf{u}^T_{\beta z} \cdot \mathbf{u}_{\alpha y} & \mathbf{u}^T_{\beta z} \cdot \mathbf{u}_{\alpha z} \\
+                \end{array}
+                \right] = 
+                \left[
+                \begin{array}{ccc}
+                cos \mu_{\beta_x \alpha_x} & cos \mu_{\beta_x \alpha_y} & cos \mu_{\beta_x \alpha_z}  \\
+                cos \mu_{\beta_y \alpha_x} & cos \mu_{\beta_y \alpha_y} & cos \mu_{\beta_y \alpha_z}  \\
+                cos \mu_{\beta_z \alpha_x} & cos \mu_{\beta_z \alpha_y} & cos \mu_{\beta_z \alpha_z}  \\
+                \end{array}
+                \right] \tag{1.3}
+                $$
+              </p>
+            </div>
+          </div>
+        <div class="flex-row">
+            <div class="flex-item flex-column">
+              <h2>Rotation Matrix</h2>
+              <p class="text">
+                Special orthogonal group is a Lie group that consists of orthonormal matrices that provide distance-preserving transformations of a Euclidean space. It is defined as: 
+                $$
+                SO(n) = \left\{ \mathbf{R} \in \mathbb{R}^{n \times n} \ | \ \mathbf{R} \mathbf{R}^T = \mathbf{I}_{n \times n}, \ det(\mathbf{R}) = 1 \right\}. \tag{2.1}
+                $$
+                Any matrix \(\mathbf{R} \in SO(3)\) including DCM is a 3D rotation matrix (also called as coordinate transformation matrix). 
+                Consider two coordinate frames \(\alpha \) and \(\beta\). Inverse/transpose of \(\mathbf{R}\) represents the inverse rotation:
+                $$
+                \mathbf{R}^{\alpha}_{\beta} = \left(\mathbf{R}^{\beta}_{\alpha} \right)^T = \left(\mathbf{R}^{\beta}_{\alpha} \right)^{-1}. \tag{2.2}
+                $$
+                Successive transformation or rotations can be performed by chainging the rotation matrices:
+                $$
+                \mathbf{R}^{\gamma}_{\alpha} = \mathbf{R}^{\gamma}_{\beta} \mathbf{R}^{\beta}_{\alpha}. \tag{2.3}
+                $$
+
+                Let \(\mathbf{M}\) be a matrix that transforms a vector \(\mathbf{a}\) into a vector \(\mathbf{b}\):
+                $$
+                \begin{align*}
+                \mathbf{b}^{\alpha} &= \mathbf{M}^{\alpha} \mathbf{a}^\alpha \\
+                \mathbf{b}^{\beta} &= \mathbf{M}^{\beta} \mathbf{a}^\beta
+                \end{align*} \tag{2.4} \label{2.4} 
+                $$
+
+                A coordinate transformation matrix then can be used to transform \(\mathbf{M}\) to which specific resolving axes apply. Substituting one to another in \(\ref{2.4}\):
+                $$
+                \mathbf{R}^{\alpha}_{\beta} \mathbf{b}^{\beta} = \mathbf{M}^{\alpha} \mathbf{R}^{\alpha}_{\beta} \mathbf{a}^{\beta}. \tag{2.5}
+                $$
+                Premultiplying by \(\mathbf{R}^{\beta}_{\alpha}\):
+                $$
+                \mathbf{M}^{\beta} = \mathbf{R}^{\beta}_{\alpha} \mathbf{M}^{\alpha} \mathbf{R}^{\alpha}_{\beta}. \tag{2.6}
+                $$
+
+                Rotation matrix has nine elements but 3D rotation only has 3 degrees of freedom (DOF). Hence axis-angle representation is preferred.
+
+              </p>
+            </div>
+          </div>
+          <div class="flex-row">
+            <div class="flex-item flex-column">
+              <h2>Transformation Matrix</h2>
+              <p class="text">
+                Special Euclidean group is a group is defined as:
+                $$
+                SE(3) = \left\{ \mathbf{T} = 
+                    \left[
+                    \begin{array}{cc}
+                    \mathbf{R} & \mathbf{t} \\
+                    \mathbf{0}^T & 1
+                    \end{array}
+                    \right]
+                    \in \mathbb{R}^{4 \times 4} \ | \
+                    \mathbf{R} \in SO(3), \ \mathbf{t} \in \mathbb{R}^3
+                    \right\}. \tag{3.1}
+                $$
+                Any matrix \(\mathbf{T} \in SE(3)\) is a 4D transformation matrix (homogeneous coordinates) that applies rotation and translation simultaneously. Inverse of \(\mathbf{T}\) represents an inverse transformation:
+                $$
+                \mathbf{T}^{-1} = 
+                \left[
+                \begin{array}{cc}
+                \mathbf{R}^T & -\mathbf{R}^T \mathbf{t} \\
+                \mathbf{0}^T & 1
+                \end{array}
+                \right]. \tag{3.2}
+                $$
+
+                Transformation matrix has 16 elements but 3D rotation and translation has only has 6 DOF. Hence axis-angle representation is preferred.
+              </p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/dropdown.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</html>
