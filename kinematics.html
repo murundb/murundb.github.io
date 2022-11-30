@@ -9,6 +9,11 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/dropdown.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <div class="menu-container"></div>
@@ -22,8 +27,9 @@
             <p class="text">
               Contents are from:
               <ol>
-                <li><a href=""> Groves, P., "Principles of GNSS, Inertial, and Multisensor Integrated Navigation Systems, Second Edition"</li>
-                <li><a href=""> Gao, X., "Introduction to Visual SLAM: From Theory to Practice"</li>
+                <li><a href=""> Groves, P., <i>"Principles of GNSS, Inertial, and Multisensor Integrated Navigation Systems, Second Edition"</i></li>
+                    <li><a href="http://ruina.tam.cornell.edu/Courses/ME4730%20Fall%202018/books/Dynamics_Book_Bernstein__Goel__Ansari_V02.pdf"> Bernstein D., <i>"Geometry, Kinematics, Statics, and Dynamics"</i></li>
+                <li><a href=""> Gao, X., <i>"Introduction to Visual SLAM: From Theory to Practice"</i></li>
               </ol>
             </p>
           </div>
@@ -39,9 +45,9 @@
                     <li><a href="notation_and_nomenclature.html" style="text-decoration:none">Notation and Nomenclature</a></li>
                     <li>Attitude, Rotation, and Transformation
                         <ol class="nested">
-                            <li><a href="rotation_and_transformation_matrix.html" style="text-decoration:none">Rotation and Transformation Matrices</a></li>
+                            <li><a href="transformation_and_rotation_matrix.html" style="text-decoration:none">Transformation and Rotation Matrices</a></li>
+                            <li><a href="euler_angles.html" style="text-decoration:none">Euler Angles</a></li>
                             <li><a href="axis_angle.html" style="text-decoration:none">Axis-Angle Representation</a></li>
-                            <li><a href="rotation_and_transformation_matrix.html" style="text-decoration:none">Euler Angles</a></li>
                             <li><a href="rotation_and_transformation_matrix.html" style="text-decoration:none">Quaternions</a></li>
                             <li><a href="notation.html" style="text-decoration:none">Notation</a></li>
                         </ol>
@@ -68,11 +74,4 @@
     </div>
   </div>
 </body>
-
-<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="js/menu.js"></script>
-<script src="js/dropdown.js"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </html>

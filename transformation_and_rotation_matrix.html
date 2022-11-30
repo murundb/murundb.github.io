@@ -17,7 +17,7 @@
       <div class="content-table flex-column">
         <div class="flex-row">
           <div class="flex-item flex-column">
-            <h2><a href="kinematics.html" style="text-decoration:none">Kinematics</a>: Rotation and Transformation Matrices</h2>
+            <h2><a href="kinematics.html" style="text-decoration:none">Kinematics</a>: 2.1 Transformation and Rotation Matrices</h2>
             <hr>
           </div>
         </div>
@@ -25,7 +25,7 @@
             <div class="flex-item flex-column">
               <h2>Direction Cosine Matrix</h2>
               <p class="text">
-                Let \(\mathbf{x} \in \mathbb{R}^3\) be an arbitrary vector and coordinate frames \(\alpha\) and \(\beta\) be defined by set of orthonormal base vectors 
+                Let \(\mathbf{x} \in \mathbb{R}^3\) be an arbitrary vector and \(\alpha\) and \(\beta\) be coordinate frames defined by set of orthonormal base vectors 
                 \(
                 \left[
                 \begin{array}{ccc}
@@ -40,7 +40,7 @@
                 \mathbf{u}_{\beta x} & \mathbf{u}_{\beta y} & \mathbf{u}_{\beta z}
                 \end{array}
                 \right]
-                \). Let 
+                \) respectively. Let 
                 \(\mathbf{x}^{\alpha} = 
                 \left[
                 \begin{array}{ccc} 
@@ -79,7 +79,7 @@
                 x^{\alpha}_2 \\
                 x^{\alpha}_3
                 \end{array}
-                \right] \tag{1.1}
+                \right] \tag{2.1.1}
                 $$
 
                 Multiplying both sides by 
@@ -111,7 +111,7 @@
                 x^{\alpha}_2 \\
                 x^{\alpha}_3
                 \end{array}
-                \right] \tag{1.2}
+                \right] \tag{2.1.2}
                 $$
                 Let \(\mathbf{C}^{\beta}_{\alpha}\) denote the direction cosine matrix (DCM). Then:
                 $$
@@ -129,54 +129,134 @@
                 cos \mu_{\beta_y \alpha_x} & cos \mu_{\beta_y \alpha_y} & cos \mu_{\beta_y \alpha_z}  \\
                 cos \mu_{\beta_z \alpha_x} & cos \mu_{\beta_z \alpha_y} & cos \mu_{\beta_z \alpha_z}  \\
                 \end{array}
-                \right] \tag{1.3}
+                \right] \tag{2.1.3}
                 $$
               </p>
             </div>
           </div>
         <div class="flex-row">
-            <div class="flex-item flex-column">
-              <h2>Rotation Matrix</h2>
+            <div class="flex-item">
+              <h2>Transformation and Rotation Matrix</h2>
               <p class="text">
                 Special orthogonal group is a Lie group that consists of orthonormal matrices that provide distance-preserving transformations of a Euclidean space. It is defined as: 
                 $$
-                SO(n) = \left\{ \mathbf{R} \in \mathbb{R}^{n \times n} \ | \ \mathbf{R} \mathbf{R}^T = \mathbf{I}_{n \times n}, \ det(\mathbf{R}) = 1 \right\}. \tag{2.1}
+                SO(n) = \left\{ \mathbf{R} \in \mathbb{R}^{n \times n} \ | \ \mathbf{R} \mathbf{R}^T = \mathbf{R}_{n \times n}, \ det(\mathbf{R}) = 1 \right\}. \tag{2.1.4}
                 $$
-                Any matrix \(\mathbf{R} \in SO(3)\) including DCM is a 3D rotation matrix (also called as coordinate transformation matrix). 
-                Consider two coordinate frames \(\alpha \) and \(\beta\). Inverse/transpose of \(\mathbf{R}\) represents the inverse rotation:
+                Any matrix \(\mathbf{R} \in SO(3)\) including DCMs is a 3D coordinate transformation matrix. It is important to distinguish between two types of transformations: 
+                <ol>
+                    <li> <b>Passive transformation</b> - Rotations of the coordinate system while the objects stays fixed. </li>
+                    <li> <b>Active transformation</b> - Rotation of the object (e.g., vector) while the coordinate system stays fixed. </li>
+                </ol>
+
+                For active transformation, we only need to know the frame of reference and can refer it as a rotation matrix \(\mathbf{R}^{\gamma}\), where \(\gamma\) is the frame of reference. However, for passive transformation (transformation matrix), we usually specify two frame names. 
+                Rotation matrix derivation is included in this page whereas transformation matrix derivation can be found in <a href="euler_angles.html" style="text-decoration:none">2.2 Euler Angles</a>.
+                <br><br>
+
+                Consider two coordinate frames \(\alpha\) and \(\beta\). Then, the transformation matrix from \(\beta\) to \(\alpha\) is \(\mathbf{R}^{\alpha}_{\beta}\). Inverse or transpose of \(\mathbf{R}^{\alpha}_{\beta}\) represents the inverse transformation:
                 $$
-                \mathbf{R}^{\alpha}_{\beta} = \left(\mathbf{R}^{\beta}_{\alpha} \right)^T = \left(\mathbf{R}^{\beta}_{\alpha} \right)^{-1}. \tag{2.2}
+                \mathbf{R}^{\alpha}_{\beta} = \left(\mathbf{R}^{\beta}_{\alpha} \right)^T = \left(\mathbf{R}^{\beta}_{\alpha} \right)^{-1}. \tag{2.1.5}
                 $$
-                Successive transformation or rotations can be performed by chainging the rotation matrices:
+                Rotation matrices are inverse/transpose of transormation matrices. Successive transformation can be performed by chaining the transformation matrices:
                 $$
-                \mathbf{R}^{\gamma}_{\alpha} = \mathbf{R}^{\gamma}_{\beta} \mathbf{R}^{\beta}_{\alpha}. \tag{2.3}
+                \mathbf{R}^{\gamma}_{\alpha} = \mathbf{R}^{\gamma}_{\beta} \mathbf{R}^{\beta}_{\alpha}. \tag{2.1.6}
                 $$
 
-                Let \(\mathbf{M}\) be a matrix that transforms a vector \(\mathbf{a}\) into a vector \(\mathbf{b}\):
+                Let \(\mathbf{M}\) be a rotation matrix that transforms a vector \(\mathbf{a}\) into a vector \(\mathbf{b}\):
                 $$
                 \begin{align*}
                 \mathbf{b}^{\alpha} &= \mathbf{M}^{\alpha} \mathbf{a}^\alpha \\
                 \mathbf{b}^{\beta} &= \mathbf{M}^{\beta} \mathbf{a}^\beta
-                \end{align*} \tag{2.4} \label{2.4} 
+                \end{align*} \tag{2.1.7} \label{2.1.7} 
                 $$
 
-                A coordinate transformation matrix then can be used to transform \(\mathbf{M}\) to which specific resolving axes apply. Substituting one to another in \(\ref{2.4}\):
+                A transformation matrix then can be used to transform \(\mathbf{M}\) to which specific resolving axes apply. Substituting one to another in \(\ref{2.1.7}\):
                 $$
-                \mathbf{R}^{\alpha}_{\beta} \mathbf{b}^{\beta} = \mathbf{M}^{\alpha} \mathbf{R}^{\alpha}_{\beta} \mathbf{a}^{\beta}. \tag{2.5}
+                \mathbf{R}^{\alpha}_{\beta} \mathbf{b}^{\beta} = \mathbf{M}^{\alpha} \mathbf{R}^{\alpha}_{\beta} \mathbf{a}^{\beta}. \tag{2.1.8}
                 $$
                 Premultiplying by \(\mathbf{R}^{\beta}_{\alpha}\):
                 $$
-                \mathbf{M}^{\beta} = \mathbf{R}^{\beta}_{\alpha} \mathbf{M}^{\alpha} \mathbf{R}^{\alpha}_{\beta}. \tag{2.6}
+                \mathbf{M}^{\beta} = \mathbf{R}^{\beta}_{\alpha} \mathbf{M}^{\alpha} \mathbf{R}^{\alpha}_{\beta}. \tag{2.1.9}
                 $$
 
-                Rotation matrix has nine elements but 3D rotation only has 3 degrees of freedom (DOF). Hence axis-angle representation is preferred.
+                Transformation and rotation matrices has nine elements but 3D coordinate transformation only has 3 degrees of freedom (DOF). Hence axis-angle representation is preferred.
 
               </p>
             </div>
           </div>
           <div class="flex-row">
+            <div class="flex-item">
+              <h2>Rotation Matrix Derivation</h2>
+              <p class="text">
+                <img class="image max-width-200 add-top-margin-large" src="img/rotation_1.png">
+                <p class="image-caption">Fig 2.1 Rotation about \(z^\beta \) (source Groves, p31)</a></p>
+                <br>
+                Let \( \beta \) be a Cartesian coordinate frame with axes \((x^\beta, y^\beta, z^\beta)\).
+
+                Consider a vector with a fixed length, \(r_{\beta \alpha} \) from the origin of frame \( \beta \) to a point, \( \alpha \), that has rotated about the \(z^\beta \)
+                by angle \( \psi \). Fig 2.1 shows the position of the vector at times \(t_0 \) (pre-rotation) and \(t_1 \) (post-rotation). At \(t_0\), the position of \(\alpha \) with respect to the origin of frame \(\beta \)
+                and resolved about the axes of \(\beta \) can be described by:
+                $$
+                \begin{align}
+                x^{\beta}_{\beta \alpha} (t_0) &= r_{\beta \alpha} cos(\phi) \\
+                y^{\beta}_{\beta \alpha} (t_0) &= r_{\beta \alpha} sin(\phi) \\
+                z^{\beta}_{\beta \alpha} (t_0) &= z^{\beta}_{\beta \alpha} (t_0) 
+                \end{align} \tag{2.1.10} \label{2.1.10}
+                $$
+
+                At \(t_1\), the vector rotates about \(z^\beta \) by angle \(\psi\):
+                $$
+                \begin{align}
+                x^{\beta}_{\beta \alpha} (t_1) &= r_{\beta \alpha} cos(\phi + \psi) = r_{\beta \alpha}cos(\phi)cos(\psi) - r_{\beta \alpha}sin(\phi)sin(\psi)\\
+                y^{\beta}_{\beta \alpha} (t_1) &= r_{\beta \alpha} sin(\phi + \psi) = r_{\beta \alpha}sin(\phi)cos(\psi) + r_{\beta \alpha}cos(\phi)sin(\psi) \\
+                z^{\beta}_{\beta \alpha} (t_1) &= z^{\beta}_{\beta \alpha} (t_0) 
+                \end{align} \tag{2.1.11} \label{2.1.11}
+                $$
+
+                Combining \(\ref{2.1.10}\) and \(\ref{2.1.11}\):
+                $$
+                \begin{align}
+                x^{\beta}_{\beta \alpha} (t_1) &= x^{\beta}_{\beta \alpha} (t_0) cos(\psi) - y^{\beta}_{\beta \alpha} (t_0) sin(\psi) \\
+                y^{\beta}_{\beta \alpha} (t_1) &= x^{\beta}_{\beta \alpha} (t_0) sin(\psi) + y^{\beta}_{\beta \alpha} (t_0) cos(\psi) \\
+                z^{\beta}_{\beta \alpha} (t_1) &= z^{\beta}_{\beta \alpha} (t_0),
+                \end{align} \tag{2.1.12}
+                $$
+
+                We can use similar analogy to obtain three rotation matrices:
+                $$
+                \begin{align}
+                \mathbf{R}_z(\psi) &= 
+                \left[
+                \begin{array}{ccc}
+                cos(\psi) & -sin(\psi) & 0 \\
+                sin(\psi) & cos(\psi) & 0 \\
+                0 & 0 & 1
+                \end{array} 
+                \right] \\ \\
+                \mathbf{R}_y(\theta) &= 
+                \left[
+                \begin{array}{ccc}
+                cos(\theta) & 0 & sin(\theta) \\
+                0 & 1 & 0 \\
+                -sin(\theta) & 0 & cos(\theta)
+                \end{array} 
+                \right] \\ \\
+                \mathbf{R}_x(\phi) &= 
+                \left[
+                \begin{array}{ccc}
+                1 & 0 & 0 \\
+                0 & cos(\phi) & -sin(\phi) \\
+                0 & sin(\phi) & cos(\phi)
+                \end{array} 
+                \right] \\
+                \end{align} \tag{2.1.13}
+                $$
+
+              </p>
+            </div>
+        </div>
+          <div class="flex-row">
             <div class="flex-item flex-column">
-              <h2>Transformation Matrix</h2>
+              <h2>Homogeneous Coordinates</h2>
               <p class="text">
                 Special Euclidean group is a group is defined as:
                 $$
@@ -189,9 +269,9 @@
                     \right]
                     \in \mathbb{R}^{4 \times 4} \ | \
                     \mathbf{R} \in SO(3), \ \mathbf{t} \in \mathbb{R}^3
-                    \right\}. \tag{3.1}
+                    \right\}. \tag{2.1.14}
                 $$
-                Any matrix \(\mathbf{T} \in SE(3)\) is a 4D transformation matrix (homogeneous coordinates) that applies rotation and translation simultaneously. Inverse of \(\mathbf{T}\) represents an inverse transformation:
+                Any matrix \(\mathbf{T} \in SE(3)\) is a 4D transformation matrix (in homogeneous coordinates) that applies transformation and translation simultaneously. Inverse of \(\mathbf{T}\) represents an inverse transformation:
                 $$
                 \mathbf{T}^{-1} = 
                 \left[
@@ -199,10 +279,10 @@
                 \mathbf{R}^T & -\mathbf{R}^T \mathbf{t} \\
                 \mathbf{0}^T & 1
                 \end{array}
-                \right]. \tag{3.2}
+                \right]. \tag{2.1.15}
                 $$
 
-                Transformation matrix has 16 elements but 3D rotation and translation has only has 6 DOF. Hence axis-angle representation is preferred.
+                Transformation matrix has 16 elements but 3D coordinate transformation and translation has only 6 DOF. Hence axis-angle representation is preferred.
               </p>
             </div>
           </div>

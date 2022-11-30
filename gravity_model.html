@@ -17,14 +17,24 @@
       <div class="content-table flex-column">
         <div class="flex-row">
           <div class="flex-item flex-column">
-            <h2><a href="kinematics.html" style="text-decoration:none">Kinematics</a>: Axis-Angle Representation</h2>
+            <h2><a href="kinematics.html" style="text-decoration:none">Kinematics</a>: Gravity Model</h2>
             <hr>
           </div>
         </div>
         <div class="flex-row">
             <div class="flex-item flex-column">
-              <h2>Lie Algebra</h2>
+              <h2>Specific Force and Gravitation</h2>
               <p class="text">
+
+                Specific force is the nongravitational force per unit mass on a body, sensed with respect to an inertial frame. It has no meaning with respect to any other frame. Gravitation is the fundamental mass attraction force; it doesn't incorporate any centripetal components.
+                Specific force is what an accelerometer senses. Gravitation is not sensed since it acts equally on all points, causing them to move together. During free fall, specific force is zero and the acceleration is acceleration due to gravitation. Specific force can be computed as:
+                $$
+                \mathbf{f}^{\gamma}_{ib} = \mathbf{a}^{\gamma}_{ib} - \mathbf{\gamma}^{\gamma}_{ib}, \tag{1.1}
+                $$
+                where \(\mathbf{a}\) is acceleration and \(\mathbf{\gamma} \) is the acceleration due to the gravitation force. 
+
+
+
                 Every Lie group has an associated Lie algebra, which is the <i>tangent space</i> around the identity element of the group. Let \( \mathbf{R}\left(t\right) \) be a time-varying rotation matrix. Since \( \mathbf{R}\left(t\right) \in SO(3) \), we know that    
                 \( \mathbf{R}\left(t\right) \mathbf{R}\left(t\right)^T = \mathbf{I}_3 \). Taking the derivative from both sides:
                 $$
