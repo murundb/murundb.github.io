@@ -1,14 +1,19 @@
 <!doctype html>
 <html>
 <head>
-  <title>Pandora's Jar</title>
+  <title>Note Jar</title>
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/css/custom.css" media="screen" rel="stylesheet" type="text/css" />
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/js/menu.js"></script>
+  <script src="/js/dropdown.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <div class="menu-container"></div>
@@ -17,15 +22,84 @@
       <div class="content-table flex-column">
         <div class="flex-row">
           <div class="flex-item flex-column">
-            <h2><a href="kinematics.html" style="text-decoration:none">Kinematics</a>: 2.1 Transformation and Rotation Matrices</h2>
+            <h2><a href="kinematics.html" style="text-decoration:none">Kinematics</a>: 2.1 Attitude, Transformation, and Rotation Matrices</h2>
             <hr>
           </div>
         </div>
         <div class="flex-row">
+            <div class="flex-item">
+              <h2>Pose and Attitude</h2>
+              <p class="text">
+                Attitude describes the orientation of the axes of one coordinate frame with respect to those of another. 
+                For example, let \( F_\alpha \) be a frame attached to an object of interest and let \( F_\beta \) be the reference frame.
+                Then we can represent the attitude of the object by matrix \( \mathbf{R}^{\beta}_{\alpha} \) (some also use \( \mathbf{R}^{\alpha}_{\beta} \)), which
+                represents the transformation from frame \(F_\alpha \) to frame \(F_\beta \). 
+                <br>
+                <br>
+
+                Vehicles typicall have six degrees of freedom: three in translation and three in rotation. This six-degree-of-freedom geometric configuration is known
+                as the pose of the vehicle. 
+
+              </p>
+            </div>
+          </div>
+        <div class="flex-row">
+            <div class="flex-item">
+              <h2>Transformation and Rotation Matrix</h2>
+              <p class="text">
+                Special orthogonal group is a Lie group that consists of orthonormal matrices that provide distance-preserving transformations of a Euclidean space. It is defined as: 
+                $$
+                SO(n) = \left\{ \mathbf{R} \in \mathbb{R}^{n \times n} \ | \ \mathbf{R} \mathbf{R}^T = \mathbf{R}_{n \times n}, \ \text{det}(\mathbf{R}) = 1 \right\}. \tag{2.1.4}
+                $$
+                Any matrix \(\mathbf{R} \in SO(3)\) is a 3D coordinate transformation matrix. It is important to distinguish between two types of transformations: 
+                <ol>
+                    <li> <b>Passive transformation</b> - Rotations of the coordinate system while the objects stays fixed. </li>
+                    <li> <b>Active transformation</b> - Rotation of the object (e.g., vector) while the coordinate system stays fixed. </li>
+                </ol>
+
+                The two transofrmations are inverse of each other. For active transformation, we only need to know the frame of reference and can refer it as a rotation matrix \(\mathbf{R}^{\gamma}\), where \(\gamma\) is the frame of reference. However, for passive transformation (transformation matrix), we usually specify two frame names  
+                (although rotation matrix can also be viewed as the inverse of transformation matrix \( \mathbf{R}^{\beta}_{\alpha} \)).
+
+                <br><br>
+
+                Consider two coordinate frames \(F_\alpha\) and \(F_\beta\). Then, the transformation matrix from \(F_\beta\) to \(F_\alpha\) is \(\mathbf{R}^{\alpha}_{\beta}\). Inverse or transpose of \(\mathbf{R}^{\alpha}_{\beta}\) represents the inverse transformation:
+                $$
+                \mathbf{R}^{\alpha}_{\beta} = \left(\mathbf{R}^{\beta}_{\alpha} \right)^T = \left(\mathbf{R}^{\beta}_{\alpha} \right)^{-1}. \tag{2.1.5}
+                $$
+                Successive transformation can be performed by chaining the transformation matrices:
+                $$
+                \mathbf{R}^{\gamma}_{\alpha} = \mathbf{R}^{\gamma}_{\beta} \mathbf{R}^{\beta}_{\alpha}. \tag{2.1.6}
+                $$
+
+                Let \(\mathbf{M}\) be a matrix that transforms a vector \(\mathbf{a}\) into a vector \(\mathbf{b}\):
+                $$
+                \begin{align*}
+                \mathbf{b}^{\alpha} &= \mathbf{M}^{\alpha} \mathbf{a}^\alpha \\
+                \mathbf{b}^{\beta} &= \mathbf{M}^{\beta} \mathbf{a}^\beta
+                \end{align*} \tag{2.1.7} \label{2.1.7} 
+                $$
+
+                A transformation matrix then can be used to transform \(\mathbf{M}\) to which specific resolving axes apply. Substituting one to another in \(\ref{2.1.7}\):
+                $$
+                \mathbf{R}^{\alpha}_{\beta} \mathbf{b}^{\beta} = \mathbf{M}^{\alpha} \mathbf{R}^{\alpha}_{\beta} \mathbf{a}^{\beta}. \tag{2.1.8}
+                $$
+                Premultiplying by \(\mathbf{R}^{\beta}_{\alpha}\):
+                $$
+                \mathbf{M}^{\beta} = \mathbf{R}^{\beta}_{\alpha} \mathbf{M}^{\alpha} \mathbf{R}^{\alpha}_{\beta}. \tag{2.1.9} \label{2.1.9}
+                $$
+
+                We can use \(\ref{2.1.9}\) to transform covariance matrix from one frame to another.
+
+                Transformation and rotation matrices has nine elements but 3D coordinate transformation only has 3 degrees of freedom (DOF).
+
+              </p>
+            </div>
+          </div>
+        <div class="flex-row">
             <div class="flex-item flex-column">
               <h2>Direction Cosine Matrix</h2>
               <p class="text">
-                Let \(\mathbf{x} \in \mathbb{R}^3\) be an arbitrary vector and \(\alpha\) and \(\beta\) be coordinate frames defined by set of orthonormal base vectors 
+                Let \(\mathbf{x} \in \mathbb{R}^3\) be an arbitrary vector and \(F_\alpha\) and \(F_\beta\) be coordinate frames defined by set of orthonormal base vectors 
                 \(
                 \left[
                 \begin{array}{ccc}
@@ -47,15 +121,18 @@
                 x^{\alpha}_1 & x^{\alpha}_2 &x^{\alpha}_3
                 \end{array}
                 \right]
-                \) be the coordinates of \(\mathbf{x}\) resolved in frame \(\alpha\) and 
+                \) be the coordinates of \(\mathbf{x}\) resolved in frame \(F_\alpha\) and 
                 \(\mathbf{x}^{\beta} = 
                 \left[
                 \begin{array}{ccc} 
                 x^{\beta}_1 & x^{\beta}_2 &x^{\beta}_3
                 \end{array}
                 \right]
-                \) be the coordinates of \(\mathbf{x}\) resolved in frame \(\beta\). Vector \(\mathbf{x}\) can be expressed as:
+                \) be the coordinates of \(\mathbf{x}\) resolved in frame \(F_\beta\). Vector \(\mathbf{x}\) can be expressed as:
                 $$
+                \begin{align}
+                \mathbf{x} &= F_{\beta} \mathbf{x}^{\beta}
+                = 
                 \left[
                 \begin{array}{ccc}
                 \mathbf{u}_{\beta x} & \mathbf{u}_{\beta y} & \mathbf{u}_{\beta z}
@@ -67,7 +144,8 @@
                 x^{\beta}_2 \\
                 x^{\beta}_3
                 \end{array}
-                \right] = 
+                \right] \\
+                &= F_{\alpha} \mathbf{x}^{\alpha} = 
                 \left[
                 \begin{array}{ccc}
                 \mathbf{u}_{\alpha x} & \mathbf{u}_{\alpha y} & \mathbf{u}_{\alpha z}
@@ -80,6 +158,7 @@
                 x^{\alpha}_3
                 \end{array}
                 \right] \tag{2.1.1}
+                \end{align}
                 $$
 
                 Multiplying both sides by 
@@ -125,61 +204,14 @@
                 \right] = 
                 \left[
                 \begin{array}{ccc}
-                cos \mu_{\beta_x \alpha_x} & cos \mu_{\beta_x \alpha_y} & cos \mu_{\beta_x \alpha_z}  \\
-                cos \mu_{\beta_y \alpha_x} & cos \mu_{\beta_y \alpha_y} & cos \mu_{\beta_y \alpha_z}  \\
-                cos \mu_{\beta_z \alpha_x} & cos \mu_{\beta_z \alpha_y} & cos \mu_{\beta_z \alpha_z}  \\
+                \text{cos} (\mu_{\beta_x \alpha_x}) & \text{cos} (\mu_{\beta_x \alpha_y}) & \text{cos} (\mu_{\beta_x \alpha_z})  \\
+                \text{cos} (\mu_{\beta_y \alpha_x}) & \text{cos} (\mu_{\beta_y \alpha_y}) & \text{cos} (\mu_{\beta_y \alpha_z})  \\
+                \text{cos} (\mu_{\beta_z \alpha_x}) & \text{cos} (\mu_{\beta_z \alpha_y}) & \text{cos} (\mu_{\beta_z \alpha_z})  \\
                 \end{array}
                 \right] \tag{2.1.3}
                 $$
-              </p>
-            </div>
-          </div>
-        <div class="flex-row">
-            <div class="flex-item">
-              <h2>Transformation and Rotation Matrix</h2>
-              <p class="text">
-                Special orthogonal group is a Lie group that consists of orthonormal matrices that provide distance-preserving transformations of a Euclidean space. It is defined as: 
-                $$
-                SO(n) = \left\{ \mathbf{R} \in \mathbb{R}^{n \times n} \ | \ \mathbf{R} \mathbf{R}^T = \mathbf{R}_{n \times n}, \ det(\mathbf{R}) = 1 \right\}. \tag{2.1.4}
-                $$
-                Any matrix \(\mathbf{R} \in SO(3)\) including DCMs is a 3D coordinate transformation matrix. It is important to distinguish between two types of transformations: 
-                <ol>
-                    <li> <b>Passive transformation</b> - Rotations of the coordinate system while the objects stays fixed. </li>
-                    <li> <b>Active transformation</b> - Rotation of the object (e.g., vector) while the coordinate system stays fixed. </li>
-                </ol>
 
-                For active transformation, we only need to know the frame of reference and can refer it as a rotation matrix \(\mathbf{R}^{\gamma}\), where \(\gamma\) is the frame of reference. However, for passive transformation (transformation matrix), we usually specify two frame names. 
-                Rotation matrix derivation is included in this page whereas transformation matrix derivation can be found in <a href="euler_angles.html" style="text-decoration:none">2.2 Euler Angles</a>.
-                <br><br>
-
-                Consider two coordinate frames \(\alpha\) and \(\beta\). Then, the transformation matrix from \(\beta\) to \(\alpha\) is \(\mathbf{R}^{\alpha}_{\beta}\). Inverse or transpose of \(\mathbf{R}^{\alpha}_{\beta}\) represents the inverse transformation:
-                $$
-                \mathbf{R}^{\alpha}_{\beta} = \left(\mathbf{R}^{\beta}_{\alpha} \right)^T = \left(\mathbf{R}^{\beta}_{\alpha} \right)^{-1}. \tag{2.1.5}
-                $$
-                Rotation matrices are inverse/transpose of transormation matrices. Successive transformation can be performed by chaining the transformation matrices:
-                $$
-                \mathbf{R}^{\gamma}_{\alpha} = \mathbf{R}^{\gamma}_{\beta} \mathbf{R}^{\beta}_{\alpha}. \tag{2.1.6}
-                $$
-
-                Let \(\mathbf{M}\) be a rotation matrix that transforms a vector \(\mathbf{a}\) into a vector \(\mathbf{b}\):
-                $$
-                \begin{align*}
-                \mathbf{b}^{\alpha} &= \mathbf{M}^{\alpha} \mathbf{a}^\alpha \\
-                \mathbf{b}^{\beta} &= \mathbf{M}^{\beta} \mathbf{a}^\beta
-                \end{align*} \tag{2.1.7} \label{2.1.7} 
-                $$
-
-                A transformation matrix then can be used to transform \(\mathbf{M}\) to which specific resolving axes apply. Substituting one to another in \(\ref{2.1.7}\):
-                $$
-                \mathbf{R}^{\alpha}_{\beta} \mathbf{b}^{\beta} = \mathbf{M}^{\alpha} \mathbf{R}^{\alpha}_{\beta} \mathbf{a}^{\beta}. \tag{2.1.8}
-                $$
-                Premultiplying by \(\mathbf{R}^{\beta}_{\alpha}\):
-                $$
-                \mathbf{M}^{\beta} = \mathbf{R}^{\beta}_{\alpha} \mathbf{M}^{\alpha} \mathbf{R}^{\alpha}_{\beta}. \tag{2.1.9}
-                $$
-
-                Transformation and rotation matrices has nine elements but 3D coordinate transformation only has 3 degrees of freedom (DOF). Hence axis-angle representation is preferred.
-
+                Both transformation matrix and rotation matrix are DCMs.
               </p>
             </div>
           </div>
@@ -187,7 +219,7 @@
             <div class="flex-item">
               <h2>Rotation Matrix Derivation</h2>
               <p class="text">
-                <img class="image max-width-200 add-top-margin-large" src="img/rotation_1.png">
+                <img class="image max-width-200 add-top-margin-large" src="/img/rotation_1.png">
                 <p class="image-caption">Fig 2.1 Rotation about \(z^\beta \) (source Groves, p31)</a></p>
                 <br>
                 Let \( \beta \) be a Cartesian coordinate frame with axes \((x^\beta, y^\beta, z^\beta)\).
@@ -197,8 +229,8 @@
                 and resolved about the axes of \(\beta \) can be described by:
                 $$
                 \begin{align}
-                x^{\beta}_{\beta \alpha} (t_0) &= r_{\beta \alpha} cos(\phi) \\
-                y^{\beta}_{\beta \alpha} (t_0) &= r_{\beta \alpha} sin(\phi) \\
+                x^{\beta}_{\beta \alpha} (t_0) &= r_{\beta \alpha} \text{cos}(\phi) \\
+                y^{\beta}_{\beta \alpha} (t_0) &= r_{\beta \alpha} \text{sin}(\phi) \\
                 z^{\beta}_{\beta \alpha} (t_0) &= z^{\beta}_{\beta \alpha} (t_0) 
                 \end{align} \tag{2.1.10} \label{2.1.10}
                 $$
@@ -206,8 +238,8 @@
                 At \(t_1\), the vector rotates about \(z^\beta \) by angle \(\psi\):
                 $$
                 \begin{align}
-                x^{\beta}_{\beta \alpha} (t_1) &= r_{\beta \alpha} cos(\phi + \psi) = r_{\beta \alpha}cos(\phi)cos(\psi) - r_{\beta \alpha}sin(\phi)sin(\psi)\\
-                y^{\beta}_{\beta \alpha} (t_1) &= r_{\beta \alpha} sin(\phi + \psi) = r_{\beta \alpha}sin(\phi)cos(\psi) + r_{\beta \alpha}cos(\phi)sin(\psi) \\
+                x^{\beta}_{\beta \alpha} (t_1) &= r_{\beta \alpha} \text{cos}(\phi + \psi) = r_{\beta \alpha}\text{cos}(\phi)\text{cos}(\psi) - r_{\beta \alpha}\text{sin}(\phi)\text{sin}(\psi)\\
+                y^{\beta}_{\beta \alpha} (t_1) &= r_{\beta \alpha} \text{sin}(\phi + \psi) = r_{\beta \alpha}\text{sin}(\phi)\text{cos}(\psi) + r_{\beta \alpha}\text{cos}(\phi)\text{sin}(\psi) \\
                 z^{\beta}_{\beta \alpha} (t_1) &= z^{\beta}_{\beta \alpha} (t_0) 
                 \end{align} \tag{2.1.11} \label{2.1.11}
                 $$
@@ -215,8 +247,8 @@
                 Combining \(\ref{2.1.10}\) and \(\ref{2.1.11}\):
                 $$
                 \begin{align}
-                x^{\beta}_{\beta \alpha} (t_1) &= x^{\beta}_{\beta \alpha} (t_0) cos(\psi) - y^{\beta}_{\beta \alpha} (t_0) sin(\psi) \\
-                y^{\beta}_{\beta \alpha} (t_1) &= x^{\beta}_{\beta \alpha} (t_0) sin(\psi) + y^{\beta}_{\beta \alpha} (t_0) cos(\psi) \\
+                x^{\beta}_{\beta \alpha} (t_1) &= x^{\beta}_{\beta \alpha} (t_0) \text{cos}(\psi) - y^{\beta}_{\beta \alpha} (t_0) \text{sin}(\psi) \\
+                y^{\beta}_{\beta \alpha} (t_1) &= x^{\beta}_{\beta \alpha} (t_0) \text{sin}(\psi) + y^{\beta}_{\beta \alpha} (t_0) \text{cos}(\psi) \\
                 z^{\beta}_{\beta \alpha} (t_1) &= z^{\beta}_{\beta \alpha} (t_0),
                 \end{align} \tag{2.1.12}
                 $$
@@ -227,25 +259,25 @@
                 \mathbf{R}_z(\psi) &= 
                 \left[
                 \begin{array}{ccc}
-                cos(\psi) & -sin(\psi) & 0 \\
-                sin(\psi) & cos(\psi) & 0 \\
+                \text{cos}(\psi) & -\text{sin}(\psi) & 0 \\
+                \text{sin}(\psi) & \text{cos}(\psi) & 0 \\
                 0 & 0 & 1
                 \end{array} 
                 \right] \\ \\
                 \mathbf{R}_y(\theta) &= 
                 \left[
                 \begin{array}{ccc}
-                cos(\theta) & 0 & sin(\theta) \\
+                \text{cos}(\theta) & 0 & \text{sin}(\theta) \\
                 0 & 1 & 0 \\
-                -sin(\theta) & 0 & cos(\theta)
+                -\text{sin}(\theta) & 0 & \text{cos}(\theta)
                 \end{array} 
                 \right] \\ \\
                 \mathbf{R}_x(\phi) &= 
                 \left[
                 \begin{array}{ccc}
                 1 & 0 & 0 \\
-                0 & cos(\phi) & -sin(\phi) \\
-                0 & sin(\phi) & cos(\phi)
+                0 & \text{cos}(\phi) & -\text{sin}(\phi) \\
+                0 & \text{sin}(\phi) & \text{cos}(\phi)
                 \end{array} 
                 \right] \\
                 \end{align} \tag{2.1.13}
@@ -256,7 +288,7 @@
         </div>
           <div class="flex-row">
             <div class="flex-item flex-column">
-              <h2>Homogeneous Coordinates</h2>
+              <h2>Transformation and Translation using Homogeneous Coordinates</h2>
               <p class="text">
                 Special Euclidean group is a group is defined as:
                 $$
@@ -281,7 +313,6 @@
                 \end{array}
                 \right]. \tag{2.1.15}
                 $$
-
                 Transformation matrix has 16 elements but 3D coordinate transformation and translation has only 6 DOF. Hence axis-angle representation is preferred.
               </p>
             </div>
@@ -290,11 +321,4 @@
     </div>
   </div>
 </body>
-
-<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="js/menu.js"></script>
-<script src="js/dropdown.js"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </html>

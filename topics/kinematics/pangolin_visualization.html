@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+  <title>Note Jar</title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/css/prism.css" rel="stylesheet" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <link href="/css/prism.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/js/dropdown.js"></script>
+  <script src="/js/prism.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <div class="menu-container"></div>
+  <div class="content-container">
+    <div class="content">
+      <div class="content-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2><a href="kinematics.html" style="text-decoration:none">Kinematics</a>: 2.5 Attitude Visualization</h2>
+            <hr>
+          </div>
+        </div>
+        <div class="flex-row">
+            <div class="flex-item">
+              <h2>Visualization</h2>
+              <p class="text">
+                Pangolin and Eigen are used for visualization. Consider two Cartesian coordinate frames; \(F_{\beta}\), a frame fixed to a reference point, 
+                and a body frame, \(F_{\alpha} \) which is fixed to a center of a rigid body. Consider the following five epochs for pose:
+                <ol>
+                    <li> At \(t = 0\), the pose of the two frames are identical.</li>
+                    <li> At \(t = 1\), the object position is at \(\mathbf{x}^{\beta}(t = 1) =
+                        \left[
+                        \begin{array}{ccc}
+                        0.2 & 0 & 0
+                        \end{array}
+                        \right]^T
+                        \) and the Euler angles are \(\Psi_{\beta \alpha}(t = 1) = 
+                        \left[
+                        \begin{array}{ccc}
+                        20 & 30 & 80
+                        \end{array}
+                        \right]^T          
+                        \) degrees.
+                    </li>
+                    <li> At \(t = 2\), the object position is at \(\mathbf{x}^{\beta}(t = 2) =
+                        \left[
+                        \begin{array}{ccc}
+                        0.2 & 0.2 & 0
+                        \end{array}
+                        \right]^T
+                        \) and the Euler angles are \(\Psi_{\beta \alpha}(t = 2) = 
+                        \left[
+                        \begin{array}{ccc}
+                        30 & 50 & 25
+                        \end{array}
+                        \right]^T          
+                        \) degrees.</li>
+                    <li> At \(t = 3\), the object position is at \(\mathbf{x}^{\beta}(t = 3) =
+                        \left[
+                        \begin{array}{ccc}
+                        0.2 & 0.2 & -0.2
+                        \end{array}
+                        \right]^T
+                        \) and the Euler angles are \(\Psi_{\beta \alpha}(t = 3) = 
+                        \left[
+                        \begin{array}{ccc}
+                        20 & 40 & -10
+                        \end{array}
+                        \right]^T          
+                        \) degrees.</li>
+                    <li> At \(t = 4\), the object position is at \(\mathbf{x}^{\beta}(t = 4) =
+                        \left[
+                        \begin{array}{ccc}
+                        0 & 0.2 & -0.2
+                        \end{array}
+                        \right]^T
+                        \) and the Euler angles are \(\Psi_{\beta \alpha}(t = 4) = 
+                        \left[
+                        \begin{array}{ccc}
+                        0 & 10 & -20
+                        \end{array}
+                        \right]^T       
+                        \) degrees.
+                    </li>
+                </ol>
+
+                Figure 2.5.1 shows the visualization of each pose via Pangolin.
+
+                <img class="image max-width-1000 add-top-margin-large" src="/img/pose_pangolin.png">
+                <p class="image-caption">Fig 2.5.1 Pose Visualization via Pangolin</p>
+              </p>
+            </div>
+          </div>
+
+          <div class="flex-row">
+            <div class="flex-item">
+              <h2>Euler to Transformation Matrix</h2>
+              <p class="text">
+              The corresponding sample transformation matrices for the first two epochs are:
+              $$
+              \begin{align}
+              \mathbf{R}^{\beta}_{\alpha}(t=0) &= 
+              \left[
+              \begin{array}{ccc}
+              1 & 0 & 0 \\
+              0 & 1 & 0 \\
+              0 & 0 & 1 \\
+              \end{array}
+              \right] \\
+
+              \mathbf{R}^{\beta}_{\alpha}(t=1) &= 
+              \left[
+              \begin{array}{ccc}
+              0.1504 & -0.8957 & 0.7783 \\
+              0.8523 & 0.3316 & 0.4033 \\
+              -0.5 & 0.2962 & 0.8138 \\
+              \end{array}
+              \right] \\
+
+              \mathbf{R}^{\beta}_{\alpha}(t=2) &= 
+              \left[
+              \begin{array}{ccc}
+              0.5826 & -0.0189 & 0.7858 \\
+              0.2716 & 0.9467 & -0.1728 \\
+              -0.7660 & 0.3214 & 0.5567 \\
+              \end{array}
+              \right] \\
+              \end{align}
+              $$
+            
+              C++ code for Euler to and from Transformation matrix is as follows:
+                <pre class="language-css" style="max-width: 60%;">
+                    <pre class="line-numbers">
+                        <code>
+                            #include <iostream>
+                            std::cout << "Hello"
+                        </code>
+                    </pre>
+                </pre>
+              </p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

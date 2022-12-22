@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <title>Pandora's Jar</title>
+  <title>Note Jar</title>
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
   <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
@@ -17,27 +17,27 @@
       <div class="content-table flex-column">
         <div class="flex-row">
           <div class="flex-item flex-column">
-            <h2><a href="kinematics.html" style="text-decoration:none">Kinematics</a>: 2.2 Euler Angles</h2>
+            <h2><a href="vslam.html" style="text-decoration:none">VSLAM</a>: 2.2 Implicit Neural Representations</h2>
+            <p class="text">
+                Contents are from:
+                <ol>
+                  <li><a href="https://arxiv.org/abs/2006.09661"> Vincent et al., "Implicit Nueral Representations with Periodic Activation Functions", 2020</a></li>
+                </ol>
+              </p>
             <hr>
           </div>
         </div>
         <div class="flex-row">
             <div class="flex-item">
-              <h2>Euler Angles</h2>
+              <h2>Implicit Neural Representations</h2>
               <p class="text">
+                Implicit neural representations are a novel way of parametrizing signals as continuous differentiable functions that map input values (e.g, pixel coordinates) to their corresponding values (e.g., RGB)
+                via neural networks. 
                 A rotation of one frame to yield another frame can be achieved through a sequence of three eigenaxis rotations,
                 where each eigenaxis is chosen to be an axis of either the initial frame or the frame resulting from the preceding rotation.
                 Consequently, attitude can be broken down into three successive rotations, with each rotation about an axis orthogonal to that of its predecessor and/or successor. 
                 Given an object frame \(\alpha\) and a reference frame \(\beta\), we can describe the orientation of \( \alpha \) with respect to \(\beta\) via roll \( \phi_{\beta \alpha} \), pitch \( \theta_{\beta \alpha} \), and yaw \( \psi_{\beta \alpha} \) Euler angles.
                 Here, we are only concerned with \(z\)-\(y\)-\(x\) sequence of rotations, i.e.,
-                <ol>
-                    <li> Rotation through the yaw angle \( \psi_{\beta \alpha} \) about the common \(z \) axis of the \( \beta \) frame and the first intermediate frame. </li>
-                    <li> Rotation through the pitch angle \( \theta_{\beta \alpha} \) about the common \(y \) axis of the first and second intermediate frame. </li>
-                    <li> Rotation through the roll angle \( \phi_{\beta \alpha} \) about the common \(x \) axis of the second frame and the \( \alpha \) frame. </li>
-                </ol>
-
-                Note that the successive rotations here are always about the new axis provided by the preceeding rotation and not about the fixed axis of \( \beta \). In the specific case in which the Euler angles describe the attitude of the body frame with respect to the local navigation frame, the roll rotation is known as 
-                <i>bank</i>, the pitch rotation is known as <i>elevation</i>, and the yaw rotation is known as <i>heading</i> or <i>azimuth</i>. The bank and elevation are also collectively known as <i>tilts</i>. <br><br>
               </p>
             </div>
         </div>
@@ -45,7 +45,7 @@
             <div class="flex-item">
               <h2>Euler Angles to Transformation Matrix</h2>
               <p class="text">
-                Euler angles can be converted to rotation and transformation matrices described in <a href="transformation_and_rotation_matrix.html" style="text-decoration:none">2.1 Transformation and Rotation Matrices</a>. 
+                Euler angles can be converted to rotation and transformation matrices described in <a href="attitude_transformation_and_rotation_matrix.html" style="text-decoration:none">2.1 Transformation and Rotation Matrices</a>. 
                 Consider two coordinate frames \(\alpha\) and \(\beta\) as shown in Fig 2.2. Let \(\mathbf{R}^{\alpha}_{\beta}\) be the transformation matrix from frame \(\beta\) to \(\alpha\). 
                 Let the axes of frame \(\beta\) be \((x^\beta, y^\beta, z^\beta)\).
 
