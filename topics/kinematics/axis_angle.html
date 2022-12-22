@@ -187,20 +187,20 @@
 
                 Equation \(\ref{2.3.17} \) is known as <b><i>Rodrigues' formula</i></b> and provides conversion from the rotation vector to the transformation matrix:
                 $$
-                \mathbf{R}^{\beta}_{\alpha} = \text{cos} \left( \mu_{\beta \alpha}  \right) \mathbf{I} + 
+                \mathbf{R}^{\alpha}_{\beta} = \text{cos} \left( \mu_{\beta \alpha}  \right) \mathbf{I} + 
                 \left( 1 - \text{cos} \left( \mu_{\beta \alpha} \right) \right) \mathbf{e}^{\alpha / \beta}_{\beta \alpha} \left( \mathbf{e}^{\alpha / \beta}_{\beta \alpha} \right)^T + 
                 \text{sin} \left( \mu_{\beta \alpha} \right) \left[ \mathbf{e}^{\alpha / \beta}_{\beta \alpha} \right]_{\times}. \tag{2.3.18} \label{2.3.18}
                 $$
 
                 The inverse conversion can be via logarithmic mapping fom \(SO(3)\) to \(\mathfrak{so}(3) \):
                 $$
-                \rho_{\beta \alpha} = \left[ \text{ln}\left( \mathbf{R^{\beta}_{\alpha}} \right) \right]^{-1}_{\times} = \left[\sum^{\infty}_{k=0} \frac{(-1)^k}{k + 1} \left( \mathbf{R}^{\beta}_{\alpha} - \mathbf{I} \right)^{k+1} \right]^{-1}_{\times}. \tag{2.3.19}
+                \rho_{\beta \alpha} = \left[ \text{ln}\left( \mathbf{R^{\alpha}_{\beta}} \right) \right]^{-1}_{\times} = \left[\sum^{\infty}_{k=0} \frac{(-1)^k}{k + 1} \left( \mathbf{R}^{\alpha}_{\beta} - \mathbf{I} \right)^{k+1} \right]^{-1}_{\times}. \tag{2.3.19}
                 $$
 
                 More easier way is to take the trace from both sides of <i>Rodrigues' formula</i>:
                 $$
                 \begin{align}
-                \text{tr}(\mathbf{R}^{\beta}_{\alpha}) &= \text{cos}\left(\mu_{\beta \alpha}\right) \text{tr}(\mathbf{I}) + \left( 1 - \text{cos} \left( \mu_{\beta \alpha} \right) \right) \text{tr}\left( \mathbf{e}^{\alpha / \beta}_{\beta \alpha} \left( \mathbf{e}^{\alpha / \beta}_{\beta \alpha} \right)^T \right)
+                \text{tr}(\mathbf{R}^{\alpha}_{\beta}) &= \text{cos}\left(\mu_{\beta \alpha}\right) \text{tr}(\mathbf{I}) + \left( 1 - \text{cos} \left( \mu_{\beta \alpha} \right) \right) \text{tr}\left( \mathbf{e}^{\alpha / \beta}_{\beta \alpha} \left( \mathbf{e}^{\alpha / \beta}_{\beta \alpha} \right)^T \right)
                 + \text{sin}\left( \mu_{\beta \alpha} \right) \text{tr} \left( \left[ \mathbf{e}^{\alpha / \beta}_{\beta \alpha} \right]_{\times} \right) \\
                 &= 3 \text{cos} \left( \mu_{\beta \alpha} \right) + \left( 1 - \text{cos} \left( \mu_{\beta \alpha} \right) \right) \\
                 &= 1 + 2 \text{cos} \left( \mu_{\beta \alpha} \right). \tag{2.3.20}
@@ -209,8 +209,8 @@
                 Hence, rotation angle can be computed as:
                 $$
                 \begin{align}
-                \mu_{\beta \alpha} &= \text{arccos} \left( \frac{\text{tr} \left( \mathbf{R}^{\beta}_{\alpha}\right) - 1}{2}  \right) \\
-                &= \text{arccos} \left( \frac{1}{2} \left( \mathbf{R}^{\beta}_{\alpha \ 1,1} + \mathbf{R}^{\beta}_{\alpha \ 2,2} + \mathbf{R}^{\beta}_{\alpha \ 1,1} - 1\right) \right)
+                \mu_{\beta \alpha} &= \text{arccos} \left( \frac{\text{tr} \left( \mathbf{R}^{\alpha}_{\beta}\right) - 1}{2}  \right) \\
+                &= \text{arccos} \left( \frac{1}{2} \left( \mathbf{R}^{\alpha}_{\beta \ 1,1} + \mathbf{R}^{\alpha}_{\beta \ 2,2} + \mathbf{R}^{\alpha}_{\beta \ 1,1} - 1\right) \right)
                 \tag{2.3.21}
                 \end{align}
                 $$
@@ -279,6 +279,7 @@
                 \sum^{\infty}_{k=0} \frac{\left[\rho_{\beta \alpha} \right]_{\times}}{k!} \approx
                 \mathbf{I}_3 + \left[\rho_{\beta \alpha} \right]_{\times} \tag{2.3.24}
                 $$
+                Note that rotation vector and Euler angles are the same in the small angle approximation.
               </p>
             </div>
         </div>
