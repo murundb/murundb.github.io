@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+  <title>Note Jar</title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/js/menu.js"></script>
+  <script src="/js/dropdown.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <div class="menu-container"></div>
+  <div class="content-container">
+    <div class="content">
+      <div class="content-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2><a href="kinematics.html" style="text-decoration:none">Kinematics</a>: 3. Angular Rate</h2>
+            <hr>
+          </div>
+        </div>
+        <div class="flex-row">
+            <div class="flex-item">
+              <h2>Angular Rate</h2>
+              <p class="text">
+
+                The angular rate vector, \(\boldsymbol{\omega}^{\gamma}_{\beta \alpha} \), is the rate of rotation of the frame \(F_\alpha \) axes with respect
+                to the frame \(F_\beta \) axes, resolved about the frame \(F_\gamma \) axes. The rotation is within the plane perpendicular to the angular rate vector, and 
+                the angular rate vector direction follows the right-hand rule. Reversing the sign of the angular rate vector results in the transposed version:
+                $$
+                \boldsymbol{\omega}^{\gamma}_{\beta \alpha} = -\boldsymbol{\omega}^{\gamma}_{\alpha \beta}. \tag{3.1} \label{3.1}
+                $$
+                Angular rates resolved about the same axes can be added given the object frame of one angular rate is the same as the reference frame of the other:
+                $$
+                \boldsymbol{\omega}^{\gamma}_{\beta \alpha} = \boldsymbol{\omega}^{\gamma}_{\beta \delta} + \boldsymbol{\omega}^{\gamma}_{\delta \alpha}. \tag{3.2} \label{3.2}
+                $$
+                The resolving axes can be changed by using the transformation matrix:
+                $$
+                \boldsymbol{\omega}^{\gamma}_{\beta \alpha} = \mathbf{R}^{\gamma}_{\delta} \boldsymbol{\omega}^{\delta}_{\beta \alpha}. \tag{3.3} \label{3.3}
+                $$
+
+                Given:
+                $$
+                \boldsymbol{\Omega}^{\gamma}_{\beta \alpha} = \left[ \boldsymbol{\omega}^{\gamma}_{\beta \alpha} \right]_\times = 
+                \left[
+                \begin{array}{ccc}
+                0 & -\omega^{\gamma}_{\beta \alpha, 3} & \omega^{\gamma}_{\beta \alpha, 2} \\
+                \omega^{\gamma}_{\beta \alpha, 3} & 0 & -\omega^{\gamma}_{\beta \alpha, 1} \\
+                -\omega^{\gamma}_{\beta \alpha, 2} & -\omega^{\gamma}_{\beta \alpha, 1} & 0 \\
+                \end{array}
+                \right]. \tag{3.4} \label{3.4}
+                $$
+
+                The resolving axes of the skew-symmetric matrix above can be converted via:
+                $$
+                \boldsymbol{\Omega}^{\gamma}_{\beta \alpha} = \mathbf{R}^{\gamma}_{\delta} \boldsymbol{\Omega}^{\delta}_{\beta \alpha} \mathbf{R}^{\delta}_{\gamma}. \tag{3.5} \label{3.5}
+                $$
+
+                The time derivative of a coordinate transformation matrix was previously computed when we derived Rodrigues' formula. Using derivative definition:
+                $$
+                \dot{\mathbf{R}}^{\alpha}_{\beta}(t) = \lim_{\delta t \rightarrow 0} \left( \frac{\mathbf{R}^{\alpha}_{\beta}(t + \delta t) - \mathbf{R}^{\alpha}_{\beta} (t)}{\delta t} \right). \tag{3.6} \label{3.6}
+                $$
+
+                If \(F_{\alpha} \) is rotating with respect to a stationary reference frame, \(F_\beta \), then:
+                $$
+                \mathbf{R}^{\alpha}_{\beta}(t + \delta t) = \mathbf{R}^{\alpha(t + \delta t)}_{\alpha(t)} \mathbf{R}^{\alpha}_{\beta}(t). \tag{3.7} \label{3.7}
+                $$
+
+                Since the rotation of \(F_{\alpha} \) from \( t\) to \(t + \delta t \) is infinitesimal, using small angle approximation:
+                $$
+                \begin{align}
+                \mathbf{R}^{\alpha}_{\beta} (t + \delta t) &= (\mathbf{I}_3 - \left[ \boldsymbol{\psi}_{\alpha(t) \alpha(t + \delta t)}  \right]_\times) \mathbf{R}^{\alpha}_{\beta}(t) \\ 
+                &= (\mathbf{I}_3 - \delta t \left[\omega^{\alpha}_{\beta \alpha} \right]_\times) \mathbf{R}^{\alpha}_{\beta}(t) \\
+                &= \left(\mathbf{I}_3 - \delta t \boldsymbol{\Omega}^{\alpha}_{\beta \alpha} \right) \mathbf{R}^{\alpha}_{\beta}(t).
+                \end{align} \tag{3.8} \label{3.8}
+                $$
+
+                Substituting \( \ref{3.8}\) into \( \ref{3.6} \), we get:
+                $$
+                \begin{align}
+                \dot{\mathbf{R}}^{\alpha}_{\beta}(t) &= \lim_{\delta t \rightarrow 0} \left( \frac{ \left(\mathbf{I}_3 - \delta t \boldsymbol{\Omega}^{\alpha}_{\beta \alpha} \right) \mathbf{R}^{\alpha}_{\beta}(t) - \mathbf{R}^{\alpha}_{\beta}(t)}{\delta t} \right) \\ 
+                &= - \boldsymbol{\Omega}^{\alpha}_{\beta \alpha} \mathbf{R}^{\alpha}_{\beta} (t) \\
+                &= -\mathbf{R}^{\alpha}_{\beta} (t) \boldsymbol{\Omega}^{\alpha}_{\beta \alpha},
+                \end{align} \tag{3.9} \label{3.9}
+                $$
+
+                which was derived earlier in axis-angle representation.
+              </p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

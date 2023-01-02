@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+  <title>Note Jar</title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/js/menu.js"></script>
+  <script src="/js/dropdown.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <div class="menu-container"></div>
+  <div class="content-container">
+    <div class="content">
+      <div class="content-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2><a href="kinematics.html" style="text-decoration:none">Kinematics</a>: 4. Cartesian Position</h2>
+            <hr>
+          </div>
+        </div>
+        <div class="flex-row">
+            <div class="flex-item">
+              <h2>Cartesian Position</h2>
+              <p class="text">
+                Let \(\mathbf{r}^{\gamma}_{\alpha \beta} = 
+                \left(
+                \begin{array}{ccc}
+                x^{\gamma}_{\beta \alpha} & y^{\gamma}_{\beta \alpha} & z^{\gamma}_{\beta \alpha}
+                \end{array}
+                \right)
+                \)
+                be the Cartesian position of the origin of frame \(F_\alpha \) with respect to the origin of frame \(F_\beta \) resolved about the axes of frame \( F_\gamma \) ( \(x\), \(y\), \(z\) are the components
+                of position in the \(x\), \(y\), \(z\) axes of \( F_\gamma\)). We know:
+                $$
+                \begin{align}
+                \mathbf{r}^{\gamma}_{\beta \alpha} &= -\mathbf{r}^{\gamma}_{\alpha \beta} \\
+                \mathbf{r}^{\gamma}_{\beta \alpha} &= \mathbf{r}^{\gamma}_{\delta \alpha} - \mathbf{r}^{\gamma}_{\delta \beta} = \mathbf{r}^{\gamma}_{\beta \delta} + \mathbf{r}^{\gamma}_{\delta \alpha}.
+                \end{align} \tag{4.1} \label{4.1}
+                $$
+
+                To change the resolving frame, we use the transformation matrix:
+                $$
+                \mathbf{r}^{\gamma}_{\beta \alpha} = \mathbf{R}^{\gamma}_{\delta} \mathbf{r}^{\delta}_{\beta \alpha}, \tag{4.2} \label{4.2}
+                $$
+                or:
+                $$
+                \begin{align}
+                \mathbf{r}^{\beta}_{\beta \alpha} &= \mathbf{R}^{\beta}_{\delta} \left( \mathbf{r}^{\delta}_{\beta \delta} + \mathbf{r}^{\delta}_{\delta \alpha} \right) \\
+                &= \mathbf{r}^{\beta}_{\beta \delta} + \mathbf{R}^{\beta}_{\delta} \mathbf{r}^{\delta}_{\delta \alpha}.
+                \end{align} \tag{4.3} \label{4.3}
+                $$
+
+              </p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

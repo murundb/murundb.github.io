@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="flex-row">
-            <div class="flex-item flex-column">
+            <div class="flex-item">
               <h2>Notation</h2>
               <p class="text">
                 <b>Scalars</b> are represented as italic, e.g., \(b\).<br>
@@ -35,8 +35,7 @@
                 x_1 & x_2& \cdots & x_n 
                 \end{array}
                 \right]^T
-                    \). Given \(\mathbf{x}^{\gamma}_{\beta \alpha} \), 
-                it descibes a kinematic property of frame \(F_\alpha\) with respect to frame \(F_\beta\) expressed in the frame \(F_\gamma\) axes.
+                    \).
                 <br>
                 <b>Matrices</b> are represented as bold upper case, e.g., transformation matrix using homogenous coordinates \(\mathbf{T}\). A matrix denoted as \(R^{\beta}_{\alpha}\) denotes a rotation matrix from frame \(F_\alpha\) to frame \(F_\beta\). When a matrix is used to represent an attitude, it is more common to use the upper index to represent the reference frame and the lower
                 index to represent the object frame. 
@@ -46,9 +45,19 @@
             </div>
           </div>
           <div class="flex-row">
-            <div class="flex-item flex-column">
+            <div class="flex-item">
               <h2>Nomenclature</h2>
               <p class="text">
+                Kinematic quantities, such as position, velocity, acceleration, and angular rate, involve three coordinate frames:
+                <ol>
+                    <li> The frame whose motion is described, known as the <i>object frame</i>, \(F_{\alpha} \) </li>
+                    <li> The frame with which that motion is respect to, known as the <i>reference frame</i>, \(F_{\beta}\) </li>
+                    <li> The set of axes in which that motion is represented, known as the <i>resolving frame</i>, \(F_{\gamma}\). </li>
+                </ol>
+                Most books use only the two frames to describe motion and assume that the resolving frame is same as the reference frame. 
+                Resolving frame origin need not be defined; only the orientation of its axes is required. Note also that the choice of 
+                resolving frame does not affect the magnitude of a vector. Given \( \mathbf{x}^{\gamma}_{\beta \alpha} \), it descibes a kinematic property of 
+                frame \(F_{\alpha}\) with respect to frame \(F_{\beta}\) expressed in the frame \(F_\gamma \) axes. For attitude, resolving axes are not required.
               </p>
             </div>
           </div>
