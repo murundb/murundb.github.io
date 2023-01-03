@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+  <title>Note Jar</title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+</head>
+<body>
+  <div class="menu-container"></div>
+  <div class="content-container">
+    <div class="content">
+      <div class="content-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2><a href="navigation.html" style="text-decoration:none">Navigation</a>: 3.3 ECEF and Curvilinear Position Conversion</h2>
+            <hr>
+          </div>
+        </div>
+        <div class="flex-row">
+            <div class="flex-item">
+              <h2>ECEF From Curvilinear</h2>
+              <p class="text">
+                The meridian (or the north-south motion) radius of curvature, \(R_{N} \),  varies with latitude and is smallest at the equator, where the geocentric radius is the largest, and largest at the poles:
+                $$
+                R_{N}(L) = \frac{R_0 (1 - e^2)}{(1 - e^2 \text{sin}^2(L))^{3/2}}, \tag{3.3.1} \label{3.3.1}
+                $$
+                where \(L \) is the geodetic latitude in radians, \(e \) is the eccentricity of the reference ellipsoid (WGS 84 - 0.0818191908425), \(R_0 \) is the equatorial radius (WGS 84 - 6,378,137.0m).
+
+                <br>
+                The radius of curvature for east-west motion, \(R_E\) is the vertical plane perpendicular to the meridian plane and is not the plane of constant latitude. It varies
+                with latitude and is smallest at the equator:
+                $$
+                R_{E}(L) = \frac{R_0}{\sqrt(1 - e^2 \text{sin}^2(L))}. \tag{3.3.2} \label{3.3.2}
+                $$
+
+                The Cartesian ECEF position can be obtained from curvilinear position by:
+                $$
+                \begin{align}
+                \mathbf{r}^{e}_{eb} = 
+                \left[
+                \begin{array}{c}
+                x^{e}_{eb} \\
+                y^{e}_{eb} \\
+                z^{e}_{eb}
+                \end{array}
+                \right] = 
+                \left[
+                \begin{array}{c}
+                \left( R_E (L_b) + h_b \right) \text{cos}L_b \text{cos} \lambda_b \\
+                \left( R_E (L_b) + h_b \right) \text{cos}L_b \text{sin} \lambda_b \\
+                \left[ (1 - e)^2 R_E (L_b) + h_b \right] \text{sin} L_b
+                \end{array}
+                \right].
+                \end{align} \tag{3.3.3} \label{3.3.3}
+                $$
+              </p>
+            </div>
+          </div>
+          <div class="flex-row">
+            <div class="flex-item">
+              <h2>Curvilinear From ECEF</h2>
+              <p class="text">
+                Conversion from ECEF position to LLA is given by:
+                $$
+                \begin{align}
+                \text{tan}L_b &= \frac{z^{e}_{eb} \left[R_E(L_b) + h_b \right]}{\sqrt{(x^e_{eb})^2 + (y^e_{eb})^2} \left[(1 - e^2)R_E(L_b) + h_b \right]} \\
+                \text{tan}\lambda_b &= \frac{y^e_{eb}}{x^{e}_{eb}} \\
+                h_b &= \frac{\sqrt{(x^e_{eb})^2 + (y^{e}_{eb})^2}}{\text{cos} L_b} - R_E(L_b),
+                \end{align} \tag{3.3.4} \label{3.3.4}
+                $$
+                where a four-quadrant arctangent function must be used for longitude. Also, since \(R_E \) is a function of latitude, the latitude and heigh must be solved
+                iteratively. The approximate closed-form latitude solution (accurate to within 1cm for positions close to the Earth's surface) is given by:
+                $$
+                \text{tan}L_b \approx \frac{z^e_{eb} \sqrt{1 - e^2} + e^2 R_0 sin^3 \zeta_b}{\sqrt{1 - e^2} (\sqrt{(x^e_{eb})^2 + (y^e_{eb})^2} - e^2 R_0 \text{cos}^3 \zeta_b)}, \tag{3.3.5} \label{3.3.5}
+                $$
+                where
+                $$
+                \text{tan}\zeta_b = \frac{z^e_{eb}}{\sqrt{1-e^2} \sqrt{(x^e_{eb})^2 + (y^e_{eb})^2}}. \tag{3.3.6} \label{3.3.6}
+                $$
+              </p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/menu.js"></script>
+<script src="/js/dropdown.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</html>
