@@ -135,6 +135,149 @@
               </p>
             </div>
           </div>
+          <div class="flex-row">
+            <div class="flex-item">
+              <h2>ECEF and Local Navigation Frames</h2>
+              <p class="text">
+                ECEF frame to local navigation frame (NED) would require \(z \) axis rotation by the amount of longitude, 
+                \(\lambda_b \) and intermediate \(y \) axis rotation by \(-\frac{\pi}{2} -  L_b\), where \( L_b\) is the latitude. This yields to:
+                $$
+                \begin{align}
+                \mathbf{R}^e_n &= 
+                \left[
+                \begin{array}{ccc}
+                \text{cos}(-\frac{\pi}{2} - L_b) & 0 & -\text{sin}(- \frac{\pi}{2} - L_b) \\ 
+                0 & 1 & 0 \\
+                \text{sin}(-\frac{\pi}{2} - L_b) & 0 & \text{cos}(-\frac{\pi}{2} - L_b) \\
+                \end{array}
+                \right]
+                \left[
+                \begin{array}{ccc}
+                \text{cos}\lambda_b & \text{sin}\lambda_b & 0 \\
+                -\text{sin}\lambda_b & \text{cos}\lambda_b & 0 \\
+                0 & 0 & 1\\
+                \end{array}
+                \right] \\ 
+
+                &= 
+                \left[
+                \begin{array}{ccc}
+                -\text{sin}L_b & 0 & \text{cos}L_b \\ 
+                0 & 1 & 0 \\
+                -\text{cos}L_b & 0 & -\text{sin}L_b \\
+                \end{array}
+                \right]
+                \left[
+                \begin{array}{ccc}
+                \text{cos}\lambda_b & \text{sin}\lambda_b & 0 \\
+                -\text{sin}\lambda_b & \text{cos}\lambda_b & 0 \\
+                0 & 0 & 1\\
+                \end{array}
+                \right] \\ 
+
+                &= 
+                \left[
+                \begin{array}{ccc}
+                -\text{sin}L_b \text{cos}\lambda_b & -\text{sin}L_b \text{sin}\lambda_b & \text{cos}L_b \\
+                -\text{sin}\lambda_b & \text{cos}\lambda_b & 0 \\
+                -\text{cos}L_b \text{cos}\lambda_b & -\text{cos}L_b \text{sin}\lambda_b & -\text{sin}L_b
+                \end{array}
+                \right],
+                \end{align} \tag{3.8.11} \label{3.8.11}
+                $$
+
+                and:
+                $$
+                \begin{align}
+                \mathbf{R}^n_e
+                &= 
+                \left[
+                \begin{array}{ccc}
+                -\text{sin}L_b \text{cos}\lambda_b & -\text{sin}\lambda_b & -\text{cos}L_b \text{cos}\lambda_b \\
+                -\text{sin}L_b \text{sin}\lambda_b & \text{cos}\lambda_b & -\text{cos}L_b \text{sin}\lambda_b  \\
+                \text{cos}L_b & 0 & -\text{sin}L_b \\
+                \end{array}
+                \right].
+                \end{align} \tag{3.8.12} \label{3.8.12}
+                $$
+
+                The latitude and longitude can be obtained from the transformation matrices by:
+                $$
+                \begin{align}
+                L_b &= \text{arctan}\left(\frac{-R^n_{e3, 3}}{R^n_{e1, 3}} \right) = \text{arctan}\left(\frac{-R^e_{n3, 3}}{R^e_{n3, 1}} \right) \\
+                \lambda_b &= \text{arctan}_2 \left( -R^n_{e2, 1}, -R^n_{e2, 2} \right) = \text{arctan}_2 \left( -R^e_{n1, 2}, -R^e_{n2, 2} \right) \\
+                \end{align}
+                $$
+
+                Position, velocity, and acceleration referenced to local navigation frame are meaningless since the origin coincides with \( F_b \).
+                The resolving axes of Earth-referenced position, velocity and acceleration are:
+                $$
+                \begin{align}
+                \mathbf{r}^n_{eb} &= \mathbf{R}^n_e \mathbf{r}^e_{eb}, \ \ \ \mathbf{r}^e_{eb} = \mathbf{R}^e_n \mathbf{r}^n_{eb} \\
+                \mathbf{v}^n_{eb} &= \mathbf{R}^n_e \mathbf{v}^e_{eb}, \ \ \ \mathbf{v}^e_{eb} = \mathbf{R}^e_n \mathbf{v}^n_{eb} \\
+                \mathbf{a}^n_{eb} &= \mathbf{R}^n_e \mathbf{a}^e_{eb}, \ \ \ \mathbf{a}^e_{eb} = \mathbf{R}^e_n \mathbf{a}^n_{eb} \\
+                \end{align} \tag{3.8.13} \label{3.8.13}
+                $$
+
+                Angular rates transform as:
+                $$
+                \begin{align}
+                \boldsymbol{\omega}^n_{nb} &= \mathbf{R}^n_e \left( \boldsymbol{\omega}^e_{eb} - \boldsymbol{\omega}^e_{en} \right) = \mathbf{R}^n_e \boldsymbol{\omega}^e_{eb} - \boldsymbol{\omega}^n_{en} \\ 
+                \boldsymbol{\omega}^e_{eb} &= \mathbf{R}^e_n \left( \boldsymbol{\omega}^n_{nb} + \boldsymbol{\omega}^n_{en} \right)
+                \end{align} \tag{3.8.14} \label{3.8.14}
+                $$
+              </p>
+            </div>
+          </div>
+          <div class="flex-row">
+            <div class="flex-item">
+              <h2>Inertial and Local Navigation Frames</h2>
+              <p class="text">
+                We can compute the transform matrix from equations \(\ref{3.8.4} \) and \(\ref{3.8.12} \):
+                $$
+                \begin{align}
+                \mathbf{R}^n_i &= \mathbf{R}^e_i \mathbf{R}^n_e =
+                \left[
+                \begin{array}{ccc}
+                -\text{sin}L_b \text{cos}(\lambda_b + \omega_{ie}(t - t_0)) & -\text{sin}L_b \text{sin}(\lambda_b + \omega_{ie}(t - t_0)) & \text{cos}L_b \\
+                -\text{sin}(\lambda_b + \omega_{ie}(t - t_0)) & \text{cos}(\lambda_b + \omega_{ie} (t - t_0)) & 0 \\
+                -\text{cos}L_b \text{cos}(\lambda_b + \omega_{ie}(t - t_0)) & -\text{cos}L_b \text{sin}(\lambda_b + \omega_{ie}(t-t_0)) & -\text{sin}L_b
+                \end{array}
+                \right] \\ \\
+                \mathbf{R}^i_n &=
+                \left[
+                \begin{array}{ccc}
+                -\text{sin}L_b \text{cos}(\lambda_b + \omega_{ie}(t - t_0)) & -\text{sin}(\lambda_b + \omega_{ie}(t - t_0)) & -\text{cos}L_b \text{cos}(\lambda_b + \omega_{ie}(t - t_0)) \\
+                -\text{sin}L_b \text{sin}(\lambda_b + \omega_{ie}(t - t_0)) & \text{cos}(\lambda_b + \omega_{ie} (t - t_0)) & -\text{cos}L_b \text{sin}(\lambda_b + \omega_{ie}(t-t_0)) \\
+                \text{cos}L_b & 0 & -\text{sin}L_b \\ 
+                \end{array}
+                \right]
+                \end{align}
+                $$
+
+                Earth-referenced velocity and acceleration in navigation frame axes transform to and from their ECI reference counterparts as:
+                $$
+                \begin{align}
+                \mathbf{v}^n_{eb} &= \mathbf{R}^n_i (\mathbf{v}^i_{ib} + \boldsymbol{\Omega}^i_{ie} \mathbf{r}^i_{ib}) \\
+                \mathbf{v}^i_{ib} &= \mathbf{R}^i_n \mathbf{v}^n_{eb} + \mathbf{R}^i_e \boldsymbol{\Omega}^e_{ie} \mathbf{r}^e_{eb} \\
+                \mathbf{a}^n_{eb} &= \mathbf{R}^n_i (\mathbf{a}^i_{ib} - 2 \boldsymbol{\Omega}^i_{ie} \mathbf{v}^i_{ib} + \boldsymbol{\Omega}^i_{ie} \boldsymbol{\Omega}^i_{ie} \mathbf{r}^i_{ib}) \\
+                \mathbf{a}^i_{ib} &= \mathbf{R}^i_n (\mathbf{a}^n_{eb} + 2 \boldsymbol{\Omega}^n_{ie} \mathbf{v}^n_{eb}) + \mathbf{R}^i_e \boldsymbol{\Omega}^e_{ie} \boldsymbol{\Omega}^e_{ie} \mathbf{r}^e_{eb}.
+                \end{align}
+                $$
+
+                Angular rates transform as:
+                $$
+                \begin{align}
+                \boldsymbol{w}^n_{nb} &= \mathbf{R}^n_i (\boldsymbol{\omega}^i_{ib} - \boldsymbol{\omega}^i_{in}) = \mathbf{R}^n_i (\boldsymbol{\omega}^i_{ib} - \boldsymbol{\omega}^i_{ie}) - \boldsymbol{\omega}^n_{en} \\
+                \boldsymbol{w}^i_{ib} &= \mathbf{R}^i_n (\boldsymbol{\omega}^n_{nb} + \boldsymbol{\omega}^n_{in}) = \mathbf{R}^i_n (\boldsymbol{\omega}^n_{nb} + \boldsymbol{\omega}^n_{en}) + \boldsymbol{\omega}^i_{ie}.
+                \end{align}
+                $$ 
+
+
+              </p>
+            </div>
+          </div>
+
       </div>
     </div>
   </div>
