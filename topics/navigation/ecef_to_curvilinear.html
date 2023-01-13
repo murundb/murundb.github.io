@@ -35,7 +35,7 @@
                 The radius of curvature for east-west motion, \(R_E\) is the vertical plane perpendicular to the meridian plane and is not the plane of constant latitude. It varies
                 with latitude and is smallest at the equator:
                 $$
-                R_{E}(L) = \frac{R_0}{\sqrt(1 - e^2 \text{sin}^2(L))}. \tag{3.3.2} \label{3.3.2}
+                R_{E}(L) = \frac{R_0}{\sqrt{1 - e^2 \text{sin}^2(L)}}. \tag{3.3.2} \label{3.3.2}
                 $$
 
                 The Cartesian ECEF position can be obtained from curvilinear position by:
@@ -55,9 +55,10 @@
                 \left( R_E (L_b) + h_b \right) \text{cos}L_b \text{sin} \lambda_b \\
                 \left[ (1 - e)^2 R_E (L_b) + h_b \right] \text{sin} L_b
                 \end{array}
-                \right].
+                \right],
                 \end{align} \tag{3.3.3} \label{3.3.3}
                 $$
+                where \(h_b \) is the geodetic height or altitude (distance from a body to the ellipsoid surface along the normal to that ellipsoid).
               </p>
             </div>
           </div>

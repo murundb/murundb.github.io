@@ -234,6 +234,7 @@
               <h2>Inertial and Local Navigation Frames</h2>
               <p class="text">
                 We can compute the transform matrix from equations \(\ref{3.8.4} \) and \(\ref{3.8.12} \):
+
                 $$
                 \begin{align}
                 \mathbf{R}^n_i &= \mathbf{R}^e_i \mathbf{R}^n_e =
@@ -252,7 +253,7 @@
                 \text{cos}L_b & 0 & -\text{sin}L_b \\ 
                 \end{array}
                 \right]
-                \end{align}
+                \end{align} \tag{3.8.15} \label{3.8.15}
                 $$
 
                 Earth-referenced velocity and acceleration in navigation frame axes transform to and from their ECI reference counterparts as:
@@ -262,7 +263,7 @@
                 \mathbf{v}^i_{ib} &= \mathbf{R}^i_n \mathbf{v}^n_{eb} + \mathbf{R}^i_e \boldsymbol{\Omega}^e_{ie} \mathbf{r}^e_{eb} \\
                 \mathbf{a}^n_{eb} &= \mathbf{R}^n_i (\mathbf{a}^i_{ib} - 2 \boldsymbol{\Omega}^i_{ie} \mathbf{v}^i_{ib} + \boldsymbol{\Omega}^i_{ie} \boldsymbol{\Omega}^i_{ie} \mathbf{r}^i_{ib}) \\
                 \mathbf{a}^i_{ib} &= \mathbf{R}^i_n (\mathbf{a}^n_{eb} + 2 \boldsymbol{\Omega}^n_{ie} \mathbf{v}^n_{eb}) + \mathbf{R}^i_e \boldsymbol{\Omega}^e_{ie} \boldsymbol{\Omega}^e_{ie} \mathbf{r}^e_{eb}.
-                \end{align}
+                \end{align} \tag{3.8.16} \label{3.8.16}
                 $$
 
                 Angular rates transform as:
@@ -270,9 +271,96 @@
                 \begin{align}
                 \boldsymbol{w}^n_{nb} &= \mathbf{R}^n_i (\boldsymbol{\omega}^i_{ib} - \boldsymbol{\omega}^i_{in}) = \mathbf{R}^n_i (\boldsymbol{\omega}^i_{ib} - \boldsymbol{\omega}^i_{ie}) - \boldsymbol{\omega}^n_{en} \\
                 \boldsymbol{w}^i_{ib} &= \mathbf{R}^i_n (\boldsymbol{\omega}^n_{nb} + \boldsymbol{\omega}^n_{in}) = \mathbf{R}^i_n (\boldsymbol{\omega}^n_{nb} + \boldsymbol{\omega}^n_{en}) + \boldsymbol{\omega}^i_{ie}.
-                \end{align}
-                $$ 
+                \end{align}  \tag{3.8.17} \label{3.8.17}
+                $$
+              </p>
+            </div>
+          </div>
 
+          <div class="flex-row">
+            <div class="flex-item">
+              <h2>Earth and Local Tangent-Plane Frames</h2>
+              <p class="text">
+                The transformation matrix is similar to ECEF and navigation frame conversions:
+                $$
+                \begin{align}
+                \mathbf{R}^e_l &=
+                \left[
+                \begin{array}{ccc}
+                -\text{sin}L_l \text{cos}\lambda_l & -\text{sin}L_l \text{sin}\lambda_l & \text{cos}L_l \\
+                -\text{sin}\lambda_l & \text{cos}\lambda_l & 0 \\
+                -\text{cos}L_l \text{cos}\lambda_l & -\text{cos}L_l \text{sin}\lambda_l & -\text{sin}L_l
+                \end{array}
+                \right] \\ \\
+
+                \mathbf{R}^l_e
+                &= 
+                \left[
+                \begin{array}{ccc}
+                -\text{sin}L_l \text{cos}\lambda_l & -\text{sin}\lambda_l & -\text{cos}L_l \text{cos}\lambda_l \\
+                -\text{sin}L_l \text{sin}\lambda_l & \text{cos}\lambda_l & -\text{cos}L_l \text{sin}\lambda_l  \\
+                \text{cos}L_l & 0 & -\text{sin}L_l \\
+                \end{array}
+                \right].
+                \end{align} \tag{3.8.18} \label{3.8.18}
+                $$
+
+                Note that the origin and orientation of a local tangent-plane frame with respect to an ECEF frame are constant. Therefore, the velocity, acceleration,
+                and angular rate can be transformed by rotating the resolving axes:
+                $$
+                \begin{align}
+                \mathbf{v}^l_{lb} &= \mathbf{R}^l_e \mathbf{v}^e_{eb}, \ \ \ \mathbf{v}^e_{eb} = \mathbf{R}^e_l \mathbf{v}^l_{lb} \\
+                \mathbf{a}^l_{lb} &= \mathbf{R}^l_e \mathbf{a}^e_{eb}, \ \ \ \mathbf{a}^e_{eb} = \mathbf{R}^e_l \mathbf{a}^l_{lb} \\
+                \mathbf{w}^l_{lb} &= \mathbf{R}^l_e \mathbf{w}^e_{eb}, \ \ \ \mathbf{w}^e_{eb} = \mathbf{R}^e_l \mathbf{w}^l_{lb} \\
+                \end{align} \tag{3.8.19} \label{3.8.19}
+                $$
+
+                The Cartesian position transforms as:
+                $$
+                \begin{align}
+                \mathbf{r}^l_{lb} &= \mathbf{R}^l_e \left( \mathbf{r}^e_{eb} - \mathbf{r}^e_{el} \right) \\
+                \mathbf{r}^e_{eb} &= \mathbf{r}^e_{el} + \mathbf{R}^e_l \mathbf{r}^l_{lb}
+                \end{align}, \tag{3.8.20} \label{3.8.20}
+                $$
+
+                where \(\mathbf{r}^e_{el} \) is the Cartesoam ECEF position of the local tangent-plane origin.
+
+              </p>
+            </div>
+          </div>
+          <div class="flex-row">
+            <div class="flex-item">
+              <h2>ENU and NED</h2>
+              <p class="text">
+                Considering some authors use East-North-Up, \( F_{ENU} \) and Groves use North-East-Down, \(F_{NED} \), the transformation matrix between the two is derived here.
+                ENU to NED can be achieved by rotating about the \(z \) axis 90 degrees anti-clockwise and 180 degrees anti-clockwise about the \( x \) axis:
+                $$
+                \begin{align}
+                \mathbf{R}^{NED}_{ENU} &=
+                \left[
+                \begin{array}{ccc}
+                1 & 0 & 0 \\
+                0 & \text{cos}(180^o) & \text{sin}(180^o) \\ 
+                0 & -\text{sin}(180^o) & \text{cos}(180^o)
+                \end{array}
+                \right]
+                \left[
+                \begin{array}{ccc}
+                \text{cos}(90^o) & \text{sin}(90^o) &  0 \\
+                -\text{sin}(90^o) & \text{cos}(90^o) & 0 \\
+                0 & 0 & 1
+                \end{array}
+                \right] \\
+                &= 
+                \left[
+                \begin{array}{ccc}
+                0 & 1 & 0 \\
+                1 & 0 & 0 \\
+                0 & 0 & -1
+                \end{array}
+                \right]
+                \end{align} \tag{3.8.21} \label{3.8.21}
+                $$
 
               </p>
             </div>

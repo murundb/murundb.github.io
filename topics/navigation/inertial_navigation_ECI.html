@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+  <title>Note Jar</title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+</head>
+<body>
+  <div class="menu-container"></div>
+  <div class="content-container">
+    <div class="content">
+      <div class="content-table flex-column">
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2><a href="navigation.html" style="text-decoration:none">Navigation</a>: 4.2 Navigation Equations in ECI Frame</h2>
+            <hr>
+          </div>
+        </div>
+        <div class="flex-row">
+            <div class="flex-item">
+              <h2>Navigation Equations in ECI Frame</h2>
+              <p class="text">
+                <h3>4.2.1. Attitude Update</h3>
+                To track the attitude change, we must track the transformation matrix through time. Consider the attitude change over time interval \(t\) to \(t + \tau_i\)The time derivative of the trasnformation matrix is:
+                $$
+                \dot{\mathbf{R}}^i_b(t) = \mathbf{R}^i_b(t) \boldsymbol{\Omega}^b_{ib}.
+                $$
+                Integrating this over the interval \(t\) to \(t + \tau_i\) gives:
+
+
+                in which \(\mathbf{R}^i_b(t + \tau_i) \) can be written as the product of two
+
+                Figure 4.1 shows a schematic of an inertial navigation processor. IMU outputs are integrated to produce an updated position, velocity, 
+                and attitude solution in four steps:
+                <ol>
+                    <li>Attitude update</li>
+                    <li>Transformation of specific-force resolving axes from the IMU body frame to the 
+                        coordinate frame used to resolve the position and velocity solutions
+                    </li>
+                    <li>Velocity update, including transformation of specific force into accelration using
+                        gravity or gravitation model
+                    </li>
+                    <li>Position update</li>
+                </ol>
+
+                <img class="image max-width-600 add-top-margin-large" src="/img/inertial_navigation_overview.png">
+                <p class="image-caption">Fig 4.1 Inertial Navigation Processor (source Groves, p167)</a></p>  
+                <br>
+                <br>
+                Continuous-time navigation equations physicall describe a body's modion. Discrete-time navigation equations,
+                also known as <b>mechanization</b> equations, provide a means of updating a navigation solution over a discrete time interval.
+            
+            </p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/menu.js"></script>
+<script src="/js/dropdown.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</html>
