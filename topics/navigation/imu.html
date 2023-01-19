@@ -134,10 +134,23 @@
 
                 <br>
                 <br>
-
                 The spectrum of accelerometer and gyro noise for frequencies below 1Hz is approximately white, so the 
                 standard deviation of the average specific force and angular rate noise varies in inverse proportion to the 
-                square root of the averating time.
+                square root of the averating time. Inertial sensor noise is thus usually quoted in termos of the root PSD. 
+                The units are \(\mu \text{g}/ \sqrt{\text{Hz}} \) for accelerometer  random noise, where 
+                \( 1\mu \text{g} / \sqrt{\text{Hz}} = 9.80665 \times 10^{-6} \text{ms}^{-1.5} \), 
+                and \(^o / \sqrt{\text{hr}} \) or \(^o / \sqrt{\text{Hz}} \) for gyro random noise, where 
+                \(1 ^o / \sqrt{\text{hr}} = 2.909 \times 10^{-4}\text{rads}^{-0.5} \) and 
+                \(1^o / \sqrt{\text{Hz}} = 4.848 \times 10^{-6} \text{rads}^{-0.5}\).
+                
+
+                <br>
+                <br>
+                The accelerometer and gyro random noise are sometimes desibred as random walks. 
+                Random noise on the specific force measurements is integrated to produce a random-walk error on the 
+                intertial velocity solution. Similarly, random noise on the angular rate measurements is integrated to 
+                produce an attitude random-walk error. The standard deviation of a random-walk process is proportional to the square root
+                of the integration time.
 
 
 
