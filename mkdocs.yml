@@ -1,0 +1,108 @@
+site_name: Enkhmurun Bayasgalan
+site_description: Collection of random notes on science and engineering topics
+
+theme:
+  name: material
+  custom_dir: material
+  language: en
+  palette: 
+    # Palette toggle for light mode
+    - scheme: default
+      primary: black
+      accent: orange
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.path
+    # - navigation.indexes
+    - toc.follow
+    - toc.integrate
+    - navigation.top
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+extra_css:
+  - assets/stylesheets/extra.css
+extra_javascript:
+  - assets/javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+## Navigation Tree
+nav:
+  - Home: index.md
+  - Math Notes:
+    - References: math/references.md
+    - Cauchy-Schwartz Inequality: math/cauchy_schwarz_inequality.md
+    - Open and Closed Sets: math/open_and_closed_sets.md
+    - Norms, Distance, and Unit Ball: math/norms_distance_unit_ball.md
+    - Functions: math/functions.md
+    - Matrix Calculus: math/matrix_calculus.md
+    - Matrix Calculus Identities: math/matrix_calculus_identities.md
+  - Convex Optimization:
+    - References: convex_optimization/references.md
+    - Convex Sets: convex_optimization/convex_sets.md
+    - Convex Functions: convex_optimization/convex_functions.md
+    - Optimization Problem Formulation: convex_optimization/optimization_problem_formulation.md
+    - Duality: convex_optimization/duality.md
+    - Unconstrained Optimization:
+      - Unconstrained Minimization Problems: convex_optimization/unconstrained_minimization_problems.md
+  - Kinematics:
+    - References: kinematics/references.md
+    - Notation and Nomenclature: kinematics/notation_and_nomenclature.md
+    - Attitude, Transformation, and Rotation Matrix: 
+      - Overview: kinematics/attitude_transformation_and_rotation_matrix.md
+      - Euler Angles: kinematics/euler_angles.md
+      - Axis Angle: kinematics/axis_angle.md
+      - Quaternions: kinematics/quaternions.md
+      - Attitude Visualization: kinematics/pangolin_visualization.md
+    - Angular Rate: kinematics/angular_rate.md
+    - Cartesian Position: kinematics/cartesian_position.md
+    - Velocity: kinematics/velocity.md
+    - Acceleration: kinematics/acceleration.md
+  - Navigation:
+    - References: navigation/references.md
+    - Notation & Nomenclature: navigation/notation_and_nomenclature.md
+    - Coordinate Frames: navigation/coordinate_frames.md
+    - Geodesy:
+      - Geodesy: navigation/geodesy.md
+      - Geodetic Coordinates: navigation/geodetic_coordinates.md
+      - ECEF To Curvilinear Position: navigation/ecef_to_curvilinear.md
+      - Orthometric Height: navigation/orthometric_height.md
+      - Mercator Projection: navigation/mercator_projection.md
+      - Rotation of Earth: navigation/rotation_of_earth.md
+      - Gravity Models: navigation/gravity_models.md
+      - Frame Transformations: navigation/frame_transformations.md
+    - Inertial Navigation:
+      - IMU: navigation/imu.md
+      - Architecture: navigation/inertial_navigation_architecture.md
+      - Navigation Equations in ECI Frame: navigation/inertial_navigation_ECI.md
+      - Navigation Equations in ECEF Frame: navigation/inertial_navigation_ECEF.md
+      - Navigation Equations in Local Tangent-Plane Frame: navigation/inertial_navigation_local_tangent_plane.md
+
+
+
+
+  

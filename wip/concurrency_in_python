@@ -1,4 +1,0 @@
-The GIL is a big problem in Python, because many internal data structures need to be coordinated across threads. Hence, GIL prevents running multiple threads across multiple cores/CPUs.
-
-
-Learn https://resolume.com/
