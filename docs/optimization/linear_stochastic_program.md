@@ -35,8 +35,8 @@ starts. Demand $d$ is estimated as a random variable. After seeing the demand, t
 
 The decision variables for the optimization problem are:
 
-1. **Here-and-Now decision**: production quantity $x$
-2. **Wait-and-See decision**: Sell quantity $y$, discount (savage) quantity $z$
+1. **Here-and-Now decision**: Production quantity $x. The decision must be made before the uncertainty is realized. It cannot change after the uncertainty is realized.
+2. **Wait-and-See decision**: Sell quantity $y$, discount (savage) quantity $z$. The decision must be made after the uncertainty is realized.
 
 The objective function can be defined as minimizing the production cost and expected future cost which yields to a two-stage stochastic program:
 

@@ -61,6 +61,7 @@ nav:
     - Functions: math/functions.md
     - Matrix Calculus: math/matrix_calculus.md
     - Matrix Calculus Identities: math/matrix_calculus_identities.md
+    - Perturbation Methods: math/perturbation_methods.md
 
   - Optimization:
     - References: optimization/references.md
@@ -69,7 +70,8 @@ nav:
     - Optimization Problem Formulation: optimization/optimization_problem_formulation.md
     - Duality: optimization/duality.md
     - Unconstrained Optimization:
-      - Unconstrained Minimization Problems: optimization/unconstrained_minimization_problems.md
+      - Optimality Conditions: optimization/optimality_conditions.md
+      - Gradient Desent: optimization/gradient_descent.md
     - Linear Programming:
       - Linear Stochastic Program: optimization/linear_stochastic_program.md
       - Nonlinear Program: optimization/nonlinear_program.md
