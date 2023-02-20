@@ -1,1 +1,0 @@
-All materials are from Boyd S., ***Convex Optimization***, 2014.

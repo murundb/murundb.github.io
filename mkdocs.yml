@@ -61,14 +61,19 @@ nav:
     - Functions: math/functions.md
     - Matrix Calculus: math/matrix_calculus.md
     - Matrix Calculus Identities: math/matrix_calculus_identities.md
-  - Convex Optimization:
-    - References: convex_optimization/references.md
-    - Convex Sets: convex_optimization/convex_sets.md
-    - Convex Functions: convex_optimization/convex_functions.md
-    - Optimization Problem Formulation: convex_optimization/optimization_problem_formulation.md
-    - Duality: convex_optimization/duality.md
+
+  - Optimization:
+    - References: optimization/references.md
+    - Convex Sets: optimization/convex_sets.md
+    - Convex Functions: optimization/convex_functions.md
+    - Optimization Problem Formulation: optimization/optimization_problem_formulation.md
+    - Duality: optimization/duality.md
     - Unconstrained Optimization:
-      - Unconstrained Minimization Problems: convex_optimization/unconstrained_minimization_problems.md
+      - Unconstrained Minimization Problems: optimization/unconstrained_minimization_problems.md
+    - Linear Programming:
+      - Linear Stochastic Program: optimization/linear_stochastic_program.md
+      - Nonlinear Program: optimization/nonlinear_program.md
+  
   - Kinematics:
     - References: kinematics/references.md
     - Notation and Nomenclature: kinematics/notation_and_nomenclature.md
@@ -82,6 +87,7 @@ nav:
     - Cartesian Position: kinematics/cartesian_position.md
     - Velocity: kinematics/velocity.md
     - Acceleration: kinematics/acceleration.md
+
   - Navigation:
     - References: navigation/references.md
     - Notation & Nomenclature: navigation/notation_and_nomenclature.md
@@ -101,8 +107,3 @@ nav:
       - Navigation Equations in ECI Frame: navigation/inertial_navigation_ECI.md
       - Navigation Equations in ECEF Frame: navigation/inertial_navigation_ECEF.md
       - Navigation Equations in Local Tangent-Plane Frame: navigation/inertial_navigation_local_tangent_plane.md
-
-
-
-
-  
