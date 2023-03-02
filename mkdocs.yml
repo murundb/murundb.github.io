@@ -3,6 +3,7 @@ site_description: Collection of random notes on science and engineering topics
 
 theme:
   name: material
+  logo: assets/images/logo/logo.png
   custom_dir: material
   language: en
   palette: 
@@ -65,6 +66,7 @@ nav:
 
   - Optimization:
     - References: optimization/references.md
+    - Geometry: optimization/geometry.md
     - Convex Sets: optimization/convex_sets.md
     - Convex Functions: optimization/convex_functions.md
     - Optimization Problem Formulation: optimization/optimization_problem_formulation.md
@@ -72,7 +74,9 @@ nav:
     - Unconstrained Optimization:
       - Optimality Conditions: optimization/optimality_conditions.md
       - Gradient Desent: optimization/gradient_descent.md
+      - Newton's Method: optimization/newton_method.md
     - Linear Programming:
+      - Algrebraic Aspects: optimization/linear_programming_algebraic_aspects.md
       - Linear Stochastic Program: optimization/linear_stochastic_program.md
       - Nonlinear Program: optimization/nonlinear_program.md
   
@@ -89,6 +93,15 @@ nav:
     - Cartesian Position: kinematics/cartesian_position.md
     - Velocity: kinematics/velocity.md
     - Acceleration: kinematics/acceleration.md
+  
+  - State Estimation:
+    - References: state_estimation/references.md
+    - Least Squares:
+      - Least Squares: state_estimation/least_squares/least_squares.md
+      - Weighed Least Squares: state_estimation/least_squares/weighted_least_squares.md
+
+    - Extended Kalman Filter:
+      - Continuous-Time EKF: state_estimation/continuous_time_ekf.md
 
   - Navigation:
     - References: navigation/references.md

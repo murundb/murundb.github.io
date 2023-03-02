@@ -8,7 +8,7 @@ $$
 \begin{align}
 \frac{\partial (\mathbf{A} \mathbf{x})}{\mathbf{x}} &= \mathbf{A} \\
 \mathbf{x}^T \mathbf{y} &= x_1 y_1 + \ldots + x_n y_n \\
-\frac{\partial (\mathbf{x}^T \mathbf{y})}{\partial \mathbf{x}} &=
+\frac{\partial (\mathbf{y}^T \mathbf{x} )}{\partial \mathbf{x}}  = \frac{\partial (\mathbf{x}^T \mathbf{y})}{\partial \mathbf{x}} &=
 \left[
 \begin{array}{ccc}
 \partial (\mathbf{x}^T \mathbf{y}) / \partial x_1 & \ldots & \partial (\mathbf{x}^T \mathbf{y}) / \partial x_n
