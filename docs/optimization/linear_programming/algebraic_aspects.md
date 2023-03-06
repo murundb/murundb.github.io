@@ -1,27 +1,27 @@
 ## Contraint Concepts
 
-### Active Contraints
+1. **Active Contraints**
 
-A linera constraint that is satisfied as equality at a given point is said to be **active** or **binding** at that point. Otherwise, if an inequality constraint is satisfied as strict inequality at a point,
-it is called **inactive**.
+    A linear constraint that is satisfied as equality at a given point is said to be **active** or **binding** at that point. Otherwise, if an inequality constraint is satisfied as strict inequality at a point,
+    it is called **inactive**.
 
-### Linear Independent Constraints
+2.  **Linear Independent Constraints**
 
-If the normal direction of two or more linear constraints are **linearly independent**, then these constraints are called linearly independent.
+    If the normal direction of two or more linear constraints are **linearly independent**, then these constraints are called linearly independent.
 
-### Linearly Independent Active Constraints
+3. **Linearly Independent Active Constraints**
 
-Active constraints that are linearly independent.
+    Active constraints that are linearly independent.
 
 ## Standard Form on Linear Programming
 
-A **standard form** linear program consists of equality constraints and nonnegative contraints on all optimization variables and can be written as:
+A **standard form** linear program consists of equality constraints and nonnegative contraints on all optimization variables. It can be written as:
 
 $$
 \begin{align}
 \min \quad& \mathbf{c}^T \mathbf{x} \\
-\text{s.t} \quad& \mathbf{A} \mathbf{x} = \mathbf{b} \ \text{(Data dependent)}\\
-\quad& \mathbf{x} \geq 0 \ \text{(Data independent and has a simple structure)},
+\text{s.t} \quad& \mathbf{A} \mathbf{x} = \mathbf{b}\\
+\quad& \mathbf{x} \geq 0,
 \end{align}
 $$
 
@@ -29,11 +29,25 @@ where $\mathbf{x} \in \mathbb{R}^n$, $\mathbf{A} \in \mathbb{R}^{m \times n}$, a
 
 Every LP can be written equivalently in the standard form. For example:
 
-1. $\max \mathbf{c}^T \mathbf{x} \longrightarrow -\min -\mathbf{c}^T \mathbf{x}$
-2. $\mathbf{a}^T_i \mathbf{x} \geq b_i \longrightarrow \mathbf{a}^T_i \mathbf{x} - s_i = b_i, \ s_i \geq 0$
-3. $\mathbf{a}^T_i \mathbf{x} \leq b_i \longrightarrow \mathbf{a}^T_i \mathbf{x} + s_i = b_i, \ s_i \geq 0$
-4. $\mathbf{x}_j \leq 0 \longrightarrow \mathbf{x}'_j \geq 0$, by replacing $\mathbf{x}_j$ with $-\mathbf{x}'_j$
-5. $\mathbf{x}_j$ is a free variable $\longrightarrow$ replace $\mathbf{x}_j = \mathbf{x}^+_j - \mathbf{x}^-_j, \ \mathbf{x}^+_j \geq 0, \mathbf{x}^-_j \geq 0$
+1. **Objective function conversion**
+
+    $\max \mathbf{c}^T \mathbf{x} \longrightarrow -\min -\mathbf{c}^T \mathbf{x}$
+
+2. **Inequality constraint conversion**
+
+    $\mathbf{a}^T_i \mathbf{x} \geq b_i \longrightarrow \mathbf{a}^T_i \mathbf{x} - s_i = b_i, \ s_i \geq 0$
+
+    $\mathbf{a}^T_i \mathbf{x} \leq b_i \longrightarrow \mathbf{a}^T_i \mathbf{x} + s_i = b_i, \ s_i \geq 0$
+
+4. **Negativity conversion**
+
+    $\mathbf{x}_j \leq 0 \longrightarrow \mathbf{x}'_j \geq 0$, by replacing $\mathbf{x}_j$ with $-\mathbf{x}'_j$
+
+5. **Free variable conversion**
+
+    $\mathbf{x}_j$ is a free variable $\longrightarrow$ replace $\mathbf{x}_j = \mathbf{x}^+_j - \mathbf{x}^-_j, \ \mathbf{x}^+_j \geq 0, \mathbf{x}^-_j \geq 0$
+
+### Example
 
 Consider the following LP as another example:
 
@@ -57,7 +71,7 @@ $$
 \end{align}
 $$
 
-Then we convert the rest of the constraints:
+Then we convert the free variable:
 
 $$
 \begin{align}
@@ -71,9 +85,9 @@ $$
 
 ## Basic Solution
 
-The unique solution of $n$ linearly independent active constraints in $\mathbb{R}^n$ is called **basic solution**. A basic solution that is feasible is called **basic feasible solution**. For example, in Figure 1:
+The unique solution of $n$ linearly independent active constraints in $\mathbb{R}^n$ is called **basic solution**. A basic solution that is feasible is called **basic feasible solution**. For example, consider the LP shown in Figure 1:
 
-1. $\mathbf{x}^1, \ldots, \mathbf{x}^4$ are basic feasible solutions.
+1. $\mathbf{x}^1, \mathbf{x}^2, \mathbf{x}^3, \mathbf{x}^4$ are basic feasible solutions.
 2. $\mathbf{x}^5, \mathbf{x}^6$ are basic solutions but not feasible.
 
 <figure markdown>
@@ -83,15 +97,17 @@ The unique solution of $n$ linearly independent active constraints in $\mathbb{R
 </figure>
 
 
-Basic feasible solutions are **extreme points** of the polyhedron and vice versa. Basic feasible solution is an algebraic description of an extreme point.
+Basic feasible solutions are **extreme points** of the polyhedron and vice versa. In order words, basic feasible solution is an algebraic description of an extreme point.
 
-For a standard form LP, we already have $m$ linearly independent active constraints. We need $n - m$ additional linearly independent active constraints which can be obtained from the nonnegative constraints, $\mathbf{x}_i \geq 0$. Procedure to find a basic solution in standard form LP is as follows:
+For a standard form LP, we have $m$ linearly independent active constraints. We need $n - m$ additional linearly independent active constraints which can be obtained from the nonnegative constraints, $\mathbf{x} \geq 0$. 
 
-1. Since $\mathbf{A} \mathbf{x} = \mathbf{b}$ has $m$ linearly independent rows, there are also $m$ linearly independent columns. Choose $m$ such linearly independent columns, denote the 
-    corresponding $m \times m$ matrix as $\mathbf{B}$, called **basis matrix**. The corresponding $m \mathbf{x}'_j$s are denoted as $\mathbf{x}_B$, called **basic variables**. 
+To find basic solutions in standard form LP:
 
-2. $\mathbf{A}$ is partioned as $\mathbf{A} = \left[\mathbf{B}, \mathbf{N} \right]$, where $\mathbf{N}$ is $m \times (n - m)$. The corresponding $(n - m) \mathbf{x}'_j$s are denoted as $\mathbf{x}_N$, **nonbasic variables**.
-3. Choose $\mathbf{x}_j = 0$ for all $i$ corresponds to the columns in $\mathbf{N}$, $\mathbf{x}_N = 0$. We can write the $n$ active constraints as:
+1. Since $\mathbf{A} \mathbf{x} = \mathbf{b}$ has $m$ linearly independent rows, there are also $m$ linearly independent columns. Choose $m$ such linearly independent columns and denote the corresponding matrix as **basis matrix**, $\mathbf{B} \in \mathbb{R}^{m \times m}$. The corresponding $m \mathbf{x}_j$'s are denoted as **basic variables**, $\mathbf{x}_B$.
+
+2. Partition $\mathbf{A}$ as $\mathbf{A} = \left[\mathbf{B}, \mathbf{N} \right]$, where $\mathbf{N}$ is $m \times (n - m)$. The corresponding $(n - m) \mathbf{x}_j$'s are denoted as $\mathbf{x}_N$, **nonbasic variables**.
+
+3. Choose $\mathbf{x}_j = 0$ for all $i$ corresponds to the columns in $\mathbf{N}$, such that $\mathbf{x}_N = 0$. We can write the $n$ active constraints as:
 
     $$
     \begin{align}
@@ -123,7 +139,7 @@ For a standard form LP, we already have $m$ linearly independent active constrai
 
 $$
 \begin{align}
-&\mathbf{B} \mathbf{x}_B = \mathbf{b} \Rightarrow \mathbf{x}_B = \mathbf{B}^{-1} \mathbf{b} \\
+&\mathbf{x}_B = \mathbf{B}^{-1} \mathbf{b} \\
 &\mathbf{x}_N = \mathbf{0}.
 \end{align}
 $$

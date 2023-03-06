@@ -6,6 +6,9 @@ theme:
   logo: assets/images/logo/logo.png
   custom_dir: material
   language: en
+  font:
+    text: Roboto
+    code: Roboto Mono
   palette: 
     # Palette toggle for light mode
     - scheme: default
@@ -76,9 +79,10 @@ nav:
       - Gradient Desent: optimization/gradient_descent.md
       - Newton's Method: optimization/newton_method.md
     - Linear Programming:
-      - Algrebraic Aspects: optimization/linear_programming_algebraic_aspects.md
-      - Linear Stochastic Program: optimization/linear_stochastic_program.md
-      - Nonlinear Program: optimization/nonlinear_program.md
+      - Algrebraic Aspects: optimization/linear_programming/algebraic_aspects.md
+      - Simplex Method: optimization/linear_programming/simplex_method.md
+      - Linear Stochastic Program: optimization/linear_programming/linear_stochastic_program.md
+      - Nonlinear Program: optimization/linear_programming/nonlinear_program.md
   
   - Kinematics:
     - References: kinematics/references.md
