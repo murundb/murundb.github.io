@@ -3,7 +3,7 @@
 A ray consists of a starting point $\mathbf{a}$ and all the points in a direction $\mathbf{d}$. Rays can be described via an algebraic form:
 
 $$
-\left\{ \mathbf{x} \in \mathbb{R}^n \ | \ \mathbf{x} = \mathbf{a} + \theta \mathbf{d}, \quad \forall \theta \geq 0 \right\}.
+\left\lbrace \mathbf{x} \in \mathbb{R}^n \ | \ \mathbf{x} = \mathbf{a} + \theta \mathbf{d}, \quad \forall \theta \geq 0 \right\rbrace.
 $$
 
 ## Lines
@@ -11,7 +11,7 @@ $$
 A line consists of two rays starting at a point pointing two opposite directions:
 
 $$
-\left\{ \mathbf{x} \in \mathbb{R}^n \ | \ \mathbf{x} = \mathbf{a} + \theta \mathbf{d}, \quad \forall \theta \in \mathbb{R} \right\}.
+\left\lbrace \mathbf{x} \in \mathbb{R}^n \ | \ \mathbf{x} = \mathbf{a} + \theta \mathbf{d}, \quad \forall \theta \in \mathbb{R} \right\rbrace.
 $$
 
 ## Hyperplanes and Halfspaces
@@ -19,7 +19,7 @@ $$
 A **hyperplane** is a set of the form:
 
 $$
-\left\{ \mathbf{x} \ | \ \mathbf{a}^T \mathbf{x} = b \right\},
+\left\lbrace \mathbf{x} \ | \ \mathbf{a}^T \mathbf{x} = b \right\rbrace,
 $$
 
 where $\mathbf{a} \in \mathbb{R}^n$, $\mathbf{a} \neq \mathbf{0}$, and $b \in \mathbb{R}$. Analytically, it is the solution set of a nontrivial linear equation among the components of 
@@ -29,7 +29,7 @@ $\mathbf{a}$; the constant $b$ determines the offset of the hyperplane from the 
 A hyperplane divides $\mathbb{R}^n$ into two **halfspaces**. A (closed) halfspace is a set of the form:
 
 $$
-\left\{ \mathbf{x} \ | \ \mathbf{a}^T \mathbf{x} \leq b \right\},
+\left\lbrace \mathbf{x} \ | \ \mathbf{a}^T \mathbf{x} \leq b \right\rbrace,
 $$
 
 where $\mathbf{a} \neq 0$, i.e., the solution set of one (nontrivial) linear inequality. Halfspaces are convex, but not affine.
@@ -52,7 +52,7 @@ $$
 The set of all conic combinations of rays $\mathbf{r}_1, \ldots, \mathbf{r}_m$ is called the **conic hull** of $\mathbf{r}_1, \ldots, \mathbf{r}_m$:
 
 $$
-\text{conic} \left\{ \mathbf{r}_1, \ldots \mathbf{r}_m \right\} = \left\{ \mathbf{x} \ | \ \mathbf{x} = \theta_1 \mathbf{r}_1 + \ldots \theta_n \mathbf{r}_n, \ \theta_i \geq 0, \ \forall i = 1, \ldots, n \right\}.
+\text{conic} \left\lbrace \mathbf{r}_1, \ldots \mathbf{r}_m \right\rbrace = \left\lbrace \mathbf{x} \ | \ \mathbf{x} = \theta_1 \mathbf{r}_1 + \ldots \theta_n \mathbf{r}_n, \ \theta_i \geq 0, \ \forall i = 1, \ldots, n \right\rbrace.
 $$
 
 Such set is called a **cone**.
@@ -65,8 +65,8 @@ A polyhedra is the intersection of a finite number of halfspaces:
 
 $$
 \begin{align}
-P &= \left\{ \mathbf{x} \in \mathbb{R}^n \ | \ \mathbf{a}^T_1 \mathbf{x} \leq b_1, \ldots, \mathbf{a}^T_m \mathbf{x} \leq b_m \right\} \\
-&= \left\{ \mathbf{x} \in \mathbb{R}^n \ | \ \mathbf{A} \mathbf{x} \leq \mathbf{b} \right\},
+P &= \left\lbrace \mathbf{x} \in \mathbb{R}^n \ | \ \mathbf{a}^T_1 \mathbf{x} \leq b_1, \ldots, \mathbf{a}^T_m \mathbf{x} \leq b_m \right\rbrace \\
+&= \left\lbrace \mathbf{x} \in \mathbb{R}^n \ | \ \mathbf{A} \mathbf{x} \leq \mathbf{b} \right\rbrace,
 \end{align}
 $$
 
@@ -94,7 +94,7 @@ $$
 Another way to define **polyhedra** as the solution set of a finite number of linear equalities and inequalities:
 
 $$
-P = \left\{ \mathbf{x} \ | \ \mathbf{A} \mathbf{x} \leq b, \ \mathbf{C} \mathbf{x} = d \right\},
+P = \left\lbrace \mathbf{x} \ | \ \mathbf{A} \mathbf{x} \leq b, \ \mathbf{C} \mathbf{x} = d \right\rbrace,
 $$
 
 where $\mathbf{A} \in \mathbb{R}^{m \times n}$ and $\mathbf{C} \in \mathbb{R}^{p \times n}$.
@@ -131,7 +131,7 @@ A ray $\mathbf{e}$ in a cone $C$ is called an **extreme ray** if $\mathbf{e}$ is
 Any non-empty polyhedron $P$ with at least one extreme point can be formed by its extreme points $\mathbf{x}^1, \ldots, \mathbf{x}^m$ and its extreme rays $\mathbf{e}^1, \ldots, \mathbf{e}^k$ as follows:
 
 $$
-P = \text{conv}\left\{ \mathbf{x}^1, \ldots, \mathbf{x}^m \right\} + \text{conic}\left\{ \mathbf{e}^1, \ldots, \mathbf{e}^k \right\}.
+P = \text{conv}\left\lbrace \mathbf{x}^1, \ldots, \mathbf{x}^m \right\rbrace + \text{conic}\left\lbrace \mathbf{e}^1, \ldots, \mathbf{e}^k \right\rbrace.
 $$
 
 In order words, any point $\mathbf{x}$ in a polyedron $P$ that has at least one extreme point can be written as a sum of two vectors:
@@ -148,7 +148,7 @@ where $\mathbf{x}'$ is in the convex hull of its extreme points and $d$ is in th
 Consider an unbounded polyhedron as shown in Figure 2. The polyhedron set is given as:
 
 $$
-P = \left\{ (x_1, x_2): \ x_1 + x_2 \geq 1, \ x_1 - x_2 \leq 2, \ x_1, x_2 \geq 0 \right\}.
+P = \left\lbrace (x_1, x_2): \ x_1 + x_2 \geq 1, \ x_1 - x_2 \leq 2, \ x_1, x_2 \geq 0 \right\rbrace.
 $$
 
 The extreme points of the polyhedron are:
@@ -204,7 +204,7 @@ $$
 \mathbf{x} = \mathbf{x}' + \mathbf{d},
 $$
 
-where $\mathbf{x}' \in \text{conv}\left\{ \mathbf{x}^1, \mathbf{x}^2, \mathbf{x}^3 \right\}$ and $\mathbf{d} \in \text{conic} \left\{ \mathbf{e}^1, \mathbf{e}^2 \right\}$.
+where $\mathbf{x}' \in \text{conv}\left\lbrace \mathbf{x}^1, \mathbf{x}^2, \mathbf{x}^3 \right\rbrace$ and $\mathbf{d} \in \text{conic} \left\lbrace \mathbf{e}^1, \mathbf{e}^2 \right\rbrace$.
 
 
 <figure markdown>
@@ -219,19 +219,19 @@ where $\mathbf{x}' \in \text{conv}\left\{ \mathbf{x}^1, \mathbf{x}^2, \mathbf{x}
 Let $\mathbb{S}^n$ be the set of symmetric $n \times n$ matrices:
 
 $$
-\mathbb{S}^n = \left\{ X \in \mathbb{R}^{n \times n} \ | \ X = X^T \right\},
+\mathbb{S}^n = \left\lbrace X \in \mathbb{R}^{n \times n} \ | \ X = X^T \right\rbrace,
 $$
 
 which is a vector space with dimension $n(n + 1)/2$. Let $\mathbb{S}^n_+$ be the set of symmetric positive semidefinite matrices:
 
 $$
-\mathbb{S}^n_+ = \left\{ X \in \mathbb{S}^n \ | \ X \geq 0 \right\},
+\mathbb{S}^n_+ = \left\lbrace X \in \mathbb{S}^n \ | \ X \geq 0 \right\rbrace,
 $$
 
 and $\mathbb{S}^n_{++}$ be the set of symmetric positive definite matrices:
 
 $$
-\mathbb{S}^n_{++} = \left\{ X \in \mathbb{S}^n \ | \ X > 0 \right\}.
+\mathbb{S}^n_{++} = \left\lbrace X \in \mathbb{S}^n \ | \ X > 0 \right\rbrace.
 $$
 
 The set $\mathbb{S}^n_+$ is a convex cone if $\theta_1, \theta_2 \geq 0$ and $\mathbf{A}, \mathbf{B} \in \mathbb{S}^n_+$, then $\theta_1 \mathbf{A} + \theta_2 \mathbf{B} \in \mathbb{S}^n_+$. This is directly from the definition of positive semidefiniteness. For any $\mathbf{x} \in \mathbb{R}^n$, $\mathbf{A}, \mathbf{B} \geq 0$, and $\theta_1, \theta_2 \geq 0$:
@@ -245,7 +245,7 @@ $$
 A (Euclidean) ball in $\mathbb{R}^n$ is defined as:
 
 $$
-B(\mathbf{x}_c, r) = \left\{ \mathbf{x} \ | \ ||\mathbf{x} - \mathbf{x_c}||_2 \leq r  \right\} = \left\{ \mathbf{x}_c + r \mathbf{u} \ | \ ||\mathbf{u}||_2 \leq 1 \right\},
+B(\mathbf{x}_c, r) = \left\lbrace \mathbf{x} \ | \ ||\mathbf{x} - \mathbf{x_c}||_2 \leq r  \right\rbrace = \left\lbrace \mathbf{x}_c + r \mathbf{u} \ | \ ||\mathbf{u}||_2 \leq 1 \right\rbrace,
 $$
 
 where $r > 0$ is the scalar radius and $\mathbf{x}_c$ is the center of the ball. Euclidean ball is a convex set: if $||\mathbf{x}_1 - \mathbf{x}_c||_2 \leq r$, $||\mathbf{x}_2 - \mathbf{x}_c||_2 \leq r$, and $0 \leq \theta \leq 0$, then:
@@ -264,7 +264,7 @@ $$
 An ellipsoid is defined as:
 
 $$
-E = \left\{ \mathbf{x} \ | \ (\mathbf{x} - \mathbf{x}_c)^T \mathbf{P}^{-1} (\mathbf{x} - \mathbf{x}_c) \leq 1 \right\},
+E = \left\lbrace \mathbf{x} \ | \ (\mathbf{x} - \mathbf{x}_c)^T \mathbf{P}^{-1} (\mathbf{x} - \mathbf{x}_c) \leq 1 \right\rbrace,
 $$
 
 where $\mathbf{P} = \mathbf{P}^T > 0$, i.e., $\mathbf{P}$ is a symmetric and positive definite. Ellipsoids are convex sets.
