@@ -1,3 +1,16 @@
 .md-typeset div.arithmatex {
     overflow: initial;
-  }
+}
+
+.md-typeset .arithmatex mjx-assistive-mml {
+    display: none !important;
+}
+
+/* mjx-container {
+    display: inline-block;
+}
+
+mjx-assistive-mml {
+    right: 0px;
+    bottom: 0px;
+} */

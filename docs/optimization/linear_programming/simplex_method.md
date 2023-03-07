@@ -11,7 +11,7 @@ Local search is generalized version of gradient descent or Newton's method and c
 
 The only class of optimization problems for which local search **can guarantee** to find a global minimum is the class of convex programs, i.e., minimization problems with a convex objective function and a convex feasible region, since for this class of problems, a local minimum is a global minimum. 
 
-**Theorem**. *A locally minimum of a convex optimization problem is also a global minimum*.
+**Theorem**. *A local minimum of a convex optimization problem is also a global minimum*.
 
 *Proof*. Let $\mathbf{x}^*$ be a local minimum of $\min_{\mathbf{x} \in X} f(\mathbf{x})$, where $f(\mathbf{x})$ is a convex function and $X$ is a convex set. Then by definition, there exists a neighborhood of $\mathbf{x}^*$ in $X$, denoted as $U_{\epsilon} (\mathbf{x}^*) = \left\{ \mathbf{x}: \ ||\mathbf{x} - \mathbf{x}^*|| \leq \epsilon \right\}$ for some $\epsilon > 0$, where $f(\mathbf{x}^*) \leq f(\mathbf{x})$ for all $\mathbf{x} \in U_{\epsilon}(\mathbf{x}^*)$. Now suppose there is a different point $\hat{\mathbf{x}} \in X$ such that $f(\hat{\mathbf{x}}) < f(\mathbf{x}^*)$. Since $X$ is a convex set, for any $0 < \lambda < 1$, the point $\mathbf{x} = \lambda \hat{\mathbf{x}} + (1 - \lambda) \mathbf{x}^*$ is in $X$. We can choose $\lambda$ to be very close to zero such that $\mathbf{x}$ is also in the neighborhood $U_{\epsilon}(\mathbf{x}^*)$. Since $f$ is convex, we have $f(\mathbf{x}) \leq \lambda f(\hat{\mathbf{x}}) + (1 - \lambda) f(\mathbf{x}^*) < \lambda f(\mathbf{x}^*) + (1 - \lambda) f(\mathbf{x}^*) = f(\mathbf{x}^*)$, i.e., $\mathbf{x}$ is a point in $U_{\epsilon} (\mathbf{x}^*)$ with a strict lower objective value than $\mathbf{x}^*$, which contradicts with $\mathbf{x}^*$ being a local minimum in $U_{\epsilon} (\mathbf{x}^*)$.
 
@@ -45,7 +45,7 @@ $$
 
 ### Find a Feasible Direction
 
-Starting from BFS $\mathbf{x}$, the algorithm moves to a new point $\hat{\mathbf{x}} = \mathbf{x} + \theta \mathbf{d}$. The new points needs to be a feasible point and and adjacent BFS. 
+Starting from BFS $\mathbf{x}$, the algorithm moves to a new point $\hat{\mathbf{x}} = \mathbf{x} + \theta \mathbf{d}$. The new point needs to be a feasible point and and adjacent BFS. 
 
 1. For $\hat{\mathbf{x}}$ to be feasible, we have constraint $\mathbf{A} \hat{\mathbf{x}} = \mathbf{b}$ or equivalently, $\mathbf{A} (\mathbf{x} + \theta \mathbf{d}) = \mathbf{b}$. Since we already have $\mathbf{A} \mathbf{x} = \mathbf{b}$ and $\theta > 0$, we get $\mathbf{A} \mathbf{d} = \mathbf{0}$ or equivalently:
 
@@ -70,7 +70,7 @@ Starting from BFS $\mathbf{x}$, the algorithm moves to a new point $\hat{\mathbf
 
     *Proof*. First, each BFS has $n - m$ nonbasic variables, which are all zero. Since $\mathbf{x}$ and $\hat{\mathbf{x}}$ share $n - 1$ active constraints and both have to satisfy all the $m$ equality constraints $\mathbf{A} \mathbf{x} = \mathbf{b}$, then they can only differ in one nonbasic variable. In other words, they have the same $n - m - 1$ nonbasic variables.
 
-    For example, if the BFS $\mathbf{x} \in \mathbb{R}^5$ has two basic variables $x1, x2$ and three nonbasic variables $x_3, x_4, x_5$, then its adjacent BFS $\hat{\mathbf{x}}$ should share two same nonbasic variables $x_3, x_4$ or $x_3, x_5$ or $x_4, x_5$, plus one different nonbasic variable $x_1$ or $x_2$. In other words, going from $\mathbf{x}$ to $\hat{\mathbf{x}}$, two nonbasic variables of $\mathbf{x}$ stay as nonbasic variables of $\hat{\mathbf{x}}$ and only one of the nonbasic variables of $\mathbf{x}$ becomes a basic variable of $\hat{\mathbf{x}}$.
+    For example, if the BFS $\mathbf{x} \in \mathbb{R}^5$ has two basic variables $x_1, x_2$ and three nonbasic variables $x_3, x_4, x_5$, then its adjacent BFS $\hat{\mathbf{x}}$ should share two same nonbasic variables $x_3, x_4$ or $x_3, x_5$ or $x_4, x_5$, plus one different nonbasic variable $x_1$ or $x_2$. In other words, going from $\mathbf{x}$ to $\hat{\mathbf{x}}$, two nonbasic variables of $\mathbf{x}$ stay as nonbasic variables of $\hat{\mathbf{x}}$ and only one of the nonbasic variables of $\mathbf{x}$ becomes a basic variable of $\hat{\mathbf{x}}$.
 
 (2) gives us a way to specify $\mathbf{d}_N \in \mathbb{R}^{n - m}$ because $n - m - 1$ nonbasic variables of $\mathbf{x}$ need to remain nonbasic, i.e., at zero value, $\mathbf{d}_N$ must have $n - m - 1$ components at zero value; and because one nonbasic variable of $\mathbf{x}$ needs to become basic, i.e., to increase from zero value to some positive value, then the corresponding component of $\mathbf{d}_N$ has to be positive number, and without loss of generality, we can fix this component at value 1 and use the step length $\theta$ to control its size.
 
@@ -96,7 +96,7 @@ $$
 \mathbf{c}^T (\mathbf{x} + \theta \mathbf{d}) - \mathbf{c}^T \mathbf{x} = \theta \mathbf{c}^T \mathbf{d} = \theta \left( \mathbf{c}^T_B \mathbf{d}_B + \mathbf{c}^T_N \mathbf{d}_N \right) = \theta \left(-\mathbf{c}^T_B \mathbf{B}^{-1} \mathbf{A}_j + c_j \right) := \theta \bar{c}_j.
 $$
 
-**Definition**. *Let $\mathbf{x}$ be a basic solution, let $\mathbf{B}$ be an associated basis matrix, and let $\mathbf{c}$_B be the vector of costs of the basic variables. For each $j$, we define the **reduced cost** $\bar{c}_j$ of the variable $x_j$ to be $\bar{c}_j = c_j - \mathbf{c}^T_B \mathbf{B}^{-1} \mathbf{A}_j$*.
+**Definition**. *Let $\mathbf{x}$ be a basic solution, let $\mathbf{B}$ be an associated basis matrix, and let $\mathbf{c}_B$ be the vector of costs of the basic variables. For each $j$, we define the **reduced cost** $\bar{c}_j$ of the variable $x_j$ to be $\bar{c}_j = c_j - \mathbf{c}^T_B \mathbf{B}^{-1} \mathbf{A}_j$*.
 
 $\bar{c}_j$ is the unit change of cost when me move along the $j$-th basic direction. Clearly, we would select the $j$-th basic direction only if $\bar{c}_j < 0$, i.e., the cost reduces by going to the specified direction. This is the criterion for selecting a feasible direction from $n - m$ possible feasible directions.
 
@@ -159,7 +159,7 @@ $$
 > $\quad$**Step 4**
 >
 > $\quad$ If some entry of $\mathbf{d}_B$ is negative, compute the stepsize $\theta^*$ by the min-ratio test:  
-> $\quad$ $\theta^* = \min_{\left\{ i = 1, \ldots, m \ | \ d_{B, i} < 0> \right\}} \frac{x_{B, i}}{-d_{B, i}}$.   
+> $\quad$ $\theta^* = \min_{\left\{ i = 1, \ldots, m \ | \ d_{B, i} < 0 \right\}} \frac{x_{B, i}}{-d_{B, i}}$.   
 > $\quad$ Suppose the index $B, l$ achieves the minimum: $x_{B, l}$ exits the basis.
 >
 > $\quad$**Step 5**
@@ -187,7 +187,7 @@ If not careful, the simplex method may run into cycles and never terminates.
 
 2. Among all the eligible choices of basic variables to exit the basis, select the one with the smallest subscript.
 
-For example, in an iteration of the simplex method, we have basic variables $\mathbf{x}_B = (x_5 = 0, x_6 = 0, x_7 = 1)$ and the reduced costs of the nonbasic variables $x_1, x_2, x_3, x_4$ are $(-1/2, 20, -3/4, 6)$, respectively. Then, both $x_1$ and $x_3$ are candidates to enter the basis. Per Bland's rule, choose $x_1$ to enter, which has smaller subscript than $x_3$. Suppose the feasible direction is $\mathbf{d} = -\mathbf{B}^{-1} \mathbf{A}_1 = (-1/4, -1/2, 0)$. The min-ratio test has $\theta^*  = \min \left\{0, 1/4, 0, 1/2 \right\} = 0$, so both $x_5$ and $x_6$ can exit. Per Bland's rule, pick $x_5$.
+For example, in an iteration of the simplex method, we have basic variables $\mathbf{x}_B = (x_5 = 0, x_6 = 0, x_7 = 1)$ and the reduced costs of the nonbasic variables $x_1, x_2, x_3, x_4$ are $(-1/2, 20, -3/4, 6)$, respectively. Then, both $x_1$ and $x_3$ are candidates to enter the basis. Per Bland's rule, choose $x_1$ to enter, which has smaller subscript than $x_3$. Suppose the feasible direction is $\mathbf{d} = -\mathbf{B}^{-1} \mathbf{A}_1 = (-1/4, -1/2, 0)$. The min-ratio test has $\theta^*  = \min \left\{0/(1/4), 0/(1/2) \right\} = 0$, so both $x_5$ and $x_6$ can exit. Per Bland's rule, pick $x_5$.
 
 ## Phase I/ Phase II Simplex Method
 
@@ -254,7 +254,7 @@ $$
 \max \quad& 2x_1 + 3x_2 \\
 \text{s.t.} \quad& -x_1 + x_2 \leq 10 \\
 \quad& 3x_1 + 2x_2 \leq 60 \\
-\quad& 2x_1 + 3x_2 \leq 6 \\
+\quad& 2x_1 + 3x_2 \leq 60 \\
 \quad& x_1, x_2 \geq 0.
 \end{align}
 $$
