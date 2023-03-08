@@ -4,6 +4,7 @@ site_description: Collection of random notes on science and engineering topics
 theme:
   name: material
   logo: assets/images/logo/logo.png
+  favicon: assets/images/logo/logo.png
   custom_dir: material
   language: en
   font:
