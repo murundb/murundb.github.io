@@ -23,8 +23,18 @@ of closed sets is closed.
 
 ## Bounded Sets
 A set is bounded if it can be enclosed in a large enough (hyper)-sphere or a box.
-Formally, the set $X$ is bounded if there exists $M \geq 0$ such that
+Formally, the set $X$ is bounded if $\exists M \geq 0$ such that
 $||\mathbf{x}|| \leq M \) for all \( \mathbf{x} \in X$.
 
 ## Compact Sets
 A set that is both bounded and closed is called a compact set.
+
+## Examples
+
+1. $x = \mathbb{R}^2$ is closed but not bounded.
+
+2. $X = \left\{ (x, y): \ x^2 + y^2 < 1 \right\}$ is bounded but not closed.
+
+3. $X = \left\{ (x, y): \ x^2 + y^2 \geq 1 \right\}$ is closed but not bounded.
+
+4. $X = \left\{ (x, y): \ x^2 + y^2 \leq 1 \right\}$ is compact.

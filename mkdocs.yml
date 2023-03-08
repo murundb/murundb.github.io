@@ -61,17 +61,17 @@ nav:
     - References: math/references.md
     - Cauchy-Schwartz Inequality: math/cauchy_schwarz_inequality.md
     - Open and Closed Sets: math/open_and_closed_sets.md
+    - Geometry: math/geometry.md
+    - Convex Sets: math/convex_sets.md
     - Norms, Distance, and Unit Ball: math/norms_distance_unit_ball.md
-    - Functions: math/functions.md
+    - Functions, Gradient, Jacobian, Hessian: math/functions.md
+    - Convex Functions: math/convex_functions.md
     - Matrix Calculus: math/matrix_calculus.md
     - Matrix Calculus Identities: math/matrix_calculus_identities.md
     - Perturbation Methods: math/perturbation_methods.md
 
   - Optimization:
     - References: optimization/references.md
-    - Geometry: optimization/geometry.md
-    - Convex Sets: optimization/convex_sets.md
-    - Convex Functions: optimization/convex_functions.md
     - Optimization Problem Formulation: optimization/optimization_problem_formulation.md
     - Duality: optimization/duality.md
     - Unconstrained Optimization:

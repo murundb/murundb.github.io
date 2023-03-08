@@ -45,22 +45,6 @@ $$
 exists and are continuous. A function $f$ is differentiable if it is differentiable at 
 every point in ints domain. 
 
-## Jacobian
-The Jacobian of differentiable function $f$ at $\mathbf{x}^0$ is a vector:
-
-$$
-\mathbf{J} = 
-\left[
-\begin{array}{cccc}
-\left. \frac{\partial f(\mathbf{x})}{\partial x_1} \right|_{\mathbf{x} = \mathbf{x}^0}
-&
-\left. \frac{\partial f(\mathbf{x})}{\partial x_2} \right|_{\mathbf{x} = \mathbf{x}^0} &
-\dots &
-\left. \frac{\partial f(\mathbf{x})}{\partial x_n} \right|_{\mathbf{x} = \mathbf{x}^0}
-\end{array}
-\right]
-$$
-
 ## Gradient
 The gradient of $f$ at $\mathbf{x}^0$ is a vector
 of the $n$-partial derivatives:
@@ -78,8 +62,49 @@ $$
 \right]^T.
 $$
 
+## Jacobian
+For a scalar function, the Jacobian is the transpose of the gradient. The Jacobian of a scalar differentiable function $f$ at $\mathbf{x}^0$ is a vector:
+
+$$
+\mathbf{J} = 
+\left[
+\begin{array}{cccc}
+\left. \frac{\partial f(\mathbf{x})}{\partial x_1} \right|_{\mathbf{x} = \mathbf{x}^0}
+&
+\left. \frac{\partial f(\mathbf{x})}{\partial x_2} \right|_{\mathbf{x} = \mathbf{x}^0} &
+\dots &
+\left. \frac{\partial f(\mathbf{x})}{\partial x_n} \right|_{\mathbf{x} = \mathbf{x}^0}
+\end{array}
+\right]
+$$
+
+Suppose $\mathbf{f}: \mathbb{R}^n \rightarrow \mathbb{R}^m$ is a vector function such that each of its first-order partial derivatives exist on $\mathbb{R}^n$. Then the Jacobian is $m \times n$ matrix:
+
+$$
+\mathbf{J} = 
+\left[
+\begin{array}{ccc}
+\frac{\partial \mathbf{f}}{\partial x_1} & \ldots & \frac{\partial \mathbf{f}}{\partial x_n}
+\end{array}
+\right] = 
+\left[
+\begin{array}{c}
+\nabla^T f_1 \\
+\vdots \\
+\nabla^T f_m
+\end{array}
+\right] = 
+\left[
+\begin{array}{ccc}
+\frac{\partial f_1}{\partial x_1} & \ldots & \frac{\partial f_1}{\partial x_n} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial f_m}{\partial x_1}   & \ldots & \frac{\partial f_m}{\partial x_n} 
+\end{array}
+\right].
+$$
+
 ## Hessian
-The Hessian of a (twice) differentiable function $f$ at a point
+The Hessian of a (twice) differentiable scalar function $f$ at a point
 $\mathbf{x}^0$ is an $n \times n$ matrix of second-order partial derivatives, i.e.:
 
 $$
@@ -118,6 +143,14 @@ $$
 \end{array}
 \right]
 $$
+
+Suppose $\mathbf{f}: \mathbb{R}^n \rightarrow \mathbb{R}^m$. Then, the Hessian of $\mathbf{f}$ is a third-order tensor. It can be thought of as an array of $m$ Hessian matrices, one for each component of $\mathbf{f}$:
+
+$$
+\mathbf{H}(\mathbf{f}) = \left[ \mathbf{H}(f_1), \mathbf{H}(f_2), \ldots, \mathbf{H}(f_m) \right]. 
+$$
+
+This tensor degenerates to the usual Hessian matrix when $m = 1$.
 
 ## Taylor Series
 Let $f: \mathbb{R}^n \rightarrow \mathbb{R}$ be a differentiable function
