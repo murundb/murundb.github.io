@@ -1,13 +1,8 @@
-
-/* Custom dark mode is only for screens */
 @media screen {
     
     /* Custom dark theme */
     [data-md-color-scheme="dark"] {
-  
-      /* Slate's hue in the range [0,360] - change this variable to alter the tone
-      of the theme, e.g. to make it more redish or greenish. This is a slate-
-      specific variable, but the same approach may be adapted to custom themes. */
+
       --md-hue: 232;
   
       /* Default color shades */
@@ -16,9 +11,9 @@
       --md-default-fg-color--lighter:    hsla(var(--md-hue), 75%, 90%, 0.32);
       --md-default-fg-color--lightest:   hsla(var(--md-hue), 75%, 90%, 0.12);
       --md-default-bg-color:             #000;
-      --md-default-bg-color--light:      #000;;
-      --md-default-bg-color--lighter:    #000;;
-      --md-default-bg-color--lightest:   #000;;
+      --md-default-bg-color--light:      #000;
+      --md-default-bg-color--lighter:    #000;
+      --md-default-bg-color--lightest:   #000;
   
       /* Code color shades */
       --md-code-fg-color:                hsla(var(--md-hue), 18%, 86%, 1);
@@ -60,9 +55,7 @@
   
       /* Admonition color shades */
       --md-admonition-fg-color:          var(--md-default-fg-color);
-      /* --md-admonition-bg-color:          var(--md-default-bg-color); */
-
-      --md-admonition-bg-color:          white;
+      --md-admonition-bg-color:          var(--md-default-bg-color);
   
       /* Footer color shades */
       --md-footer-bg-color:              hsla(var(--md-hue), 15%, 12%, 0.87);
