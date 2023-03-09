@@ -58,8 +58,8 @@
       --md-admonition-bg-color:          var(--md-default-bg-color);
   
       /* Footer color shades */
-      --md-footer-bg-color:              hsla(var(--md-hue), 15%, 12%, 0.87);
-      --md-footer-bg-color--dark:        hsla(var(--md-hue), 15%, 10%, 1);
+      --md-footer-bg-color:              #000;
+      --md-footer-bg-color--dark:        #000;
   
       /* Shadow depth 1 */
       --md-shadow-z1:
