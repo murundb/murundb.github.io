@@ -20,7 +20,7 @@ A **standard form** linear program consists of equality constraints and nonnegat
 $$
 \begin{align}
 \min \quad& \mathbf{c}^T \mathbf{x} \\
-\text{s.t} \quad& \mathbf{A} \mathbf{x} = \mathbf{b}\\
+\text{s.t.} \quad& \mathbf{A} \mathbf{x} = \mathbf{b}\\
 \quad& \mathbf{x} \geq 0,
 \end{align}
 $$
@@ -54,7 +54,7 @@ Consider the following LP as another example:
 $$
 \begin{align}
 \max \quad& x_1 - x_2 \\
-\text{s.t} \quad& x_1 + x_2 \leq 2 \\
+\text{s.t.} \quad& x_1 + x_2 \leq 2 \\
 \quad& 2x_1 - x_2 \geq 3 \\
 \quad& x_1 \leq 0, \ x_2 \ \text{free}.
 \end{align}
@@ -65,7 +65,7 @@ First, we can convert the inequality constraints into equality constraints:
 $$
 \begin{align}
 -\min \quad& -x_1 + x_2 \\
-\text{s.t} \quad& x_1 + x_2 + s_1 = 2, \ s_1 \geq 0 \\
+\text{s.t.} \quad& x_1 + x_2 + s_1 = 2, \ s_1 \geq 0 \\
 \quad& 2x_1 - x_2 - s_2 = 3, \ s_2 \geq 0 \\
 \quad& x_1 \leq 0, \ x_2 \ \text{free}.
 \end{align}
@@ -76,7 +76,7 @@ Then we convert the free variable:
 $$
 \begin{align}
 -\min \quad& x_1 + x_2 - x_3 \\
-\text{s.t} \quad& -x_1 + x_2 - x_3 + s_1 = 2 \\
+\text{s.t.} \quad& -x_1 + x_2 - x_3 + s_1 = 2 \\
 \quad& -2x_1 - x_2  + x_3 - s_2 = 3 \\
 \quad& x_1, x_2, x_3, s_1, s_2 \geq 0.
 \end{align}

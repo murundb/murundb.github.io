@@ -30,7 +30,7 @@ An important point is that the simplex method goes from one BFS to another BFS. 
 
 ### Start from BFS
 
-Recall that a basic feasible solution is a feasible solution where all equality constraints $\mathbf{A}\mathbf{x} = \mathbf{b}$ are satisfied and out of all the active constraints, $n$ of them are linearly independent. A BFS $\mathbf{x}$ can be partioned into two parts: $\mathbf{x} = \left[ \mathbf{x}_B, \mathbf{x}_N \right]$, the basic variable part $\mathbf{x}_B$ and the nonbasic variable part $\mathbf{x}_N$. The nonbasic variable is always zero, i.e., $\mathbf{x}_N = \mathbf{0}$. The basic variable $\mathbf{x}_B = \left[x_{B,1}, \ldots, x_{B, m} \right]$ is associated with the basis matrix $\mathbf{B} = \left[ \mathbf{A}_1, \ldots, \mathbf{A}_m \right]$. In particular we have:
+Recall that a basic feasible solution is a feasible solution where all equality constraints $\mathbf{A}\mathbf{x} = \mathbf{b}$ are satisfied and out of all the active constraints, $n$ of them are linearly independent. A BFS $\mathbf{x}$ can be partioned into two parts: $\mathbf{x} = \left[ \mathbf{x}_B, \mathbf{x}_N \right]$, the basic variable part $\mathbf{x}_B$ and the nonbasic variable part $\mathbf{x}_N$. The nonbasic variable is always zero, i.e., $\mathbf{x}_N = \mathbf{0}$. The basic variable $\mathbf{x}_B = \left[x_{B(1)}, \ldots, x_{B(m)} \right]$ is associated with the basis matrix $\mathbf{B} = \left[ \mathbf{A}_{B(1)}, \ldots, \mathbf{A}_{B(m)} \right]$. In particular we have:
 
 $$
 \mathbf{b} = \mathbf{A} \mathbf{x} = \left[\mathbf{B}, \mathbf{N} \right]
@@ -109,7 +109,7 @@ $\bar{c}_j$ is the unit change of cost when me move along the $j$-th basic direc
 
 ### Find the Step Length
 
-Once a basis direction is selected, i.e., $\bar{c}_j < 0$ for some $j \in N$, we want to go along this direction as far as possible to maximize the cost reduction. We want to move until some basic variable $x_{B, l}$ becomes zero at $\mathbf{x} + \theta^* \mathbf{d}$, where:
+Once a basis direction is selected, i.e., $\bar{c}_j < 0$ for some $j \in N$, we want to go along this direction as far as possible to maximize the cost reduction. We want to move until some basic variable $x_{B(l)}$ becomes zero at $\mathbf{x} + \theta^* \mathbf{d}$, where:
 
 $$
 \theta^* := \max \left\{ \theta \geq 0 \ | \ \mathbf{x} + \theta \mathbf{d} \in P \right\}.
@@ -117,18 +117,18 @@ $$
 
 ### Arrive at an Adjacent BFS
 
-After moving by $\theta^* \mathbf{d}$, we have $x_{B, l} = 0$, i.e., $x_{B, l}$ becomes a nonbasic variable. At the same time, $x_j = \theta > 0$ becomes a basic variable. We may say that $x_j$ enters the basis and $x_{B, l}$ leaves the basis. If we look at the initial basis matrix $\mathbf{B}$ and the new basis matrix $\bar{\mathbf{B}}$, they only differ in one column:
+After moving by $\theta^* \mathbf{d}$, we have $x_{B(l)} = 0$, i.e., $x_{B(l)}$ becomes a nonbasic variable. At the same time, $x_j = \theta > 0$ becomes a basic variable. We may say that $x_j$ enters the basis and $x_{B(l)}$ leaves the basis. If we look at the initial basis matrix $\mathbf{B}$ and the new basis matrix $\bar{\mathbf{B}}$, they only differ in one column:
 
 $$
 \begin{align}
-\mathbf{B} &= \left[ \mathbf{A}_{B,1}, \ldots, \mathbf{A}_{B,l - 1}, \mathbf{A}_{B,l}, \mathbf{A}_{B,l + 1}, \ldots, \mathbf{A}_{B,m} \right] \in \mathbb{R}^{m \times m} \\
-\bar{\mathbf{B}} &= \left[ \mathbf{A}_{B,1}, \ldots, \mathbf{A}_{B,l - 1}, \mathbf{A}_{B,j}, \mathbf{A}_{B,l + 1}, \ldots, \mathbf{A}_{B,m} \right] \in \mathbb{R}^{m \times m} \\
+\mathbf{B} &= \left[ \mathbf{A}_{B(1)}, \ldots, \mathbf{A}_{B(l) - 1}, \mathbf{A}_{B(l)}, \mathbf{A}_{B(l) + 1}, \ldots, \mathbf{A}_{B(m)} \right] \in \mathbb{R}^{m \times m} \\
+\bar{\mathbf{B}} &= \left[ \mathbf{A}_{B(1)}, \ldots, \mathbf{A}_{B(l) - 1}, \mathbf{A}_{B,j}, \mathbf{A}_{B(l) + 1}, \ldots, \mathbf{A}_{B(m)} \right] \in \mathbb{R}^{m \times m} \\
 \end{align}
 $$
 
 **Theorem**. 
 
-*1. $\bar{\mathbf{B}}$ is a basis matrix, that is, columns $\mathbf{A}_{B, i}, i \neq l$ and $\mathbf{A}_j$ are linearly independent.*
+*1. $\bar{\mathbf{B}}$ is a basis matrix, that is, columns $\mathbf{A}_{B(i)}, i \neq l$ and $\mathbf{A}_j$ are linearly independent.*
 
 *2. The vector $\mathbf{y} = \mathbf{x} + \theta^* \mathbf{d}$ is a BFS associated with the basis matrix $\bar{\mathbf{B}}$*.
 
@@ -140,7 +140,7 @@ $$
 > $\quad$**Step 1**
 >
 > $\quad$ We start the simplex method with a BFS $\mathbf{x}$ and the associated basis consisting of the basis matrix   
-> $\quad$ $\mathbf{B} = \left[ \mathbf{A}_{B, 1}, \ldots, \mathbf{A}_{B, m} \right]$, where $\mathbf{A}_{B, i}$'s are the basic columns of $\mathbf{A}$.   
+> $\quad$ $\mathbf{B} = \left[ \mathbf{A}_{B(1)}, \ldots, \mathbf{A}_{B(m)} \right]$, where $\mathbf{A}_{B(i)}$'s are the basic columns of $\mathbf{A}$.   
 >
 > $\quad$**Step 2**
 > 
@@ -159,17 +159,17 @@ $$
 > $\quad$**Step 4**
 >
 > $\quad$ If some entry of $\mathbf{d}_B$ is negative, compute the stepsize $\theta^*$ by the min-ratio test:  
-> $\quad$ $\theta^* = \min_{\left\{ i = 1, \ldots, m \ | \ d_{B, i} < 0 \right\}} \frac{x_{B, i}}{-d_{B, i}}$.   
-> $\quad$ Suppose the index $B, l$ achieves the minimum: $x_{B, l}$ exits the basis.
+> $\quad$ $\theta^* = \min_{\left\{ i = 1, \ldots, m \ | \ d_{B(i)} < 0 \right\}} \frac{x_{B(i)}}{-d_{B(i)}}$.   
+> $\quad$ Suppose the index $B(l)$ achieves the minimum: $x_{B(l)}$ exits the basis.
 >
 > $\quad$**Step 5**
 >
-> $\quad$ For the new basis matrix $\bar{\mathbf{B}}$ by replacing $\mathbf{A}_{B, l}$ column with $\mathbf{A_j}$. The new BFS $\mathbf{y}$ has basic variable part   
-> $\quad$ $y_{B, i} = x_{B, i} + \theta^* d_{B, i}$ and $y_j = \theta^*$. Start new iteration.
+> $\quad$ Form the new basis matrix $\bar{\mathbf{B}}$ by replacing $\mathbf{A}_{B(l)}$ column with $\mathbf{A_j}$. The new BFS $\mathbf{y}$ has basic variable part   
+> $\quad$ $y_{B(i)} = x_{B(i)} + \theta^* d_{B(i)}$ and $y_j = \theta^*$. Start a new iteration.
 
 ## Degenerate Problems
 
-**Definition**. *A BFS of a standard for LP is said to be **nondegenerate**, if every basic variable is positive, i.e., $x_{B, i} > 0$ for all $i = 1, \ldots, m$. A BFS pf a stamdard form LP is said to be **degenerate**, if some basic variable $x_{B, i}$ is zero.*
+**Definition**. *A BFS of a standard for LP is said to be **nondegenerate**, if every basic variable is positive, i.e., $x_{B, i} > 0$ for all $i = 1, \ldots, m$. A BFS pf a standard form LP is said to be **degenerate**, if some basic variable $x_{B, i}$ is zero.*
 
 The simplex method introduced before moves by a positive amount $\theta^* > 0$ along a direction $\mathbf{d}$, and no BFS can be visited twice if every BFS is non-degenerate. Since any polyhedron can only have a finite number of BFS, the algorithm must terminate after a finite number of iterations.
 

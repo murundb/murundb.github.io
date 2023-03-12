@@ -5,7 +5,7 @@ This section deals with solving nonlinear programs by converting team into linea
 $$
 \begin{align}
 \min \quad& f(\mathbf{x}) \\ 
-\text{s.t} \quad& \mathbf{x} \in X
+\text{s.t.} \quad& \mathbf{x} \in X
 \end{align}
 $$
 
@@ -17,6 +17,8 @@ number of linear functions:
 $$
 \tilde{f}(\mathbf{x}) = \max \left\{ \mathbf{a}^T_1 \mathbf{x} + b_1, \ldots, \mathbf{a}^T_m \mathbf{x} + b_m \right\}.
 $$
+
+Similarly, any concave PWL can be writtes as a **minimum** of a finite number of linear functions.
 
 ## Convex Piecewise Linear Approximation
 
@@ -43,7 +45,7 @@ We can further reformulate the problem by introducing a new variable, $z$, and p
 $$
 \begin{align}
 \min_{\mathbf{x}, z} \quad& z \\
-\text{s.t} \quad& f(\mathbf{x}) \leq z \\
+\text{s.t.} \quad& f(\mathbf{x}) \leq z \\
 \quad& \mathbf{x} \in X,
 \end{align}
 $$
@@ -53,7 +55,7 @@ or equivalently:
 $$
 \begin{align}
 \min_{\mathbf{x} \in X, z} \quad& z \\
-\text{s.t} \quad& \max \left\{\mathbf{a}^T_1 \mathbf{x} + b_1, \ldots, \mathbf{a}^T_m \mathbf{x} + b_m \right\} \leq z,
+\text{s.t.} \quad& \max \left\{\mathbf{a}^T_1 \mathbf{x} + b_1, \ldots, \mathbf{a}^T_m \mathbf{x} + b_m \right\} \leq z,
 \end{align}
 $$
 
@@ -62,7 +64,7 @@ which is a Linear Program:
 $$
 \begin{align}
 \min_{\mathbf{x} \in X, z} \quad& z \\
-\text{s.t} \quad& \mathbf{a}^T_i \mathbf{x} + b_i \leq z, \quad \forall i = 1, \ldots, m.
+\text{s.t.} \quad& \mathbf{a}^T_i \mathbf{x} + b_i \leq z, \quad \forall i = 1, \ldots, m.
 \end{align}
 $$
 
@@ -92,7 +94,7 @@ The equivalent LP reformulation of the problem is:
 $$
 \begin{align}
 \min_{b_0, \ldots, b_n} \quad& \sum^N_{i = 1} z_i \\ 
-\textrm{s.t} \quad& b_0 + \sum^n_j b_j x_{ij} - y_i \leq z_i, \quad \forall i = 1, \ldots, N \\
+\textrm{s.t.} \quad& b_0 + \sum^n_j b_j x_{ij} - y_i \leq z_i, \quad \forall i = 1, \ldots, N \\
 \quad& b_0 + \sum^n_j b_j x_{ij} - y_i \geq -z_i, \quad \forall i = 1, \ldots, N \\
 \end{align}
 $$
@@ -124,7 +126,7 @@ $$
 \begin{align}
 \min \quad& 4d(x_1, y_1, x_2, y_2) + 1.1d(x_1, y_1, 300, 1200) + 0.7d(x_1, y_1, 0, 600) \\
 \quad& + 0.65d(x_2, y_2, 0, 600) + 0.4d(x_2, y_2, 600, 0) \\
-\textrm{s.t} \quad& 0 \leq x_i \leq 900, \quad \forall i = 1, 2 \\
+\textrm{s.t.} \quad& 0 \leq x_i \leq 900, \quad \forall i = 1, 2 \\
 \quad& 0 \leq y_i \leq 900, \quad \forall i = 1, 2.
 \end{align}
 $$
@@ -136,7 +138,7 @@ $$
 \min \quad& 4(|x_1 - x_2| + |y_1 - y_2|) + 1.1(|x_1 - 300| + |y_1 - 1200|) \\
 \quad& + 0.7(|x_1| + |y_1 - 600|) + 0.65(|x_2| + |y_2 - 600|) \\
 \quad& + 0.4(|x_2 - 600| + |y_2|) \\
-\textrm{s.t} \quad& 0 \leq x_i \leq 900, \quad \forall i = 1, 2 \\
+\textrm{s.t.} \quad& 0 \leq x_i \leq 900, \quad \forall i = 1, 2 \\
 \quad& 0 \leq y_i \leq 900, \quad \forall i = 1, 2.
 \end{align}
 $$
@@ -147,7 +149,7 @@ $$
 \begin{align}
 \min \quad& 4(z_1 + z_2) + 1.1(z_3 + z_4) + 0.7(z_5 + z_6)  \\
 \quad& + 0.65(z_7 + z_8) + 0.4(z_9 + z_{10}) \\ 
-\textrm{s.t} \quad& -z_1 \leq x_1 - x_2 \leq z_1 \\
+\textrm{s.t.} \quad& -z_1 \leq x_1 - x_2 \leq z_1 \\
 \quad& -z_2 \leq y_1 - y_2 \leq z_2 \\
 \quad& -z_3 \leq x_1 - 300 \leq z_z \\
 \quad& \quad \ldots

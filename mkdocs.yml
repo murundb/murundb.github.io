@@ -89,10 +89,15 @@ nav:
     - Optimization Problem Formulation: optimization/optimization_problem_formulation.md
     - Duality: optimization/duality.md
     - Unconstrained Optimization:
-      - Optimality Conditions: optimization/optimality_conditions.md
-      - Gradient Desent: optimization/gradient_descent.md
-      - Newton's Method: optimization/newton_method.md
+      - Optimality Conditions: optimization/unconstrained_optimization/optimality_conditions.md
+      - Gradient Desent: optimization/unconstrained_optimization/gradient_descent.md
+      - Newton's Method: optimization/unconstrained_optimization/newton_method.md
+      - Quasi-Newton Method: optimization/unconstrained_optimization/quasi_newton_method.md
+      - Golden Section: optimization/unconstrained_optimization/golden_section.md
+      - Quadratic Fit: optimization/unconstrained_optimization/quadratic_fit.md
+      - Nelder-Mead Method: optimization/unconstrained_optimization/nelder_mead_method.md
     - Linear Programming:
+      - Modelling Using Linear Programs: optimization/linear_programming/modelling_using_linear_programs.md
       - Algrebraic Aspects: optimization/linear_programming/algebraic_aspects.md
       - Simplex Method: optimization/linear_programming/simplex_method.md
       - Linear Stochastic Program: optimization/linear_programming/linear_stochastic_program.md

@@ -3,14 +3,14 @@
 We are interested in solving unconstrained optimization problem:
 
 $$
-\min \quad f(\mathbf{x}),
+\min \quad f(\mathbf{x}) \ \text{s.t.} \ \mathbf{x} \in \mathbb{R}^n,
 $$
 
-where $f: \mathbb{R}^n \rightarrow \mathbb{R}$ is convex and twice continuously differentiable. 
+where $f: \mathbb{R}^n \rightarrow \mathbb{R}$ is continuous and twice continuously differentiable. 
 
-## Optimiality Conditions
+## Optimality Conditions
 
-Two optimality conditions that are necessary but not sufficient are as follows.
+Two optimality conditions that are necessary but not sufficient are as follows:
 
 ### First-Order
 
@@ -37,7 +37,7 @@ vanishes is called a **stationary point**.
 
 ### Second-Order
 
-Per first-order condition, if $\mathbf{x}^*$ is a local minima, then we have $\nabla f(\mathbf{x}^*) = 0$. For $f(\mathbf{x}^* + \Delta \mathbf{x}) \geq f(\mathbf{x}^*)$ to hold for all 
+Per first-order condition, if $\mathbf{x}^*$ is a local minima, then we have a vanishing gradient, i.e., $\nabla f(\mathbf{x}^*) = 0$. For $f(\mathbf{x}^* + \Delta \mathbf{x}) \geq f(\mathbf{x}^*)$ to hold for all 
 $\Delta \mathbf{x} = 0$, we must have:
 
 $$

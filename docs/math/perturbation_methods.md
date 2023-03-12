@@ -16,3 +16,6 @@ For convergence, we need $x - x_0$ to be small. Let $\epsilon = x - x_0$ (and $x
 $$
 f(x_0 + \epsilon) \approx f(x_0) + f'(x_0) \epsilon + \frac{f''(x_0)}{2!} \epsilon^2 \ldots.
 $$
+
+
+https://stats.stackexchange.com/questions/5782/variance-of-a-function-of-one-random-variable

@@ -2,11 +2,13 @@
 
 The basic paradigm of descent methods is as follows:
 
-1. Choose an initial solution $\mathbf{x}^0$.
-2. Choose a descent direction $\mathbf{d}^0$
-3. Choose a step size $\alpha_0$
-4. Update the solution $\mathbf{x}^1 = \mathbf{x}^0 + \alpha_0 \mathbf{d}^0$
-5. If a stopping criteria is met, stop; else re-iterate with current solution.
+> **Algorithm:** Descent Methods 
+>
+> $\quad$ Choose an initial solution $\mathbf{x}^0$.   
+> $\quad$ Choose a descent direction $\mathbf{d}^0$.   
+> $\quad$ Choose a step size $\alpha_0$.   
+> $\quad$ Update the solution $\mathbf{x}^1 = \mathbf{x}^0 + \alpha_0 \mathbf{d}^0$.   
+> $\quad$ If a stopping criteria is met, stop; else re-iterate with current solution.   
 
 ## Gradient Descent
 
@@ -17,13 +19,13 @@ $$
 f(\mathbf{x}^k + \alpha \mathbf{d}^k) < f(\mathbf{x}^k).
 $$
 
-By Taylor approximation:
+By first-order Taylor series:
 
 $$
 f(\mathbf{x}^k + \alpha \mathbf{d}^k) \approx f(\mathbf{x}^k) + \alpha \nabla f(\mathbf{x}^k)^T \mathbf{d}^k.
 $$
 
-Hence, we want $\alpha \nabla f(\mathbf{x}^k)^T \mathbf{d}^k < 0$. The steepest descent direction is:
+Hence, we want $\alpha \nabla f(\mathbf{x}^k)^T \mathbf{d}^k < 0$. The **steepest descent direction** is the opposite direction of the gradient vector:
 
 $$
 \mathbf{d}^k = -\nabla f(\mathbf{x}^k).
@@ -47,12 +49,12 @@ The stop criterian is $|| \nabla f(\mathbf{x}^k)|| \leq \epsilon$.
 Let $\mathbf{x} = \left[x_1, x_2 \right]^T$. We are interested in the optimization problem:
 
 $$
-\min f(\mathbf{x}) = (x_1 + 1)^4 + x_1 x_2  + (x_2 + 1)^4. 
+\min f(\mathbf{\mathbf{x}}) = (x_1 + 1)^4 + x_1 x_2  + (x_2 + 1)^4. xw
 $$
 
 To solve it with a gradient descent method:
 
-1. Choose initial conditions $x^0 = \left[0, 1 \right]^T$. The initial cost is $f(x^0) = 17.0$
+1. Choose initial conditions $\mathbf{x}^0 = \left[0, 1 \right]^T$. The initial cost is $f(\mathbf{x}^0) = 17.0$.
 2. The gradient is:
 
     $$
@@ -99,12 +101,12 @@ To solve it with a gradient descent method:
 
 ## Gradient Descent Characteristics
 
-1. At any point $\mathbf{x}^k$ with $\nabla f(\mathbf{x}^k) \neq 0$, the gradient descent produces the most rapid convergence (locally)
+1. At any point $\mathbf{x}^k$ with $\nabla f(\mathbf{x}^k) \neq 0$, the gradient descent produces the most rapid convergence (locally).
 
-2. Initial progress is good, but near a stationary point, the convergence behavior degrades
+2. Initial progress is good, but near a stationary point, the convergence behavior degrades.
 
 3. "Zig-zags", i.e., each successive direction (of move) is perpendicular to the previous direction. Let $\mathbf{d}^k$ be the descent direction and 
     $\alpha_k$ be the optimum step length at step $k$, i.e., 
     $0 = \frac{dg(\alpha)}{d \alpha}|_{\alpha = \alpha_k} = \nabla f(\mathbf{x}^k + \alpha_k \mathbf{d}^k)^T \mathbf{d}^k = \nabla f(\mathbf{x}^{k + 1})^T \mathbf{d}^k$. 
 
-    Since $\mathbf{d}^{k + 1} = - \nabla f(\mathbf{x}^{k + 1})$, we have that $\mathbf{d}^{k + 1} \mathbf{d}^k = 0$, i.e., two successive directions are perpendicular.
+    Since $\mathbf{d}^{k + 1} = - \nabla f(\mathbf{x}^{k + 1})$, we have that $\left( \mathbf{d}^{k + 1} \right)^T \mathbf{d}^k = 0$, i.e., two successive directions are perpendicular.

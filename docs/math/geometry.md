@@ -91,10 +91,10 @@ b_m
 \right].
 $$
 
-Another way to define **polyhedra** as the solution set of a finite number of linear equalities and inequalities:
+Another way to define **polyhedra** is as the solution set of a finite number of linear equalities and inequalities:
 
 $$
-P = \left\lbrace \mathbf{x} \ | \ \mathbf{A} \mathbf{x} \leq b, \ \mathbf{C} \mathbf{x} = d \right\rbrace,
+P = \left\lbrace \mathbf{x} \ | \ \mathbf{A} \mathbf{x} < b, \ \mathbf{C} \mathbf{x} = d \right\rbrace,
 $$
 
 where $\mathbf{A} \in \mathbb{R}^{m \times n}$ and $\mathbf{C} \in \mathbb{R}^{p \times n}$.

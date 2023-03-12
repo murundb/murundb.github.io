@@ -5,7 +5,7 @@ A general two-stage stochastic program can be formulated as:
 $$
 \begin{align}
 \min_{x, y(\cdot)} \quad& cx + E_{w} \left[ q(w)^T y(w) \right] \\ 
-\text{s.t} \quad& Ax \leq b \\
+\text{s.t.} \quad& Ax \leq b \\
 \quad& T(w)x + Wy(w) \leq h(w), \quad \forall w \in W \\
 \quad& y(w) \geq 0, \quad \forall w \in W.
 \end{align}
@@ -16,7 +16,7 @@ If we are dealing with discrete random variable, then:
 $$
 \begin{align}
 \min_{x, y_i} \quad& cx + \sum^{S}_{i} p_i q^T_i y_i \\
-\text{s.t} \quad& Ax \leq b \\
+\text{s.t.} \quad& Ax \leq b \\
 \quad& T_i x + W y_i \leq h_i, \quad \forall i = 1, \ldots, S \\
 \quad& y_i \geq 0, \quad \forall i = 1, \ldots, S
 \end{align}
@@ -45,7 +45,7 @@ The objective function can be defined as minimizing the production cost and expe
 $$
 \begin{align}
 \min_{x} \quad& cx + E_d \left[ Q(x, d) \right] \\
-\text{s.t} \quad& 0 \leq x \leq \bar{x}
+\text{s.t.} \quad& 0 \leq x \leq \bar{x}
 \end{align}
 $$
 
@@ -55,7 +55,7 @@ the second-stage decisions depend on $d$, i.e., $y$ and $z$ are functions of $d$
 $$
 \begin{align}
 Q(x, d) = \min_{y, z} \quad& -ry - sz \\ 
-\quad \text{s.t} \quad& y \leq d \\
+\quad \text{s.t.} \quad& y \leq d \\
 \quad& y + z \leq x \\
 \quad& y \geq 0, z \geq 0
 \end{align}
@@ -68,7 +68,7 @@ The two-stage program can be combined into a single stage program:
 $$
 \begin{align}
 \min_{x} \quad& cx + E_d \left[\min_{y(d), z(d)} -ry(d) - sz(d) \right] \\ 
-\text{s.t} \quad& 0 \leq x \leq \bar{x} \\ 
+\text{s.t.} \quad& 0 \leq x \leq \bar{x} \\ 
 \quad& y(d) \leq d, \quad \forall d \in D \\
 \quad& -x + y(d) + z(d) \leq 0, \quad \forall d \in D \\
 \quad& y(d) \geq 0, z(d) \geq 0 \quad \forall d \in D,
@@ -80,7 +80,7 @@ or equivalently:
 $$
 \begin{align}
 \min_{x, y(\cdot), z(\cdot)} \quad& cx + E_d \left[ -ry(d) - sz(d) \right] \\ 
-\text{s.t} \quad& 0 \leq x \leq \bar{x} \\ 
+\text{s.t.} \quad& 0 \leq x \leq \bar{x} \\ 
 \quad& y(d) \leq d, \quad \forall d \in D \\
 \quad& -x + y(d) + z(d) \leq 0, \quad \forall d \in D \\
 \quad& y(d) \geq 0, z(d) \geq 0 \quad \forall d \in D.
@@ -95,7 +95,7 @@ the problem can be converted to a deterministic Linear Program:
 $$
 \begin{align}
 \min_{x, y_i, z_i} \quad& cx + \sum^S_{i = 1} p_i \left( -ry_i - sz_i \right) \\ 
-\text{s.t} \quad& 0 \leq x \leq \bar{x} \\ 
+\text{s.t.} \quad& 0 \leq x \leq \bar{x} \\ 
 \quad& y_i \leq d_i, \quad \forall d \in D \\
 \quad& -x + y_i + z_i \leq 0, \quad \forall d \in D \\
 \quad& y_i \geq 0, z_i \geq 0 \quad \forall d \in D.
