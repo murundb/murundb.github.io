@@ -87,7 +87,7 @@ nav:
   - Optimization:
     - References: optimization/references.md
     - Optimization Problem Formulation: optimization/optimization_problem_formulation.md
-    - Duality: optimization/duality.md
+    - Duality Theory: optimization/duality.md
     - Unconstrained Optimization:
       - Optimality Conditions: optimization/unconstrained_optimization/optimality_conditions.md
       - Gradient Desent: optimization/unconstrained_optimization/gradient_descent.md

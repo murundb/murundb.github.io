@@ -30,8 +30,6 @@ Any convex function, $f(\mathbf{x})$, can be approximated by a convex PWL functi
   <figcaption>Figure 1: PWL approximation of a nonlinear convex function</figcaption>
 </figure>
 
-## Reformulation
-
 The optimization problem then becomes:
 
 $$
@@ -39,6 +37,8 @@ $$
 \min_{\mathbf{x} \in X} \quad f(\mathbf{x}) \Rightarrow \min_{\mathbf{x} \in X} \quad \max \left\{ \mathbf{a}^T_1 \mathbf{x}+ b_1, \ldots, \mathbf{a}^T_m \mathbf{x} + b_m \right\}.
 \end{align}
 $$
+
+## Reformulation
 
 We can further reformulate the problem by introducing a new variable, $z$, and putting the objective into a constraint:
 
