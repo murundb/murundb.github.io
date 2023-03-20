@@ -102,6 +102,8 @@ nav:
       - Simplex Method: optimization/linear_programming/simplex_method.md
       - Linear Stochastic Program: optimization/linear_programming/linear_stochastic_program.md
       - Nonlinear Program: optimization/linear_programming/nonlinear_program.md
+      - Robust Optimization: optimization/linear_programming/robust_optimization.md
+      - Column and Constraint Generation: optimization/linear_programming/column_and_constraint_generation.md
   
   - Kinematics:
     - References: kinematics/references.md
