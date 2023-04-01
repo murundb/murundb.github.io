@@ -1,6 +1,6 @@
 ## Definition
 
-It is often useful to analyze an analytical function via perturbation model, i.e., introducing a relatively small variable, $\epsilon \ll < 1$.
+It is often useful to analyze an analytical function via perturbation model, i.e., introducing a relatively small variable, $\epsilon \ll 1$.
 
 ## Regular Perturbation Expansions
 

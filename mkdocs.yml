@@ -82,6 +82,7 @@ nav:
     - Convex Functions: math/convex_functions.md
     - Matrix Calculus: math/matrix_calculus.md
     - Matrix Calculus Identities: math/matrix_calculus_identities.md
+    - Matrix Factorization: math/matrix_factorization/singular_value_decomposition.md
     - Perturbation Methods: math/perturbation_methods.md
 
   - Optimization:
@@ -104,6 +105,9 @@ nav:
       - Nonlinear Program: optimization/linear_programming/nonlinear_program.md
       - Robust Optimization: optimization/linear_programming/robust_optimization.md
       - Column and Constraint Generation: optimization/linear_programming/column_and_constraint_generation.md
+      - Dantzig-Wolfe Decomposition: optimization/linear_programming/dantzig_wolfe_decomposition.md
+    - Nonlinear Programming:
+      - Least Squares: optimization/nonlinear_programming/least_squares.md
   
   - Kinematics:
     - References: kinematics/references.md
@@ -127,6 +131,10 @@ nav:
 
     - Extended Kalman Filter:
       - Continuous-Time EKF: state_estimation/continuous_time_ekf.md
+  
+  - Computer Vision:
+    - Image Compression:
+      - Compression via Low-Rank Matrix Approximation: computer_vision/image_compression/compression_by_low_rank_matrix_approximation.md
 
   - Navigation:
     - References: navigation/references.md

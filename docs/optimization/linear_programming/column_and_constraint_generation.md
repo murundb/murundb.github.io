@@ -1,4 +1,4 @@
-docs/optimization/linear_programming/column_and_constraint_generation.md ## Column Generation
+## Column Generation
 
 Consider a master problem:
 
@@ -15,7 +15,7 @@ The column generation algorithm is useful when $N$ is extremely large number.
 > **Algorithm:** **Column Generation**
 >
 > $\quad$ 1. Pick a subset of columns $\left\{ \mathbf{A}_j \right\}$ and variables $x_j$'s for $j \in I$, where $I$ is a subset of $\left\{1, 2, \ldots, N \right\}$.   
-> $\quad$ 2. Solve the **restricted master problem**: $\begin{align} (RMP) \quad \min \quad& \sum_{j \in I} c_j x_j \\ \quad \text{s.t.} \quad& \mathbf{A}_j x_j = \mathbf{b} \\ &x_j \geq 0, \quad \forall j \in I. \end{align}$.   
+> $\quad$ 2. Solve the **restricted master problem**: $\begin{align} (RMP) \quad \min \quad& \sum_{j \in I} c_j x_j \\ \quad \text{s.t.} \quad& \sum_{j \in I} \mathbf{A}_j x_j = \mathbf{b} \\ &x_j \geq 0, \quad \forall j \in I. \end{align}$.   
 > $\quad\quad$ Denote the optimal solution of $(RMP)$ as $\hat{\mathbf{x}}_I$.   
 > $\quad$ 3. **Pricing subproblem**: Compute all the reduced  costs for $\hat{\mathbf{x}}$ and decide if $\hat{\mathbf{x}}$ is optimal for $(MP)$: $\begin{align} w = \min_{j = 1, \ldots, N} \left\{ c_j - \mathbf{c}^T_B \mathbf{B}^{-1} \mathbf{A}_k \right\}, \end{align}$   
 > $\quad\quad$ where $\mathbf{B}$ is the optimal basis obtained from solving the $(RMP)$. There are two possibilities for $w$:   
