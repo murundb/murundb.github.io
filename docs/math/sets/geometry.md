@@ -57,6 +57,12 @@ $$
 
 Such set is called a **cone**.
 
+An order $\geq_{K}$ is defined by an underlying convex cone $K$ as:
+
+$$
+\mathbf{a} \geq_{K} \mathbf{b} \ \text{iff} \ \mathbf{a} - \mathbf{b} \in K.
+$$
+
 ## Polyhedron
 
 ### Polyhedron via Halfspaces
