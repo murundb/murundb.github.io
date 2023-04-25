@@ -8,8 +8,7 @@
 
 
 Elements in $SO(3)$ are non-singular. One of the eigenvalues are always 1 with the other two being complex valued with magnitude of 1. This implies that there exists
-a unit vector (eigenvector) $\hat{\mathbf{e}}$ that remain unchanged following the application of a transformation matrix $\mathbf{R}$. This unit vector is the axis of the rotation that the rotation
-matrix can be used to represent. A rotation can be represented by a rotation axis $\hat{\mathbf{e}}$ and an angle $\theta$, or equivalently by a 3D vector $\boldsymbol{\rho} = \theta \hat{\mathbf{e}}$. Given a vector $\mathbf{x} \in \mathbb{R}^3$, let $\mathbf{y}$ be the rotated vector via the axis-angle $\left( \hat{\mathbf{e}}, \theta \right)$ as shown in Figure 1.
+a unit vector (eigenvector) $\hat{\mathbf{e}}$ that remain unchanged following the application of a transformation matrix $\mathbf{R}$. This unit vector is the axis of the rotation that can be used to represent a rotation matrix. A rotation can be represented by a rotation axis $\hat{\mathbf{e}}$ and an angle $\theta$, or equivalently by a 3D vector $\boldsymbol{\rho} = \theta \hat{\mathbf{e}}$. Given a vector $\mathbf{x} \in \mathbb{R}^3$, let $\mathbf{y}$ be the rotated vector via the axis-angle $\left( \hat{\mathbf{e}}, \theta \right)$ rotation as shown in Figure 1.
 
 Project the vector $\mathbf{x}$ onto $\hat{\mathbf{e}}$:
 
@@ -68,7 +67,7 @@ $$
 \end{align}
 $$
 
-is the ***Rodrigues's formula***. Here we used the fact that:
+is the **Rodrigues's formula**. Note that we used:
 
 $$
 \begin{align*}
@@ -91,7 +90,7 @@ $$
 
 ## Rodigues's Formula via Lie Algebra
 
-### Lie Algebra
+### SO(3) Lie Group and Lie Algebra
 
 Every Lie group has an associated Lie algebra, which is the **tangent space** around the identity element of the Lie group. Lie algebra for Lie group $SO(3)$ is $\mathfrak{so}(3)$ where:
 
@@ -101,7 +100,7 @@ $$
 
 and the exponential mapping of $\mathfrak{so}(3)$ is $SO(3)$. 
 
-Let $\mathbf{R}\left(t\right)$ be a time-varying rotation matrix. Since $\mathbf{R}\left(t\right) \in SO(3)$, we know that $\mathbf{R}\left(t\right) \mathbf{R}\left(t\right)^T = \mathbf{I}_3$. Taking the derivative from both sides:
+**Proof**. Let $\mathbf{R}\left(t\right)$ be a time-varying rotation matrix. Since $\mathbf{R}\left(t\right) \in SO(3)$, we know that $\mathbf{R}\left(t\right) \mathbf{R}\left(t\right)^T = \mathbf{I}_3$. Taking the derivative from both sides:
 
 $$
 \begin{align}
@@ -111,7 +110,7 @@ $$
 $$
 
 Equation ($\ref{lie_algebra}$) implies that $\dot{ \mathbf{R}(t)} \mathbf{R}(t)^T$ is a [skew-symmetric matrix](https://en.wikipedia.org/wiki/Skew-symmetric_matrix). This further implies
-that we can find $\boldsymbol{\rho}t \in \mathbb{R}^3$, where:
+that we can find $\boldsymbol{\rho}(t) \in \mathbb{R}^3$, where:
 
 $$
 \left[ \boldsymbol{\rho}(t) \right]_{\times} = \dot{ \mathbf{R}(t)} \mathbf{R}(t)^T
@@ -145,7 +144,7 @@ $$
 \mathbf{R}(t) = \mathbf{e}^{\left[ \boldsymbol{\rho}_0 \right]_\times t},
 $$
 
-where $\boldsymbol{\rho}_0 = \boldsymbol{\rho}(t_0)$. In summary, we have:
+where $\boldsymbol{\rho}_0 = \boldsymbol{\rho}(t_0)$, which yields to:
 
 $$
 \frac{d \left( \mathbf{e}^{\left[ \boldsymbol{\rho}_0 \right]_\times t} \right)}{dt} = \mathbf{e}^{\left[ \boldsymbol{\rho}_0 \right]_\times t} \left[ \boldsymbol{\rho}_0 \right]_\times  = \left[ \boldsymbol{\rho}_0 \right]_\times  \mathbf{e}^{\mathbf{\left[ \boldsymbol{\rho}_0 \right]_\times t}}.
@@ -203,7 +202,7 @@ $$
 
 ### Rotation Formula
 
-Via exponential mapping, the ***Rodrigues's formula*** can be obtained via:
+Via exponential mapping, the **Rodrigues's formula** can be obtained as:
 
 $$
 \begin{align}
@@ -266,7 +265,7 @@ $$
 or simply:
 
 $$
-\mathbf{R}^{\alpha}_{\beta} = \text{cos} \left( \theta_{\beta \alpha}  \right) \mathbf{I} + 
+\mathbf{R}^{\beta}_{\alpha} = \text{cos} \left( \theta_{\beta \alpha}  \right) \mathbf{I} + 
 \left( 1 - \text{cos} \left( \theta_{\beta \alpha} \right) \right) \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \left( \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right)^T + 
 \text{sin} \left( \theta_{\beta \alpha} \right) \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times}. \label{2.3.18}
 $$
@@ -274,14 +273,14 @@ $$
 The inverse conversion can be via logarithmic mapping fom $SO(3)$ to $\mathfrak{so}(3)$:
 
 $$
-\boldsymbol{\rho}_{\beta \alpha} = \left[ \text{ln}\left( \mathbf{R^{\alpha}_{\beta}} \right) \right]^{-1}_{\times} = \left[\sum^{\infty}_{k=0} \frac{(-1)^k}{k + 1} \left( \mathbf{R}^{\alpha}_{\beta} - \mathbf{I} \right)^{k+1} \right]^{-1}_{\times}.
+\boldsymbol{\rho}_{\beta \alpha} = \left[ \text{ln}\left( \mathbf{R^{\beta}_{\alpha}} \right) \right]^{-1}_{\times} = \left[\sum^{\infty}_{k=0} \frac{(-1)^k}{k + 1} \left( \mathbf{R}^{\beta}_{\alpha} - \mathbf{I} \right)^{k+1} \right]^{-1}_{\times}.
 $$
 
 More easier way is to take the trace from both sides of <i>Rodrigues' formula</i>:
 
 $$
 \begin{align}
-\text{tr}(\mathbf{R}^{\alpha}_{\beta}) &= \text{cos}\left(\theta_{\beta \alpha}\right) \text{tr}(\mathbf{I}) + \left( 1 - \text{cos} \left( \theta_{\beta \alpha} \right) \right) \text{tr}\left( \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \left( \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right)^T \right)
+\text{tr}(\mathbf{R}^{\beta}_{\alpha}) &= \text{cos}\left(\theta_{\beta \alpha}\right) \text{tr}(\mathbf{I}) + \left( 1 - \text{cos} \left( \theta_{\beta \alpha} \right) \right) \text{tr}\left( \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \left( \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right)^T \right)
 + \text{sin}\left( \theta_{\beta \alpha} \right) \text{tr} \left( \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times} \right) \\
 &= 3 \text{cos} \left( \theta_{\beta \alpha} \right) + \left( 1 - \text{cos} \left( \theta_{\beta \alpha} \right) \right) \\
 &= 1 + 2 \text{cos} \left( \theta_{\beta \alpha} \right).
@@ -292,8 +291,8 @@ Hence, rotation angle can be computed as:
 
 $$
 \begin{align}
-\theta_{\beta \alpha} &= \text{arccos} \left( \frac{\text{tr} \left( \mathbf{R}^{\alpha}_{\beta}\right) - 1}{2}  \right) \\
-&= \text{arccos} \left( \frac{1}{2} \left( \mathbf{R}^{\alpha}_{\beta \ 1,1} + \mathbf{R}^{\alpha}_{\beta \ 2,2} + \mathbf{R}^{\alpha}_{\beta \ 1,1} - 1\right) \right)
+\theta_{\beta \alpha} &= \text{arccos} \left( \frac{\text{tr} \left( \mathbf{R}^{\beta}_{\alpha}\right) - 1}{2}  \right) \\
+&= \text{arccos} \left( \frac{1}{2} \left( \mathbf{R}^{\beta}_{\alpha \ 1,1} + \mathbf{R}^{\beta}_{\alpha \ 2,2} + \mathbf{R}^{\beta}_{\alpha \ 1,1} - 1\right) \right)
 \end{align}
 $$
 
@@ -344,7 +343,7 @@ $$
 \end{align}
 $$
 
-## Small Angle Approximation
+## Infinitesimal Rotations
 
 When the transformation matrix and rotation vector represent a small angular perturbation 
 , we can use small angle approximation to get:

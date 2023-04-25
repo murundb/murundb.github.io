@@ -1,8 +1,8 @@
-# Angular Rate
+# Angular Velocity
 
-The angular rate vector, $\boldsymbol{\omega}^{\gamma}_{\beta \alpha}$, is the rate of rotation of the frame $F_\alpha$ axes with respect
+The angular velocity vector, $\boldsymbol{\omega}^{\gamma}_{\beta \alpha}$, is the rate of rotation of the frame $F_\alpha$ axes with respect
 to the frame $F_\beta$ axes, resolved about the frame $F_\gamma$ axes. The rotation is within the plane perpendicular to the angular rate vector, and 
-the angular rate vector direction follows the right-hand rule. Reversing the sign of the angular rate vector results in the transposed version:
+the angular rate vector direction follows the right-hand rule. Reversing the sign of the angular rate vector results in rotation of the frame $F_\beta$ with respect to frame $F_\alpha$ resolved about the frame $F_\gamma$ axes:
 
 $$
 \boldsymbol{\omega}^{\gamma}_{\beta \alpha} = -\boldsymbol{\omega}^{\gamma}_{\alpha \beta}. \label{3.1}
@@ -14,7 +14,7 @@ $$
 \boldsymbol{\omega}^{\gamma}_{\beta \alpha} = \boldsymbol{\omega}^{\gamma}_{\beta \delta} + \boldsymbol{\omega}^{\gamma}_{\delta \alpha}.\label{3.2}
 $$
 
-The resolving axes can be changed by using the transformation matrix:
+Observers in the frames $F_\alpha$ and $F_\beta$ do not see the same motion because of their own relative motions. The resolving axes can be changed by using the rotation matrix:
 
 $$
 \boldsymbol{\omega}^{\gamma}_{\beta \alpha} = \mathbf{R}^{\gamma}_{\delta} \boldsymbol{\omega}^{\delta}_{\beta \alpha}.\label{3.3}
@@ -39,7 +39,7 @@ $$
 \boldsymbol{\Omega}^{\gamma}_{\beta \alpha} = \mathbf{R}^{\gamma}_{\delta} \boldsymbol{\Omega}^{\delta}_{\beta \alpha} \mathbf{R}^{\delta}_{\gamma}. \label{3.5}
 $$
 
-The time derivative of a coordinate transformation matrix was previously computed when we derived Rodrigues' formula. Using derivative definition:
+The time derivative of a coordinate transformation matrix was previously computed when we derived Rodrigues' formula. Using the definition of derivative:
 
 $$
 \dot{\mathbf{R}}^{\alpha}_{\beta}(t) = \lim_{\delta t \rightarrow 0} \left( \frac{\mathbf{R}^{\alpha}_{\beta}(t + \delta t) - \mathbf{R}^{\alpha}_{\beta} (t)}{\delta t} \right). \label{3.6}

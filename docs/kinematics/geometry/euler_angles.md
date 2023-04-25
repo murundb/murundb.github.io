@@ -32,7 +32,7 @@ $$
 \theta_{\beta \alpha} + \theta_{\alpha \gamma} \\ 
 \psi_{\beta \alpha} + \psi_{\alpha \gamma} \\ 
 \end{array}
-\right]
+\right].
 $$
 
 The downside of using Euler angles is that the Euler angles exhibit singularity at $\pm 90^{o}$ pitch, where the roll and yaw become indistinguishable. This is also known as a **gimbal lock**.
@@ -44,83 +44,10 @@ Hence, Euler angles are more suited for visualization and interpretation rather 
 In the specific case in which the Euler angles describe the attitude of the body frame with respect to the local navigation frame, the roll rotation is known as 
 **bank**, the pitch rotation is known as **elevation**, and the yaw rotation is known as **heading** or **azimuth**. The bank and elevation are also collectively known as **tilts**.
 
-## Rotation Matrix 
-
-<figure markdown>
-  ![Fig 2.1 Rotation about $z^\beta$ (source Groves, p31)](/assets/images/kinematics/light/rotation_1.png#only-light){ width="300" }
-  ![Fig 2.1 Rotation about $z^\beta$ (source Groves, p31)](/assets/images/kinematics/dark/rotation_1.png#only-dark){ width="300" }
-  <figcaption>Figure 1 Body Frame (source Groves, p29)</figcaption>
-</figure>
-
-
-Let $\beta$ be a Cartesian coordinate frame with axes $(x^\beta, y^\beta, z^\beta)$.
-
-Consider a vector with a fixed length, $r_{\beta \alpha}$ from the origin of frame $\beta$ to a point, $\alpha$, that has rotated about the $z^\beta$
-by angle $\psi$. Fig 2.1 shows the position of the vector at times $t_0$ (pre-rotation) and $t_1$ (post-rotation). At $t_0$, the position of $\alpha$ with respect to the origin of frame $\beta$
-and resolved about the axes of $\beta$ can be described by:
-
-$$
-\begin{align}
-x^{\beta}_{\beta \alpha} (t_0) &= r_{\beta \alpha} \text{cos}(\phi) \\
-y^{\beta}_{\beta \alpha} (t_0) &= r_{\beta \alpha} \text{sin}(\phi) \\
-z^{\beta}_{\beta \alpha} (t_0) &= z^{\beta}_{\beta \alpha} (t_0) 
-\end{align}
-$$
-
-At $t_1$, the vector rotates about $z^\beta$ by angle $\psi$:
-
-$$
-\begin{align}
-x^{\beta}_{\beta \alpha} (t_1) &= r_{\beta \alpha} \text{cos}(\phi + \psi) = r_{\beta \alpha}\text{cos}(\phi)\text{cos}(\psi) - r_{\beta \alpha}\text{sin}(\phi)\text{sin}(\psi)\\
-y^{\beta}_{\beta \alpha} (t_1) &= r_{\beta \alpha} \text{sin}(\phi + \psi) = r_{\beta \alpha}\text{sin}(\phi)\text{cos}(\psi) + r_{\beta \alpha}\text{cos}(\phi)\text{sin}(\psi) \\
-z^{\beta}_{\beta \alpha} (t_1) &= z^{\beta}_{\beta \alpha} (t_0) 
-\end{align}
-$$
-
-Combining the above two yields:
-
-$$
-\begin{align}
-x^{\beta}_{\beta \alpha} (t_1) &= x^{\beta}_{\beta \alpha} (t_0) \text{cos}(\psi) - y^{\beta}_{\beta \alpha} (t_0) \text{sin}(\psi) \\
-y^{\beta}_{\beta \alpha} (t_1) &= x^{\beta}_{\beta \alpha} (t_0) \text{sin}(\psi) + y^{\beta}_{\beta \alpha} (t_0) \text{cos}(\psi) \\
-z^{\beta}_{\beta \alpha} (t_1) &= z^{\beta}_{\beta \alpha} (t_0),
-\end{align}
-$$
-
-We can use similar analogy to obtain three rotation matrices:
-
-$$
-\begin{align}
-\mathbf{R}_z(\psi) &= 
-\left[
-\begin{array}{ccc}
-\text{cos}(\psi) & -\text{sin}(\psi) & 0 \\
-\text{sin}(\psi) & \text{cos}(\psi) & 0 \\
-0 & 0 & 1
-\end{array} 
-\right] \\ \\
-\mathbf{R}_y(\theta) &= 
-\left[
-\begin{array}{ccc}
-\text{cos}(\theta) & 0 & \text{sin}(\theta) \\
-0 & 1 & 0 \\
--\text{sin}(\theta) & 0 & \text{cos}(\theta)
-\end{array} 
-\right] \\ \\
-\mathbf{R}_x(\phi) &= 
-\left[
-\begin{array}{ccc}
-1 & 0 & 0 \\
-0 & \text{cos}(\phi) & -\text{sin}(\phi) \\
-0 & \text{sin}(\phi) & \text{cos}(\phi)
-\end{array} 
-\right] \\
-\end{align}
-$$
 
 ## Attitude Representation via Euler Angles
 
-Euler angles can be converted to DCM easily by taking the transpose of the rotation matrices. In general, consider two coordinate frames $F_\alpha$ and $F_\beta$ as shown in Fig 2.2. Let $\mathbf{R}^{\alpha}_{\beta}$ be the transformation matrix from frame $F_\beta$ to $F_\alpha$. 
+Euler angles can be converted to DCM easily by taking the transpose of the rotation matrices. In general, consider two coordinate frames $F_\alpha$ and $F_\beta$ as shown in Fig 2.2. Let $\mathbf{R}^{\alpha}_{\beta}$ be the rotation matrix from frame $F_\beta$ to $F_\alpha$. 
 Let the axes of frame $F_\beta$ be $(x^\beta, y^\beta, z^\beta)$.
 
 <figure markdown>
@@ -139,7 +66,7 @@ $$
 \end{align}
 $$
 
-which yields to a transformation matrix:
+which yields to a rotation matrix:
 
 $$
 \mathbf{R}^{\psi}_{\beta} = 
@@ -149,7 +76,7 @@ $$
 -\text{sin}(\psi_{\beta \alpha}) & \text{cos}(\psi_{\beta \alpha}) & 0 \\
 0 & 0 & 1
 \end{array}
-\right]
+\right].
 $$
 
 The second rotation will be through the pitch angle $\theta_{\beta \alpha}$ about the common $y$ axis of the first and second intermediate frames:
@@ -162,7 +89,7 @@ $$
 \end{align}
 $$
 
-which yields to a transformation matrix:
+which yields to a rotation matrix:
 
 $$
 \mathbf{R}^{\theta}_{\psi} = 
@@ -172,7 +99,7 @@ $$
 0 & 1 & 0 \\
 \text{sin}(\theta_{\beta \alpha}) & 0 & \text{cos}(\theta_{\beta \alpha})
 \end{array}
-\right]
+\right].
 $$
 
 The third and the last rotation will be through the roll angle $\phi_{\beta \alpha}$ about the common $x$ axis of the second frame and the $\alpha$ frame:
@@ -185,7 +112,7 @@ $$
 \end{align}
 $$
 
-which yields to a transformation matrix:
+which yields to a rotation matrix:
 
 $$
 \mathbf{R}^{\alpha}_{\theta} = 
@@ -195,13 +122,13 @@ $$
 0 & \text{cos}(\phi_{\beta \alpha}) & \text{sin}(\phi_{\beta \alpha}) \\
 0 & -\text{sin}(\phi_{\beta \alpha}) & \text{cos}(\phi_{\beta \alpha})
 \end{array}
-\right]
+\right],
 $$
 
-We can see that all three transformation matrices are transpose of rotation matrices. The transformation matrix from frame $F_\beta$ to $F_\alpha$ is obtained as:
+The rotation matrix from frame $F_\beta$ to $F_\alpha$ is obtained as:
 
 $$
-\mathbf{R}^{\alpha}_{\beta} = \mathbf{R}^{\alpha}_{\theta} \mathbf{R}^{\theta}_{\psi} \mathbf{R}^{\psi}_{\beta}
+\mathbf{R}^{\alpha}_{\beta} = \mathbf{R}^{\alpha}_{\theta} \mathbf{R}^{\theta}_{\psi} \mathbf{R}^{\psi}_{\beta}.
 $$
 
 Hence
@@ -239,18 +166,18 @@ $$
 \right)
 & \text{cos}(\phi_{\beta \alpha}) \text{cos}(\theta_{\beta \alpha})
 \end{array} 
-\right]
+\right].
 $$
 
-## Transformation Matrix to Euler Angles
+## Rotation Matrix to Euler Angles
 
-Conversion from transformation matrix to Euler angles can be obtained as:
+Conversion from rotation matrix to Euler angles can be obtained as:
 
 $$
 \begin{align}
 \phi_{\beta \alpha} &= \text{arctan}_2 \left( \mathbf{R}^{\alpha}_{\beta \ 2,3}, \mathbf{R}^{\alpha}_{\beta \ 3,3} \right) \\
 \theta_{\beta \alpha} &= -\text{arcsin}\left( \mathbf{R}^{\alpha}_{\beta \ 1,3}\right) \\
-\psi_{\beta \alpha} &= \text{arctan}_2 \left( \mathbf{R}^{\alpha}_{\beta \ 1,2}, \mathbf{R}^{\alpha}_{\beta \ 1,1} \right)
+\psi_{\beta \alpha} &= \text{arctan}_2 \left( \mathbf{R}^{\alpha}_{\beta \ 1,2}, \mathbf{R}^{\alpha}_{\beta \ 1,1} \right).
 \end{align}
 $$
 
@@ -294,7 +221,7 @@ $$
 -\text{sin}(\theta_{\beta \alpha}) & \text{sin}(\phi_{\beta \alpha}) \text{cos}(\theta_{\beta \alpha}) & 
 \text{cos}(\phi_{\beta \alpha}) \text{cos}(\theta_{\beta \alpha}) \\ \\
 \end{array} 
-\right]
+\right],
 $$
 
 and the conversion to Euler angles can be obtained as:
@@ -303,17 +230,27 @@ $$
 \begin{align}
 \phi_{\beta \alpha} &= \text{arctan}_2 \left( \mathbf{R}^{\beta}_{\alpha \ 3,2}, \mathbf{R}^{\beta}_{\alpha \ 3,3} \right) \\
 \theta_{\beta \alpha} &= -\text{arcsin}\left( \mathbf{R}^{\beta}_{\alpha \ 3,1}\right) \\
-\psi_{\beta \alpha} &= \text{arctan}_2 \left( \mathbf{R}^{\beta}_{\alpha \ 2,1}, \mathbf{R}^{\beta}_{\alpha \ 1,1} \right)
+\psi_{\beta \alpha} &= \text{arctan}_2 \left( \mathbf{R}^{\beta}_{\alpha \ 2,1}, \mathbf{R}^{\beta}_{\alpha \ 1,1} \right).
 \end{align}
 $$
 
-## Small Angle Approximation
+## Infinitesimal Rotations
 
-When the transformation matrix and Euler angles represent a small angular perturbation 
+When the rotation matrix and Euler angles represent a small angular perturbation 
 , we can use small angle approximation to get:
 
 $$
-\mathbf{R^{\beta}_{\alpha}} = 
+\begin{align}
+\mathbf{R^{\alpha}_{\beta}} &= 
+\left[
+\begin{array}{ccc}
+1 & \psi_{\beta \alpha} & -\theta_{\beta \alpha} \\
+-\psi_{\beta \alpha} & 1 & \phi_{\beta \alpha} \\
+\theta_{\beta \alpha} & -\phi_{\beta \alpha} & 1
+\end{array}
+\right] = 
+\mathbf{I}_{3} - \left[\Psi_{\beta \alpha} \right]_{\times} \\
+\mathbf{R^{\beta}_{\alpha}} &= 
 \left[
 \begin{array}{ccc}
 1 & -\psi_{\beta \alpha} & \theta_{\beta \alpha} \\
@@ -321,5 +258,6 @@ $$
 -\theta_{\beta \alpha} & \phi_{\beta \alpha} & 1
 \end{array}
 \right] = 
-\mathbf{I}_{3} + \left[\Psi_{\beta \alpha} \right]_{\times}
+\mathbf{I}_{3} + \left[\Psi_{\beta \alpha} \right]_{\times}.
+\end{align}
 $$

@@ -116,13 +116,18 @@ nav:
     - References: kinematics/references.md
     - Notation and Nomenclature: kinematics/notation_and_nomenclature.md
     - Attitude and Geometry:
-      - Transformation and Rotation Matrix: kinematics/geometry/transformation_and_rotation.md
+      - Pose and Attitude: kinematics/geometry/pose_and_attitude.md
+      - Rotation Matrix: kinematics/geometry/rotation_matrix.md
       - Euler Angles: kinematics/geometry/euler_angles.md
       - Axis Angle: kinematics/geometry/axis_angle.md
       - Quaternions: kinematics/geometry/quaternions.md
       - Attitude Visualization: kinematics/geometry/pangolin_visualization.md
+    - Perturbing Rotations:
+      - Key Indentities: kinematics/perturbing_rotations/key_identities.md
+      - Perturbing Rotation Matrix: kinematics/perturbing_rotations/perturbing_rotation_matrix.md
+      - Lie Group and Lie Algebra: kinematics/geometry/lie_group_algebra.md
       - Derivative of Rotation Matrix: kinematics/geometry/derivative_of_rotation_matrix.md
-    - Angular Rate: kinematics/angular_rate.md
+    - Angular Velocity: kinematics/angular_velocity.md
     - Cartesian Position: kinematics/cartesian_position.md
     - Velocity: kinematics/velocity.md
     - Acceleration: kinematics/acceleration.md
