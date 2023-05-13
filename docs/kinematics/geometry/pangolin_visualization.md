@@ -143,7 +143,7 @@ The corresponding rotation vectors for the first three epochs are:
 $$
 \begin{align}
 \mu_{\beta \alpha}(t=0) &= 0^{o} \\
-\mathbf{\rho}_{\beta \alpha}(t=0) &= 
+\boldsymbol{\rho}_{\beta \alpha}(t=0) &= 
 \left[
 \begin{array}{c}
 1 \\
@@ -151,7 +151,7 @@ $$
 0 \end{array}
 \right] \\
 \mu_{\beta \alpha}(t=1) &= 86.73^{o} \\
-\mathbf{\rho}_{\beta \alpha}(t=1) &= 
+\boldsymbol{\rho}_{\beta \alpha}(t=1) &= 
 \left[
 \begin{array}{c}
 -0.049 \\
@@ -159,7 +159,7 @@ $$
 0.806 \end{array}
 \right] \\
 \mu_{\beta \alpha}(t=2) &= 56.385^{o} \\
-\mathbf{\rho}_{\beta \alpha}(t=2) &= 
+\boldsymbol{\rho}_{\beta \alpha}(t=2) &= 
 \left[
 \begin{array}{c}
 0.299 \\

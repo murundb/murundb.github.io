@@ -38,7 +38,7 @@
                 Since this is a first-order matrix ordinary differential equation, we know the solution over the interval \(t\) to \(t + \tau_i\) is:
                 $$
                 \begin{align}
-                \mathbf{R}^i_b(t + \tau_i) = \mathbf{R}^i_b(t) \left[ \lim_{n \rightarrow \infty}\prod^n_{i=1} \text{exp} \left( \boldsymbol{\Omega}^b_{ib} \left( t + \frac{n - i}{n} \tau_i \right) \frac{\tau_i}{n} \right)  \right].
+                \mathbf{R}^i_b(t + \tau_i) = \mathbf{R}^i_b(t) \left[ \lim_{n \rightarrow \infty}\prod^n_{i=1} \exp \left( \boldsymbol{\Omega}^b_{ib} \left( t + \frac{n - i}{n} \tau_i \right) \frac{\tau_i}{n} \right)  \right].
                 \end{align} \label{4.2.2} \tag{4.2.2}
                 $$
                 If the angular rate is assumed to be constant over the attitude integration interval, then:
@@ -81,7 +81,7 @@
                 Then from \(\ref{4.2.4} \), the attitude update matrix will be:
                 $$
                 \mathbf{R}^{b-}_{b+} = \mathbf{R}^{b(t)}_{b(t + \tau_i)}
-                = \text{exp}\left[ \boldsymbol{\alpha} \right]_\times = 
+                = \exp\left[ \boldsymbol{\alpha} \right]_\times = 
                 \sum^{\infty}_{k = 0} \frac{\left[ \boldsymbol{\alpha}^b_{ib} \right]^k_\times}{k!}, \label{4.2.8} \tag{4.2.8}
                 $$
                 where a constant angular rate is assumed. The third and fourth powers of a skew-symmetric 

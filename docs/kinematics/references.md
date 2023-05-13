@@ -1,6 +1,6 @@
 # References
 
-All contents are from:
+Ccontents are from:
 
 1. Szeliski, R., **Computer Vision: Algorithms and Applications, 2nd Edition**
 1. Groves, P., **Principles of GNSS, Inertial, and Multisensor Integrated Navigation Systems, Second Edition**

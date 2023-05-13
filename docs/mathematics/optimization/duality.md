@@ -1,4 +1,4 @@
-## Overview
+## Relaxation
 
 Duality theory is at the heart of optimization. The motivation to form the dual problem of a minimization LP $(P)$ is to find a **lower bound** to the optimal cost of $(P)$, i.e., find $Z$ such that $Z \leq Z^*_{P}$, where $Z^*_{P}$ is the optimal cost of the primal problem $(P)$. 
 
@@ -7,7 +7,7 @@ Consider an optimization problem $(P)$ defined as:
 $$
 \begin{align}
 (P) \ \min \quad& f(\mathbf{x}) \\
-\text{s.t.} \quad& \mathbf{x} \in X.
+\text{s.t.} \quad& \mathbf{x} \in P.
 \end{align}
 $$
 
@@ -15,21 +15,33 @@ A problem $(D)$ defined as:
 
 $$
 \begin{align}
-\min \quad& g(\mathbf{x}) \\
-\text{s.t.} \quad& \mathbf{x} \in Y
+\min \quad& \hat{f}(\mathbf{x}) \\
+\text{s.t.} \quad& \mathbf{x} \in \hat{P}
 \end{align}
 $$
 
 is a **relaxation** of $(P)$ if:
 
-1. $X \subseteq Y$
-2. $f(\mathbf{x}) \geq g(\mathbf{x}), \ \forall \mathbf{x} \in X$.
+1. $P \subseteq \hat{P}$.
+2. $f(\mathbf{x}) \geq \hat{f}(\mathbf{x}), \ \forall \mathbf{x} \in P$.
 
-Clearly, if the relaxation is infeasible, then the original problem is also infeasible. 
+Relaxation involves:
+
+1. Finding a new objective function that is always smaller or equal to the original objective function at any feasible point.
+2. Find a feasible region that is larger than the feasible region of the original problem.
+
+Combining these two steps yields to a problem of minimizing a function **lower** than the original objective over a region that is **larger** than the original one. The optimal objective of the new problem will be a **lower bound** to the original problem. Clearly, if the relaxation is infeasible, then the original problem is also infeasible. The motivation is then to find the **best lower bound** among all the possible relaxations and lower bounds. $(P)$ and $(D)$ are illustrated in Figure 1.
+
+<figure markdown>
+  ![relaxation](/assets/images/optimization/light/relaxation_illustration.png#only-light){ width="300" }
+  ![relaxation](/assets/images/optimization/dark/relaxation_illustration.png#only-dark){ width="300" }
+  <figcaption>Figure 1 Relaxation illustration</figcaption>
+</figure>
+
 
 ## Lagrangian
 
-Consider an optimization problem $P$ defined as:
+Consider an optimization problem $(P)$ defined as:
 
 $$
 \begin{align}
@@ -113,7 +125,7 @@ concave and the constraint is convex. This is the case whether the initial optim
 
 Notice that the **dual of the dual is the primal**.
 
-## Rule for Forming Dual Problems
+## General Rules for Forming LP Dual
 
 Given a standard form LP:
 
@@ -125,16 +137,36 @@ $$
 \end{align}
 $$
 
-the general rules to formulate the dual problem with Lagrangian multiplier vector $\boldsymbol{\lambda}$ are:
+its dual pair will be:
 
-1. $\lambda_i (b_i - \mathbf{a}^T_i \mathbf{x}) \leq 0, \ \forall i$:
-    1. If $\mathbf{a}^T_i \mathbf{x} \geq b_i$, then $\lambda_i \geq 0$.
-    2. If $\mathbf{a}^T_i \mathbf{x} \leq b_i$, then $\lambda_i \leq 0$.
-    3. If $\mathbf{a}^T_i \mathbf{x} = b_i$, then $\lambda_i$ is free.
+$$
+\begin{align}
+\max \quad& \mathbf{b}^T \boldsymbol{\lambda} \\ 
+\text{s.t.} \quad& \boldsymbol{\lambda}^T \mathbf{A} \leq \mathbf{c}^T \\ 
+& \boldsymbol{\lambda} \ \text{free}.
+\end{align}
+$$
 
-2. $\left( c_j - \boldsymbol{\lambda}^T \mathbf{A}_j \right)x_j \geq 0$:
+The general rules to formulate the dual problem with Lagrangian multiplier vector $\boldsymbol{\lambda}$ are:
+
+1. **Relax the objective**
+
+    $\lambda_i (b_i - \mathbf{a}^T_i \mathbf{x}) \leq 0, \ \forall i$:
+
+    1. If $\mathbf{a}^T_i \mathbf{x} \geq b_i$, then $\lambda_i \geq 0$. 
+
+    2. If $\mathbf{a}^T_i \mathbf{x} \leq b_i$, then $\lambda_i \leq 0$. 
+
+    3. If $\mathbf{a}^T_i \mathbf{x} = b_i$, then $\lambda_i$ is free. 
+
+2. ***Solve the Lagrangian relaxation**
+
+    $\left( c_j - \boldsymbol{\lambda}^T \mathbf{A}_j \right)x_j \geq 0$:
+
     1. If $x_j \geq 0$, then $c_j \geq \boldsymbol{\lambda}^T \mathbf{A}_j$, i.e., $\boldsymbol{\lambda}^T \mathbf{A}_j \leq c_j$.
+
     2. If $x_j \leq 0$, then $c_j \leq \boldsymbol{\lambda}^T \mathbf{A}_j$, i.e., $\boldsymbol{\lambda}^T \mathbf{A}_j \geq c_j$.
+
     3. If $x_j$ is free, then $c_j = \boldsymbol{\lambda}^T \mathbf{A}_j$, i.e., $\boldsymbol{\lambda}^T \mathbf{A}_j = c_j$.
 
 Using these two rules, given the primal LP:
@@ -444,7 +476,7 @@ In summary:
 
 **Theorem** (Complementary Slackness). *Let $\mathbf{x}$ and $\boldsymbol{\lambda}$ be feasible solutions to the primal and dual problem, respectively. Then $\mathbf{x}$ and $\boldsymbol{\lambda}$ are optimal solutions for the two problems if and only if they satisfy the following conditions:*
 
-***Primal Complementary Slackness:*** *$\lambda_i \left( \mathbf{a}^T_i - b_i \right) = 0$ for all $i$. In other words, either the $i$'th primal constraint is active (binding, tight) such that $\mathbf{a}^T_i \mathbf{x} = b_i$, or the corresponding dual variable is zero, i.e., $\lambda_i = 0$.*
+***Primal Complementary Slackness:*** *$\lambda_i \left( \mathbf{a}^T_i \mathbf{x} - b_i \right) = 0$ for all $i$. In other words, either the $i$'th primal constraint is active (binding, tight) such that $\mathbf{a}^T_i \mathbf{x} = b_i$, or the corresponding dual variable is zero, i.e., $\lambda_i = 0$.*
 
 ***Dual Complementary Slakness:*** *$x_j \left( c_j - \boldsymbol{\lambda}^T \mathbf{A}_j \right) = 0$ for all $j$. In other words, either the $j$'th dual constraint is active (binding, tight) such that $\boldsymbol{\lambda}^T \mathbf{A}_j = c_j$, or the corresponding primal variable is zero, i.e., $x_j = 0$.*
 

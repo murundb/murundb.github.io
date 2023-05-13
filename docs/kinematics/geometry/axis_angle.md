@@ -141,13 +141,13 @@ $$
 This is a linear time-varying ODE and a solution is nontrivial. Given an initial condition $\mathbf{R}(0) = \mathbf{I}$, we have:
 
 $$
-\mathbf{R}(t) = \mathbf{e}^{\left[ \boldsymbol{\rho}_0 \right]_\times t},
+\mathbf{R}(t) = \exp{\left(\left[ \boldsymbol{\rho}_0 \right]_\times t\right)},
 $$
 
 where $\boldsymbol{\rho}_0 = \boldsymbol{\rho}(t_0)$, which yields to:
 
 $$
-\frac{d \left( \mathbf{e}^{\left[ \boldsymbol{\rho}_0 \right]_\times t} \right)}{dt} = \mathbf{e}^{\left[ \boldsymbol{\rho}_0 \right]_\times t} \left[ \boldsymbol{\rho}_0 \right]_\times  = \left[ \boldsymbol{\rho}_0 \right]_\times  \mathbf{e}^{\mathbf{\left[ \boldsymbol{\rho}_0 \right]_\times t}}.
+\frac{d \left( \exp{\left(\left[ \boldsymbol{\rho}_0 \right]_\times t\right)} \right)}{dt} = \exp{\left(\left[ \boldsymbol{\rho}_0 \right]_\times t\right)} \left[ \boldsymbol{\rho}_0 \right]_\times  = \left[ \boldsymbol{\rho}_0 \right]_\times  \exp{\left(\left[ \boldsymbol{\rho}_0 \right]_\times t\right)}.
 $$
 
 **Proof**. Consider the basic definition of derivative:
@@ -156,30 +156,30 @@ $$
 \frac{df}{dx} = \lim_{h \rightarrow 0} \frac{f(x + h) - f(x)}{h}.
 $$
 
-Let $f(\mathbf{A}t) = \mathbf{e}^{\mathbf{A}t}$. Using the derivative definition, we get:
+Let $f(\mathbf{A}t) = \exp{\left(\mathbf{A}t\right)}$. Using the derivative definition, we get:
 
 $$
 \begin{align}
-\frac{d \left( \mathbf{e}^{\mathbf{A}t} \right)}{dt} &= \lim_{h \rightarrow 0} \frac{ \mathbf{e}^{\mathbf{A}t + \mathbf{A}h} - \mathbf{e}^{\mathbf{A}t} }{h} \\
-&= \lim_{h \rightarrow 0} \frac{ \mathbf{e}^{\mathbf{A}t} \mathbf{e}^{\mathbf{A}h} - \mathbf{e}^{\mathbf{A}t} }{h} \\
-&= \lim_{h \rightarrow 0} \frac{\mathbf{e}^{\mathbf{A}t} \left( \mathbf{e}^{\mathbf{A}h} - \mathbf{I} \right)}{h} \\
-&= \mathbf{e}^{\mathbf{A}t} \lim_{h \rightarrow 0} \frac{ \mathbf{e}^{\mathbf{A}h} - \mathbf{I}}{h}. \label{2.3.7}
+\frac{d \left( \exp{\left(\mathbf{A}t\right)} \right)}{dt} &= \lim_{h \rightarrow 0} \frac{ e^{\mathbf{A}t + \mathbf{A}h} - e^{\mathbf{A}t} }{h} \\
+&= \lim_{h \rightarrow 0} \frac{ e^{\mathbf{A}t} e^{\mathbf{A}h} - e^{\mathbf{A}t} }{h} \\
+&= \lim_{h \rightarrow 0} \frac{e^{\mathbf{A}t} \left( e^{\mathbf{A}h} - \mathbf{I} \right)}{h} \\
+&= e^{\mathbf{A}t} \lim_{h \rightarrow 0} \frac{ e^{\mathbf{A}h} - \mathbf{I}}{h}. \label{2.3.7}
 \end{align}
 $$
 
 [Matrix exponential](https://en.wikipedia.org/wiki/Matrix_exponential) can be expressed as a power series:
 
 $$
-\mathbf{e}^{\mathbf{A}} = \sum^{\infty}_{k=0} \frac{1}{k!} \mathbf{A}^k.
+e^{\mathbf{A}} = \sum^{\infty}_{k=0} \frac{1}{k!} \mathbf{A}^k.
 $$
 
 Using this definition in $\ref{2.3.7}$, we get:
 
 $$
 \begin{align}
-\frac{d \left( \mathbf{e}^{\mathbf{A}t} \right)}{dt} &= \mathbf{e}^{\mathbf{A}t} \lim_{h \rightarrow 0}\frac{1}{h} \left( \sum^{\infty}_{h = 0} \frac{1}{k!} (\mathbf{A}h)^k  - \mathbf{I}\right) \\
-&= \mathbf{e}^{\mathbf{A}t}\lim_{h \rightarrow 0}\frac{1}{h} \left( \mathbf{I} + \mathbf{A}h + \frac{(\mathbf{A}h)^2}{2} + \ldots + (- \mathbf{I}) \right) \\
-&= \mathbf{e}^{\mathbf{A}t} \mathbf{A}. \label{2.3.9}
+\frac{d \left( e^{\mathbf{A}t} \right)}{dt} &= e^{\mathbf{A}t} \lim_{h \rightarrow 0}\frac{1}{h} \left( \sum^{\infty}_{h = 0} \frac{1}{k!} (\mathbf{A}h)^k  - \mathbf{I}\right) \\
+&= e^{\mathbf{A}t}\lim_{h \rightarrow 0}\frac{1}{h} \left( \mathbf{I} + \mathbf{A}h + \frac{(\mathbf{A}h)^2}{2} + \ldots + (- \mathbf{I}) \right) \\
+&= e^{\mathbf{A}t} \mathbf{A}. \label{2.3.9}
 \end{align}
 $$
 
@@ -187,17 +187,17 @@ Another way to compute the derivative is to directly use the power series:
 
 $$
 \begin{align}
-\frac{d \left( \mathbf{e}^{\mathbf{A}t} \right)}{dt} &= \frac{d}{dt} \left[ \mathbf{I} + \mathbf{A}t + \frac{\mathbf{A}^2 t^2}{2} + \frac{\mathbf{A}^3 t^3}{6} + \cdots \right] \\
+\frac{d \left( e^{\mathbf{A}t} \right)}{dt} &= \frac{d}{dt} \left[ \mathbf{I} + \mathbf{A}t + \frac{\mathbf{A}^2 t^2}{2} + \frac{\mathbf{A}^3 t^3}{6} + \cdots \right] \\
 &= \mathbf{A} + \mathbf{A}^2 t + \frac{\mathbf{A}^3 t^2}{2} + \cdots \\
 &= \mathbf{A} \left[ \mathbf{I} + \mathbf{A}t + \frac{\mathbf{A}^2 t^2}{2} + \cdots \right] \\
-&= \mathbf{A} \mathbf{e}^{\mathbf{A} t}. \label{2.3.10}
+&= \mathbf{A} e^{\mathbf{A} t}. \label{2.3.10}
 \end{align}
 $$
 
 Hence, from equations $\ref{2.3.9}$ and $\ref{2.3.10}$ provide:
 
 $$
-\frac{d \left( \mathbf{e}^{\mathbf{A}t} \right)}{dt} = \mathbf{e}^{\mathbf{A}t} \mathbf{A} = \mathbf{A} \mathbf{e}^{\mathbf{At}}.
+\frac{d \left( e^{\mathbf{A}t} \right)}{dt} = e^{\mathbf{A}t} \mathbf{A} = \mathbf{A} e^{\mathbf{At}}.
 $$
 
 ### Rotation Formula
@@ -206,7 +206,7 @@ Via exponential mapping, the **Rodrigues's formula** can be obtained as:
 
 $$
 \begin{align}
-\mathbf{e}^{\left[\boldsymbol{\rho} \right]_\times} &= \mathbf{e}^{ \left[ \theta \hat{\mathbf{e}} \right]_\times} = \sum^{\infty}_{k = 0} \frac{1}{k!} \left(\theta \left[\hat{\mathbf{e}} \right]_\times \right)^k \\
+e^{\left[\boldsymbol{\rho} \right]_\times} &= e^{ \left[ \theta \hat{\mathbf{e}} \right]_\times} = \sum^{\infty}_{k = 0} \frac{1}{k!} \left(\theta \left[\hat{\mathbf{e}} \right]_\times \right)^k \\
 &= \mathbf{I} + \theta \left[ \hat{\mathbf{e}} \right]_\times + \frac{\theta^2}{2} \left[ \hat{\mathbf{e}} \right]^2_\times + 
 \frac{\theta^3}{3!} \left[ \hat{\mathbf{e}} \right]^2_\times + \ldots \\
 &= \mathbf{I} + \left( \theta - \frac{\theta^3}{3!} + \ldots \right) \left[ \hat{\mathbf{e}} \right]_\times + \left( \frac{\theta^2}{2} - \frac{\theta^4}{4!} + \ldots \right) \left[ \hat{\mathbf{e}} \right]^2_\times \\
@@ -232,8 +232,8 @@ $$
 $$
 
 **Rotation vectors are useful for interpolating attitudes as they are the only form of attitude that enables rotations to be linearly interpolated**. In previous section, we have
-shown that the exponential mapping of $\mathfrak{so}(3)$ is $SO(3)$ and $\mathfrak{so}(3) = \left\{ \left[ \mathbf{\rho} \right]_{\times} \in \mathbb{R}^{3 \times 3}\right\}$.
-Let $\mathbf{e}^{\alpha / \beta}_{\beta \alpha} = \left[
+shown that the exponential mapping of $\mathfrak{so}(3)$ is $SO(3)$ and $\mathfrak{so}(3) = \left\{ \left[ \boldsymbol{\rho} \right]_{\times} \in \mathbb{R}^{3 \times 3}\right\}$.
+Let $\hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} = \left[
 \begin{array}{ccc} 
 e^{\alpha / \beta}_1 & e^{\alpha / \beta}_2 & e^{\alpha / \beta}_2
 \end{array}
@@ -244,7 +244,7 @@ Applying Rodrigues's formula via exponential mapping yields to:
 
 $$
 \begin{align}
-\mathbf{e}^{\left[ \boldsymbol{\rho}_{\beta \alpha} \right]_{\times}} &= \mathbf{e}^{ \left[ \theta_{\beta \alpha} \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times}}  = \sum^{\infty}_{k=0} \frac{1}{k!} (\theta_{\beta \alpha} \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times})^k \\
+e^{\left[ \boldsymbol{\rho}_{\beta \alpha} \right]_{\times}} &= e^{ \left[ \theta_{\beta \alpha} \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times}}  = \sum^{\infty}_{k=0} \frac{1}{k!} (\theta_{\beta \alpha} \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times})^k \\
 &= \mathbf{I} + \theta_{\beta \alpha} \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times} + \frac{1}{2!} \left( \theta_{\beta \alpha} \right)^2 \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]^2_{\times}
 + \frac{1}{3!} \left( \theta_{\beta \alpha} \right)^3 \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]^3_{\times} + \cdots \\
 &= \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \left( \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right)^T - \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]^2_{\times} 
@@ -308,7 +308,7 @@ $$
 which yields to two solutions with opposite signs. It is conventional to choose the solution:
 
 $$
-\mathbf{e}^{\alpha / \beta}_{\beta \alpha} = \frac{1}{2\text{sin}(\theta_{\beta \alpha})}
+\hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} = \frac{1}{2\text{sin}(\theta_{\beta \alpha})}
 \left[
 \begin{array}{c}
 \mathbf{R}^{\alpha}_{\beta \ 2, 3} - \mathbf{R}^{\alpha}_{\beta \ 3, 2} \\ 
@@ -322,7 +322,7 @@ In summary, Rodrigues' formula in eq ($\ref{2.3.18}$) provides the conversion fr
 
 $$
 \begin{align}
-\mathbf{R^{\alpha}_{\beta}} &= \mathbf{e}^{\left[-\boldsymbol{\rho}_{\beta \alpha} \right]_{\times}} \\
+\mathbf{R^{\alpha}_{\beta}} &= e^{\left[-\boldsymbol{\rho}_{\beta \alpha} \right]_{\times}} \\
 &= \mathbf{I}_3 - \frac{\text{sin}|\boldsymbol{\rho}_{\beta \alpha}|}{|\boldsymbol{\rho}_{\beta \alpha}|} \left[ \boldsymbol{\rho}_{\beta \alpha} \right]_{\times} + 
 \frac{1 - \text{cos}|\boldsymbol{\rho}_{\beta \alpha}|}{|\boldsymbol{\rho}_{\beta \alpha}|^2} \left[ \boldsymbol{\rho}_{\beta \alpha} \right]^2_{\times}.
 \end{align}
@@ -332,7 +332,7 @@ The reverse transformation is:
 
 $$
 \begin{align}
-\rho_{\beta \alpha} &= \frac{\theta_{\beta \alpha}}{2 \text{sin} (\theta_{\beta \alpha})}
+\boldsymbol{\rho}_{\beta \alpha} &= \frac{\theta_{\beta \alpha}}{2 \text{sin} (\theta_{\beta \alpha})}
 \left[
 \begin{array}{c}
 \mathbf{R}^{\alpha}_{\beta \ 2,3} - \mathbf{R}^{\alpha}_{\beta \ 3,2} \\
@@ -350,7 +350,7 @@ When the transformation matrix and rotation vector represent a small angular per
 
 $$
 \mathbf{R^{\beta}_{\alpha}}= 
-\mathbf{e}^{\left[\boldsymbol{\rho}_{\beta \alpha} \right]_{\times}} \approx 
+e^{\left[\boldsymbol{\rho}_{\beta \alpha} \right]_{\times}} \approx 
 \sum^{\infty}_{k=0} \frac{\left[\boldsymbol{\rho}_{\beta \alpha} \right]^k_{\times}}{k!} \approx
 \mathbf{I}_3 + \left[\boldsymbol{\rho}_{\beta \alpha} \right]_{\times}.
 $$

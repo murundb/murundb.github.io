@@ -20,12 +20,12 @@ and the other three components are functions of both the magnitude and the axis 
 $$
 \begin{align}
 & q_0 = \text{cos}(\mu_{\beta \alpha} / 2) \\
-& \mathbf{q}_{1:3} = \mathbf{e}^{\alpha / \beta}_{\beta \alpha} \text{sin} (\mu_{\alpha \beta} / 2) = 
+& \mathbf{q}_{1:3} = \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \text{sin} (\mu_{\alpha \beta} / 2) = 
 \left[
 \begin{array}{c}
-\mathbf{e}^{\alpha / \beta}_{\beta \alpha, \ 1} \text{sin}\left( \mu_{\beta \alpha} / 2 \right) \\
-\mathbf{e}^{\alpha / \beta}_{\beta \alpha, \ 2} \text{sin}\left( \mu_{\beta \alpha} / 2 \right) \\
-\mathbf{e}^{\alpha / \beta}_{\beta \alpha, \ 3} \text{sin}\left( \mu_{\beta \alpha} / 2 \right) \\
+\hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha, \ 1} \text{sin}\left( \mu_{\beta \alpha} / 2 \right) \\
+\hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha, \ 2} \text{sin}\left( \mu_{\beta \alpha} / 2 \right) \\
+\hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha, \ 3} \text{sin}\left( \mu_{\beta \alpha} / 2 \right) \\
 \end{array}
 \right] = 
 \left[
@@ -59,9 +59,9 @@ q_0 \\
 \left[
 \begin{array}{c}
 \text{cos}\left( \mu_{\beta \alpha} / 2 \right) \\
-\mathbf{e}^{\alpha / \beta}_{\beta \alpha, \ 1} \text{sin}\left( \mu_{\beta \alpha} / 2 \right) \\
-\mathbf{e}^{\alpha / \beta}_{\beta \alpha, \ 2} \text{sin}\left( \mu_{\beta \alpha} / 2 \right) \\
-\mathbf{e}^{\alpha / \beta}_{\beta \alpha, \ 3} \text{sin}\left( \mu_{\beta \alpha} / 2 \right) \\
+\hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha, \ 1} \text{sin}\left( \mu_{\beta \alpha} / 2 \right) \\
+\hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha, \ 2} \text{sin}\left( \mu_{\beta \alpha} / 2 \right) \\
+\hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha, \ 3} \text{sin}\left( \mu_{\beta \alpha} / 2 \right) \\
 \end{array}
 \right].
 $$

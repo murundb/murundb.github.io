@@ -1,15 +1,3 @@
-## Special Orthogonal Group
-
-Special orthogonal group (SO) is a Lie group that consists of orthonormal matrices (orthonormal rows and columns) that provide distance-preserving transformations of a Euclidean space:
-
-$$
-SO(n) = \left\{ \mathbf{R} \in \mathbb{R}^{n \times n} \ | \ \mathbf{R} \mathbf{R}^T = \mathbf{R}^T \mathbf{R} = \mathbf{I}_{n \times n}, \ \text{det}(\mathbf{R}) = 1 \right\}.
-$$
-
-Rotation matrices has nine elements but 3D rotation only has 3 degrees of freedom (DOF)..
-
-Every matrix $\mathbf{R} \in SO(3)$ is a 3D rotation matrix. They form a continuous 3D manifold in the 9D space of all possible $\mathbb{R}^{3 \times 3}$ matrices. 
-
 ## Passive and Active Rotation
 
 Although it is usually obvious from the context, it is useful to distinguish between two types of transformations: 
@@ -27,13 +15,13 @@ Rotation matrices are also called a direction cosine matrices.
 Let $\mathbf{x} \in \mathbb{R}^3$ be an arbitrary vector and $F_\alpha$ and $F_\beta$ be coordinate frames defined by set of orthonormal base vectors 
 $\left[
 \begin{array}{ccc}
-\mathbf{u}_{\alpha x} & \mathbf{u}_{\alpha y} & \mathbf{u}_{\alpha z}
+\hat{\mathbf{e}}_{\alpha x} & \hat{\mathbf{e}}_{\alpha y} & \hat{\mathbf{e}}_{\alpha z}
 \end{array}
 \right]$
 and 
 $\left[
 \begin{array}{ccc}
-\mathbf{u}_{\beta x} & \mathbf{u}_{\beta y} & \mathbf{u}_{\beta z}
+\hat{\mathbf{e}}_{\beta x} & \hat{\mathbf{e}}_{\beta y} & \hat{\mathbf{e}}_{\beta z}
 \end{array}
 \right]$ respectively. Let 
 $\mathbf{x}^{\alpha} = 
@@ -57,7 +45,7 @@ $$
 = 
 \left[
 \begin{array}{ccc}
-\mathbf{u}_{\beta x} & \mathbf{u}_{\beta y} & \mathbf{u}_{\beta z}
+\hat{\mathbf{e}}_{\beta x} & \hat{\mathbf{e}}_{\beta y} & \hat{\mathbf{e}}_{\beta z}
 \end{array}
 \right]
 \left[ 
@@ -70,7 +58,7 @@ x^{\beta}_3
 &= F_{\alpha} \mathbf{x}^{\alpha} = 
 \left[
 \begin{array}{ccc}
-\mathbf{u}_{\alpha x} & \mathbf{u}_{\alpha y} & \mathbf{u}_{\alpha z}
+\hat{\mathbf{e}}_{\alpha x} & \hat{\mathbf{e}}_{\alpha y} & \hat{\mathbf{e}}_{\alpha z}
 \end{array}
 \right]
 \left[ 
@@ -86,7 +74,7 @@ $$
 Multiplying both sides by 
 $\left[
 \begin{array}{ccc}
-\mathbf{u}^T_{\beta x} & \mathbf{u}^T_{\beta y} & \mathbf{u}^T_{\beta z}
+\hat{\mathbf{e}}^T_{\beta x} & \hat{\mathbf{e}}^T_{\beta y} & \hat{\mathbf{e}}^T_{\beta z}
 \end{array}
 \right]^T$, we get:
 
@@ -100,9 +88,9 @@ x^{\beta}_3
 \right] = 
 \left[
 \begin{array}{ccc}
-\mathbf{u}^T_{\beta x} \cdot \mathbf{u}_{\alpha x} & \mathbf{u}^T_{\beta x} \cdot \mathbf{u}_{\alpha y} & \mathbf{u}^T_{\beta x} \cdot \mathbf{u}_{\alpha z} \\
-\mathbf{u}^T_{\beta y} \cdot \mathbf{u}_{\alpha x} & \mathbf{u}^T_{\beta y} \cdot \mathbf{u}_{\alpha y} & \mathbf{u}^T_{\beta y} \cdot \mathbf{u}_{\alpha z} \\
-\mathbf{u}^T_{\beta z} \cdot \mathbf{u}_{\alpha x} & \mathbf{u}^T_{\beta z} \cdot \mathbf{u}_{\alpha y} & \mathbf{u}^T_{\beta z} \cdot \mathbf{u}_{\alpha z} \\
+\hat{\mathbf{e}}^T_{\beta x} \cdot \hat{\mathbf{e}}_{\alpha x} & \hat{\mathbf{e}}^T_{\beta x} \cdot \hat{\mathbf{e}}_{\alpha y} & \hat{\mathbf{e}}^T_{\beta x} \cdot \hat{\mathbf{e}}_{\alpha z} \\
+\hat{\mathbf{e}}^T_{\beta y} \cdot \hat{\mathbf{e}}_{\alpha x} & \hat{\mathbf{e}}^T_{\beta y} \cdot \hat{\mathbf{e}}_{\alpha y} & \hat{\mathbf{e}}^T_{\beta y} \cdot \hat{\mathbf{e}}_{\alpha z} \\
+\hat{\mathbf{e}}^T_{\beta z} \cdot \hat{\mathbf{e}}_{\alpha x} & \hat{\mathbf{e}}^T_{\beta z} \cdot \hat{\mathbf{e}}_{\alpha y} & \hat{\mathbf{e}}^T_{\beta z} \cdot \hat{\mathbf{e}}_{\alpha z} \\
 \end{array}
 \right]
 \left[ 
@@ -120,9 +108,9 @@ $$
 \mathbf{R}^{\beta}_{\alpha} = 
 \left[
 \begin{array}{ccc}
-\mathbf{u}^T_{\beta x} \cdot \mathbf{u}_{\alpha x} & \mathbf{u}^T_{\beta x} \cdot \mathbf{u}_{\alpha y} & \mathbf{u}^T_{\beta x} \cdot \mathbf{u}_{\alpha z} \\
-\mathbf{u}^T_{\beta y} \cdot \mathbf{u}_{\alpha x} & \mathbf{u}^T_{\beta y} \cdot \mathbf{u}_{\alpha y} & \mathbf{u}^T_{\beta y} \cdot \mathbf{u}_{\alpha z} \\
-\mathbf{u}^T_{\beta z} \cdot \mathbf{u}_{\alpha x} & \mathbf{u}^T_{\beta z} \cdot \mathbf{u}_{\alpha y} & \mathbf{u}^T_{\beta z} \cdot \mathbf{u}_{\alpha z} \\
+\hat{\mathbf{e}}^T_{\beta x} \cdot \hat{\mathbf{e}}_{\alpha x} & \hat{\mathbf{e}}^T_{\beta x} \cdot \hat{\mathbf{e}}_{\alpha y} & \hat{\mathbf{e}}^T_{\beta x} \cdot \hat{\mathbf{e}}_{\alpha z} \\
+\hat{\mathbf{e}}^T_{\beta y} \cdot \hat{\mathbf{e}}_{\alpha x} & \hat{\mathbf{e}}^T_{\beta y} \cdot \hat{\mathbf{e}}_{\alpha y} & \hat{\mathbf{e}}^T_{\beta y} \cdot \hat{\mathbf{e}}_{\alpha z} \\
+\hat{\mathbf{e}}^T_{\beta z} \cdot \hat{\mathbf{e}}_{\alpha x} & \hat{\mathbf{e}}^T_{\beta z} \cdot \hat{\mathbf{e}}_{\alpha y} & \hat{\mathbf{e}}^T_{\beta z} \cdot \hat{\mathbf{e}}_{\alpha z} \\
 \end{array}
 \right] = 
 \left[
@@ -248,33 +236,3 @@ $$
 \right]. \\
 \end{align}
 $$
-
-## Rotation and Translation using Homogeneous Coordinates
-Special Euclidean group is a group is defined as:
-
-$$
-SE(3) = \left\{ \mathbf{T} = 
-    \left[
-    \begin{array}{cc}
-    \mathbf{R} & \mathbf{t} \\
-    \mathbf{0}^T & 1
-    \end{array}
-    \right]
-    \in \mathbb{R}^{4 \times 4} \ | \
-    \mathbf{R} \in SO(3), \ \mathbf{t} \in \mathbb{R}^3
-    \right\}.
-$$
-
-Any matrix $\mathbf{T} \in SE(3)$ is a 4D transformation matrix (in homogeneous coordinates) that applies rotation and translation simultaneously. Inverse of $\mathbf{T}$ represents an inverse transformation:
-
-$$
-\mathbf{T}^{-1} = 
-\left[
-\begin{array}{cc}
-\mathbf{R}^T & -\mathbf{R}^T \mathbf{t} \\
-\mathbf{0}^T & 1
-\end{array}
-\right].
-$$
-
-Transformation matrix has 16 elements but 3D coordinate transformation and translation has only 6 DOF.

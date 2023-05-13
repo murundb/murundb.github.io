@@ -110,12 +110,12 @@ A practical methods for establishing convexity of function is as follows:
     5. Minimization
     6. Perspective
 
-For example, consider the function $f(\mathbf{x}) = \text{exp} \left( \sum^m_{i = 1} |a^T_i \mathbf{x} - b_i| \right)$.
+For example, consider the function $f(\mathbf{x}) = \exp \left( \sum^m_{i = 1} |a^T_i \mathbf{x} - b_i| \right)$.
 
 1. Let $g_i(\mathbf{x}) = |a^T_i \mathbf{x} - b_i|$. It is obtained by the composition of the convex function $|\cdot|$ and the linear function $a^T_i \mathbf{x} - b_i$. 
         Hence, $g_i$ is convex.
 2. The function $h(\mathbf{x}) = \sum^m_{i = 1} g_i (\mathbf{x})$ is a sum of convex functions. Hence, $h$ is convex. 
-3. $f$ is obtained by taking composition of the function $m(a) = \text{exp}(a)$ with $h$, i.e., $f(\mathbf{x}) = m(h(\mathbf{x}))$. Since $m$ is nondecreasing 
+3. $f$ is obtained by taking composition of the function $m(a) = \exp(a)$ with $h$, i.e., $f(\mathbf{x}) = m(h(\mathbf{x}))$. Since $m$ is nondecreasing 
         and h is convex, $f$ is convex.
 
 ## Convex Set and Convex Functions Relationship

@@ -39,6 +39,7 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.path
     # - navigation.indexes
     - toc.follow
@@ -72,49 +73,53 @@ extra:
 nav:
   - Home: index.md
   - Mathematics:
-    - References: math/references.md
-    - Cauchy-Schwartz Inequality: math/cauchy_schwarz_inequality.md
+    - References: mathematics/references.md
+    - Cauchy-Schwartz Inequality: mathematics/cauchy_schwarz_inequality.md
     - Sets:
-      - Norms, Distance, and Unit Ball: math/sets/norms_distance_unit_ball.md
-      - Open and Closed Sets: math/sets/open_and_closed_sets.md
-      - Geometry: math/sets/geometry.md
-      - Convex Sets: math/sets/convex_sets.md
-      - Nonconvex Sets: math/sets/nonconvex_sets.md
+      - Norms, Distance, and Unit Ball: mathematics/sets/norms_distance_unit_ball.md
+      - Open and Closed Sets: mathematics/sets/open_and_closed_sets.md
+      - Geometry: mathematics/sets/geometry.md
+      - Convex Sets: mathematics/sets/convex_sets.md
+      - Nonconvex Sets: mathematics/sets/nonconvex_sets.md
     - Functions:
-      - Functions, Gradient, Jacobian, Hessian: math/functions/functions.md
-      - Convex Functions: math/functions/convex_functions.md
-      - Nonconvex Functions: math/functions/nonconvex_functions.md
-    - Matrix Calculus: math/matrix_calculus.md
-    - Matrix Calculus Identities: math/matrix_calculus_identities.md
-    - Matrix Factorization: math/matrix_factorization/singular_value_decomposition.md
-    - Perturbation Methods: math/perturbation_methods.md
+      - Functions, Gradient, Jacobian, Hessian: mathematics/functions/functions.md
+      - Convex Functions: mathematics/functions/convex_functions.md
+      - Nonconvex Functions: mathematics/functions/nonconvex_functions.md
+    - Matrix Calculus: mathematics/matrix_calculus.md
+    - Matrix Calculus Identities: mathematics/matrix_calculus_identities.md
+    - Matrix Factorization: mathematics/matrix_factorization/singular_value_decomposition.md
+    - Perturbation Methods: mathematics/perturbation_methods.md
     - Optimization:
-      - References: math/optimization/references.md
-      - Optimization Problem Formulation: math/optimization/optimization_problem_formulation.md
-      - Duality Theory: math/optimization/duality.md
+      - References: mathematics/optimization/references.md
+      - Optimization Problem Formulation: mathematics/optimization/optimization_problem_formulation.md
+      - Duality Theory: mathematics/optimization/duality.md
       - Unconstrained Optimization:
-        - Optimality Conditions: math/optimization/unconstrained_optimization/optimality_conditions.md
-        - Gradient Desent: math/optimization/unconstrained_optimization/gradient_descent.md
-        - Newton's Method: math/optimization/unconstrained_optimization/newton_method.md
-        - Quasi-Newton Method: math/optimization/unconstrained_optimization/quasi_newton_method.md
-        - Golden Section: math/optimization/unconstrained_optimization/golden_section.md
-        - Quadratic Fit: math/optimization/unconstrained_optimization/quadratic_fit.md
-        - Nelder-Mead Method: math/optimization/unconstrained_optimization/nelder_mead_method.md
+        - Optimality Conditions: mathematics/optimization/unconstrained_optimization/optimality_conditions.md
+        - Gradient Desent: mathematics/optimization/unconstrained_optimization/gradient_descent.md
+        - Newton's Method: mathematics/optimization/unconstrained_optimization/newton_method.md
+        - Quasi-Newton Method: mathematics/optimization/unconstrained_optimization/quasi_newton_method.md
+        - Golden Section: mathematics/optimization/unconstrained_optimization/golden_section.md
+        - Quadratic Fit: mathematics/optimization/unconstrained_optimization/quadratic_fit.md
+        - Nelder-Mead Method: mathematics/optimization/unconstrained_optimization/nelder_mead_method.md
       - Linear Programming:
-        - Modelling Using Linear Programs: math/optimization/linear_programming/modelling_using_linear_programs.md
-        - Algrebraic Aspects: math/optimization/linear_programming/algebraic_aspects.md
-        - Simplex Method: math/optimization/linear_programming/simplex_method.md
-        - Linear Stochastic Program: math/optimization/linear_programming/linear_stochastic_program.md
-        - Nonlinear Program: math/optimization/linear_programming/nonlinear_program.md
-        - Robust Optimization: math/optimization/linear_programming/robust_optimization.md
-        - Column and Constraint Generation: math/optimization/linear_programming/column_and_constraint_generation.md
-        - Dantzig-Wolfe Decomposition: math/optimization/linear_programming/dantzig_wolfe_decomposition.md
+        - Modelling Using Linear Programs: mathematics/optimization/linear_programming/modelling_using_linear_programs.md
+        - Algrebraic Aspects: mathematics/optimization/linear_programming/algebraic_aspects.md
+        - Simplex Method: mathematics/optimization/linear_programming/simplex_method.md
+        - Linear Stochastic Program: mathematics/optimization/linear_programming/linear_stochastic_program.md
+        - Nonlinear Program: mathematics/optimization/linear_programming/nonlinear_program.md
+        - Robust Optimization: mathematics/optimization/linear_programming/robust_optimization.md
+        - Column and Constraint Generation: mathematics/optimization/linear_programming/column_and_constraint_generation.md
+        - Dantzig-Wolfe Decomposition: mathematics/optimization/linear_programming/dantzig_wolfe_decomposition.md
       - Nonlinear Programming:
-        - Least Squares: math/optimization/nonlinear_programming/least_squares.md
+        - Least Squares: mathematics/optimization/nonlinear_programming/least_squares.md
+      - Integer Programming:
+        - Discrete Optimization Models: mathematics/optimization/integer_programming/discrete_optimization_models.md
+        - Modelling Nonconvex Functions: mathematics/optimization/integer_programming/modelling_nonconvex_functions.md
+        - Modelling Nonconvex Sets: mathematics/optimization/integer_programming/modelling_nonconvex_sets.md
+        - Modelling Logical Relations: mathematics/optimization/integer_programming/modelling_logical_relations.md
   
   - Kinematics:
     - References: kinematics/references.md
-    - Notation and Nomenclature: kinematics/notation_and_nomenclature.md
     - Attitude and Geometry:
       - Pose and Attitude: kinematics/geometry/pose_and_attitude.md
       - Rotation Matrix: kinematics/geometry/rotation_matrix.md
@@ -122,8 +127,14 @@ nav:
       - Axis Angle: kinematics/geometry/axis_angle.md
       - Quaternions: kinematics/geometry/quaternions.md
       - Attitude Visualization: kinematics/geometry/pangolin_visualization.md
+    - Lie Groups and Lie Algebra: 
+      - Key Indentities: kinematics/lie_groups/key_identities.md
+      - Lie Groups and Lie Algebra: kinematics/lie_groups/lie_group_algebra.md 
+      - SO(3): kinematics/lie_groups/so3.md
+      - SE(3): kinematics/lie_groups/se3.md
+      - Baker-Campbell-Hausdorff: kinematics/lie_groups/baker_campbell_hausdorff.md
+      - SO(3) Derivative: kinematics/lie_groups/so3_derivative.md
     - Perturbing Rotations:
-      - Key Indentities: kinematics/perturbing_rotations/key_identities.md
       - Perturbing Rotation Matrix: kinematics/perturbing_rotations/perturbing_rotation_matrix.md
       - Lie Group and Lie Algebra: kinematics/geometry/lie_group_algebra.md
       - Derivative of Rotation Matrix: kinematics/geometry/derivative_of_rotation_matrix.md
@@ -147,7 +158,6 @@ nav:
 
   - Navigation:
     - References: navigation/references.md
-    - Notation & Nomenclature: navigation/notation_and_nomenclature.md
     - Coordinate Frames: navigation/coordinate_frames.md
     - Geodesy:
       - Geodesy: navigation/geodesy.md
@@ -164,3 +174,4 @@ nav:
       - Navigation Equations in ECI Frame: navigation/inertial_navigation_ECI.md
       - Navigation Equations in ECEF Frame: navigation/inertial_navigation_ECEF.md
       - Navigation Equations in Local Tangent-Plane Frame: navigation/inertial_navigation_local_tangent_plane.md
+  - Notation and Nomenclature: notation_and_nomenclature/notation_and_nomenclature.md

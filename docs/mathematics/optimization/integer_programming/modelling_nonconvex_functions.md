@@ -1,10 +1,10 @@
-## Definition
+## Nonconvex Functions
 
 By definition, a function is nonconvex if it is not convex. Nonconvex functions can be modelled using mixed integer linear constraints. We are interested in the following class of problems with form:
 
 $$
 \begin{align}
-\min \quad& \sum^n_{j - 1} f_j (x_j) \\ 
+\min \quad& \sum^n_{j = 1} f_j (x_j) \\ 
 \text{s.t.} \quad& \mathbf{A} \mathbf{x} \geq \mathbf{b} \\
 & 0 \leq x_j \leq U_j, \ j = 1, \ldots, n,
 \end{align}
@@ -19,7 +19,9 @@ where:
 
 ## Piecewise Linear Function
 
-Figure 1 shows a PWL function (on a bounded interval) of form:
+Refer to [Wikipedia](https://optimization.cbe.cornell.edu/index.php?title=Piecewise_linear_approximation) for more details.
+
+For simplicity, consider one univariate PWL nonconvex function $f(x)$ with $K$ pieces. Figure 1 shows a PWL function (on a bounded interval) of form:
 
 $$
 f(x) = f(\ell_k) + c_k (x - \ell_k), \ \ell_k \leq x \leq \ell_{k + 1}, k = 0, \ldots, K - 1.
@@ -49,7 +51,36 @@ x = &\sum^{K - 1}_{k = 0} u_k \\
 \end{align}
 $$
 
-and $f(x)$ can be replaced by $\sum^{K - 1}_{k = 0} \left[f(\ell_k) + c_k (u_k - \ell_k) \right]$.
+and $f(x)$ can be replaced by $\sum^{K - 1}_{k = 0} \left[f(\ell_k) + c_k (u_k - \ell_k) \right]y_k$. However, this is **not** the correct approach because it is nonlinear. The correct approach to model function $f(x)$ is:
+
+$$
+\sum^{K - 1}_{k = 0} f(\ell_k) y_k + c_k \left( u_k - \ell_k \right) + c_k \ell_k \left( 1 - y_k \right),
+$$
+
+or after some simplifications:
+
+$$
+f(x) = \sum^{K - 1}_{k = 0} f(\ell_k) y_k + c_k \left( u_k - \ell_k y_k \right).
+$$
+
+This is correct formulation of the function $f$ because on intervals that do not contain $x$ indicator variable $y_k = 0$ which will also force $u_k = 0$ and hence the summation terms become:
+
+$$
+f(\ell_k) y_k + c_k (u_k - \ell_k y_k) = f(\ell_k) \cdot 0 + c_k (0 - \ell_k \cdot 0) = 0.
+$$
+
+On the other hand, for interval $\left[ \ell_k, \ell_{k + 1} \right]$ which contains $x$, we will have $y_k = 1$ and $x = u_k \in \left[ \ell_k, \ell_{k + 1} \right]$ hence the appropriate summation term will become:
+
+$$
+\begin{align}
+f(\ell_k) y_k + c_k (u_k - \ell_k y_k) &= 
+f(\ell_k) \cdot 1 + c_k (u_k - \ell_k \cdot 1) \\
+&= f(\ell_k) + c_k (u_k - \ell_k) \\ 
+&= f(\ell_k) + c_k (x - \ell_k),
+\end{align}
+$$
+
+which is the exact definition of $f(x)$.
 
 ## Modelling Approach 2
 
@@ -105,6 +136,27 @@ $$
 
 ### Modelling Approach 2
 
+$$
+\begin{align}
+\min \quad& \sum^n_{j = 1} \left[ (0) \lambda_{j, 1} + (p_j L_j) \lambda_{j, 2} + \left(p_j + L_j + q_j (U_j - L_j) \right) \lambda_{j, 3} \right] \\ 
+\text{s.t.} \quad& A x \geq b, \ 0 \leq x_j \leq U_j, \ j = 1, \ldots, n \\
+& x_j = (0) \lambda_{j, 1} + (L_j) \lambda_{j, 2} + (U_j) \lambda_{j, 3}, \ j = 1, \ldots, n \\ 
+& \lambda_{j, 1} + \lambda_{j, 2} + \lambda_{j, 3} = 1, \ j = 1, \ldots, n, \ \lambda \geq 0 \\ 
+& y_{j, 1} + y_{j, 2} = 1, \ j = 1, \ldots, n, \ y \in \left\{0, 1 \right\}
+\end{align}
+$$
 
+
+## Generalization
+
+Assuming that we have $n$ univariate PWL functions $f_j(x_j)$, such that function $f_j(x_j)$ has $K_j$ pieces, then using the same approach we can model it as:
+
+$$
+\begin{align}
+&f_j(x_j) = \sum^{K_j - 1}_{k = 0} f_j \left( \ell^{(j)}_k \right) y^{(j)}_k + c^{(j)}_{j} \left( u^{(j)}_k - \ell^{(j)}_{k} y^{(j)}_k \right) \\ 
+&x_j = \sum^{K_j - 1}_{k = 0} u^{(j)}_k \\ 
+& \ell^{(j)}_k y^{(j)}_k \leq u^{(j)}_k \leq \ell^{(j)}_{k + 1} y^{(j)}_{k}, \ \forall k = 0, \ldots, K_{j - 1} \\
+\end{align}
+$$
 
 

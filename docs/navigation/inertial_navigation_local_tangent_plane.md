@@ -51,10 +51,10 @@
                 Since this is a first-order matrix ordinary differential equation, assuming \( \boldsymbol{\Omega}^e_{ie} \) is constant:
                 $$
                 \begin{align}
-                \mathbf{R}^l_b(t + \tau_i) &\approx \mathbf{R}^l_b(t) \text{exp}\left( \boldsymbol{\Omega}^b_{lb} \tau_i \right) \\
-                &= \mathbf{R}^l_b(t) \text{exp} \left( \boldsymbol{\Omega}^b_{ib} \tau_i - \boldsymbol{\Omega}^l_{il} \tau_i \right) \\
-                &= \mathbf{R}^l_b(t) \text{exp}\left(\boldsymbol{\Omega}^b_{ib} \tau_i \right) - \mathbf{R}^l_b(t) \left[ \text{exp}\left( \boldsymbol{\Omega}^b_{il} \tau_i \right) - \mathbf{I}_3 \right] \\
-                &= \mathbf{R}^l_b(t) \text{exp}\left( \left[ \boldsymbol{\alpha}^b_{ib} \right]_\times \right) - \left[ \text{exp}\left( \boldsymbol{\Omega}^l_{il} \tau_i \right) - \mathbf{I}_3 \right] \mathbf{R}^l_b(t) \\
+                \mathbf{R}^l_b(t + \tau_i) &\approx \mathbf{R}^l_b(t) \exp\left( \boldsymbol{\Omega}^b_{lb} \tau_i \right) \\
+                &= \mathbf{R}^l_b(t) \exp \left( \boldsymbol{\Omega}^b_{ib} \tau_i - \boldsymbol{\Omega}^l_{il} \tau_i \right) \\
+                &= \mathbf{R}^l_b(t) \exp\left(\boldsymbol{\Omega}^b_{ib} \tau_i \right) - \mathbf{R}^l_b(t) \left[ \exp\left( \boldsymbol{\Omega}^b_{il} \tau_i \right) - \mathbf{I}_3 \right] \\
+                &= \mathbf{R}^l_b(t) \exp\left( \left[ \boldsymbol{\alpha}^b_{ib} \right]_\times \right) - \left[ \exp\left( \boldsymbol{\Omega}^l_{il} \tau_i \right) - \mathbf{I}_3 \right] \mathbf{R}^l_b(t) \\
                 \end{align} \label{4.4.3} \tag{4.4.3}
                 $$
 
