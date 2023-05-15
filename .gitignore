@@ -1,2 +1,4 @@
 .DS_Store
+**/.DS_Store
+docs/assets/files/*.pdf
 docs/assets/files/numpy.*

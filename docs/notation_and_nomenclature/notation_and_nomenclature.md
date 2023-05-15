@@ -32,6 +32,6 @@ $\left[ \ \cdot \ \right]_\times \quad \text{Skew matrix operator}$
 
 $\left[ \ \cdot \ \right]^{-1}_\times \quad \text{Inverse skew matrix operator}$
 
-$\hat{\cdot} \quad\quad \ \ \text{Estimated quantity}$
+$\hat{a} \quad\quad \ \ \text{Estimated quantity of } a$
 
-$\tilde{\cdot} \quad\quad \ \ \text{Measured quantity}$
+$\tilde{a} \quad\quad \ \ \text{Measured quantity of } a$

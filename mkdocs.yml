@@ -127,17 +127,14 @@ nav:
       - Axis Angle: kinematics/geometry/axis_angle.md
       - Quaternions: kinematics/geometry/quaternions.md
       - Attitude Visualization: kinematics/geometry/pangolin_visualization.md
-    - Lie Groups and Lie Algebra: 
-      - Key Indentities: kinematics/lie_groups/key_identities.md
-      - Lie Groups and Lie Algebra: kinematics/lie_groups/lie_group_algebra.md 
-      - SO(3): kinematics/lie_groups/so3.md
-      - SE(3): kinematics/lie_groups/se3.md
-      - Baker-Campbell-Hausdorff: kinematics/lie_groups/baker_campbell_hausdorff.md
-      - SO(3) Derivative: kinematics/lie_groups/so3_derivative.md
-    - Perturbing Rotations:
-      - Perturbing Rotation Matrix: kinematics/perturbing_rotations/perturbing_rotation_matrix.md
-      - Lie Group and Lie Algebra: kinematics/geometry/lie_group_algebra.md
-      - Derivative of Rotation Matrix: kinematics/geometry/derivative_of_rotation_matrix.md
+    - Lie Theory: 
+      - Key Indentities: kinematics/lie_theory/key_identities.md
+      - Lie Groups and Lie Algebra: kinematics/lie_theory/lie_group_algebra.md 
+      - SO(3): kinematics/lie_theory/so3.md
+      - SE(3): kinematics/lie_theory/se3.md
+      - BCH and Perturbed Rotations: kinematics/lie_theory/bch_and_perturbed_rotations.md
+      - SO(3) Jacobians: kinematics/lie_theory/so3_jacobians.md
+      - SE(3) Jacobians: kinematics/lie_theory/se3_jacobians.md
     - Angular Velocity: kinematics/angular_velocity.md
     - Cartesian Position: kinematics/cartesian_position.md
     - Velocity: kinematics/velocity.md
@@ -151,27 +148,27 @@ nav:
 
     - Extended Kalman Filter:
       - Continuous-Time EKF: state_estimation/continuous_time_ekf.md
-  
-  - Computer Vision:
-    - Image Compression:
-      - Compression via Low-Rank Matrix Approximation: computer_vision/image_compression/compression_by_low_rank_matrix_approximation.md
 
   - Navigation:
     - References: navigation/references.md
-    - Coordinate Frames: navigation/coordinate_frames.md
+    - Coordinate Frames: navigation/coordinate_frames/coordinate_frames.md
     - Geodesy:
-      - Geodesy: navigation/geodesy.md
-      - Geodetic Coordinates: navigation/geodetic_coordinates.md
-      - ECEF To Curvilinear Position: navigation/ecef_to_curvilinear.md
-      - Orthometric Height: navigation/orthometric_height.md
-      - Mercator Projection: navigation/mercator_projection.md
-      - Rotation of Earth: navigation/rotation_of_earth.md
-      - Gravity Models: navigation/gravity_models.md
-      - Frame Transformations: navigation/frame_transformations.md
+      - Primer on Geodesy: navigation/geodesy/primer.md
+      - ECEF To Curvilinear Position: navigation/geodesy/ecef_to_curvilinear.md
+      - Orthometric Height: navigation/geodesy/orthometric_height.md
+      - Rotation of Earth: navigation/geodesy/rotation_of_earth.md
+      - Gravity Models: navigation/geodesy/gravity_models.md
+      - Frame Transformations: navigation/geodesy/frame_transformations.md
     - Inertial Navigation:
-      - IMU: navigation/imu.md
-      - Architecture: navigation/inertial_navigation_architecture.md
-      - Navigation Equations in ECI Frame: navigation/inertial_navigation_ECI.md
-      - Navigation Equations in ECEF Frame: navigation/inertial_navigation_ECEF.md
-      - Navigation Equations in Local Tangent-Plane Frame: navigation/inertial_navigation_local_tangent_plane.md
+      - IMU: navigation/inertial_navigation/imu.md
+      - Architecture: navigation/inertial_navigation/inertial_navigation_architecture.md
+      - Navigation Equations in ECI Frame: navigation/inertial_navigation/inertial_navigation_ECI.md
+      - Navigation Equations in ECEF Frame: navigation/inertial_navigation/inertial_navigation_ECEF.md
+      - Navigation Equations in Local Tangent-Plane Frame: navigation/inertial_navigation/inertial_navigation_local_tangent_plane.md
+    - Time:
+      - Time Standards: navigation/time/time_standards.md
+  - Computer Vision:
+    - Image Compression:
+      - Compression via Low-Rank Matrix Approximation: computer_vision/image_compression/compression_by_low_rank_matrix_approximation.md
+  
   - Notation and Nomenclature: notation_and_nomenclature/notation_and_nomenclature.md

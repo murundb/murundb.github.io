@@ -1,12 +1,12 @@
 # Cartesian Position
 
 Let $\mathbf{r}^{\gamma}_{\alpha \beta} = 
-\left(
+\left[
 \begin{array}{ccc}
-x^{\gamma}_{\beta \alpha} & y^{\gamma}_{\beta \alpha} & z^{\gamma}_{\beta \alpha}
+x^{\gamma}_{\alpha \beta} & y^{\gamma}_{\alpha \beta} & z^{\gamma}_{\alpha \beta}
 \end{array}
-\right)$ be the Cartesian position of the origin of frame $F_\alpha$ with respect to the origin of frame $F_\beta$ resolved about the axes of frame $F_\gamma$ ( $x$, $y$, $z$ are the components
-of position in the $x$, $y$, $z$ axes of $F_\gamma$). We know:
+\right]^T$ be a Cartesian position of an origin of frame $F_\alpha$ with respect to an origin of frame $F_\beta$ resolved about the axes of frame $F_\gamma$ ( $x$, $y$, $z$ are the components
+of position in the $x$, $y$, $z$ axes of $F_\gamma$). We have:
 
 $$
 \begin{align}
@@ -15,7 +15,7 @@ $$
 \end{align} \label{4.1}
 $$
 
-To change the resolving frame, we use the transformation matrix:
+To change the resolving frame, we use the rotation matrix:
 
 $$
 \mathbf{r}^{\gamma}_{\beta \alpha} = \mathbf{R}^{\gamma}_{\delta} \mathbf{r}^{\delta}_{\beta \alpha}, \label{4.2}

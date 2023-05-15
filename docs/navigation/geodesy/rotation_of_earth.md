@@ -1,5 +1,3 @@
-## Rotation of Earth
-
 The Earth-rotation vector resolved in an ECI or ECEF frame is:
 
 $$

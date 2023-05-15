@@ -1,14 +1,18 @@
 ## ECI Frame 
-$F_i$ - <https://en.wikipedia.org/wiki/Earth-centered_inertial>
+
+Earth-centered inertial (ECI) coordinate frame, denoted as $F_i$. Refer to [Wiki](https://en.wikipedia.org/wiki/Earth-centered_inertial).
 
 ## ECEF Frame
-$F_e$ - <https://en.wikipedia.org/wiki/Earth-centered,_Earth-fixed_coordinate_system>
+
+Earth-centered Earth-fixed (ECEF) coordinate frame, denoted as $F_e$. Refer to [Wiki](https://en.wikipedia.org/wiki/Earth-centered,_Earth-fixed_coordinate_system).
 
 ## Local Navigation Frame
-$F_n$ - <https://en.wikipedia.org/wiki/Local_tangent_plane_coordinates#Local_north,_east,_down_(NED)_coordinates>
+
+Local navigation frame denoted as $F_n$. Refer to [Wiki](https://en.wikipedia.org/wiki/Local_tangent_plane_coordinates#Local_north,_east,_down_(NED)_coordinates)
 
 ## Local Tangent-Plane Frame
-$F_l$ - <https://en.wikipedia.org/wiki/Local_tangent_plane_coordinates>
+
+Local tangent-plane frame denoted as $F_l$ that has North-East-Down axes and a fixed origin. Refer to [Wiki](https://en.wikipedia.org/wiki/Local_tangent_plane_coordinates).
 
 ## Body Frame
 

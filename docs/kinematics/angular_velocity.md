@@ -30,7 +30,7 @@ $$
 \omega^{\gamma}_{\beta \alpha, 3} & 0 & -\omega^{\gamma}_{\beta \alpha, 1} \\
 -\omega^{\gamma}_{\beta \alpha, 2} & -\omega^{\gamma}_{\beta \alpha, 1} & 0 \\
 \end{array}
-\right].\label{3.4}
+\right], \label{3.4}
 $$
 
 The resolving axes of the skew-symmetric matrix above can be converted via:
@@ -71,7 +71,7 @@ $$
 \end{align} \label{3.9}
 $$
 
-which was derived earlier in axis-angle representation.
+which is the solution to Poisson's equation and was derived in Lie theory section.
 
 Note that if the above steps are repeated under the assumption that $F_\beta$ is rotating and $F_\alpha$ is stionary, the result 
 $\dot{\mathbf{R}}^\alpha_\beta = -\mathbf{R}^\alpha_\beta \boldsymbol{\Omega}^\beta_{\beta \alpha}$ is obtained. However, the results are equivalent. In general:
