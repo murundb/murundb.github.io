@@ -1,9 +1,9 @@
 ## Rodrigues' Formula via Geometry
 
 <figure markdown>
-  ![$z$-$y$-$x$ rotation from left to right (source Groves, p34)](/assets/images/kinematics/light/axis_angle.png#only-light){ width="300" }
-  ![$z$-$y$-$x$ rotation from left to right (source Groves, p34)](/assets/images/kinematics/dark/axis_angle.png#only-dark){ width="300" }
-  <figcaption>Figure 1 Rotation via rotation vector (source Szeliski, p46)</figcaption>
+  ![$z$-$y$-$x$ rotation from left to right (Groves, p34)](/assets/images/kinematics/light/axis_angle.png#only-light){ width="300" }
+  ![$z$-$y$-$x$ rotation from left to right (Groves, p34)](/assets/images/kinematics/dark/axis_angle.png#only-dark){ width="300" }
+  <figcaption>Figure 1 Rotation via rotation vector (Szeliski, p46)</figcaption>
 </figure>
 
 

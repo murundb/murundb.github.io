@@ -55,8 +55,8 @@ and a body frame, $F_{\alpha}$ which is fixed to a center of a rigid body. Consi
 Figure 2.5.1 shows the visualization of each pose via Pangolin.
 
 <figure markdown>
-  ![$z$-$y$-$x$ rotation from left to right (source Groves, p34)](/assets/images/kinematics/light/pose_pangolin.png#only-light){ width="1000" }
-  ![$z$-$y$-$x$ rotation from left to right (source Groves, p34)](/assets/images/kinematics/dark/pose_pangolin.png#only-dark){ width="1000" }
+  ![$z$-$y$-$x$ rotation from left to right (Groves, p34)](/assets/images/kinematics/light/pose_pangolin.png#only-light){ width="1000" }
+  ![$z$-$y$-$x$ rotation from left to right (Groves, p34)](/assets/images/kinematics/dark/pose_pangolin.png#only-dark){ width="1000" }
   <figcaption>Figure 1 Pose Visualization via Pangolin</figcaption>
 </figure>
 

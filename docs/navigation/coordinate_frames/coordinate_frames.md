@@ -23,5 +23,5 @@ $z^b$ is the down axis, pointing in the usual direction of gravity; and $y^b$ is
 <figure markdown>
   ![Body Frame](/assets/images/navigation/light/body_frame.png#only-light){ width="400" }
   ![Body Frame](/assets/images/navigation/dark/body_frame.png#only-dark){ width="400" }
-  <figcaption>Figure 1 Body Frame (source Groves, p29)</figcaption>
+  <figcaption>Figure 1 Body Frame (Groves, p29)</figcaption>
 </figure>

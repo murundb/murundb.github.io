@@ -166,9 +166,9 @@ For example, if a covariance matrix is resolved around the axes of a specific co
 ## Principle Rotations
 
 <figure markdown>
-  ![Fig 2.1 Rotation about $z^\beta$ (source Groves, p31)](/assets/images/kinematics/light/rotation_1.png#only-light){ width="300" }
-  ![Fig 2.1 Rotation about $z^\beta$ (source Groves, p31)](/assets/images/kinematics/dark/rotation_1.png#only-dark){ width="300" }
-  <figcaption>Figure 1 Body Frame (source Groves, p29)</figcaption>
+  ![Fig 2.1 Rotation about $z^\beta$ (Groves, p31)](/assets/images/kinematics/light/rotation_1.png#only-light){ width="300" }
+  ![Fig 2.1 Rotation about $z^\beta$ (Groves, p31)](/assets/images/kinematics/dark/rotation_1.png#only-dark){ width="300" }
+  <figcaption>Figure 1 Body Frame (Groves, p29)</figcaption>
 </figure>
 
 

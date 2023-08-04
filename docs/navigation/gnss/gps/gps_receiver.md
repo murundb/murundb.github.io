@@ -1,0 +1,15 @@
+## Signal Acquisition and Tracking
+
+The basic functions of a GPS receiver are:
+
+1. **To capture the RF signals transmitted by the satellites spread out in the sky.** The signals are gathered by a hemispherical antenna.
+2. **To separate the signals from satellites in view.** Given a recent almanac and a rough idea of the user location, the receiver determines which satellites are in view.
+3. **To perform measurements of signal transmit time and Doppler shift.** Given the satellite ID, the receiver knows the structure of the C/A-code being transmitted by it, and attempts to "tune" to it to acquire the signal, and from then on track changes in it continously. To acquire a signal, the receiver generates a replica of the known C/A-code, and attempts to align it with the incoming code by sliding the replica in time and computing the correlation. From the auto-correlation property of the signal, the correlation function exhibitis a sharp peak when the code replica is aligned with the code received from the satellite. Code tracking is implemented as a feedback control loop, called a *delay lock loop*, which continuously adjusts the replica code to keep it aligned with the code in the incoming signal. The time shift required to align the receiver-generated code replica and the signal received from the satellite is the apparent transmit time of the signal modulo 1 ms. The PRN code chips are generated at the satellite at precisely known instants in accordance with the satellite clock and, therefore, the receiver can "read" the satellite clock time time to determine when a chip was generated. 
+4. **To decode the navigation message to determine the satellite position, velocity, and clock parameters.** After the alignmnet is accomplished, the PRN code is removed from the signal, leaving the carrier modulated by the navigation message. This signal is now tracked with another feedback control loop called a *phase lock loop*. Essentially, the receiver generates a sinusoidal signal to match the frequency and phase of the incoming signal, and in the process extracts the navigation message. 
+5. **To estimate the user PVT.** The quality of PVT estimates obtained by a user from GPS depends on two factors: (i) numer of satellites in view and their spatial distribution in the sky, and (ii) quality of the range and range rate measurements. The spatial distribution of the satellites relative to the user is referred to as *satellite geometry*. Roughtl speaking, the geometry is good if the satellites are on all sides of the user, some high in the sky and several low. 
+
+   The second factor determining the quality of the PVT estimates is the quality of the peudorange and Doppler measurements which may be due to:
+
+   1. Errors in the navigation message parameters which specify satellite position and signal transmission time introduce errors in the pseudorange measurements. These are referred as signal-in-space (SIS) errors.
+   2. Propagation delays in the ionosphere and the troposphere, signal distortion due to multipath, and receiver noise also introduce measurement errors. 
+

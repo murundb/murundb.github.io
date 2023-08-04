@@ -261,7 +261,7 @@ The transformation matrix is similar to ECEF and navigation frame conversions:
 
 $$
 \begin{align}
-\mathbf{R}^e_l &=
+\mathbf{R}^l_e &=
 \left[
 \begin{array}{ccc}
 -\text{sin}L_l \text{cos}\lambda_l & -\text{sin}L_l \text{sin}\lambda_l & \text{cos}L_l \\
@@ -269,7 +269,7 @@ $$
 -\text{cos}L_l \text{cos}\lambda_l & -\text{cos}L_l \text{sin}\lambda_l & -\text{sin}L_l
 \end{array}
 \right] \\ \\
-\mathbf{R}^l_e
+\mathbf{R}^e_l
 &= 
 \left[
 \begin{array}{ccc}

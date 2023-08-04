@@ -13,7 +13,7 @@ gravity or gravitation model
 <figure markdown>
   ![Inertial Navigation Architecture](/assets/images/navigation/light/inertial_navigation_overview.png#only-light){ width="500" }
   ![Inertial Navigation Architecture](/assets/images/navigation/dark/inertial_navigation_overview.png#only-dark){ width="500" }
-  <figcaption>Fig 1 Inertial Navigation Processor (source Groves, p167)</figcaption>
+  <figcaption>Fig 1 Inertial Navigation Processor (Groves, p167)</figcaption>
 </figure>
 
 Continuous-time navigation equations physicall describe a body's modion. Discrete-time navigation equations,

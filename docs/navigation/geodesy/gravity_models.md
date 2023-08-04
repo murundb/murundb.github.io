@@ -86,7 +86,7 @@ outward **centrifugal acceleration** due to the Earth's rotation. Figure 3.7.1 i
 <figure markdown>
   ![Gravity](/assets/images/navigation/light/gravity.png#only-light){ width="400" }
   ![Gravity](/assets/images/navigation/dark/gravity.png#only-dark){ width="400" }
-  <figcaption>Fig 3.7.1 Gravity, gravitational acceleration, centrifugal acceleration (source Groves, p71)</figcaption>
+  <figcaption>Fig 3.7.1 Gravity, gravitational acceleration, centrifugal acceleration (Groves, p71)</figcaption>
 </figure>
 
 At earth's surface, the total acceleration due to gravity is about $\mathbf{g} = 9.8$ m/s^2, with centrifugal component contributing up to 0.034 m/s^2. 

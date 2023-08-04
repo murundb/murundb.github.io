@@ -51,9 +51,9 @@ Euler angles can be converted to DCM easily by taking the transpose of the rotat
 Let the axes of frame $F_\beta$ be $(x^\beta, y^\beta, z^\beta)$.
 
 <figure markdown>
-  ![$z$-$y$-$x$ rotation from left to right (source Groves, p34)](/assets/images/kinematics/light/euler_angles.png#only-light){ width="500" }
-  ![$z$-$y$-$x$ rotation from left to right (source Groves, p34)](/assets/images/kinematics/dark/euler_angles.png#only-dark){ width="500" }
-  <figcaption>Figure 1 z-y-x rotation from left to right (source Groves, p34)</figcaption>
+  ![$z$-$y$-$x$ rotation from left to right (Groves, p34)](/assets/images/kinematics/light/euler_angles.png#only-light){ width="500" }
+  ![$z$-$y$-$x$ rotation from left to right (Groves, p34)](/assets/images/kinematics/dark/euler_angles.png#only-dark){ width="500" }
+  <figcaption>Figure 1 z-y-x rotation from left to right (Groves, p34)</figcaption>
 </figure>
 
 The first rotation will be through the yaw angle $\psi_{\beta \alpha}$ about the common $$ axis of the $\beta$ frame to yield the first intermediate axes $(x^\psi, y^\psi, z^\psi)$:

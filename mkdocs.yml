@@ -89,6 +89,15 @@ nav:
     - Matrix Calculus Identities: mathematics/matrix_calculus_identities.md
     - Matrix Factorization: mathematics/matrix_factorization/singular_value_decomposition.md
     - Perturbation Methods: mathematics/perturbation_methods.md
+    - Probability and Statistics:
+      - References: mathematics/probability_and_statistics/references.md
+      - Termanologies: mathematics/probability_and_statistics/termanologies.md
+      - The Sample and Its Properties:
+        - Location Measures: mathematics/probability_and_statistics/the_sample_and_its_properties/location_measures.md
+        - Variability Measures: mathematics/probability_and_statistics/the_sample_and_its_properties/variability_measures.md
+        - Univariate Sample Example: assets/jupyter/probability/cellarea_analysis.ipynb
+        - Multivariate Sample Properties: mathematics/probability_and_statistics/the_sample_and_its_properties/multivariate_sample_properties.md
+        - Observations as Time Series: mathematics/probability_and_statistics/the_sample_and_its_properties/observations_as_time_series.md
     - Optimization:
       - References: mathematics/optimization/references.md
       - Optimization Problem Formulation: mathematics/optimization/optimization_problem_formulation.md
@@ -98,6 +107,7 @@ nav:
         - Gradient Desent: mathematics/optimization/unconstrained_optimization/gradient_descent.md
         - Newton's Method: mathematics/optimization/unconstrained_optimization/newton_method.md
         - Quasi-Newton Method: mathematics/optimization/unconstrained_optimization/quasi_newton_method.md
+        - Gauss-Netwon Method: mathematics/optimization/unconstrained_optimization/gauss_newton_method.md
         - Golden Section: mathematics/optimization/unconstrained_optimization/golden_section.md
         - Quadratic Fit: mathematics/optimization/unconstrained_optimization/quadratic_fit.md
         - Nelder-Mead Method: mathematics/optimization/unconstrained_optimization/nelder_mead_method.md
@@ -165,10 +175,28 @@ nav:
       - Navigation Equations in ECI Frame: navigation/inertial_navigation/inertial_navigation_ECI.md
       - Navigation Equations in ECEF Frame: navigation/inertial_navigation/inertial_navigation_ECEF.md
       - Navigation Equations in Local Tangent-Plane Frame: navigation/inertial_navigation/inertial_navigation_local_tangent_plane.md
-    - Time:
+    - Radio Positioning:
+      - Position by Ranging: 
+        - Ranging: navigation/radio_positioning/ranging/tof_methods.md
+        - Positioning from Passive Ranging: navigation/radio_positioning/ranging/positioning_from_passive_ranging.md
+      - Angular Position: navigation/radio_positioning/anglular_position.md
       - Time Standards: navigation/time/time_standards.md
+    - GNSS:
+      - GPS:
+        - GPS Signals: navigation/gnss/gps/gps_signals.md
+        - GPS Receiver: navigation/gnss/gps/gps_receiver.md
+        - GPS Time: navigation/gnss/gps/gps_time.md
+
   - Computer Vision:
     - Image Compression:
       - Compression via Low-Rank Matrix Approximation: computer_vision/image_compression/compression_by_low_rank_matrix_approximation.md
   
   - Notation and Nomenclature: notation_and_nomenclature/notation_and_nomenclature.md
+
+plugins:
+  - mkdocs-jupyter:
+      kernel_name: python3
+      execute: true
+      allow_errors: false
+      execute_ignore:
+        - "temp/*.ipynb"

@@ -64,3 +64,5 @@ where
 $$
 \text{tan}\zeta_b = \frac{z^e_{eb}}{\sqrt{1-e^2} \sqrt{(x^e_{eb})^2 + (y^e_{eb})^2}}.
 $$
+
+$1^o$ of longitude is about 110 km (60 nautical miles) at the equator, and 80 km at $45^o$ latitude.
