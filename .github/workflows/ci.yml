@@ -25,4 +25,5 @@ jobs:
       - run: pip install mkdocs-jupyter
       - run: pip install pandas
       - run: pip install numpy
+      - run: pip install openpyxl
       - run: mkdocs gh-deploy --force
