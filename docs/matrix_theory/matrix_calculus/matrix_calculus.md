@@ -1,9 +1,11 @@
-## Overview
+# Matrix Calculus
 
-Note that in [Functions](/math/functions), we defined gradient of $f$ as a vector of the $n$-partial derivatives:
+## Gradient and Layout
+
+Gradient of a function $f$ is given as a vector of the $n$-partial derivatives:
 
 $$
-\nabla f(\mathbf{x}) = 
+\nabla f(\mathbf{x}) =
 \left[
 \begin{array}{cccc}
 \frac{\partial f(\mathbf{x})}{\partial x_1}
@@ -16,10 +18,10 @@ $$
 $$
 
 We will present here a matrix notation (numerator and denominator layout) for computing partial derivatives of a function with respect to multiple variables. Consider a vector function
-$\mathbf{y}$ and a vector $\mathbf{x}$.
+$\mathbf{y}$ and a vector $\mathbf{x}$. The two commonly used layouts are:
 
-**Numerator layout** lays out according to $\mathbf{y}$ and $\mathbf{x}^T$. 
-**Denominator layout** lays out according to $\mathbf{y}^T$ and $\mathbf{x}$.
+1. **Numerator layout** which lays out according to $\mathbf{y}$ and $\mathbf{x}^T$.  
+2. **Denominator layout** which lays out according to $\mathbf{y}^T$ and $\mathbf{x}$.
 
 In general, to transform from one layout to another, we can just take the **transpose** of the result.
 

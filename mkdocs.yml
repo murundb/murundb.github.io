@@ -43,10 +43,12 @@ theme:
     - navigation.path
     # - navigation.indexes
     - toc.follow
-    - toc.integrate
+    # - toc.integrate
     - navigation.top
 
 markdown_extensions:
+  - admonition
+  - pymdownx.details
   - pymdownx.arithmatex:
       generic: true
   - attr_list
@@ -72,6 +74,16 @@ extra:
 ## Navigation Tree
 nav:
   - Home: index.md
+  - Matrix Theory: 
+    - References: matrix_theory/references.md
+    - Norms:
+      - Vector Norms: matrix_theory/norms/vector_norms.md
+      - Matrix Norms: matrix_theory/norms/matrix_norms.md
+    - Matrix Factorization:
+      - Singular Value Decomposition: matrix_theory/matrix_factorization/singular_value_decomposition.md
+    - Matrix Calculus:
+      - Identities: matrix_theory/matrix_calculus/matrix_calculus_identities.md
+      - Matrix Calculus: matrix_theory/matrix_calculus/matrix_calculus.md
   - Mathematics:
     - References: mathematics/references.md
     - Cauchy-Schwartz Inequality: mathematics/cauchy_schwarz_inequality.md
@@ -85,9 +97,6 @@ nav:
       - Functions, Gradient, Jacobian, Hessian: mathematics/functions/functions.md
       - Convex Functions: mathematics/functions/convex_functions.md
       - Nonconvex Functions: mathematics/functions/nonconvex_functions.md
-    - Matrix Calculus: mathematics/matrix_calculus.md
-    - Matrix Calculus Identities: mathematics/matrix_calculus_identities.md
-    - Matrix Factorization: mathematics/matrix_factorization/singular_value_decomposition.md
     - Perturbation Methods: mathematics/perturbation_methods.md
     - Probability and Statistics:
       - References: mathematics/probability_and_statistics/references.md
@@ -190,6 +199,8 @@ nav:
   - Computer Vision:
     - Image Compression:
       - Compression via Low-Rank Matrix Approximation: computer_vision/image_compression/compression_by_low_rank_matrix_approximation.md
+  - Papers:
+    - Software: papers/software.md
   
   - Notation and Nomenclature: notation_and_nomenclature/notation_and_nomenclature.md
 
