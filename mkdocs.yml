@@ -19,7 +19,7 @@ theme:
         icon: material/toggle-switch
         name: Switch to dark mode
 
-    # # Palette toggle for dark mode
+    # # Palette toggle for built-in dark mode
     # - scheme: slate
     #   primary: black
     #   accent: indigo

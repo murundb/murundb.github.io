@@ -18,7 +18,7 @@
       /* Code color shades */
       --md-code-fg-color:                hsla(var(--md-hue), 18%, 86%, 1);
       --md-code-bg-color:                hsla(var(--md-hue), 15%, 15%, 1);
-      --md-typeset-a-color:              hsl(219, 56%, 63%);
+      --md-typeset-a-color:              hsl(17, 92%, 56%);
   
       /* Code highlighting color shades */
       --md-code-hl-color:                hsla(#{hex2hsl($clr-blue-a200)}, 0.15);
@@ -39,7 +39,7 @@
       --md-typeset-color:                var(--md-default-fg-color);
   
       /* Typeset `a` color shades */
-      --md-typeset-a-color:              rgb(162, 162, 162);
+      /* --md-typeset-a-color:              rgb(162, 162, 162); */
   
       /* Typeset `mark` color shades */
       --md-typeset-mark-color:           hsla(#{hex2hsl($clr-blue-a200)}, 0.3);
@@ -77,7 +77,7 @@
         0 0              #{px2rem(1px)}  hsla(0, 0%, 0%, 0.35);
     }
 
-    [data-md-color-scheme="dark"] img[src$="#only-light"] {
+    /* [data-md-color-scheme="dark"] img[src$="#only-light"] {
             display: none;
     }
     [data-md-color-scheme="dark"] img[src$="#gh-light-mode-only"] {
@@ -125,6 +125,10 @@
     }
     [data-md-color-scheme="dark"][data-md-color-primary="black"] {
         --md-typeset-a-color: #6c91d5;
+    } */
+
+    [data-md-color-scheme="default"][data-md-color-primary="black"] {
+        --md-typeset-a-color: hsl(17, 92%, 56%);
     }
 }
 
