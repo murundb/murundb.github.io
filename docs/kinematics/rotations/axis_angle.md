@@ -1,4 +1,31 @@
-## Rodrigues' Formula via Geometry
+# Axis-Angle
+
+## Euler's Rotation Theorem
+
+Euler's rotation theorem states that, in three-dimensional space, any displacement of a rigid body such that a point on the rigid body remains fixed, is equivalent to a single rotation about some axis that runs through the fixed point. It also means that the composition of two rotations is also a rotation.
+
+!!! cnote "**Rodrigues' Formula**"
+
+    Denote the **axis of rotation** as $\hat{\mathbf{e}} = \left[\begin{array}{ccc} e_1 & e_2 & e_3 \end{array} \right]^T$ and assume that it is a unit vector:
+
+    $$
+    \hat{\mathbf{e}}^T \hat{\mathbf{e}} = e^2_1 + e^2_2 + e^2_3 = 1.
+    $$
+
+    The **angle of rotation** is $\theta$. Then the rotation matrix is:
+
+    $$
+    \mathbf{R} = \cos \theta \mathbf{I} + \left(1 - \cos \theta \right) \hat{\mathbf{e}} \hat{\mathbf{e}}^T - \sin \theta \left[ \hat{\mathbf{e}} \right]_{\times}.
+    $$
+
+    Note that it does not matter in which frame $\hat{\mathbf{e}}$ is expressed because:
+
+    $$
+    \mathbf{R} \hat{\mathbf{e}} = \hat{\mathbf{e}}.
+    $$
+
+
+## Rodrigues' Formula Derivation via Geometry
 
 <figure markdown>
   ![$z$-$y$-$x$ rotation from left to right (Groves, p34)](/assets/images/kinematics/light/axis_angle.png#only-light){ width="300" }
@@ -88,7 +115,7 @@ $$
 \left[ \hat{\mathbf{e}} \right]^3_\times = \left[ \hat{\mathbf{e}} \right]_\times \left( \hat{\mathbf{e}} \hat{\mathbf{e}}^T - \mathbf{I} \right) = \left[ \hat{\mathbf{e}} \right]_\times \hat{\mathbf{e}} \hat{\mathbf{e}}^T - \left[ \hat{\mathbf{e}} \right]_\times = - \left[ \hat{\mathbf{e}} \right]_\times.
 $$
 
-## Rodigues's Formula via Lie Algebra
+## Rodigues's Formula Derivation via Lie Algebra
 
 ### SO(3) Lie Group and Lie Algebra
 

@@ -1,8 +1,14 @@
 # Angular Velocity
 
+## Definition
+
 The angular velocity vector, $\boldsymbol{\omega}^{\gamma}_{\beta \alpha}$, is the rate of rotation of the frame $F_\alpha$ axes with respect
 to the frame $F_\beta$ axes, resolved about the frame $F_\gamma$ axes. The rotation is within the plane perpendicular to the angular rate vector, and 
-the angular rate vector direction follows the right-hand rule. Reversing the sign of the angular rate vector results in rotation of the frame $F_\beta$ with respect to frame $F_\alpha$ resolved about the frame $F_\gamma$ axes:
+the angular rate vector direction follows the right-hand rule. 
+
+## Properties
+
+Reversing the sign of the angular rate vector results in rotation of the frame $F_\beta$ with respect to frame $F_\alpha$ resolved about the frame $F_\gamma$ axes:
 
 $$
 \boldsymbol{\omega}^{\gamma}_{\beta \alpha} = -\boldsymbol{\omega}^{\gamma}_{\alpha \beta}. \label{3.1}
@@ -14,7 +20,7 @@ $$
 \boldsymbol{\omega}^{\gamma}_{\beta \alpha} = \boldsymbol{\omega}^{\gamma}_{\beta \delta} + \boldsymbol{\omega}^{\gamma}_{\delta \alpha}.\label{3.2}
 $$
 
-Observers in the frames $F_\alpha$ and $F_\beta$ do not see the same motion because of their own relative motions. The resolving axes can be changed by using the rotation matrix:
+The resolving axes can be changed by using the rotation matrix:
 
 $$
 \boldsymbol{\omega}^{\gamma}_{\beta \alpha} = \mathbf{R}^{\gamma}_{\delta} \boldsymbol{\omega}^{\delta}_{\beta \alpha}.\label{3.3}
@@ -39,11 +45,23 @@ $$
 \boldsymbol{\Omega}^{\gamma}_{\beta \alpha} = \mathbf{R}^{\gamma}_{\delta} \boldsymbol{\Omega}^{\delta}_{\beta \alpha} \mathbf{R}^{\delta}_{\gamma}. \label{3.5}
 $$
 
+## Time Derivative
+
+!!! cnote "Poisson's Equation"
+
+    $$
+    \begin{align}
+    \dot{\mathbf{R}}^\alpha_\beta(t) &= - \mathbf{R}^\alpha_\beta \boldsymbol{\Omega}^\beta_{\beta \alpha} = \mathbf{R}^\alpha_\beta \boldsymbol{\Omega}^\beta_{\alpha \beta} \\
+    &= -\boldsymbol{\Omega}^\alpha_{\beta \alpha} \mathbf{R}^\alpha_\beta = \boldsymbol{\Omega}^\alpha_{\alpha \beta} \mathbf{R}^\alpha_\beta.
+    \end{align}
+    $$
+
 The time derivative of a coordinate transformation matrix was previously computed when we derived Rodrigues' formula. Using the definition of derivative:
 
 $$
 \dot{\mathbf{R}}^{\alpha}_{\beta}(t) = \lim_{\delta t \rightarrow 0} \left( \frac{\mathbf{R}^{\alpha}_{\beta}(t + \delta t) - \mathbf{R}^{\alpha}_{\beta} (t)}{\delta t} \right). \label{3.6}
 $$
+
 
 If $F_{\alpha}$ is rotating with respect to a stationary reference frame, $F_\beta$, then:
 
@@ -71,14 +89,7 @@ $$
 \end{align} \label{3.9}
 $$
 
-which is the solution to Poisson's equation and was derived in Lie theory section.
+which is known as the Poisson's equation (derived in Lie theory section as well).
 
 Note that if the above steps are repeated under the assumption that $F_\beta$ is rotating and $F_\alpha$ is stionary, the result 
-$\dot{\mathbf{R}}^\alpha_\beta = -\mathbf{R}^\alpha_\beta \boldsymbol{\Omega}^\beta_{\beta \alpha}$ is obtained. However, the results are equivalent. In general:
-
-$$
-\begin{align}
-\dot{\mathbf{R}}^\alpha_\beta &= - \mathbf{R}^\alpha_\beta \boldsymbol{\Omega}^\beta_{\beta \alpha} = \mathbf{R}^\alpha_\beta \boldsymbol{\Omega}^\beta_{\alpha \beta} \\
-&= -\boldsymbol{\Omega}^\alpha_{\beta \alpha} \mathbf{R}^\alpha_\beta = \boldsymbol{\Omega}^\alpha_{\alpha \beta} \mathbf{R}^\alpha_\beta.
-\end{align}
-$$
+$\dot{\mathbf{R}}^\alpha_\beta = -\mathbf{R}^\alpha_\beta \boldsymbol{\Omega}^\beta_{\beta \alpha}$ is obtained. However, the results are equivalent.

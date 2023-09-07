@@ -1,4 +1,6 @@
-## Acceleration
+# Acceleration
+
+## Definition
 
 Acceleration is defined as the second time derivative of the position of the origin of one frame with respect to the origin and axes of another frame:
 

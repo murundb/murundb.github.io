@@ -139,13 +139,17 @@ nav:
   
   - Kinematics:
     - References: kinematics/references.md
-    - Attitude and Geometry:
-      - Pose and Attitude: kinematics/geometry/pose_and_attitude.md
-      - Rotation Matrix: kinematics/geometry/rotation_matrix.md
-      - Euler Angles: kinematics/geometry/euler_angles.md
-      - Axis Angle: kinematics/geometry/axis_angle.md
-      - Quaternions: kinematics/geometry/quaternions.md
-      - Attitude Visualization: kinematics/geometry/pangolin_visualization.md
+    - Pose and Attitude: kinematics/pose_and_attitude/pose_and_attitude.md
+    - Rotations:
+      - Rotation Matrices: kinematics/rotations/rotation_matrices.md
+      - Euler Angles: kinematics/rotations/euler_angles.md
+      - Axis Angle: kinematics/rotations/axis_angle.md
+      - Quaternions: kinematics/rotations/quaternions.md
+      - Attitude Visualization: kinematics/rotations/pangolin_visualization.md
+    - Angular Velocity: kinematics/angular_velocity.md
+    - Cartesian Position: kinematics/cartesian_position.md
+    - Velocity: kinematics/velocity.md
+    - Acceleration: kinematics/acceleration.md
     - Lie Theory: 
       - Key Indentities: kinematics/lie_theory/key_identities.md
       - Lie Groups and Lie Algebra: kinematics/lie_theory/lie_group_algebra.md 
@@ -154,10 +158,6 @@ nav:
       - BCH and Perturbed Rotations: kinematics/lie_theory/bch_and_perturbed_rotations.md
       - SO(3) Jacobians: kinematics/lie_theory/so3_jacobians.md
       - SE(3) Jacobians: kinematics/lie_theory/se3_jacobians.md
-    - Angular Velocity: kinematics/angular_velocity.md
-    - Cartesian Position: kinematics/cartesian_position.md
-    - Velocity: kinematics/velocity.md
-    - Acceleration: kinematics/acceleration.md
   
   - State Estimation:
     - References: state_estimation/references.md

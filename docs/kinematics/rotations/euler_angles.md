@@ -1,21 +1,32 @@
+# Euler Angles
+
 ## Roll, Pitch, Yaw
 
 A rotation of one frame to yield another frame can be achieved through a sequence of three eigenaxis rotations,
 where each eigenaxis is chosen to be an axis of either the initial frame or the frame resulting from the preceding rotation.
-Consequently, attitude can be broken down into three successive rotations, with each rotation about an axis orthogonal to that of its predecessor and/or successor. 
-Given an object frame $F_\alpha$ and a reference frame $F_\beta$, we can describe the orientation of $F_\alpha$ with respect to $F_\beta$ via roll $\phi_{\beta \alpha}$, pitch $\theta_{\beta \alpha}$, and yaw $\psi_{\beta \alpha}$ Euler angles.
-Here, we are only concerned with $z$-$y$-$x$ sequence of rotations, i.e.,
+Consequently, attitude can be broken down into three successive rotations, with each rotation about an axis orthogonal to that of its predecessor and/or successor.
 
-1. Rotation through the yaw angle $\psi_{\beta \alpha}$ about the common $z$ axis of the $F_\beta$ frame and the first intermediate frame.
-2. Rotation through the pitch angle $\theta_{\beta \alpha}$ about the common $y$ axis of the first and second intermediate frame.
-3. Rotation through the roll angle $\phi_{\beta \alpha}$ about the common $x$ axis of the second frame and the $F_\alpha$ frame.
+!!! cnote "**Euler Angles**"
 
-Note that the successive rotations here are always about the new axis provided by the preceeding rotation and not about the fixed axis of $F_\beta$. 
+    Given an object frame $F_\alpha$ and a reference frame $F_\beta$, we can describe the orientation of $F_\alpha$ with respect to $F_\beta$ via roll $\phi_{\beta \alpha}$, pitch $\theta_{\beta \alpha}$, and yaw $\psi_{\beta \alpha}$ Euler angles.
+    Here, we are only concerned with $z$-$y$-$x$ sequence of rotations, i.e.,
+
+    1. Rotation through the yaw angle $\psi_{\beta \alpha}$ about the common $z$ axis of the $F_\beta$ frame and the first intermediate frame.
+    2. Rotation through the pitch angle $\theta_{\beta \alpha}$ about the common $y$ axis of the first and second intermediate frame.
+    3. Rotation through the roll angle $\phi_{\beta \alpha}$ about the common $x$ axis of the second frame and the $F_\alpha$ frame.
+
+    Note that the successive rotations here are always about the new axis provided by the preceeding rotation and not about the fixed axis of $F_\beta$. 
 
 The Euler rotation $(\phi_{\beta \alpha} + \pi, \pi - \theta_{\beta \alpha}, \psi_{\beta \alpha} + \pi)$ gives the same result as the Euler rotation $(\phi_{\beta \alpha}, \theta_{\beta \alpha}, \psi_{\beta \alpha})$.
 Consequently, to avoid duplicate sets of Euler angles representing the same attitude, a convention is adopted of limiting the pitch rotation bounded to the range $-90^{o} \leq \theta \leq 90^{o}$.
 To reverse an Euler rotation, either the original operation must be reversed i.e., $x$-$y$-$z$, or a different transformation must be applied. Successive rotations can't be
 expressed simply by adding the Euler angles:
+
+
+!!! cnote "**Bank, Elevation, Heading, and Tilt**"
+
+    In the specific case in which the Euler angles describe the attitude of the body frame with respect to the local navigation frame, the roll rotation is known as 
+    **bank**, the pitch rotation is known as **elevation**, and the yaw rotation is known as **heading** or **azimuth**. The bank and elevation are also collectively known as **tilts**.
 
 $$
 \left[
@@ -38,17 +49,9 @@ $$
 The downside of using Euler angles is that the Euler angles exhibit singularity at $\pm 90^{o}$ pitch, where the roll and yaw become indistinguishable. This is also known as a **gimbal lock**.
 Hence, Euler angles are more suited for visualization and interpretation rather than computation of attitude.
 
-
-## Bank, Elevation, Heading, Tilt
-
-In the specific case in which the Euler angles describe the attitude of the body frame with respect to the local navigation frame, the roll rotation is known as 
-**bank**, the pitch rotation is known as **elevation**, and the yaw rotation is known as **heading** or **azimuth**. The bank and elevation are also collectively known as **tilts**.
-
-
 ## Attitude Representation via Euler Angles
 
-Euler angles can be converted to DCM easily by taking the transpose of the rotation matrices. In general, consider two coordinate frames $F_\alpha$ and $F_\beta$ as shown in Fig 2.2. Let $\mathbf{R}^{\alpha}_{\beta}$ be the rotation matrix from frame $F_\beta$ to $F_\alpha$. 
-Let the axes of frame $F_\beta$ be $(x^\beta, y^\beta, z^\beta)$.
+Euler angles can be converted to DCM easily by taking the transpose of the rotation matrices. In general, consider two coordinate frames $F_\alpha$ and $F_\beta$ as shown in Figure 1. Let $\mathbf{R}^{\alpha}_{\beta}$ be the rotation matrix from frame $F_\beta$ to $F_\alpha$. 
 
 <figure markdown>
   ![$z$-$y$-$x$ rotation from left to right (Groves, p34)](/assets/images/kinematics/light/euler_angles.png#only-light){ width="500" }
@@ -56,7 +59,7 @@ Let the axes of frame $F_\beta$ be $(x^\beta, y^\beta, z^\beta)$.
   <figcaption>Figure 1 z-y-x rotation from left to right (Groves, p34)</figcaption>
 </figure>
 
-The first rotation will be through the yaw angle $\psi_{\beta \alpha}$ about the common $$ axis of the $\beta$ frame to yield the first intermediate axes $(x^\psi, y^\psi, z^\psi)$:
+The first rotation will be through the yaw angle $\psi_{\beta \alpha}$ about the common $z$ axis of the $\beta$ frame to yield the first intermediate axes $(x^\psi, y^\psi, z^\psi)$:
 
 $$
 \begin{align}
@@ -258,6 +261,17 @@ $$
 -\theta_{\beta \alpha} & \phi_{\beta \alpha} & 1
 \end{array}
 \right] = 
-\mathbf{I}_{3} + \left[\Psi_{\beta \alpha} \right]_{\times}.
+\mathbf{I}_{3} + \left[\Psi_{\beta \alpha} \right]_{\times},
 \end{align}
+$$
+
+where:
+
+$$
+\Psi_{\beta \alpha} = 
+\left[
+\begin{array}{ccc}
+\phi_{\beta \alpha} & \theta_{\beta \alpha} & \psi_{\beta \alpha}
+\end{array}
+\right]^T.
 $$

@@ -1,31 +1,51 @@
 # Quaternions
 
-## Overview
+## Unit-length Quaternions
 
 A rotation can be represented by using [quaternion](https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation#:~:text=The%20representation%20of%20a%20rotation,the%20axis%20and%20the%20angle.), which is a hyper-complex number that is compact and non-singular with four components:
 
 $$
-\mathbf{q} = \left(q_0, q_1, q_2, q_3\right),
+\mathbf{q} = \left[ \begin{array}{cccc} q_0 & q_1 & q_2 & q_3 \end{array}\right],
 $$
 
-or 
+or
 
 $$
 \mathbf{q} = q_0 + q_1i + q_2j + q_3k,
 $$
 
 where $i, j, k$ are three imaginary parts of the quaternion. Component $q_0$ is a function only of the magnitude of the rotation 
-and the other three components are functions of both the magnitude and the axis of rotation. Let:\
+and the other three components are functions of both the magnitude and the axis of rotation. From the definition of axis-angle, we define:
+
+$$
+q_0 = \cos \frac{\theta}{2}, \quad \mathbf{q}_{1:3} = \hat{\mathbf{e}} \sin \frac{\theta}{2} = 
+\left[
+\begin{array}{c}
+e_1 \sin(\theta / 2) \\
+e_2 \sin(\theta / 2) \\
+e_3 \sin(\theta / 2)
+\end{array}
+\right] = 
+\left[
+\begin{array}{c}
+q_1 \\
+q_2 \\
+q_3
+\end{array}
+\right].
+$$
+
+or explicitly:
 
 $$
 \begin{align}
-& q_0 = \text{cos}(\mu_{\beta \alpha} / 2) \\
-& \mathbf{q}_{1:3} = \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \text{sin} (\mu_{\alpha \beta} / 2) = 
+& q_0 = \text{cos}(\theta{\beta \alpha} / 2) \\
+& \mathbf{q}_{1:3} = \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \text{sin} (\theta_{\alpha \beta} / 2) = 
 \left[
 \begin{array}{c}
-\hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha, \ 1} \text{sin}\left( \mu_{\beta \alpha} / 2 \right) \\
-\hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha, \ 2} \text{sin}\left( \mu_{\beta \alpha} / 2 \right) \\
-\hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha, \ 3} \text{sin}\left( \mu_{\beta \alpha} / 2 \right) \\
+\hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha, \ 1} \text{sin}\left( \theta_{\beta \alpha} / 2 \right) \\
+\hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha, \ 2} \text{sin}\left( \theta_{\beta \alpha} / 2 \right) \\
+\hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha, \ 3} \text{sin}\left( \theta_{\beta \alpha} / 2 \right) \\
 \end{array}
 \right] = 
 \left[
@@ -38,35 +58,34 @@ q_3
 \end{align}
 $$
 
-The four parameters are called the Euler-parameters. They are not independent (only three 
+The four parameters are called the **Euler-parameters**. They are not independent (only three 
 components of the attitude quaternion are independent) because they satisfy the constraint:
 
 $$
 q_0^2 + q^2_{1} + q^2_{2} + q^2_{3} = 1.
 $$
 
-Unit-length quaternions is defined as:
+!!! cnote "Unit-length Quaternion"
+    $$
+    \mathbf{q}^{\alpha}_{\beta} = 
+    \left[
+    \begin{array}{c}
+    q_0 \\
+    \mathbf{q}_{1:3}
+    \end{array}
+    \right]
+    =
+    \left[
+    \begin{array}{c}
+    \text{cos}\left( \theta_{\beta \alpha} / 2 \right) \\
+    \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha, \ 1} \text{sin}\left( \theta_{\beta \alpha} / 2 \right) \\
+    \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha, \ 2} \text{sin}\left( \theta_{\beta \alpha} / 2 \right) \\
+    \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha, \ 3} \text{sin}\left( \theta_{\beta \alpha} / 2 \right) \\
+    \end{array}
+    \right].
+    $$
 
-$$
-\mathbf{q}^{\alpha}_{\beta} = 
-\left[
-\begin{array}{c}
-q_0 \\
-\mathbf{q}_{1:3}
-\end{array}
-\right]
-=
-\left[
-\begin{array}{c}
-\text{cos}\left( \mu_{\beta \alpha} / 2 \right) \\
-\hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha, \ 1} \text{sin}\left( \mu_{\beta \alpha} / 2 \right) \\
-\hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha, \ 2} \text{sin}\left( \mu_{\beta \alpha} / 2 \right) \\
-\hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha, \ 3} \text{sin}\left( \mu_{\beta \alpha} / 2 \right) \\
-\end{array}
-\right].
-$$
-
-## Quaternion to and from Transformation Matrix
+## Quaternion and Rotation Matrix
 
 Define:
 
