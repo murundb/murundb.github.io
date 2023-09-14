@@ -139,7 +139,7 @@ nav:
   
   - Kinematics:
     - References: kinematics/references.md
-    - Pose and Attitude: kinematics/pose_and_attitude/pose_and_attitude.md
+    - Prerequisites: kinematics/prerequisites/prerequisites.md
     - Rotations:
       - Rotation Matrices: kinematics/rotations/rotation_matrices.md
       - Euler Angles: kinematics/rotations/euler_angles.md
@@ -147,6 +147,7 @@ nav:
       - Quaternions: kinematics/rotations/quaternions.md
       - Attitude Visualization: kinematics/rotations/pangolin_visualization.md
     - Angular Velocity: kinematics/angular_velocity.md
+    - Euler Rates: kinematics/euler_rates.md
     - Cartesian Position: kinematics/cartesian_position.md
     - Velocity: kinematics/velocity.md
     - Acceleration: kinematics/acceleration.md

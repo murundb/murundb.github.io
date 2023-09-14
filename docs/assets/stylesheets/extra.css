@@ -77,7 +77,7 @@
         0 0              #{px2rem(1px)}  hsla(0, 0%, 0%, 0.35);
     }
 
-    /* [data-md-color-scheme="dark"] img[src$="#only-light"] {
+    [data-md-color-scheme="dark"] img[src$="#only-light"] {
             display: none;
     }
     [data-md-color-scheme="dark"] img[src$="#gh-light-mode-only"] {
@@ -86,6 +86,8 @@
     [data-md-color-scheme="dark"] img[src$="#only-dark"], [data-md-color-scheme="dark"] img[src$="#gh-dark-mode-only"] {
             display: initial;
     }
+
+    /*
     [data-md-color-switching] *, [data-md-color-switching] *::before, [data-md-color-switching] *::after {
             transition-duration: 0ms !important;
     }

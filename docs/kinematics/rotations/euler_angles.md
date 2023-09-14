@@ -17,11 +17,23 @@ Consequently, attitude can be broken down into three successive rotations, with 
 
     Note that the successive rotations here are always about the new axis provided by the preceeding rotation and not about the fixed axis of $F_\beta$. 
 
+The Euler rotation from frame $F_\beta$ to frame $F_\alpha$ may be denoted by the vector:
+
+$$
+\boldsymbol{\Psi}_{\beta \alpha} =
+\left[
+\begin{array}{c}
+\phi_{\beta \gamma} \\
+\theta_{\beta \gamma} \\
+\psi_{\beta \gamma} \\
+\end{array}
+\right].
+$$
+
 The Euler rotation $(\phi_{\beta \alpha} + \pi, \pi - \theta_{\beta \alpha}, \psi_{\beta \alpha} + \pi)$ gives the same result as the Euler rotation $(\phi_{\beta \alpha}, \theta_{\beta \alpha}, \psi_{\beta \alpha})$.
 Consequently, to avoid duplicate sets of Euler angles representing the same attitude, a convention is adopted of limiting the pitch rotation bounded to the range $-90^{o} \leq \theta \leq 90^{o}$.
 To reverse an Euler rotation, either the original operation must be reversed i.e., $x$-$y$-$z$, or a different transformation must be applied. Successive rotations can't be
 expressed simply by adding the Euler angles:
-
 
 !!! cnote "**Bank, Elevation, Heading, and Tilt**"
 
@@ -31,7 +43,7 @@ expressed simply by adding the Euler angles:
 $$
 \left[
 \begin{array}{c}
-\phi_{\beta \gamma} \\ 
+\phi_{\beta \gamma} \\
 \theta_{\beta \gamma} \\
 \psi_{\beta \gamma} \\
 \end{array}
@@ -39,9 +51,9 @@ $$
 \neq
 \left[
 \begin{array}{c}
-\phi_{\beta \alpha} + \phi_{\alpha \gamma} \\ 
-\theta_{\beta \alpha} + \theta_{\alpha \gamma} \\ 
-\psi_{\beta \alpha} + \psi_{\alpha \gamma} \\ 
+\phi_{\beta \alpha} + \phi_{\alpha \gamma} \\
+\theta_{\beta \alpha} + \theta_{\alpha \gamma} \\
+\psi_{\beta \alpha} + \psi_{\alpha \gamma} \\
 \end{array}
 \right].
 $$
@@ -51,7 +63,7 @@ Hence, Euler angles are more suited for visualization and interpretation rather 
 
 ## Attitude Representation via Euler Angles
 
-Euler angles can be converted to DCM easily by taking the transpose of the rotation matrices. In general, consider two coordinate frames $F_\alpha$ and $F_\beta$ as shown in Figure 1. Let $\mathbf{R}^{\alpha}_{\beta}$ be the rotation matrix from frame $F_\beta$ to $F_\alpha$. 
+Euler angles can be converted to DCM easily by taking the transpose of the rotation matrices. In general, consider two coordinate frames $F_\alpha$ and $F_\beta$ as shown in Figure 1. Let $\mathbf{R}^{\alpha}_{\beta}$ be the rotation matrix from frame $F_\beta$ to $F_\alpha$.
 
 <figure markdown>
   ![$z$-$y$-$x$ rotation from left to right (Groves, p34)](/assets/images/kinematics/light/euler_angles.png#only-light){ width="500" }
@@ -72,7 +84,7 @@ $$
 which yields to a rotation matrix:
 
 $$
-\mathbf{R}^{\psi}_{\beta} = 
+\mathbf{R}_3 = \mathbf{R}^{\psi}_{\beta} =
 \left[
 \begin{array}{ccc}
 \text{cos}(\psi_{\beta \alpha}) & \text{sin}(\psi_{\beta \alpha}) & 0 \\
@@ -95,7 +107,7 @@ $$
 which yields to a rotation matrix:
 
 $$
-\mathbf{R}^{\theta}_{\psi} = 
+\mathbf{R}_2 = \mathbf{R}^{\theta}_{\psi} =
 \left[
 \begin{array}{ccc}
 \text{cos}(\theta_{\beta \alpha}) & 0 & -\text{sin}(\theta_{\beta \alpha}) \\
@@ -118,7 +130,7 @@ $$
 which yields to a rotation matrix:
 
 $$
-\mathbf{R}^{\alpha}_{\theta} = 
+\mathbf{R}_1 = \mathbf{R}^{\alpha}_{\theta} =
 \left[
 \begin{array}{ccc}
 1 & 0 & 0 \\
@@ -131,10 +143,10 @@ $$
 The rotation matrix from frame $F_\beta$ to $F_\alpha$ is obtained as:
 
 $$
-\mathbf{R}^{\alpha}_{\beta} = \mathbf{R}^{\alpha}_{\theta} \mathbf{R}^{\theta}_{\psi} \mathbf{R}^{\psi}_{\beta}.
+\mathbf{R}^{\alpha}_{\beta} = \mathbf{R}^{\alpha}_{\phi} \mathbf{R}^{\theta}_{\psi} \mathbf{R}^{\psi}_{\beta} = \mathbf{R}_1 \mathbf{R}_2 \mathbf{R}_3,
 $$
 
-Hence
+or equivalently:
 
 $$
 \mathbf{R}^{\alpha}_{\beta} =
@@ -223,7 +235,7 @@ $$
 \\ \\
 -\text{sin}(\theta_{\beta \alpha}) & \text{sin}(\phi_{\beta \alpha}) \text{cos}(\theta_{\beta \alpha}) & 
 \text{cos}(\phi_{\beta \alpha}) \text{cos}(\theta_{\beta \alpha}) \\ \\
-\end{array} 
+\end{array}
 \right],
 $$
 
@@ -244,31 +256,31 @@ When the rotation matrix and Euler angles represent a small angular perturbation
 
 $$
 \begin{align}
-\mathbf{R^{\alpha}_{\beta}} &= 
+\mathbf{R^{\alpha}_{\beta}} &=
 \left[
 \begin{array}{ccc}
 1 & \psi_{\beta \alpha} & -\theta_{\beta \alpha} \\
 -\psi_{\beta \alpha} & 1 & \phi_{\beta \alpha} \\
 \theta_{\beta \alpha} & -\phi_{\beta \alpha} & 1
 \end{array}
-\right] = 
-\mathbf{I}_{3} - \left[\Psi_{\beta \alpha} \right]_{\times} \\
-\mathbf{R^{\beta}_{\alpha}} &= 
+\right] =
+\mathbf{I}_{3} - \left[\boldsymbol{\Psi}_{\beta \alpha} \right]_{\times} \\
+\mathbf{R^{\beta}_{\alpha}} &=
 \left[
 \begin{array}{ccc}
 1 & -\psi_{\beta \alpha} & \theta_{\beta \alpha} \\
 \psi_{\beta \alpha} & 1 & -\phi_{\beta \alpha} \\
 -\theta_{\beta \alpha} & \phi_{\beta \alpha} & 1
 \end{array}
-\right] = 
-\mathbf{I}_{3} + \left[\Psi_{\beta \alpha} \right]_{\times},
+\right] =
+\mathbf{I}_{3} + \left[\boldsymbol{\Psi}_{\beta \alpha} \right]_{\times},
 \end{align}
 $$
 
 where:
 
 $$
-\Psi_{\beta \alpha} = 
+\Psi_{\beta \alpha} =
 \left[
 \begin{array}{ccc}
 \phi_{\beta \alpha} & \theta_{\beta \alpha} & \psi_{\beta \alpha}

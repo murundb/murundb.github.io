@@ -13,11 +13,11 @@ x^{\gamma}_{\beta \alpha} & y^{\gamma}_{\beta \alpha} & z^{\gamma}_{\beta \alpha
 \right]^T,
 $$
 
-where $x$, $y$, and $z$ are the components of position in the $x$, $y$, and $z$ aces of $F_\gamma$ frame. Figure 1 shows $\mathbf{r}^{\gamma}_{\beta \alpha}$.
+where $x$, $y$, and $z$ are the components of position in the $x$, $y$, and $z$ axes of $F_\gamma$ frame. Figure 1 shows $\mathbf{r}^{\gamma}_{\beta \alpha}$.
 
 <figure markdown>
-  ![Cartesian position vector (Groves, p47)](/assets/images/kinematics/light/cartesian_position.png#only-light){ width="500" }
-  ![Cartesian position vector (Groves, p47)](/assets/images/kinematics/dark/cartesian_position.png#only-dark){ width="500" }
+  ![Cartesian position vector (Groves, p47)](/assets/images/kinematics/light/cartesian_position.png#only-light){ width="400" }
+  ![Cartesian position vector (Groves, p47)](/assets/images/kinematics/dark/cartesian_position.png#only-dark){ width="400" }
   <figcaption>Figure 1 Cartesian position vector (Groves, p47)</figcaption>
 </figure>
 

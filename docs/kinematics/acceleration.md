@@ -96,7 +96,7 @@ $$
 + \mathbf{a}^{\gamma}_{\beta \alpha}. \label{6.9}
 $$
 
-The first three terms are related to the centrifugal, Coriolis, and Euler pseudo-forces. 
+The first three terms are related to the centrifugal, Coriolis, and Euler pseudo-forces. They are called centripetal, Coriolis, and angular accelerations.
 
 Addition is not valid if the reference frames are rotating with respect to each other:
 

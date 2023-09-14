@@ -24,7 +24,6 @@ Euler's rotation theorem states that, in three-dimensional space, any displaceme
     \mathbf{R} \hat{\mathbf{e}} = \hat{\mathbf{e}}.
     $$
 
-
 ## Rodrigues' Formula Derivation via Geometry
 
 <figure markdown>
@@ -32,7 +31,6 @@ Euler's rotation theorem states that, in three-dimensional space, any displaceme
   ![$z$-$y$-$x$ rotation from left to right (Groves, p34)](/assets/images/kinematics/dark/axis_angle.png#only-dark){ width="300" }
   <figcaption>Figure 1 Rotation via rotation vector (Szeliski, p46)</figcaption>
 </figure>
-
 
 Elements in $SO(3)$ are non-singular. One of the eigenvalues are always 1 with the other two being complex valued with magnitude of 1. This implies that there exists
 a unit vector (eigenvector) $\hat{\mathbf{e}}$ that remain unchanged following the application of a transformation matrix $\mathbf{R}$. This unit vector is the axis of the rotation that can be used to represent a rotation matrix. A rotation can be represented by a rotation axis $\hat{\mathbf{e}}$ and an angle $\theta$, or equivalently by a 3D vector $\boldsymbol{\rho} = \theta \hat{\mathbf{e}}$. Given a vector $\mathbf{x} \in \mathbb{R}^3$, let $\mathbf{y}$ be the rotated vector via the axis-angle $\left( \hat{\mathbf{e}}, \theta \right)$ rotation as shown in Figure 1.
