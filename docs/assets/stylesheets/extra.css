@@ -144,7 +144,7 @@
 
 .md-typeset .admonition,
 .md-typeset .admonition {
-    font-size: 19px;
+    font-size: 0.8rem /*px2rem(15.0px)*/
   }
 
 :root {

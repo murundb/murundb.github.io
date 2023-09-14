@@ -84,62 +84,66 @@ nav:
     - Matrix Calculus:
       - Identities: matrix_theory/matrix_calculus/matrix_calculus_identities.md
       - Matrix Calculus: matrix_theory/matrix_calculus/matrix_calculus.md
-  - Mathematics:
-    - References: mathematics/references.md
-    - Cauchy-Schwartz Inequality: mathematics/cauchy_schwarz_inequality.md
+    - Software Implementation:
+      - Storage: matrix_theory/software_implementation/storage.md
+      - Multiplication: matrix_theory/software_implementation/multiplication.md
+  - Optimization:
+    - References: optimization/references.md
+    - Cauchy-Schwartz Inequality: optimization/cauchy_schwarz_inequality.md
     - Sets:
-      - Norms, Distance, and Unit Ball: mathematics/sets/norms_distance_unit_ball.md
-      - Open and Closed Sets: mathematics/sets/open_and_closed_sets.md
-      - Geometry: mathematics/sets/geometry.md
-      - Convex Sets: mathematics/sets/convex_sets.md
-      - Nonconvex Sets: mathematics/sets/nonconvex_sets.md
+      - Norms, Distance, and Unit Ball: optimization/sets/norms_distance_unit_ball.md
+      - Open and Closed Sets: optimization/sets/open_and_closed_sets.md
+      - Geometry: optimization/sets/geometry.md
+      - Convex Sets: optimization/sets/convex_sets.md
+      - Nonconvex Sets: optimization/sets/nonconvex_sets.md
     - Functions:
-      - Functions, Gradient, Jacobian, Hessian: mathematics/functions/functions.md
-      - Convex Functions: mathematics/functions/convex_functions.md
-      - Nonconvex Functions: mathematics/functions/nonconvex_functions.md
-    - Perturbation Methods: mathematics/perturbation_methods.md
+      - Functions, Gradient, Jacobian, Hessian: optimization/functions/functions.md
+      - Convex Functions: optimization/functions/convex_functions.md
+      - Nonconvex Functions: optimization/functions/nonconvex_functions.md
+    - Perturbation Methods: optimization/perturbation_methods.md
     - Probability and Statistics:
-      - References: mathematics/probability_and_statistics/references.md
-      - Termanologies: mathematics/probability_and_statistics/termanologies.md
+      - References: optimization/probability_and_statistics/references.md
+      - Termanologies: optimization/probability_and_statistics/termanologies.md
       - The Sample and Its Properties:
-        - Location Measures: mathematics/probability_and_statistics/the_sample_and_its_properties/location_measures.md
-        - Variability Measures: mathematics/probability_and_statistics/the_sample_and_its_properties/variability_measures.md
+        - Location Measures: optimization/probability_and_statistics/the_sample_and_its_properties/location_measures.md
+        - Variability Measures: optimization/probability_and_statistics/the_sample_and_its_properties/variability_measures.md
         - Univariate Sample Example: assets/jupyter/probability/cellarea_analysis.ipynb
-        - Multivariate Sample Properties: mathematics/probability_and_statistics/the_sample_and_its_properties/multivariate_sample_properties.md
-        - Observations as Time Series: mathematics/probability_and_statistics/the_sample_and_its_properties/observations_as_time_series.md
-    - Optimization:
-      - References: mathematics/optimization/references.md
-      - Optimization Problem Formulation: mathematics/optimization/optimization_problem_formulation.md
-      - Duality Theory: mathematics/optimization/duality.md
+        - Multivariate Sample Properties: optimization/probability_and_statistics/the_sample_and_its_properties/multivariate_sample_properties.md
+        - Observations as Time Series: optimization/probability_and_statistics/the_sample_and_its_properties/observations_as_time_series.md
+    - Convex Optimization:
+      - References: optimization/convex_optimization/references.md
+      - Optimization Problem Formulation: optimization/convex_optimization/optimization_problem_formulation.md
+      - Duality Theory: optimization/convex_optimization/duality.md
       - Unconstrained Optimization:
-        - Optimality Conditions: mathematics/optimization/unconstrained_optimization/optimality_conditions.md
-        - Gradient Desent: mathematics/optimization/unconstrained_optimization/gradient_descent.md
-        - Newton's Method: mathematics/optimization/unconstrained_optimization/newton_method.md
-        - Quasi-Newton Method: mathematics/optimization/unconstrained_optimization/quasi_newton_method.md
-        - Gauss-Netwon Method: mathematics/optimization/unconstrained_optimization/gauss_newton_method.md
-        - Golden Section: mathematics/optimization/unconstrained_optimization/golden_section.md
-        - Quadratic Fit: mathematics/optimization/unconstrained_optimization/quadratic_fit.md
-        - Nelder-Mead Method: mathematics/optimization/unconstrained_optimization/nelder_mead_method.md
+        - Optimality Conditions: optimization/convex_optimization/unconstrained_optimization/optimality_conditions.md
+        - Gradient Desent: optimization/convex_optimization/unconstrained_optimization/gradient_descent.md
+        - Newton's Method: optimization/convex_optimization/unconstrained_optimization/newton_method.md
+        - Quasi-Newton Method: optimization/convex_optimization/unconstrained_optimization/quasi_newton_method.md
+        - Gauss-Netwon Method: optimization/convex_optimization/unconstrained_optimization/gauss_newton_method.md
+        - Golden Section: optimization/convex_optimization/unconstrained_optimization/golden_section.md
+        - Quadratic Fit: optimization/convex_optimization/unconstrained_optimization/quadratic_fit.md
+        - Nelder-Mead Method: optimization/convex_optimization/unconstrained_optimization/nelder_mead_method.md
       - Linear Programming:
-        - Modelling Using Linear Programs: mathematics/optimization/linear_programming/modelling_using_linear_programs.md
-        - Algrebraic Aspects: mathematics/optimization/linear_programming/algebraic_aspects.md
-        - Simplex Method: mathematics/optimization/linear_programming/simplex_method.md
-        - Linear Stochastic Program: mathematics/optimization/linear_programming/linear_stochastic_program.md
-        - Nonlinear Program: mathematics/optimization/linear_programming/nonlinear_program.md
-        - Robust Optimization: mathematics/optimization/linear_programming/robust_optimization.md
-        - Column and Constraint Generation: mathematics/optimization/linear_programming/column_and_constraint_generation.md
-        - Dantzig-Wolfe Decomposition: mathematics/optimization/linear_programming/dantzig_wolfe_decomposition.md
+        - Modelling Using Linear Programs: optimization/convex_optimization/linear_programming/modelling_using_linear_programs.md
+        - Algrebraic Aspects: optimization/convex_optimization/linear_programming/algebraic_aspects.md
+        - Simplex Method: optimization/convex_optimization/linear_programming/simplex_method.md
+        - Linear Stochastic Program: optimization/convex_optimization/linear_programming/linear_stochastic_program.md
+        - Nonlinear Program: optimization/convex_optimization/linear_programming/nonlinear_program.md
+        - Robust Optimization: optimization/convex_optimization/linear_programming/robust_optimization.md
+        - Column and Constraint Generation: optimization/convex_optimization/linear_programming/column_and_constraint_generation.md
+        - Dantzig-Wolfe Decomposition: optimization/convex_optimization/linear_programming/dantzig_wolfe_decomposition.md
       - Nonlinear Programming:
-        - Least Squares: mathematics/optimization/nonlinear_programming/least_squares.md
+        - Least Squares: optimization/convex_optimization/nonlinear_programming/least_squares.md
       - Integer Programming:
-        - Discrete Optimization Models: mathematics/optimization/integer_programming/discrete_optimization_models.md
-        - Modelling Nonconvex Functions: mathematics/optimization/integer_programming/modelling_nonconvex_functions.md
-        - Modelling Nonconvex Sets: mathematics/optimization/integer_programming/modelling_nonconvex_sets.md
-        - Modelling Logical Relations: mathematics/optimization/integer_programming/modelling_logical_relations.md
+        - Discrete Optimization Models: optimization/convex_optimization/integer_programming/discrete_optimization_models.md
+        - Modelling Nonconvex Functions: optimization/convex_optimization/integer_programming/modelling_nonconvex_functions.md
+        - Modelling Nonconvex Sets: optimization/convex_optimization/integer_programming/modelling_nonconvex_sets.md
+        - Modelling Logical Relations: optimization/convex_optimization/integer_programming/modelling_logical_relations.md
   
   - Kinematics:
     - References: kinematics/references.md
     - Prerequisites: kinematics/prerequisites/prerequisites.md
+    - Identities: kinematics/identities/identities.md
     - Rotations:
       - Rotation Matrices: kinematics/rotations/rotation_matrices.md
       - Euler Angles: kinematics/rotations/euler_angles.md
@@ -148,6 +152,9 @@ nav:
       - Attitude Visualization: kinematics/rotations/pangolin_visualization.md
     - Angular Velocity: kinematics/angular_velocity.md
     - Euler Rates: kinematics/euler_rates.md
+    - Perturbation Methods:
+      - Perturbation: kinematics/perturbation_methods/perturbation.md
+      - Perturbing a Rotation Matrix: kinematics/perturbation_methods/perturbing_rotation_matrix.md
     - Cartesian Position: kinematics/cartesian_position.md
     - Velocity: kinematics/velocity.md
     - Acceleration: kinematics/acceleration.md
