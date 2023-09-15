@@ -1,6 +1,10 @@
+# Lie Group and Lie Algebra
+
 ## Groups
 
-For a set that has only one "well-defined" operation, we call it a group. Formally, a group is a set of elements together with an operation that combines any two of its elements to form a third element also in the set, while satisfying four canditions called the **group axioms**, namely closure, associativity, identity, and invertibility. Let $A$ be a set and be the the set operation.tThen the group can be denoted as $G = (A, \cdot)$. $G$ is a group if it satisfies the following conditions:
+For a set that has only one "well-defined" operation, we call it a group. Formally, a group is a set of elements together with an operation that combines any two of its elements to form a third element also in the set, while satisfying four conditions called the **group axioms**, namely closure, associativity, identity, and invertibility.
+
+Let $A$ be a set and $\cdot$ be the set operation. Then $G = (A, \cdot)$, is a group if it satisfies the following conditions:
 
 1. **Closure:** $\forall a_1, a_2 \in A, a_1 \cdot a_2 \in A$.
 2. **Associativity:** $\forall a_1, a_2, a_3 \in A, a_1 \cdot (a_2 \cdot a_3) = (a_1 \cdot a_2) \cdot a_3 = a_1 \cdot a_2 \cdot a_3$.
@@ -14,7 +18,7 @@ Few examples:
 
 ## Lie Groups
 
-Lie groups refers to a group with continuous (smooth) and differentiable manifold properties. The Lie groups in these notes are all real matrix groups; group elements are represented as matrices in $\mathbb{R}^{n \times n}$. As shown in the example above, the groups' multiplication and inversion operations are identically matrix multiplication and inversion, i.e., $G = (SO(n), \cdot)$. Since each group is represented by a specific subclass of non-singular $n \times n$ matrices, there are fewer than $n^2$ degrees of freedom.
+Lie groups refer to a group with continuous (smooth) and differentiable manifold properties. The Lie groups in these notes are all real matrix groups; group elements are represented as matrices in $\mathbb{R}^{n \times n}$. As shown in the example above, the groups' multiplication and inversion operations are identically matrix multiplication and inversion, i.e., $G = (SO(n), \cdot)$. Since each group is represented by a specific subclass of non-singular $n \times n$ matrices, there are fewer than $n^2$ degrees of freedom.
 
 ## Lie Algebra
 

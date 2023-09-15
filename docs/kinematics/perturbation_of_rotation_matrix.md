@@ -1,4 +1,4 @@
-# Perturbation Methods
+# Perturbation of a Rotation Matrix
 
 ## Overview
 
@@ -27,9 +27,46 @@ $$
 \mathbf{R}(\bar{\boldsymbol{\theta}} + \delta{\boldsymbol{\theta}}) &\approx
 \mathbf{R}(\bar{\boldsymbol{\theta}})+
 \left.\frac{\partial (\mathbf{R}(\boldsymbol{\theta})\mathbf{v})}{\partial \boldsymbol{\theta}} \right|_{\bar{\boldsymbol{\theta}}} \delta \boldsymbol{\theta} \\
-&= \mathbf{R}\left(\bar{\boldsymbol{\theta}} \right) \mathbf{v} +
+&= \mathbf{R}(\bar{\boldsymbol{\theta}}) \mathbf{v} +
 \biggl. \biggl( \left[ \mathbf{R}(\boldsymbol{\theta}) \mathbf{v} \right]_\times \mathbf{S} \left( \theta_2, \theta_3 \right) \biggr) \biggr|_{\bar{\boldsymbol{\theta}}} \ \delta \boldsymbol{\theta} \\
-&= \mathbf{R}\left(\bar{\boldsymbol{\theta}} \right) \mathbf{v} + \left[ \mathbf{R}(\bar{\boldsymbol{\theta}}) \mathbf{v} \right]_\times \mathbf{S}(\bar{\theta}_2, \bar{\theta}_3) \delta \boldsymbol{{\theta}} \\
-&= \mathbf{R}\left(\bar{\boldsymbol{\theta}} \right) \mathbf{v} - \left[ {S}(\bar{\theta}_2, \bar{\theta}_3) \delta \boldsymbol{{\theta}} \right]_\times \left(\mathbf{R}(\bar{\boldsymbol{\theta}}) \mathbf{v} \right)
+&= \mathbf{R}(\bar{\boldsymbol{\theta}}) \mathbf{v} + \left[ \mathbf{R}(\bar{\boldsymbol{\theta}}) \mathbf{v} \right]_\times \mathbf{S}(\bar{\theta}_2, \bar{\theta}_3) \delta \boldsymbol{{\theta}} \\
+&= \mathbf{R}(\bar{\boldsymbol{\theta}}) \mathbf{v} - \left[ {S}(\bar{\theta}_2, \bar{\theta}_3) \delta \boldsymbol{{\theta}} \right]_\times \left(\mathbf{R}(\bar{\boldsymbol{\theta}}) \mathbf{v} \right) \\
+&= \biggl( \mathbf{I} - \left[ \mathbf{R}(\bar{\theta}_2, \bar{\theta}_3) \delta \boldsymbol{\theta} \right]_\times \biggr) \mathbf{R}(\bar{\boldsymbol{\theta}}) \mathbf{v}.
 \end{align}
 $$
+
+Since $\mathbf{v}$ is arbitrary, it can be dropped from both sides:
+
+$$
+\begin{align}
+\mathbf{R}(\bar{\boldsymbol{\theta}} + \delta \boldsymbol{\theta}) &\approx \underbrace{\biggl( \mathbf{I} - \left[ \mathbf{S}(\bar{\theta}_2, \bar{\theta}_3) \delta \boldsymbol{\theta} \right]_\times \biggr)}_{\text{infinitesimal rotation matrix}} \mathbf{R}(\bar{\boldsymbol{\theta}}) \\
+&= \left( \mathbf{I} - \left[\delta \boldsymbol{\phi} \right]_\times \right) \mathbf{R}(\bar{\boldsymbol{\theta}}),
+\end{align}
+$$
+
+which is a perturbation of a rotation matrix (in terms of perturbations to its Euler angles) expressed as a linearized rotation.
+
+## Example
+
+Let $J$ be a scalar function:
+
+$$
+J(\boldsymbol{\theta}) = \mathbf{u}^T \mathbf{R}(\boldsymbol{\theta}) \mathbf{v},
+$$
+
+where $\mathbf{u}$ and $\mathbf{v}$ are arbitrary vectors. Linearizing the rotation yields to:
+
+$$
+J(\bar{\boldsymbol{\theta}} + \delta \boldsymbol{\theta}) \approx
+\mathbf{u}^T \left( \mathbf{I} - \left[\delta \boldsymbol{\phi} \right]_\times \right) \mathbf{R}(\bar{\boldsymbol{\theta}}) \mathbf{v} = 
+\underbrace{\mathbf{u}^T \mathbf{R}(\bar{\boldsymbol{\theta}}) \mathbf{v}}_{J(\bar{\boldsymbol{\theta}})} + \underbrace{\mathbf{u}^T \biggl[\mathbf{R}(\bar{\boldsymbol{\theta}}) \mathbf{v} \biggr]_\times \delta \boldsymbol{\phi}}_{\delta J(\delta \boldsymbol{\theta})},
+$$
+
+so that the linearized function is:
+
+$$
+\delta J(\delta \boldsymbol{\theta}) =
+\underbrace{\biggl( \mathbf{u}^T \left[ \mathbf{R}(\bar{\boldsymbol{\theta}}) \mathbf{v} \right]_\times \mathbf{S}(\bar{\theta}_2, \bar{\theta}_3) \biggr) \delta \boldsymbol{\theta}}_{\text{const}},
+$$
+
+where the factor in front of $\delta \boldsymbol{\theta}$ is constant; in fact, it is $\left. \frac{\partial J}{\partial \boldsymbol{\theta}} \right|_{\bar{\boldsymbol{\theta}}}$, the Jacobian of J with respect to $\boldsymbol{\theta}$.

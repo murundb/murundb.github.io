@@ -87,6 +87,13 @@ nav:
     - Software Implementation:
       - Storage: matrix_theory/software_implementation/storage.md
       - Multiplication: matrix_theory/software_implementation/multiplication.md
+    - Matrix Lie Groups:
+      - Lie Groups and Lie Algebra: matrix_theory/matrix_lie_groups/lie_group_algebra.md 
+      - SO(3): matrix_theory/matrix_lie_groups/so3.md
+      - SE(3): matrix_theory/matrix_lie_groups/se3.md
+      - BCH and Perturbed Rotations: matrix_theory/matrix_lie_groups/bch_and_perturbed_rotations.md
+      - SO(3) Jacobians: matrix_theory/matrix_lie_groups/so3_jacobians.md
+      - SE(3) Jacobians: matrix_theory/matrix_lie_groups/se3_jacobians.md
   - Optimization:
     - References: optimization/references.md
     - Cauchy-Schwartz Inequality: optimization/cauchy_schwarz_inequality.md
@@ -152,20 +159,10 @@ nav:
       - Attitude Visualization: kinematics/rotations/pangolin_visualization.md
     - Angular Velocity: kinematics/angular_velocity.md
     - Euler Rates: kinematics/euler_rates.md
-    - Perturbation Methods:
-      - Perturbation: kinematics/perturbation_methods/perturbation.md
-      - Perturbing a Rotation Matrix: kinematics/perturbation_methods/perturbing_rotation_matrix.md
+    - Perturbation of a Rotation Matrix: kinematics/perturbation_of_rotation_matrix.md
     - Cartesian Position: kinematics/cartesian_position.md
     - Velocity: kinematics/velocity.md
     - Acceleration: kinematics/acceleration.md
-    - Lie Theory: 
-      - Key Indentities: kinematics/lie_theory/key_identities.md
-      - Lie Groups and Lie Algebra: kinematics/lie_theory/lie_group_algebra.md 
-      - SO(3): kinematics/lie_theory/so3.md
-      - SE(3): kinematics/lie_theory/se3.md
-      - BCH and Perturbed Rotations: kinematics/lie_theory/bch_and_perturbed_rotations.md
-      - SO(3) Jacobians: kinematics/lie_theory/so3_jacobians.md
-      - SE(3) Jacobians: kinematics/lie_theory/se3_jacobians.md
   
   - State Estimation:
     - References: state_estimation/references.md
