@@ -1,3 +1,5 @@
+# Sample Variability Measures
+
 ## Sample Variance and Sample Standard Deviation
 
 Sample variance is defined as:
@@ -9,7 +11,7 @@ s^2 &= \frac{1}{n - 1} \sum^n_{i = 1} \left(X_i - \bar{X} \right)^2 \\
 \end{align}
 $$
 
-Note that we use $\frac{1}{n - 1}$ instead of $\frac{1}{n}$ because TBD. 
+Note that we use $\frac{1}{n - 1}$ instead of $\frac{1}{n}$ because it is an unbiased estimator.
 
 The sample standard deviation is defined as:
 
@@ -46,13 +48,13 @@ For a sample $x_1, x_2, \ldots, x_n$ the $z$-score is the standardized sample $z
 If the observations are interpreted as unit masses at positions $X_1, \ldots, X_n$, then the sample mean is the first moment in the mechanical sense - it represents the balance point for the system of all points. The $k$'th moment is defined as:
 
 $$
-m_k = \frac{1}{n} \left(X^k_1 + \ldots + X^k_n \right) = \frac{1}{n} \sum^n_{i = 1} X^k_i\dots
+m_k = \frac{1}{n} \left(X^k_1 + \ldots + X^k_n \right) = \frac{1}{n} \sum^n_{i = 1} X^k_i.
 $$
 
 The moments $m_k$ are sometimes called raw sample moments. The power $k$ mean is $\left( m_k \right)^{1 / k}$, that is:
 
 $$
-\left( \frac{1}{n} \sum^n_{i = 1} X^k_i\dots \right)^{1 / k}.
+\left( \frac{1}{n} \sum^n_{i = 1} X^k_i \right)^{1 / k}.
 $$
 
 The **central** moments of order $k$ is defined as:
@@ -80,6 +82,18 @@ $$
 $$
 
 and represents the measure of "peakedness" or flatness of a sample distribution.
+
+## Coefficient of Variation
+
+The coefficient of variation, CV, is the ratio:
+
+$$
+\text{CV} = \frac{s}{\bar{X}}.
+$$
+
+The CV expresses the variability of a sample in the units of its mean. In other words, a CV equal to 2 would mean that the standard deviation is equal to 2$\bar{X}$. 
+
+The reciprocal of CV, $\bar{X} / s$, is called the **signal-to-noise** ratio.
 
 ## Diversity Indices for Categorical Data
 

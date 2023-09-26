@@ -1,3 +1,5 @@
+# Sample Mean and Mode
+
 ## Means
 
 The three averages - arithmetic, geometric, and harmonic - are known as Pythogorean means.

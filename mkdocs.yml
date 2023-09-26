@@ -81,6 +81,8 @@ nav:
       - Matrix Norms: matrix_theory/norms/matrix_norms.md
     - Matrix Factorization:
       - Singular Value Decomposition: matrix_theory/matrix_factorization/singular_value_decomposition.md
+      - QR Decomposition: matrix_theory/matrix_factorization/qr_decomposition.md
+      - Cholesky Decomposition: matrix_theory/matrix_factorization/cholesky_decomposition.md
     - Matrix Calculus:
       - Identities: matrix_theory/matrix_calculus/matrix_calculus_identities.md
       - Matrix Calculus: matrix_theory/matrix_calculus/matrix_calculus.md
@@ -108,15 +110,6 @@ nav:
       - Convex Functions: optimization/functions/convex_functions.md
       - Nonconvex Functions: optimization/functions/nonconvex_functions.md
     - Perturbation Methods: optimization/perturbation_methods.md
-    - Probability and Statistics:
-      - References: optimization/probability_and_statistics/references.md
-      - Termanologies: optimization/probability_and_statistics/termanologies.md
-      - The Sample and Its Properties:
-        - Location Measures: optimization/probability_and_statistics/the_sample_and_its_properties/location_measures.md
-        - Variability Measures: optimization/probability_and_statistics/the_sample_and_its_properties/variability_measures.md
-        - Univariate Sample Example: assets/jupyter/probability/cellarea_analysis.ipynb
-        - Multivariate Sample Properties: optimization/probability_and_statistics/the_sample_and_its_properties/multivariate_sample_properties.md
-        - Observations as Time Series: optimization/probability_and_statistics/the_sample_and_its_properties/observations_as_time_series.md
     - Convex Optimization:
       - References: optimization/convex_optimization/references.md
       - Optimization Problem Formulation: optimization/convex_optimization/optimization_problem_formulation.md
@@ -146,7 +139,6 @@ nav:
         - Modelling Nonconvex Functions: optimization/convex_optimization/integer_programming/modelling_nonconvex_functions.md
         - Modelling Nonconvex Sets: optimization/convex_optimization/integer_programming/modelling_nonconvex_sets.md
         - Modelling Logical Relations: optimization/convex_optimization/integer_programming/modelling_logical_relations.md
-  
   - Kinematics:
     - References: kinematics/references.md
     - Prerequisites: kinematics/prerequisites/prerequisites.md
@@ -164,14 +156,44 @@ nav:
     - Velocity: kinematics/velocity.md
     - Acceleration: kinematics/acceleration.md
   
-  - State Estimation:
-    - References: state_estimation/references.md
+  - Estimation Theory:
+    - References: estimation_theory/references.md
+    - Probability and Statistics:
+      - Terminologies: estimation_theory/probability_and_statistics/terminologies.md
+      - Mean and Mode: estimation_theory/probability_and_statistics/sample_mean_and_mode.md
+      - Variability Measures: estimation_theory/probability_and_statistics/sample_variability_measures.md
+      - Univariate Sample Example: assets/jupyter/probability/cellarea_analysis.ipynb
+      - Multivariate Sample Properties: estimation_theory/probability_and_statistics/multivariate_sample_properties.md
+      - Observations as Time Series: estimation_theory/probability_and_statistics/observations_as_time_series.md
+      - Probability: estimation_theory/probability_and_statistics/probability.md
+      - Conditional Probability: estimation_theory/probability_and_statistics/conditional_probability.md
+      - Bayes' Rule: estimation_theory/probability_and_statistics/bayes_rule.md
+      - Random Variables:
+        - Random Variables: estimation_theory/probability_and_statistics/random_variables/random_variables.md
+        - Discrete Random Variables: estimation_theory/probability_and_statistics/random_variables/discrete_random_variables.md
+        - Discrete Random Variables - Example: estimation_theory/probability_and_statistics/random_variables/discrete_random_variables_example.md
+        - Continuous Random Variables: estimation_theory/probability_and_statistics/random_variable.md
+      - Discrete Distributions:
+        - Discrete Uniform Distribution: estimation_theory/probability_and_statistics/discrete_distributions/discrete_uniform_distribution.md
+        - Bernoulli and Binomial Distribtuions: estimation_theory/probability_and_statistics/discrete_distributions/bernoulli_and_binomial_distributions.md
+      - Continuous Distributions:
+        - Continous Uniform Distribution: estimation_theory/probability_and_statistics/distributions/discrete_distributions/discrete_uniform_distribution.md
+    - Bayesian Inference:
+      - Bayes: estimation_theory/least_squares/least_squares.md
     - Least Squares:
-      - Least Squares: state_estimation/least_squares/least_squares.md
-      - Weighed Least Squares: state_estimation/least_squares/weighted_least_squares.md
-
+      - Least Squares: estimation_theory/least_squares/least_squares.md
+      - Weighed Least Squares: estimation_theory/least_squares/weighted_least_squares.md
+  
     - Extended Kalman Filter:
-      - Continuous-Time EKF: state_estimation/continuous_time_ekf.md
+      - Continuous-Time EKF: estimation_theory/continuous_time_ekf.md
+    - Factor Graphs:
+      - Factor Grpah Overview: estimation_theory/factor_graphs/factor_graph_overview.md
+      - Factor Graph Equivalences: estimation_theory/factor_graphs/factor_graph_equivalences.md
+      - Examples:
+        - Simple Averaging: estimation_theory/factor_graphs/using_factor_graphs/simple_averaging.md
+        - Weighted Averaging: estimation_theory/factor_graphs/using_factor_graphs/weighted_averaging.md
+        - Weighted Non-Linear Least Squares: estimation_theory/factor_graphs/using_factor_graphs/weighted_non_linear_least_squares.md
+        - Dynamical Systems: estimation_theory/factor_graphs/using_factor_graphs/dynamical_systems.md
 
   - Navigation:
     - References: navigation/references.md

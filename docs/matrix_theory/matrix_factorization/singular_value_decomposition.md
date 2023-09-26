@@ -153,12 +153,23 @@ If $\mathbf{A}$ is perturbed by a matrix $\mathbf{E}$, then no singular value ca
     \end{align}
     $$
 
-
 ## Applications
 
-### Pseudoinverse
+### Pseudo-Inverse
 
-See [Least Squares](/optimization/nonlinear_programming/least_squares/).
+Given:
+
+$$
+\mathbf{A} = \mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^T,
+$$
+
+the pseudo-inverse of $\mathbf{A}$, denoted as $\mathbf{A}^\dagger$ can be computed as:
+
+$$
+\mathbf{A}^\dagger = \mathbf{V} \boldsymbol{\Sigma}^{\ddagger} \mathbf{U}^T,
+$$
+
+where $\ddagger$ implies inverting every non-zero diagonal element. See [Least Squares](/optimization/nonlinear_programming/least_squares/) for more information.
 
 ### Nearest Orthogonal Matrix
 

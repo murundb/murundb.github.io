@@ -131,4 +131,5 @@ $$
 \end{align}
 $$
 
-Note that $\mathbf{S}^{-1}$ does not exist at $\theta_{\beta \alpha} = \pi / 2$, which is the singularity associasted with Euler series.
+Note that $\mathbf{S}^{-1}$ does not exist at $\theta_{\beta \alpha} = \pi / 2$, which is the singularity associasted with Euler series. Refer to Identity 4 for more details.
+

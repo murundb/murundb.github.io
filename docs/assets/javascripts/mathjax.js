@@ -1,12 +1,12 @@
 window.MathJax = {
-    loader: {load: ['[tex]/boldsymbol', 'ui/lazy']},
+    loader: {load: ['[tex]/boldsymbol', 'ui/lazy', '[tex]/mathtools']},
     tex: {
       tags: 'all',
       inlineMath: [["\\(", "\\)"]],
       displayMath: [["\\[", "\\]"]],
       processEscapes: true,
       processEnvironments: true,
-      packages: {'[+]': ['boldsymbol']}
+      packages: {'[+]': ['boldsymbol', 'mathtools']}
     },
     options: {
       ignoreHtmlClass: ".*|",

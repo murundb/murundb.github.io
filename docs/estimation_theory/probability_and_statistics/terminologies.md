@@ -1,3 +1,5 @@
+# Terminologies
+
 ## Population
 
 A **population** is a statistical universe. It is defined as a collection of existing attributes of some natural phenomenon or a collection of potential attributes when a process is involved.  Populations can be either finite or infinite. A subset of population selected by some relevant criteria is called a subpopulation.
@@ -8,7 +10,7 @@ A **sample** is an observed part of a population. Selection of a sample is a ric
 
 ## Statistics
 
-The term **statistics** has a plural form but is used in the singular when it relates to methodology. A sample summary is called a **statistic**. For example, a sample mean is a statistic, and sample mean and sample range are statistics. The ultimate summary for quantifying a population attribute is a statistical model. 
+The term **statistics** has a plural form but is used in the singular when it relates to methodology. A sample summary is called a **statistic**. For example, a sample mean is a statistic, and sample mean and sample range are statistics. The ultimate summary for quantifying a population attribute is a statistical model.
 
 ## Composite Sample
 
@@ -24,4 +26,4 @@ Set of all possible outcomes in an experiment.
 
 ## Event
 
-A collection of outcomes; a subset of $S$.
+A collection of outcomes; a subset of the sample space.
