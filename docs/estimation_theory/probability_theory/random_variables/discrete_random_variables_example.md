@@ -48,7 +48,7 @@ Note that the expectation is a linear operator.
 ### Finding the Variance of A
 
 $$
-\mathbb{Var}A = \mathbb{E}A^2 - (\mathbb{E}A)^2 = 1720 \pi^2 - 1324.96 \pi^2 = 395.04 \pi^2,
+\mathbb{V}\text{ar}A = \mathbb{E}A^2 - (\mathbb{E}A)^2 = 1720 \pi^2 - 1324.96 \pi^2 = 395.04 \pi^2,
 $$
 
 since:
@@ -63,7 +63,7 @@ $$
 
 ### Finding the  Moment-Generating Functions
 
-Recall that the moment generating function for discrete random variables is:
+Recall that the moment-generating function for discrete random variables is:
 
 $$
 m_X(t) = \mathbb{E}e^{tX} = \sum_n p_n e^{t x_n}.

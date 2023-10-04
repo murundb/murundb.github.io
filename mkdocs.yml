@@ -158,26 +158,40 @@ nav:
   
   - Estimation Theory:
     - References: estimation_theory/references.md
-    - Probability and Statistics:
-      - Terminologies: estimation_theory/probability_and_statistics/terminologies.md
-      - Mean and Mode: estimation_theory/probability_and_statistics/sample_mean_and_mode.md
-      - Variability Measures: estimation_theory/probability_and_statistics/sample_variability_measures.md
+    - Probability Theory:
+      - Terminologies: estimation_theory/probability_theory/terminologies.md
+      - Mean and Mode: estimation_theory/probability_theory/sample_mean_and_mode.md
+      - Variability Measures: estimation_theory/probability_theory/sample_variability_measures.md
       - Univariate Sample Example: assets/jupyter/probability/cellarea_analysis.ipynb
-      - Multivariate Sample Properties: estimation_theory/probability_and_statistics/multivariate_sample_properties.md
-      - Observations as Time Series: estimation_theory/probability_and_statistics/observations_as_time_series.md
-      - Probability: estimation_theory/probability_and_statistics/probability.md
-      - Conditional Probability: estimation_theory/probability_and_statistics/conditional_probability.md
-      - Bayes' Rule: estimation_theory/probability_and_statistics/bayes_rule.md
+      - Multivariate Sample Properties: estimation_theory/probability_theory/multivariate_sample_properties.md
+      - Observations as Time Series: estimation_theory/probability_theory/observations_as_time_series.md
+      - Probability: estimation_theory/probability_theory/probability.md
+      - Conditional Probability: estimation_theory/probability_theory/conditional_probability.md
+      - Bayes' Rule: estimation_theory/probability_theory/bayes_rule.md
       - Random Variables:
-        - Random Variables: estimation_theory/probability_and_statistics/random_variables/random_variables.md
-        - Discrete Random Variables: estimation_theory/probability_and_statistics/random_variables/discrete_random_variables.md
-        - Discrete Random Variables - Example: estimation_theory/probability_and_statistics/random_variables/discrete_random_variables_example.md
-        - Continuous Random Variables: estimation_theory/probability_and_statistics/random_variable.md
-      - Discrete Distributions:
-        - Discrete Uniform Distribution: estimation_theory/probability_and_statistics/discrete_distributions/discrete_uniform_distribution.md
-        - Bernoulli and Binomial Distribtuions: estimation_theory/probability_and_statistics/discrete_distributions/bernoulli_and_binomial_distributions.md
-      - Continuous Distributions:
-        - Continous Uniform Distribution: estimation_theory/probability_and_statistics/distributions/discrete_distributions/discrete_uniform_distribution.md
+        - Discrete Random Variables: estimation_theory/probability_theory/random_variables/discrete_random_variables.md
+        - Discrete Random Variables - Example: estimation_theory/probability_theory/random_variables/discrete_random_variables_example.md
+        - Continuous Random Variables: estimation_theory/probability_theory/random_variables/continuous_random_variables.md
+      - Discrete Random Variables and Distributions:
+        - Discrete Random Variables: estimation_theory/probability_theory/random_variables/discrete_random_variables.md
+        - Discrete Random Variables - Example: estimation_theory/probability_theory/random_variables/discrete_random_variables_example.md
+        - Discrete Uniform Distribution: estimation_theory/probability_theory/discrete_distributions/discrete_uniform_distribution.md
+        - Bernoulli and Binomial Distribtuions: estimation_theory/probability_theory/discrete_distributions/bernoulli_and_binomial_distributions.md
+        - Poisson Distribtuion: estimation_theory/probability_theory/discrete_distributions/poisson_distribution.md
+        - Geometric Distribtuion: estimation_theory/probability_theory/discrete_distributions/geometric_distribution.md
+        - Multinomial Distribtuion: estimation_theory/probability_theory/discrete_distributions/multinomial_distribution.md
+      - Continuous Random Variables and Distributions:
+        - Continuous Random Variables: estimation_theory/probability_theory/random_variables/continuous_random_variables.md
+        - Uniform Distribution: estimation_theory/probability_theory/continuous_distributions/uniform_distribution.md
+        - Exponential Distribution: estimation_theory/probability_theory/continuous_distributions/exponential_distribution.md
+        - Gamma Distribution: estimation_theory/probability_theory/continuous_distributions/gamma_distribution.md
+        - Normal Distribution: estimation_theory/probability_theory/continuous_distributions/normal_distribution.md
+        - Chi-square Distribution: estimation_theory/probability_theory/continuous_distributions/chi_square_distribution.md
+        - Beta Distribution: estimation_theory/probability_theory/continuous_distributions/uniform_distribution.md
+        - Weibull Distribution: estimation_theory/probability_theory/continuous_distributions/uniform_distribution.md
+    - Statistical Estimators:
+      - Moment-Matching Estimator: estimation_theory/statistical_estimators/moment_matching_estimator.md
+      - Maximum Likelihood Estimator: estimation_theory/statistical_estimators/maximum_likelihood_estimator.md
     - Bayesian Inference:
       - Bayes: estimation_theory/least_squares/least_squares.md
     - Least Squares:

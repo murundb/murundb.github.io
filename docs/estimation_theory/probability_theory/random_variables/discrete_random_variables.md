@@ -1,6 +1,12 @@
 # Discrete Random Variables
 
-## Discrete RV - Probabilitiy Distribution Function
+## Definition
+
+A **random variable** (RV) is a variable whose numerical value is determined by the outcome of a random experiment. Thus, a random variable is a mapping from the sample space of an experiment, $S$, to a set of real numbers.
+
+The **probability distribution** of a random variable $X$ is a table (assignment, rule, formula) that assigns probabilities to realizations of $X$, or sets of realizations.
+
+## Probabilitiy Distribution Function
 
 Let random variable $X$ take discrete values $x_1, x_2, \ldots, x_n, \ldots$ with probabilities $p_1, p_2, \ldots, p_n, \ldots$, $\sum_n p_n = 1$. The probability distribution function (PDF) is simply an assignment of probabilities to the realizations of $X$ and is given by the following table:
 
@@ -8,9 +14,9 @@ Let random variable $X$ take discrete values $x_1, x_2, \ldots, x_n, \ldots$ wit
 | ----- | --------------------------------------- |
 |  Prob | $p_1, \ p_2, \ \ldots, \ p_n, \ \ldots$ |
 
-Note that the discrete random variables can have an infinite number of realizations, as long as the infinite sum of the probabilities converges to 1. The PDF for discrete random variables is also called the **probability pass function** (PMF).
+Note that the discrete random variables can have an infinite number of realizations, as long as the infinite sum of the probabilities converges to 1. The PDF for discrete random variables is also called the **probability mass function** (PMF).
 
-## Discrete RV - Cumulative Distribution Function
+## Cumulative Distribution Function
 
 The cumulative distribution function (CDF):
 
@@ -26,7 +32,7 @@ sums the probabilities of all realizations smaller than or equal to $x$. Figure 
   <figcaption>Figure 1 Cumulative distribution function (stab) </figcaption>
 </figure>
 
-## Discrete RV - Expectation and Variance
+## Expectation and Variance
 
 The expectation of $X$ is:
 
@@ -54,10 +60,10 @@ $$
 \mu_k = \mathbb{E}(X - \mathbb{E}X)^k = \sum_n (x_n - \mathbb{E}X)^k p_n.
 $$
 
-The first moment is the expectation, $m_1 = \mathbb{E}X$ and the second central moment is the variance, $\mu_2 = \mathbb{Var}(X) = \mathbb{E}(X - \mathbb{E}X)^2$. Hence, the variance for a discrete RV is:
+The first moment is the expectation, $m_1 = \mathbb{E}X$ and the second central moment is the variance, $\mu_2 = \mathbb{V}\text{ar}(X) = \mathbb{E}(X - \mathbb{E}X)^2$. Hence, the variance for a discrete RV is:
 
 $$
-\mathbb{Var}(X) = \sum_n (x_n - \mathbb{E}X)^2 p_n.
+\mathbb{V}\text{ar}(X) = \sum_n (x_n - \mathbb{E}X)^2 p_n.
 $$
 
 !!! cnote "Expectation"
@@ -79,11 +85,11 @@ $$
     $$
     \begin{align}
     \mathbb{E}(X_1 \cdot X_2 \cdot \ldots \cdot X_n) &= \mathbb{E}X_1 \cdot \mathbb{E} X_2 \cdot \ldots \mathbb{E}X_n \\
-    \mathbb{Var}(X_1 + X_2 + \cdots + X_n) &= \mathbb{Var}X_1 + \mathbb{Var}X_2 + \cdot + \mathbb{Var} X_n.
+    \mathbb{V}\text{ar}(X_1 + X_2 + \cdots + X_n) &= \mathbb{V}\text{ar}X_1 + \mathbb{V}\text{ar}X_2 + \cdot + \mathbb{V}\text{ar} X_n.
     \end{align}
     $$
 
-    For a constant $c$, $\mathbb{Var}(c) = 0$, and $\mathbb{Var}(cX) = c^2 \mathbb{Var}X$.
+    For a constant $c$, $\mathbb{V}\text{ar}(c) = 0$, and $\mathbb{V}\text{ar}(cX) = c^2 \mathbb{V}\text{ar}X$.
 
 ## Moment-Generating Function
 
@@ -175,12 +181,12 @@ $$
 
 !!! cnote "Covariance Properties"
 
-    1. $\mathbb{Cov}(X, X) = \mathbb{Var}(X)$
+    1. $\mathbb{Cov}(X, X) = \mathbb{V}\text{ar}(X)$
     2. $\mathbb{Cov}(X, Y) = \mathbb{Cov}(Y, X)$
     3. $\mathbb{Cov}(aX + bY, Z) = a \mathbb{Cov}(X, Z) + b \mathbb{Cov}(Y, Z)$
 
 The **correlation** between random variables $X$ and $Y$ is the covariance normalized by the standard deviations:
 
 $$
-\mathbb{Corr}(X, Y) = \frac{\mathbb{Cov}(X, Y)}{\sqrt{\mathbb{Var} X \mathbb{Var} Y}}.
+\mathbb{Corr}(X, Y) = \frac{\mathbb{Cov}(X, Y)}{\sqrt{\mathbb{V}\text{ar} X \mathbb{V}\text{ar} Y}}.
 $$

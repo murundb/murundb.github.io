@@ -13,14 +13,14 @@ $$
 The number of elements in the interval $\left[a, b \right]$ is $n = b - a + 1$. The CDF of the discrete uniform distribution is:
 
 $$
-F(k; a, b) = \frac{\lfloor k \rfloor - a + 1}{b - a + 1},
+F(x; a, b) = \frac{\lfloor x \rfloor - a + 1}{b - a + 1},
 $$
 
-for $\forall k \in \left[a, b \right]$.
+for $\forall x \in \left[a, b \right]$.
 
 ## Mean and Variance
 
-Recall that the moment generating function for discrete random variables is:
+Recall that the moment-generating function for discrete random variables is:
 
 $$
 m_X(t) = \mathbb{E}e^{tX} = \sum_n p_n e^{t x_n}.
@@ -32,10 +32,14 @@ $$
 \mathbb{E}X = \left. \frac{d m_X(t)}{dt} \right|_{t = 0} = \frac{1}{n} \frac{(a + b)n}{2} = \frac{a + b}{2}.
 $$
 
-The variance is the second moment of inertia:
+The variance is the central second moment:
 
 $$
-\mathbb{Var}X = \left. \frac{d^2 m_X(t)}{dt^2} \right|_{t = 0} = \frac{n^2 - 1}{12}.
+\begin{align}
+\mathbb{V}\text{ar}X &= \mathbb{E}X^2 - (\mathbb{E}X)^2 \\
+&= \left. \frac{d^2 m_X(t)}{dt^2} \right|_{t = 0} - (\mathbb{E}X)^2 \\
+&= \frac{n^2 - 1}{12}.
+\end{align}
 $$
 
 ## Usage
