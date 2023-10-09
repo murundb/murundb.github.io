@@ -2,10 +2,10 @@
 
 ## Definition
 
-Bayes' rule reassesses the probabilities of events when new evidence about related outcomes becomes available. It concerns the transition from prior probabilities of hypothesis to the posterior probabilities once new information about the sample space is obtained:
+**Bayes' rule reassesses the probabilities of events when new evidence about related outcomes becomes available**. It concerns the transition from prior probabilities of hypothesis to the posterior probabilities once new information about the sample space is obtained:
 
 $$
-\mathbb{P}(H) \quad \xrightarrow{\text{Bayes' Rule}} \quad \mathbb{P}(H|A).
+\mathbb{P}(H) \ \text{(prior)} \quad \xrightarrow{\text{Bayes' Rule}} \quad \mathbb{P}(H|A) \ \text{(posterior)}.
 $$
 
 
@@ -22,5 +22,3 @@ $$
     \mathbb{P}(A) = \mathbb{P}(A|H_1) \mathbb{P}(H_1) + \cdots + 
     \mathbb{P}(A|H_n) \mathbb{P}(H_n).
     $$
-
-Bayes' rule reassesses the probabilities of events when new evidence about related outcomes becomes available.

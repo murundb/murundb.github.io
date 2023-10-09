@@ -166,38 +166,34 @@ nav:
       - Multivariate Sample Properties: estimation_theory/probability_theory/multivariate_sample_properties.md
       - Observations as Time Series: estimation_theory/probability_theory/observations_as_time_series.md
       - Probability: estimation_theory/probability_theory/probability.md
-      - Conditional Probability: estimation_theory/probability_theory/conditional_probability.md
       - Bayes' Rule: estimation_theory/probability_theory/bayes_rule.md
-      - Random Variables:
-        - Discrete Random Variables: estimation_theory/probability_theory/random_variables/discrete_random_variables.md
-        - Discrete Random Variables - Example: estimation_theory/probability_theory/random_variables/discrete_random_variables_example.md
-        - Continuous Random Variables: estimation_theory/probability_theory/random_variables/continuous_random_variables.md
-      - Discrete Random Variables and Distributions:
-        - Discrete Random Variables: estimation_theory/probability_theory/random_variables/discrete_random_variables.md
-        - Discrete Random Variables - Example: estimation_theory/probability_theory/random_variables/discrete_random_variables_example.md
+      - Random Variables: estimation_theory/probability_theory/random_variables/random_variables.md
+      - Transformations of Random Variables: estimation_theory/probability_theory/random_variables/transformations_of_random_variables.md
+      - Multiple Random Variables: estimation_theory/probability_theory/random_variables/multiple_random_variables.md
+      - Distributions:
         - Discrete Uniform Distribution: estimation_theory/probability_theory/discrete_distributions/discrete_uniform_distribution.md
-        - Bernoulli and Binomial Distribtuions: estimation_theory/probability_theory/discrete_distributions/bernoulli_and_binomial_distributions.md
-        - Poisson Distribtuion: estimation_theory/probability_theory/discrete_distributions/poisson_distribution.md
-        - Geometric Distribtuion: estimation_theory/probability_theory/discrete_distributions/geometric_distribution.md
-        - Multinomial Distribtuion: estimation_theory/probability_theory/discrete_distributions/multinomial_distribution.md
-      - Continuous Random Variables and Distributions:
-        - Continuous Random Variables: estimation_theory/probability_theory/random_variables/continuous_random_variables.md
         - Uniform Distribution: estimation_theory/probability_theory/continuous_distributions/uniform_distribution.md
+        - Bernoulli and Binomial Distributions: estimation_theory/probability_theory/discrete_distributions/bernoulli_and_binomial_distributions.md
+        - Poisson Distribution: estimation_theory/probability_theory/discrete_distributions/poisson_distribution.md
+        - Geometric Distribution: https://en.wikipedia.org/wiki/Geometric_distribution
+        - Multinomial Distribution: https://en.wikipedia.org/wiki/Multinomial_distribution
         - Exponential Distribution: estimation_theory/probability_theory/continuous_distributions/exponential_distribution.md
         - Gamma Distribution: estimation_theory/probability_theory/continuous_distributions/gamma_distribution.md
+        - Logistic Distribution: https://en.wikipedia.org/wiki/Logistic_distribution
         - Normal Distribution: estimation_theory/probability_theory/continuous_distributions/normal_distribution.md
         - Chi-square Distribution: estimation_theory/probability_theory/continuous_distributions/chi_square_distribution.md
-        - Beta Distribution: estimation_theory/probability_theory/continuous_distributions/uniform_distribution.md
-        - Weibull Distribution: estimation_theory/probability_theory/continuous_distributions/uniform_distribution.md
+        - Beta Distribution: https://en.wikipedia.org/wiki/Beta_distribution
+        - Weibull Distribution: https://en.wikipedia.org/wiki/Weibull_distribution#:~:text=In%20probability%20theory%20and%20statistics,spends%20on%20a%20web%20page.
     - Statistical Estimators:
       - Moment-Matching Estimator: estimation_theory/statistical_estimators/moment_matching_estimator.md
       - Maximum Likelihood Estimator: estimation_theory/statistical_estimators/maximum_likelihood_estimator.md
     - Bayesian Inference:
       - Bayes: estimation_theory/least_squares/least_squares.md
-    - Least Squares:
-      - Least Squares: estimation_theory/least_squares/least_squares.md
-      - Weighed Least Squares: estimation_theory/least_squares/weighted_least_squares.md
-  
+    - Least Squares Estimator:
+      - Batch Least Squares Estimator: estimation_theory/least_squares_estimator/batch_least_squares_estimator.md
+      - Weighed Batch Least Squares Estimator: estimation_theory/least_squares_estimator/weighted_batch_least_squares_estimator.md
+      - Recursive Least Squares Estimator: estimation_theory/least_squares_estimator/recursive_least_squares_estimator.md
+
     - Extended Kalman Filter:
       - Continuous-Time EKF: estimation_theory/continuous_time_ekf.md
     - Factor Graphs:
@@ -246,6 +242,7 @@ nav:
   - Notation and Nomenclature: notation_and_nomenclature/notation_and_nomenclature.md
 
 plugins:
+  - search
   - mkdocs-jupyter:
       kernel_name: python3
       execute: true
