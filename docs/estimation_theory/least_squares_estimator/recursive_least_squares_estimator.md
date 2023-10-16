@@ -13,7 +13,7 @@ y_k &= \mathbf{H}_k \mathbf{x} + v_k \\
 \end{align}
 $$
 
-where $\mathbf{K}_k$ is the estimator gain matrix. Here, we compute $\hat{\mathbf{x}}_k$ on the basis of the previous estimate $\hat{\mathbf{x}}_{k - 1}$ and the new measurement $y_k$
+where $\mathbf{K}_k$ is the estimator gain matrix. Here, we compute $\hat{\mathbf{x}}_k$ on the basis of the previous estimate $\hat{\mathbf{x}}_{k - 1}$ and the new measurement $y_k$. The correction term $y_k - \mathbf{H}_k \hat{\mathbf{x}}_{k - 1}$ applied to the previous term $\hat{\mathbf{x}}$ is called the residual or innovation.
 
 ## Solution
 
@@ -23,108 +23,85 @@ $$
 \boldsymbol{\epsilon}_{\mathbf{x}, k} = \mathbf{x} - \hat{\mathbf{x}}_k.
 $$
 
-Then the mean or the expectecation of the estimation error is:
+Then the mean or the expectation of the estimation error is:
 
 $$
 \begin{align}
 \mathbb{E} \left[
 \boldsymbol{\epsilon}_{\mathbf{x}, k} \right] &= \mathbb{E} \left[ \mathbf{x} - \hat{\mathbf{x}}_k \right] \\
-&= \mathbb{E} \left[ \mathbf{x} - \hat{\mathbf{x}}_{k - 1} - \mathbf{K}_k \left( \mathbf{y}_k - \mathbf{H}_k \hat{\mathbf{x}}_{k - 1} \right) \right] \\
+&= \mathbb{E} \left[ \mathbf{x} - \hat{\mathbf{x}}_{k - 1} - \mathbf{K}_k \left( y_k - \mathbf{H}_k \hat{\mathbf{x}}_{k - 1} \right) \right] \\
+&= \mathbb{E} \left[ \boldsymbol{\epsilon}_{\mathbf{x}, k - 1} - \mathbf{K}_k \left(\mathbf{H}_k \mathbf{x} + v_k - \mathbf{H}_k \hat{\mathbf{x}}_{k - 1} \right) \right] \\
 &= \mathbb{E}\left[ \boldsymbol{\epsilon}_{\mathbf{x}, k - 1} - \mathbf{K}_k \mathbf{H}_k( \mathbf{x} - \hat{\mathbf{x}}_{k - 1}) - \mathbf{K}_k v_k \right] \\
 &= \left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right) \mathbb{E}(\boldsymbol{\epsilon}_{\mathbf{x}, k-1}) - \mathbf{K}_k \mathbb{E}(v_k).
 \end{align}
 $$
 
-Given a matrix $\mathbf{H} \in \mathbb{R}^{k \times n}$ and a vector $\mathbf{y} \in \mathbb{R}^k$, where $k > n$, we are interested in finding a **constant** solution $\mathbf{x} \in \mathbb{R}^n$ that satisfies $\mathbf{H} \mathbf{x} = \mathbf{y}$. In general, $\mathbf{y} \in \mathbb{R}^k$ with **linear** observation matrix $\mathbf{H} \in \mathbb{R}^{k \times n}$ has a measurement noise $\boldsymbol{v} \in \mathbb{R}^k$ such that:
+!!! cnote "Unbiased Estimator"
 
-$$
-\mathbf{y} = \mathbf{H} \mathbf{x} + \boldsymbol{v}, \label{least_squares_main}
-$$
+    If the measurement noise $v_k$ is zero mean for all $k$, and if the initial estimate of $\mathbf{x}$ is set to the expected value of $\mathbf{x}$ (i.e., $\hat{\mathbf{x}}_0 = \mathbb{E}\left[ \mathbf{x} \right]$), then the expected value of $\hat{\mathbf{x}}_k$ will be equal to $\mathbf{x}$ for all $k$ ($\mathbb{E}\left[\boldsymbol{\epsilon}_{\mathbf{x}, k}\right] = \mathbf{0}$). This is called an unbiased estimator.
 
-The measurement residual is defined as:
-
-$$
-\boldsymbol{\epsilon}_{\mathbf{y}} = \mathbf{y} - \mathbf{H} \hat{\mathbf{x}},
-$$
-
-where $\hat{\mathbf{x}}$ is the "best" estimate of $\mathbf{x}$.
-
-## Solution
-
-The most probable value of the vector $\mathbf{x}$ is the vector $\hat{\mathbf{x}}$ that minimizes the sum of squares
-between the observed values $\mathbf{y}$ and the vector $\mathbf{H} \hat{\mathbf{x}}$. This makes it an optimization problem with the objective function as:
+The cost function can be defined as the sum of the variances of the estimation errors at time $k$:
 
 $$
 \begin{align}
-\mathbf{J} &= \epsilon^2_{y1} + \ldots + \epsilon^2_{yk} = \boldsymbol{\epsilon}^T_{\mathbf{y}} \boldsymbol{\epsilon}_{\mathbf{y}} \\
-&= (\mathbf{y} - \mathbf{H} \hat{\mathbf{x}})^T (\mathbf{y} - \mathbf{H} \hat{\mathbf{x}}) \\
-&= (\mathbf{y}^T - \hat{\mathbf{x}}^T \mathbf{H}^T) (\mathbf{y} - \mathbf{H} \hat{\mathbf{x}}) \\ 
-&= \mathbf{y}^T \mathbf{y} - \hat{\mathbf{x}}^T \mathbf{H}^T \mathbf{y} - \mathbf{y}^T \mathbf{H} \hat{\mathbf{x}} + \hat{\mathbf{x}}^T \mathbf{H}^T \mathbf{H} \hat{\mathbf{x}}
+\mathbf{J}_k &= \mathbb{E} \left[(x_1 - \hat{x}_{1, k})^2 \right] + \cdots + \mathbb{E} \left[(x_n - \hat{x}_{n, k})^2 \right] \\
+&= \mathbb{E} \left[\epsilon^2_{x1, k} + \cdots + \epsilon^2_{xn, k} \right] \\
+&= \mathbb{E} \left[\boldsymbol{\epsilon}^T_{\mathbf{x}, k} \boldsymbol{\epsilon}_{\mathbf{x}, k} \right] \\
+&= \mathbf{E} \left [ \text{Tr} \left(\boldsymbol{\epsilon}^T_{\mathbf{x}, k} \boldsymbol{\epsilon}_{\mathbf{x}, k}   \right) \right] \\
+&= \text{Tr} \mathbf{P}_k,
 \end{align}
 $$
 
-Hence, the least squares problem can be formulated as:
+where $\mathbf{P}_k$ is the estimation-error covariance at time $k$ and can be found as follows:
 
 $$
 \begin{align}
-\arg \min_{\hat{\mathbf{x}}} \quad || \mathbf{H} \hat{\mathbf{x}} - \mathbf{y} ||_2 = \arg \min_{\hat{\mathbf{x}}} \quad \sqrt{\sum^m_{i = 1} \left( \mathbf{h}^T_i \hat{\mathbf{x}} - y_i \right)^2},
+\mathbf{P}_k &= \mathbb{E} \left[\boldsymbol{\epsilon}^T_{\mathbf{x}, k} \boldsymbol{\epsilon}_{\mathbf{x}, k} \right] \\
+&= \mathbb{E} \left[ \left( \mathbf{x} - \hat{\mathbf{x}}_k \right) \left( \mathbf{x} - \hat{\mathbf{x}}_k \right)^T \right] \\
+&= \mathbb{E} \left[ \left(\mathbf{x} - \mathbf{\hat{x}}_{k - 1} - \mathbf{K}_k (\mathbf{H}_k \mathbf{x} + v_k - \mathbf{H}_k \hat{\mathbf{x}}_{k - 1}) \right) \left( \cdots \right)^T \right] \\
+&= \mathbb{E} \left[ \left( \boldsymbol{\epsilon}_{\mathbf{x}, k - 1} - \mathbf{K}_k \mathbf{H}_k \boldsymbol{\epsilon}_{\mathbf{x}, k - 1} + \mathbf{K}_k v_k \right) \left( \cdots \right)^T \right] \\
+&= \mathbb{E} \left[ \left(  (\mathbf{I} - \mathbf{K}_k \mathbf{H}_k)\boldsymbol{\epsilon}_{\mathbf{x}, k - 1} + \mathbf{K}_k  \right) \left( \cdots \right)^T \right] \\
+&= \left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right) \mathbb{E} \left[ \boldsymbol{\epsilon}_{\mathbf{x}, k - 1} \boldsymbol{\epsilon}^T_{\mathbf{x}, k - 1} \right] \left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right)^T \\
+&\quad - \mathbf{K}_k \mathbb{E} \left[v_k \boldsymbol{\epsilon}^T_{\mathbf{x}, k - 1}  \right] \left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right)^T \\
+&\quad - \left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right) \mathbb{E} \left[ \boldsymbol{\epsilon}_{\mathbf{x}, k - 1} v^T_k \ \right] \mathbf{K}^T_k \\
+&\quad + \mathbf{K}_k \mathbb{E}\left[v_k v^T_k \right] \mathbf{K}^T_k.
 \end{align}
 $$
 
-or equivalently:
+The estimation error at time $k - 1$, $\boldsymbol{\epsilon}_{\mathbf{x}, k}$, is independent of the measurement noise at time $k$, $v_k$:
+
+$$
+\mathbb{E}\left[ v_k \boldsymbol{\epsilon}^T_{\mathbf{x}, k - 1} \right] = \mathbb{E}\left[ v_k \right] \mathbb{E} \left[ \boldsymbol{\epsilon}^T_{\mathbf{x}, k - 1} \right] = \mathbf{0}.
+$$
+
+Hence, the estimation-error covariance is:
+
+$$
+\mathbf{P}_k = \left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right) \mathbf{P}_{k - 1} \left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right)^T + \mathbf{K}_k \mathbf{R}_k \mathbf{K}^T_k,
+$$
+
+where $\mathbf{R}_k$ is the covariance of $v_k$.
+
+To optimality condition is:
+
+$$
+\frac{ \partial \mathbf{J}_k}{ \partial \mathbf{K}_k} = 2 \left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right) \mathbf{P}_{k - 1} \left( - \mathbf{H}^T_k \right) + 2 \mathbf{K}_k \mathbf{R}_k = \mathbf{0},
+$$
+
+since:
+
+$$
+\frac{\partial \text{Tr}(\mathbf{A} \mathbf{B} \mathbf{A}^T)}{\partial \mathbf{A}} = 2 \mathbf{A} \mathbf{B},
+$$
+
+given $\mathbf{B}$ is symmetric. Hence, the recursive least squares update equations are:
 
 $$
 \begin{align}
-&\arg \min_{\hat{\mathbf{x}}} \quad || \mathbf{H} \hat{\mathbf{x}} - \mathbf{y} ||^2_2 = \arg \min_{\hat{\mathbf{x}}} \quad \sum^m_{i = 1} \left( \mathbf{h}^T_i \hat{\mathbf{x}} - y_i \right)^2 \Rightarrow \\
-&\arg \min_{\hat{\mathbf{x}}} \quad \left( \mathbf{H} \hat{\mathbf{x}} - \mathbf{y} \right)^T \left( \mathbf{H} \hat{\mathbf{x}} - \mathbf{y} \right) = \arg \min_{\hat{\mathbf{x}}} \quad \hat{\mathbf{x}}^T \mathbf{H}^T \mathbf{H} \hat{\mathbf{x}} - 2 \left( \mathbf{H}^T \mathbf{y} \right)^T \hat{\mathbf{x}} + \mathbf{y}^T \mathbf{y}.
+\mathbf{K}_k &= \mathbf{P}_{k - 1} \mathbf{H}^T_k \left( \mathbf{H}_k \mathbf{P}_{k - 1} \mathbf{H}^T + \mathbf{R}_k \right)^{-1} \\
+\hat{\mathbf{x}}_k &= \hat{\mathbf{x}}_{k - 1} + \mathbf{K}_k \left(y_k - \mathbf{H}_k \hat{\mathbf{x}}_{k - 1} \right) \\
+\mathbf{P}_k &= \left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right) \mathbf{P}_{k - 1} \left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right)^T + \mathbf{K}_k \mathbf{R}_k \mathbf{K}^T_k \\
+&= \left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right) \mathbf{P}_{k - 1}.
 \end{align}
 $$
 
-The optimization variable is $\hat{\mathbf{x}}$ and $\mathbf{J}$ is a quadratic convex function. Hence, the optimality condition is:
-
-$$
-\begin{align}
-\nabla_{\hat{\mathbf{x}}} \mathbf{J} &= 
-\nabla \left( \mathbf{H} \hat{\mathbf{x}} - \mathbf{y} \right)^T \left( \mathbf{H} \hat{\mathbf{x}} - \mathbf{b} \right) = 0 \\
-&\Rightarrow -\mathbf{y}^T \mathbf{H} - \mathbf{y}^T \mathbf{H} + 2 \hat{\mathbf{x}}^T \mathbf{H}^T \mathbf{H} \\
-&\Rightarrow \mathbf{H}^T \mathbf{H} \hat{\mathbf{x}} = \mathbf{H}^T \mathbf{y}. \label{normal_equation}
-\end{align}
-$$
-
-Equation ($\ref{normal_equation}$) is called the **normal equation**. Solving the least squares problem is equivalent to solving the normal equation. Since $\mathbf{H}$ has a full column rank, $\mathbf{H}^T \mathbf{H}$ is invertible. Hence, the optimal solution to the normal equation (equivalently to the least squares problem) is:
-
-$$
-\hat{\mathbf{x}} = \left( \mathbf{H}^T \mathbf{H} \right)^{-1} \mathbf{H}^T \mathbf{y}. \label{pseudoinverse}
-$$
-
-The right hand side of equation ($\ref{pseudoinverse}$) is called the **Moore-Penrose pseudoinverse** and is defined as:
-
-$$
-\mathbf{H}^{+} = \left( \mathbf{H}^T \mathbf{H} \right)^{-1} \mathbf{H}^T.
-$$
-
-The solution to the least squares is then $\hat{\mathbf{x}} = \mathbf{H}^+ \mathbf{y}$. If $\mathbf{H}$ is an invertible square matrix, then $\mathbf{H}^+ = \mathbf{H}^{-1} \left( \mathbf{H}^T \right)^{-1} \mathbf{H}^T = \mathbf{H}^{-1}$.
-
-Rather than computing the matrix inversion, it is more efficient to use SVD. Since $\mathbf{H}^T \mathbf{H} = \mathbf{V} \boldsymbol{\Sigma}^2 \mathbf{V}^T$, we have $\left ( \mathbf{H}^T \mathbf{H} \right)^{-1} = \mathbf{V} \boldsymbol{\Sigma}^{-2} \mathbf{V}^T$. Then:
-
-$$
-\left( \mathbf{H}^T \mathbf{H} \right)^{-1} \mathbf{H}^T = 
-\mathbf{V} \boldsymbol{\Sigma}^{-2} \mathbf{V}^T \mathbf{V} \boldsymbol{\Sigma} \mathbf{U}^T =
-\mathbf{V} \boldsymbol{\Sigma}^{-1} \mathbf{U}^T.
-$$
-
-Hence, the optimal solution is:
-
-$$
-\hat{\mathbf{x}} = \mathbf{V} \boldsymbol{\Sigma}^{-1} \mathbf{U}^T \mathbf{y}.
-$$
-
-## Relationship to the Maximum Likelihood Estimator
-
-If the measurement errors $\boldsymbol{v} \in \mathbb{R}^k$ are independent Gaussian random variables, then minimizing the quadratic error is equivalent to maximizing the likelihood function:
-
-$$
-\begin{align}
-L(\mathbf{y} | \mathbf{x}) = \prod^k_{i = 1} f_\mathbf{x} (\mathbf{y}_i | \mathbf{x}).
-\end{align}
-$$

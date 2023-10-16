@@ -1,22 +1,22 @@
 # Weighted Averaging
 
-## Overview
+## Problem Statement
 
-Consider a weighted averaging problem as shown in Figure 1. We have a hidden variable $x$ and multiple measurements $z_i$. Assume all measurements have a Gaussian noise with $\sigma_i$.
+Consider a weighted averaging problem as shown in Figure 1. Let $x \in \mathbb{R}$ be a constant hidden variable to be estimated and $z_i$ be multiple measurements. Assume all measurements are i.i.d and perturbed by noise $\mathcal{N}(0, \sigma_i)$.
 
 <figure markdown>
-  ![factor_graph_weighted_averaging](/assets/images/state_estimation/light/factor_graph_weighted_averaging.png#only-light){ width="500" }
-  ![factor_graph_weighted_averaging](/assets/images/state_estimation/dark/factor_graph_weighted_averaging.png#only-dark){ width="500" }
+  ![factor_graph_weighted_averaging](/assets/images/estimation_theory/light/factor_graph_weighted_averaging.png#only-light){ width="500" }
+  ![factor_graph_weighted_averaging](/assets/images/estimation_theory/dark/factor_graph_weighted_averaging.png#only-dark){ width="500" }
   <figcaption>Figure 1 Weighted Averaging (Factor Graph Tutorial, ION, GNSS+ 2023)</figcaption>
 </figure>
 
-## Formulation
+## Solving with Factor Graph
 
 ### Weighting Matrix Properties
 
-Since $\mathbf{W} = \boldsymbol{\Lambda}^{-1}$ is symmetric, we can decompose it using Cholesky decomposition ($\mathbf{S}_{W}$).
+The measurement covariance matrix $\mathbf{R}$ or equivalently the weighting matrix $\mathbf{W} = \mathbf{R}^{-1}$ is symmetric. Hence, we can decompose it using Cholesky decomposition $\mathbf{W} = \mathbf{S}_{\mathbf{W}} \mathbf{S}^T_{\mathbf{W}}$, where $\mathbf{S}_{\mathbf{W}}$ is a real lower triangular matrix with positive diagonal entries.
 
-If we assume that $\mathbf{W}$ is a block diagonal matrix, then the factors are conditionally independenty.
+Furthermore, since $\mathbf{W}$ is a block diagonal matrix, the factors are conditionally independenty.
 
 $$
 \mathbf{W} =
@@ -28,25 +28,25 @@ $$
 0 & 0 & \cdots & \mathbf{W}_n
 \end{array}
 \right], \quad
-\mathbf{S}_{W} =
+\mathbf{S}_{\mathbf{W}} =
 \left[
 \begin{array}{ccc}
-\mathbf{S}_{W,1} & 0 & \cdots & 0 \\
-0 & \mathbf{S}_{W,2} & \cdots & 0 \\
-\vdots & & \ddots & \vdots \\
-0 & 0 & \cdots & \mathbf{S}_{W, n}
+\mathbf{S}_{\mathbf{W},1} & 0 & \cdots & 0 \\
+0 & \mathbf{S}_{\mathbf{W},2} & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & \mathbf{S}_{\mathbf{W}, n}
 \end{array}
 \right].
 $$
 
 ### Mapping Weighted Least Squares to Least Squares
 
-By pre-multiplying $\mathbf{L}$ and $\mathbf{z}$ by $\mathbf{S}_W$, we can use the same computational techniques as the regular least squares. Denote:
+By pre-multiplying $\mathbf{L}$ and $\mathbf{z}$ by $\mathbf{S}_\mathbf{W}$, we can use the same computational techniques as the regular least squares. Denote:
 
 $$
 \begin{align}
-\mathbf{L}^\prime &= \mathbf{S}_W \mathbf{L} \\
-\mathbf{z}^\prime &= \mathbf{S}_W \mathbf{z}.
+\mathbf{L}^\prime &= \mathbf{S}_\mathbf{W} \mathbf{L} \\
+\mathbf{z}^\prime &= \mathbf{S}_\mathbf{W} \mathbf{z}.
 \end{align}
 $$
 
@@ -55,7 +55,7 @@ Then:
 $$
 \begin{align}
 \left( \mathbf{L}^T \mathbf{W} \mathbf{L} \right)^{-1} \mathbf{L}^T \mathbf{W} \mathbf{z} &=
-\left(\mathbf{L}^T \mathbf{S}^T_W \mathbf{S}_W \mathbf{L} \right)^{-1} \mathbf{L}^T \mathbf{S}^T_W \mathbf{S}_W \mathbf{z} \\
+\left(\mathbf{L}^T \mathbf{S}^T_\mathbf{W} \mathbf{S}_\mathbf{W} \mathbf{L} \right)^{-1} \mathbf{L}^T \mathbf{S}^T_\mathbf{W} \mathbf{S}_\mathbf{W} \mathbf{z} \\
 &= \left(\mathbf{L}^{\prime T} \mathbf{L}^\prime \right)^{-1} \mathbf{L}^{\prime T} \mathbf{z}^\prime.
 \end{align}
 $$

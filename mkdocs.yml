@@ -188,22 +188,27 @@ nav:
       - Moment-Matching Estimator: estimation_theory/statistical_estimators/moment_matching_estimator.md
       - Maximum Likelihood Estimator: estimation_theory/statistical_estimators/maximum_likelihood_estimator.md
     - Bayesian Inference:
-      - Bayes: estimation_theory/least_squares/least_squares.md
+      - Bayesian Inference: estimation_theory/bayesian_inference/bayesian_inference.md
+      - Bayesian Network: estimation_theory/bayesian_inference/bayesian_network.md
+      - Maximum a Posteriori Estimator: estimation_theory/bayesian_inference/maximum_a_posteriori_estimator.md
     - Least Squares Estimator:
       - Batch Least Squares Estimator: estimation_theory/least_squares_estimator/batch_least_squares_estimator.md
       - Weighed Batch Least Squares Estimator: estimation_theory/least_squares_estimator/weighted_batch_least_squares_estimator.md
       - Recursive Least Squares Estimator: estimation_theory/least_squares_estimator/recursive_least_squares_estimator.md
+      - Polynomial Fitting: estimation_theory/least_squares_estimator/polynomial_fitting.md
+    - Kalman Filter:
+      - Discrete-Time Kalman Filter: estimation_theory/kalman_filter/discrete_time_kalman_filter.md
 
     - Extended Kalman Filter:
       - Continuous-Time EKF: estimation_theory/continuous_time_ekf.md
-    - Factor Graphs:
-      - Factor Grpah Overview: estimation_theory/factor_graphs/factor_graph_overview.md
-      - Factor Graph Equivalences: estimation_theory/factor_graphs/factor_graph_equivalences.md
-      - Examples:
-        - Simple Averaging: estimation_theory/factor_graphs/using_factor_graphs/simple_averaging.md
-        - Weighted Averaging: estimation_theory/factor_graphs/using_factor_graphs/weighted_averaging.md
-        - Weighted Non-Linear Least Squares: estimation_theory/factor_graphs/using_factor_graphs/weighted_non_linear_least_squares.md
-        - Dynamical Systems: estimation_theory/factor_graphs/using_factor_graphs/dynamical_systems.md
+    - Factor Graph:
+      - Factor Graph Overview: estimation_theory/factor_graph/factor_graph_overview.md
+      - Factor Graph Equivalences: estimation_theory/factor_graph/factor_graph_equivalences.md
+      - Using Factor Graph:
+        - Simple Averaging: estimation_theory/factor_graph/using_factor_graph/simple_averaging.md
+        - Weighted Averaging: estimation_theory/factor_graph/using_factor_graph/weighted_averaging.md
+        - Weighted Non-Linear Least Squares: estimation_theory/factor_graph/using_factor_graph/weighted_non_linear_least_squares.md
+        - Dynamical Systems: estimation_theory/factor_graph/using_factor_graph/dynamical_systems.md
 
   - Navigation:
     - References: navigation/references.md
