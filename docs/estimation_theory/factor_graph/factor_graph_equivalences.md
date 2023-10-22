@@ -22,7 +22,7 @@ $$
 \begin{align}
 \hat{\mathbf{x}} = &\arg \min_{\mathbf{X}} \Biggl[ || \mathbf{x}_0 - \text{prior} ||^2_{\mathbf{P}_0} + \Biggr. \\
 &\sum^N_{i = 0} ||h(\mathbf{x}_i) - \mathbf{z}_i ||^2_{\mathbf{R}} + \\
-&\left. \sum^N_{i = 1} ||f(\mathbf{x}_{i - 1}, \mathbf{u}_{i - 1}) - \mathbf{x}_i ||^2_{\mathbf{Q}} \right]
+&\left. \sum^N_{i = 1} ||f(\mathbf{x}_{i - 1}, \mathbf{u}_{i - 1}) - \mathbf{x}_i ||^2_{\mathbf{Q}} \right].
 \end{align}
 $$
 

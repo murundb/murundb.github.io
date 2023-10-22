@@ -5,12 +5,18 @@
 Consider a weighted averaging problem similar as prevous example. Let $x \in \mathbb{R}$ be a constant hidden variable to be estimated and $z_i$ be multiple measurements. Assume all measurements are i.i.d and perturbed by noise $\mathcal{N}(0, \sigma_i)$. Consider each measurement has its own non-linear measurement function:
 
 $$
-\hat{x} = \arg \min_{x} \sum^{n}_{i = 1} ||h_i(x) - z_i||^2_{\sigma_i}.
+z_i = h_i(x) + \epsilon.
 $$
 
 ## Solving with Factor Graph
 
 ### Non-Linear to Linear Least Squares
+
+An estimator can be found as:
+
+$$
+\hat{x} = \arg \min_{x} \sum^{n}_{i = 1} ||h_i(x) - z_i||^2_{\sigma_i}.
+$$
 
 We can replace $h_i(x)$ with an affine approximation by linearizing the non-linear function:
 

@@ -12,6 +12,12 @@ Consider a simple averaging problem as shown in Figure 1. Let $x \in \mathbb{R}$
 
 ## Solving with Factor Graph
 
+Denote the measurement vector as $\mathbf{z} \in \mathbb{R}^n$. Then the measurement equation is:
+
+$$
+\mathbf{z} = \mathbf{L} x + \boldsymbol{\epsilon}.
+$$
+
 The adjacency matrix $\mathbf{L} \in \mathbb{R}^n$ will have a single column and $n$ rows since no dynamics is involved and $x$ is assumed to be a constant:
 
 $$
@@ -20,10 +26,10 @@ $$
 \begin{array}{cccc}
 1 & 1 & \cdots & 1
 \end{array}
-\right]^T,
+\right]^T.
 $$
 
-since the measurement is equal to $x$ with some added noise. The pseudo-inverse of $\mathbf{L}$ is:
+The pseudo-inverse of $\mathbf{L}$ is:
 
 $$
 \begin{align}
