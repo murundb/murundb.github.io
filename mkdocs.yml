@@ -141,14 +141,15 @@ nav:
         - Modelling Logical Relations: optimization/convex_optimization/integer_programming/modelling_logical_relations.md
   - Kinematics:
     - References: kinematics/references.md
-    - Prerequisites: kinematics/prerequisites/prerequisites.md
     - Identities: kinematics/identities/identities.md
     - Rotations:
+      - Pose and Attitude: kinematics/rotations/pose_and_attitude.md
       - Rotation Matrices: kinematics/rotations/rotation_matrices.md
       - Euler Angles: kinematics/rotations/euler_angles.md
-      - Axis Angle: kinematics/rotations/axis_angle.md
+      - Axis-Angle: kinematics/rotations/axis_angle.md
       - Quaternions: kinematics/rotations/quaternions.md
       - Attitude Visualization: kinematics/rotations/pangolin_visualization.md
+      - Time Derivative of Axes: kinematics/rotations/time_derivative_of_axes.md
     - Angular Velocity: kinematics/angular_velocity.md
     - Euler Rates: kinematics/euler_rates.md
     - Perturbation of a Rotation Matrix: kinematics/perturbation_of_rotation_matrix.md

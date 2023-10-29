@@ -6,15 +6,21 @@ A rotation of one frame to yield another frame can be achieved through a sequenc
 where each eigenaxis is chosen to be an axis of either the initial frame or the frame resulting from the preceding rotation.
 Consequently, attitude can be broken down into three successive rotations, with each rotation about an axis orthogonal to that of its predecessor and/or successor.
 
-!!! cnote "**Euler Angles**"
+<figure markdown>
+  ![$z$-$y$-$x$ rotation from left to right (Groves, p34)](/assets/images/kinematics/light/euler_angles.png#only-light){ width="600" }
+  ![$z$-$y$-$x$ rotation from left to right (Groves, p34)](/assets/images/kinematics/dark/euler_angles.png#only-dark){ width="600" }
+  <figcaption>Figure 1 z-y-x rotation from left to right (Groves, p34)</figcaption>
+</figure>
 
-    Given an object frame $F_\alpha$ and a reference frame $F_\beta$, we can describe the orientation of $F_\alpha$ with respect to $F_\beta$ via roll $\phi_{\beta \alpha}$, pitch $\theta_{\beta \alpha}$, and yaw $\psi_{\beta \alpha}$ Euler angles.
+!!! cnote "**3-2-1 Euler Angles**"
+
+    Given an object frame $F_\alpha$ and a reference frame $F_\beta$, we can describe the orientation of $F_\alpha$ with respect to $F_\beta$ via roll $\phi_{\beta \alpha}$, pitch $\theta_{\beta \alpha}$, and yaw $\psi_{\beta \alpha}$ Euler angles as shown in Figure 1.
     Here, we are only concerned with $z$-$y$-$x$ sequence of rotations, i.e.,
 
-    1. Rotation through the yaw angle $\psi_{\beta \alpha}$ about the common $z$ axis of the $F_\beta$ frame and the first intermediate frame.
-    2. Rotation through the pitch angle $\theta_{\beta \alpha}$ about the common $y$ axis of the first and second intermediate frame.
+    1. Rotation through the yaw angle $\psi_{\beta \alpha}$ about the common $z$ axis of the $F_\beta$ frame and the first **intermediate** frame.
+    2. Rotation through the pitch angle $\theta_{\beta \alpha}$ about the common $y$ axis of the first and second **intermediate** frame.
     3. Rotation through the roll angle $\phi_{\beta \alpha}$ about the common $x$ axis of the second frame and the $F_\alpha$ frame.
-
+ 
     Note that the successive rotations here are always about the new axis provided by the preceeding rotation and not about the fixed axis of $F_\beta$. 
 
 The Euler rotation from frame $F_\beta$ to frame $F_\alpha$ may be denoted by the vector:
@@ -63,15 +69,7 @@ Hence, Euler angles are more suited for visualization and interpretation rather 
 
 ## Attitude Representation via Euler Angles
 
-Euler angles can be converted to DCM easily by taking the transpose of the rotation matrices. In general, consider two coordinate frames $F_\alpha$ and $F_\beta$ as shown in Figure 1. Let $\mathbf{R}^{\alpha}_{\beta}$ be the rotation matrix from frame $F_\beta$ to $F_\alpha$.
-
-<figure markdown>
-  ![$z$-$y$-$x$ rotation from left to right (Groves, p34)](/assets/images/kinematics/light/euler_angles.png#only-light){ width="500" }
-  ![$z$-$y$-$x$ rotation from left to right (Groves, p34)](/assets/images/kinematics/dark/euler_angles.png#only-dark){ width="500" }
-  <figcaption>Figure 1 z-y-x rotation from left to right (Groves, p34)</figcaption>
-</figure>
-
-The first rotation will be through the yaw angle $\psi_{\beta \alpha}$ about the common $z$ axis of the $\beta$ frame to yield the first intermediate axes $(x^\psi, y^\psi, z^\psi)$:
+Let $\mathbf{R}^{\alpha}_{\beta}$ be the rotation matrix from frame $F_\beta$ to $F_\alpha$. From Figure 1, the first rotation will be through the yaw angle $\psi_{\beta \alpha}$ about the common $z$ axis of the $\beta$ frame to yield the first intermediate axes $(x^\psi, y^\psi, z^\psi)$:
 
 $$
 \begin{align}
@@ -280,7 +278,7 @@ $$
 where:
 
 $$
-\Psi_{\beta \alpha} =
+\boldsymbol{\Psi}_{\beta \alpha} =
 \left[
 \begin{array}{ccc}
 \phi_{\beta \alpha} & \theta_{\beta \alpha} & \psi_{\beta \alpha}

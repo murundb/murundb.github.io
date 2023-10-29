@@ -2,27 +2,173 @@
 
 ## Euler's Rotation Theorem
 
-Euler's rotation theorem states that, in three-dimensional space, any displacement of a rigid body such that a point on the rigid body remains fixed, is equivalent to a single rotation about some axis that runs through the fixed point. It also means that the composition of two rotations is also a rotation.
+Euler's rotation theorem states that, in three-dimensional space, any displacement of a rigid body such that a point on the rigid body remains fixed, is equivalent to a single rotation about some axis that runs through the fixed point. Elements in $SO(3)$ are non-singular. One of the eigenvalues are always 1 with the other two being complex valued with magnitude of 1. This implies that there exists
+a unit vector (eigenvector) $\hat{\mathbf{e}}$ that remain unchanged following the application of a transformation matrix $\mathbf{R}$. This unit vector is the axis of the rotation that can be used to represent a rotation matrix.
 
 !!! cnote "**Rodrigues' Formula**"
 
+    Let $F_\alpha$ and $F_\beta$ be two frames. A rotation can be represented by a rotation axis $\hat{\mathbf{e}}$ and an angle $\theta$, or equivalently by a 3D vector $\boldsymbol{\rho} = \theta \hat{\mathbf{e}}$.
     Denote the **axis of rotation** as $\hat{\mathbf{e}} = \left[\begin{array}{ccc} e_1 & e_2 & e_3 \end{array} \right]^T$ and assume that it is a unit vector:
 
     $$
     \hat{\mathbf{e}}^T \hat{\mathbf{e}} = e^2_1 + e^2_2 + e^2_3 = 1.
     $$
 
-    The **angle of rotation** is $\theta$. Then the rotation matrix is:
+    The **angle of rotation** is $\theta$. Then the rotation matrix can be computed via exponential mapping:
 
     $$
-    \mathbf{R} = \cos \theta \mathbf{I} + \left(1 - \cos \theta \right) \hat{\mathbf{e}} \hat{\mathbf{e}}^T - \sin \theta \left[ \hat{\mathbf{e}} \right]_{\times}.
+    \begin{align}
+    \mathbf{R}^\beta_{\alpha} =e^{\left[\boldsymbol{\rho} \right]_\times} &= e^{ \left[ \theta \hat{\mathbf{e}} \right]_\times} = \sum^{\infty}_{k = 0} \frac{1}{k!} \left(\theta \left[\hat{\mathbf{e}} \right]_\times \right)^k \\
+    &= \mathbf{I} + \theta \left[ \hat{\mathbf{e}} \right]_\times + \frac{\theta^2}{2} \left[ \hat{\mathbf{e}} \right]^2_\times + 
+    \frac{\theta^3}{3!} \left[ \hat{\mathbf{e}} \right]^2_\times + \ldots \\
+    &= \mathbf{I} + \left( \theta - \frac{\theta^3}{3!} + \ldots \right) \left[ \hat{\mathbf{e}} \right]_\times + \left( \frac{\theta^2}{2} - \frac{\theta^4}{4!} + \ldots \right) \left[ \hat{\mathbf{e}} \right]^2_\times \\
+    &= \mathbf{I} + \sin \theta \left[ \hat{\mathbf{e}} \right]_\times + \left(1 - \cos \theta \right) \left[ \hat{\mathbf{e}} \right]^2_\times \\
+    &= \cos \theta \mathbf{I} + \left(1 - \cos \theta \right) \hat{\mathbf{e}} \hat{\mathbf{e}}^T + \sin \theta \left[ \hat{\mathbf{e}} \right]_\times,
+    \end{align}
     $$
 
-    Note that it does not matter in which frame $\hat{\mathbf{e}}$ is expressed because:
+    or simply:
+
+    $$
+    \mathbf{R} = \cos \theta \mathbf{I} + \left(1 - \cos \theta \right) \hat{\mathbf{e}} \hat{\mathbf{e}}^T + \sin \theta \left[ \hat{\mathbf{e}} \right]_{\times}. \label{rodrigues_formula}
+    $$
+
+    Note that it does not matter in which frame $\hat{\mathbf{e}}$ is expressed since:
 
     $$
     \mathbf{R} \hat{\mathbf{e}} = \hat{\mathbf{e}}.
     $$
+
+    Rotation vectors are useful for interpolating attitudes as they are the only form of attitude that enables rotations to be linearly interpolated.
+
+## Attitude Representation via Axis-Angle
+
+Let $F_\alpha$ and $F_\beta$ be two coordinate frames. We know that the axis-angle or rotation vector, $\boldsymbol{\rho}_{\beta \alpha}$ is a
+vector whose direction is parallel with the axis of rotation and the magntitude $\theta_{\beta \alpha}$ (from $F_\beta$ to $F_\alpha$) is equal to the angle of rotation:
+
+$$
+\boldsymbol{\rho}_{\beta \alpha} = \theta_{\beta \alpha} \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha}
+$$
+
+As mentioned earlier, the resolving axes doesn't matter since:
+
+$$
+\hat{\mathbf{e}}^{\alpha}_{\beta \alpha} = \hat{\mathbf{e}}^{\beta}_{\beta \alpha} = \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha}.
+$$
+
+Let $\hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} = \left[
+\begin{array}{ccc} 
+e^{\alpha / \beta}_1 & e^{\alpha / \beta}_2 & e^{\alpha / \beta}_2
+\end{array}
+\right]^T$.
+
+
+Via exponential mapping:
+
+$$
+\begin{align}
+\mathbf{R}^{\beta}_{\alpha} = e^{\left[ \boldsymbol{\rho}_{\beta \alpha} \right]_{\times}} &= e^{ \left[ \theta_{\beta \alpha} \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times}}  = \sum^{\infty}_{k=0} \frac{1}{k!} (\theta_{\beta \alpha} \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times})^k \\
+&= \mathbf{I} + \theta_{\beta \alpha} \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times} + \frac{1}{2!} \left( \theta_{\beta \alpha} \right)^2 \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]^2_{\times}
++ \frac{1}{3!} \left( \theta_{\beta \alpha} \right)^3 \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]^3_{\times} + \cdots \\
+&= \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \left( \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right)^T - \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]^2_{\times} 
+    + \theta_{\beta \alpha} \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times} + \frac{1}{2} \left( \theta_{\beta \alpha} \right)^2 \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]^2_{\times}
+- \cdots \\
+&=  \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \left( \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right)^T + \left( 
+    \theta_{\beta \alpha} - \frac{1}{3!} \left(\theta_{\beta \alpha} \right)^3 + \frac{1}{5!} \left( \theta_{\beta \alpha} \right)^5 - \cdots
+\right) \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times} - 
+\left(1 - \frac{1}{2!} \left( \theta_{\beta \alpha} \right)^2 + \frac{1}{4!} \left( \theta_{\beta \alpha} \right)^4 - \cdots \right) \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]^2_{\times} \\
+&= \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]^2_{\times}
++ \mathbf{I} + \text{sin}\left( \theta_{\beta \alpha}\right) \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times} - \text{cos} \left( \theta_{\beta \alpha} \right) \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]^2_{\times} \\
+&= \left(1 - \text{cos}\left( \theta_{\beta \alpha} \right) \right) \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]^2_{\times} + \mathbf{I} + \text{sin}\left( \theta_{\beta \alpha} \right) \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times} \\
+&= \text{cos}\left( \theta_{\beta \alpha} \right) \mathbf{I} + \left( 1 - \text{cos}\left( \theta_{\beta \alpha} \right)  \right) \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \left( \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right)^T
++ \text{sin}\left( \theta_{\beta \alpha}\right) \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times}, \label{2.3.17}
+\end{align}
+$$
+
+which is the Rodrigues' formula from Eq. ($\ref{rodrigues_formula}$):
+
+$$
+\mathbf{R}^{\beta}_{\alpha} = \text{cos} \left( \theta_{\beta \alpha}  \right) \mathbf{I} + 
+\left( 1 - \text{cos} \left( \theta_{\beta \alpha} \right) \right) \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \left( \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right)^T + 
+\text{sin} \left( \theta_{\beta \alpha} \right) \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times}. \label{2.3.18}
+$$
+
+The inverse conversion can be via logarithmic mapping fom $SO(3)$ to $\mathfrak{so}(3)$:
+
+$$
+\boldsymbol{\rho}_{\beta \alpha} = \left[ \text{ln}\left( \mathbf{R^{\beta}_{\alpha}} \right) \right]^{-1}_{\times} = \left[\sum^{\infty}_{k=0} \frac{(-1)^k}{k + 1} \left( \mathbf{R}^{\beta}_{\alpha} - \mathbf{I} \right)^{k+1} \right]^{-1}_{\times}.
+$$
+
+More simpler way is to take the trace from both sides of Rodrigues' formula:
+
+$$
+\begin{align}
+\text{tr}(\mathbf{R}^{\beta}_{\alpha}) &= \text{cos}\left(\theta_{\beta \alpha}\right) \text{tr}(\mathbf{I}) + \left( 1 - \text{cos} \left( \theta_{\beta \alpha} \right) \right) \text{tr}\left( \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \left( \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right)^T \right)
++ \text{sin}\left( \theta_{\beta \alpha} \right) \text{tr} \left( \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times} \right) \\
+&= 3 \text{cos} \left( \theta_{\beta \alpha} \right) + \left( 1 - \text{cos} \left( \theta_{\beta \alpha} \right) \right) \\
+&= 1 + 2 \text{cos} \left( \theta_{\beta \alpha} \right).
+\end{align}
+$$
+
+Hence, rotation angle can be computed as:
+
+$$
+\begin{align}
+\theta_{\beta \alpha} &= \text{arccos} \left( \frac{\text{tr} \left( \mathbf{R}^{\beta}_{\alpha}\right) - 1}{2}  \right) \\
+&= \text{arccos} \left( \frac{1}{2} \left( \mathbf{R}^{\beta}_{\alpha \ 1,1} + \mathbf{R}^{\beta}_{\alpha \ 2,2} + \mathbf{R}^{\beta}_{\alpha \ 1,1} - 1\right) \right)
+\end{align}
+$$
+
+and the rotation axis can be calculated by finding the eigenvector or solving:
+
+$$
+\begin{align}
+& \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} = \mathbf{R}^{\alpha}_{\beta} \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \\
+& \left( \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right)^T \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} = 1,
+\end{align}
+$$
+
+which yields to two solutions with opposite signs. It is conventional to choose the solution:
+
+$$
+\hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} = \frac{1}{2\text{sin}(\theta_{\beta \alpha})}
+\left[
+\begin{array}{c}
+\mathbf{R}^{\alpha}_{\beta \ 2, 3} - \mathbf{R}^{\alpha}_{\beta \ 3, 2} \\ 
+\mathbf{R}^{\alpha}_{\beta \ 3, 1} - \mathbf{R}^{\alpha}_{\beta \ 1, 3} \\
+\mathbf{R}^{\alpha}_{\beta \ 1, 2} - \mathbf{R}^{\alpha}_{\beta \ 2, 1}.
+\end{array}
+\right].
+$$
+
+The rotation vector is then:
+
+$$
+\begin{align}
+\boldsymbol{\rho}_{\beta \alpha} &= \frac{\theta_{\beta \alpha}}{2 \text{sin} (\theta_{\beta \alpha})}
+\left[
+\begin{array}{c}
+\mathbf{R}^{\alpha}_{\beta \ 2,3} - \mathbf{R}^{\alpha}_{\beta \ 3,2} \\
+\mathbf{R}^{\alpha}_{\beta \ 3,1} - \mathbf{R}^{\alpha}_{\beta \ 1,3} \\
+\mathbf{R}^{\alpha}_{\beta \ 1,2} - \mathbf{R}^{\alpha}_{\beta \ 2,1}
+\end{array}                
+\right].
+\end{align}
+$$
+
+## Infinitesimal Rotations
+
+When the transformation matrix and rotation vector represent a small angular perturbation 
+, we can use small angle approximation to get:
+
+$$
+\mathbf{R^{\beta}_{\alpha}}= 
+e^{\left[\boldsymbol{\rho}_{\beta \alpha} \right]_{\times}} \approx 
+\sum^{\infty}_{k=0} \frac{\left[\boldsymbol{\rho}_{\beta \alpha} \right]^k_{\times}}{k!} \approx
+\mathbf{I}_3 + \left[\boldsymbol{\rho}_{\beta \alpha} \right]_{\times}.
+$$
+
+Note that rotation vector and Euler angles are the same if we use small angle approximation.
 
 ## Rodrigues' Formula Derivation via Geometry
 
@@ -32,8 +178,7 @@ Euler's rotation theorem states that, in three-dimensional space, any displaceme
   <figcaption>Figure 1 Rotation via rotation vector (Szeliski, p46)</figcaption>
 </figure>
 
-Elements in $SO(3)$ are non-singular. One of the eigenvalues are always 1 with the other two being complex valued with magnitude of 1. This implies that there exists
-a unit vector (eigenvector) $\hat{\mathbf{e}}$ that remain unchanged following the application of a transformation matrix $\mathbf{R}$. This unit vector is the axis of the rotation that can be used to represent a rotation matrix. A rotation can be represented by a rotation axis $\hat{\mathbf{e}}$ and an angle $\theta$, or equivalently by a 3D vector $\boldsymbol{\rho} = \theta \hat{\mathbf{e}}$. Given a vector $\mathbf{x} \in \mathbb{R}^3$, let $\mathbf{y}$ be the rotated vector via the axis-angle $\left( \hat{\mathbf{e}}, \theta \right)$ rotation as shown in Figure 1.
+Given a vector $\mathbf{x} \in \mathbb{R}^3$, let $\mathbf{y}$ be the rotated vector via the axis-angle $\left( \hat{\mathbf{e}}, \theta \right)$ rotation as shown in Figure 1.
 
 Project the vector $\mathbf{x}$ onto $\hat{\mathbf{e}}$:
 
@@ -114,8 +259,6 @@ $$
 $$
 
 ## Rodigues's Formula Derivation via Lie Algebra
-
-### SO(3) Lie Group and Lie Algebra
 
 Every Lie group has an associated Lie algebra, which is the **tangent space** around the identity element of the Lie group. Lie algebra for Lie group $SO(3)$ is $\mathfrak{so}(3)$ where:
 
@@ -225,159 +368,3 @@ $$
 \frac{d \left( e^{\mathbf{A}t} \right)}{dt} = e^{\mathbf{A}t} \mathbf{A} = \mathbf{A} e^{\mathbf{At}}.
 $$
 
-### Rotation Formula
-
-Via exponential mapping, the **Rodrigues's formula** can be obtained as:
-
-$$
-\begin{align}
-e^{\left[\boldsymbol{\rho} \right]_\times} &= e^{ \left[ \theta \hat{\mathbf{e}} \right]_\times} = \sum^{\infty}_{k = 0} \frac{1}{k!} \left(\theta \left[\hat{\mathbf{e}} \right]_\times \right)^k \\
-&= \mathbf{I} + \theta \left[ \hat{\mathbf{e}} \right]_\times + \frac{\theta^2}{2} \left[ \hat{\mathbf{e}} \right]^2_\times + 
-\frac{\theta^3}{3!} \left[ \hat{\mathbf{e}} \right]^2_\times + \ldots \\
-&= \mathbf{I} + \left( \theta - \frac{\theta^3}{3!} + \ldots \right) \left[ \hat{\mathbf{e}} \right]_\times + \left( \frac{\theta^2}{2} - \frac{\theta^4}{4!} + \ldots \right) \left[ \hat{\mathbf{e}} \right]^2_\times \\
-&= \mathbf{I} + \sin \theta \left[ \hat{\mathbf{e}} \right]_\times + \left(1 - \cos \theta \right) \left[ \hat{\mathbf{e}} \right]^2_\times \\
-&= \cos \theta \mathbf{I} + \left(1 - \cos \theta \right) \hat{\mathbf{e}} \hat{\mathbf{e}}^T + \sin \theta \left[ \hat{\mathbf{e}} \right]_\times.
-\end{align}
-$$
-
-
-## Attitude Representation via Axis-Angle
-
-Let $F_\alpha$ and $F_\beta$ be two coordinate frames. We know that the axis-angle or rotation vector, $\boldsymbol{\rho}_{\beta \alpha}$ is a 
-vector whose direction is parallel with the axis of rotation and the magntitude $\theta_{\beta \alpha}$ is equal to the angle of rotation:
-
-$$
-\boldsymbol{\rho}_{\beta \alpha} = \theta_{\beta \alpha} \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha}
-$$
-
-The axis of rotation is the same when resolved in the axes of the two frames transformed between:
-
-$$
-\hat{\mathbf{e}}^{\alpha}_{\beta \alpha} = \hat{\mathbf{e}}^{\beta}_{\beta \alpha} = \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha}.
-$$
-
-**Rotation vectors are useful for interpolating attitudes as they are the only form of attitude that enables rotations to be linearly interpolated**. In previous section, we have
-shown that the exponential mapping of $\mathfrak{so}(3)$ is $SO(3)$ and $\mathfrak{so}(3) = \left\{ \left[ \boldsymbol{\rho} \right]_{\times} \in \mathbb{R}^{3 \times 3}\right\}$.
-Let $\hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} = \left[
-\begin{array}{ccc} 
-e^{\alpha / \beta}_1 & e^{\alpha / \beta}_2 & e^{\alpha / \beta}_2
-\end{array}
-\right]^T$.
-
-
-Applying Rodrigues's formula via exponential mapping yields to:
-
-$$
-\begin{align}
-e^{\left[ \boldsymbol{\rho}_{\beta \alpha} \right]_{\times}} &= e^{ \left[ \theta_{\beta \alpha} \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times}}  = \sum^{\infty}_{k=0} \frac{1}{k!} (\theta_{\beta \alpha} \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times})^k \\
-&= \mathbf{I} + \theta_{\beta \alpha} \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times} + \frac{1}{2!} \left( \theta_{\beta \alpha} \right)^2 \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]^2_{\times}
-+ \frac{1}{3!} \left( \theta_{\beta \alpha} \right)^3 \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]^3_{\times} + \cdots \\
-&= \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \left( \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right)^T - \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]^2_{\times} 
-    + \theta_{\beta \alpha} \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times} + \frac{1}{2} \left( \theta_{\beta \alpha} \right)^2 \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]^2_{\times}
-- \cdots \\
-&=  \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \left( \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right)^T + \left( 
-    \theta_{\beta \alpha} - \frac{1}{3!} \left(\theta_{\beta \alpha} \right)^3 + \frac{1}{5!} \left( \theta_{\beta \alpha} \right)^5 - \cdots
-\right) \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times} - 
-\left(1 - \frac{1}{2!} \left( \theta_{\beta \alpha} \right)^2 + \frac{1}{4!} \left( \theta_{\beta \alpha} \right)^4 - \cdots \right) \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]^2_{\times} \\
-&= \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]^2_{\times}
-+ \mathbf{I} + \text{sin}\left( \theta_{\beta \alpha}\right) \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times} - \text{cos} \left( \theta_{\beta \alpha} \right) \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]^2_{\times} \\
-&= \left(1 - \text{cos}\left( \theta_{\beta \alpha} \right) \right) \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]^2_{\times} + \mathbf{I} + \text{sin}\left( \theta_{\beta \alpha} \right) \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times} \\
-&= \text{cos}\left( \theta_{\beta \alpha} \right) \mathbf{I} + \left( 1 - \text{cos}\left( \theta_{\beta \alpha} \right)  \right) \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \left( \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right)^T
-+ \text{sin}\left( \theta_{\beta \alpha}\right) \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times}, \label{2.3.17}
-\end{align}
-$$
-
-or simply:
-
-$$
-\mathbf{R}^{\beta}_{\alpha} = \text{cos} \left( \theta_{\beta \alpha}  \right) \mathbf{I} + 
-\left( 1 - \text{cos} \left( \theta_{\beta \alpha} \right) \right) \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \left( \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right)^T + 
-\text{sin} \left( \theta_{\beta \alpha} \right) \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times}. \label{2.3.18}
-$$
-
-The inverse conversion can be via logarithmic mapping fom $SO(3)$ to $\mathfrak{so}(3)$:
-
-$$
-\boldsymbol{\rho}_{\beta \alpha} = \left[ \text{ln}\left( \mathbf{R^{\beta}_{\alpha}} \right) \right]^{-1}_{\times} = \left[\sum^{\infty}_{k=0} \frac{(-1)^k}{k + 1} \left( \mathbf{R}^{\beta}_{\alpha} - \mathbf{I} \right)^{k+1} \right]^{-1}_{\times}.
-$$
-
-More easier way is to take the trace from both sides of <i>Rodrigues' formula</i>:
-
-$$
-\begin{align}
-\text{tr}(\mathbf{R}^{\beta}_{\alpha}) &= \text{cos}\left(\theta_{\beta \alpha}\right) \text{tr}(\mathbf{I}) + \left( 1 - \text{cos} \left( \theta_{\beta \alpha} \right) \right) \text{tr}\left( \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \left( \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right)^T \right)
-+ \text{sin}\left( \theta_{\beta \alpha} \right) \text{tr} \left( \left[ \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right]_{\times} \right) \\
-&= 3 \text{cos} \left( \theta_{\beta \alpha} \right) + \left( 1 - \text{cos} \left( \theta_{\beta \alpha} \right) \right) \\
-&= 1 + 2 \text{cos} \left( \theta_{\beta \alpha} \right).
-\end{align}
-$$
-
-Hence, rotation angle can be computed as:
-
-$$
-\begin{align}
-\theta_{\beta \alpha} &= \text{arccos} \left( \frac{\text{tr} \left( \mathbf{R}^{\beta}_{\alpha}\right) - 1}{2}  \right) \\
-&= \text{arccos} \left( \frac{1}{2} \left( \mathbf{R}^{\beta}_{\alpha \ 1,1} + \mathbf{R}^{\beta}_{\alpha \ 2,2} + \mathbf{R}^{\beta}_{\alpha \ 1,1} - 1\right) \right)
-\end{align}
-$$
-
-and the rotation axis can be calculated by finding the eigenvector or solving:
-
-$$
-\begin{align}
-& \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} = \mathbf{R}^{\alpha}_{\beta} \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \\
-& \left( \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} \right)^T \hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} = 1,
-\end{align}
-$$
-
-which yields to two solutions with opposite signs. It is conventional to choose the solution:
-
-$$
-\hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} = \frac{1}{2\text{sin}(\theta_{\beta \alpha})}
-\left[
-\begin{array}{c}
-\mathbf{R}^{\alpha}_{\beta \ 2, 3} - \mathbf{R}^{\alpha}_{\beta \ 3, 2} \\ 
-\mathbf{R}^{\alpha}_{\beta \ 3, 1} - \mathbf{R}^{\alpha}_{\beta \ 1, 3} \\
-\mathbf{R}^{\alpha}_{\beta \ 1, 2} - \mathbf{R}^{\alpha}_{\beta \ 2, 1}.
-\end{array}
-\right].
-$$
-
-In summary, Rodrigues' formula in eq ($\ref{2.3.18}$) provides the conversion from axis-angle to transformation matrix:
-
-$$
-\begin{align}
-\mathbf{R^{\alpha}_{\beta}} &= e^{\left[-\boldsymbol{\rho}_{\beta \alpha} \right]_{\times}} \\
-&= \mathbf{I}_3 - \frac{\text{sin}|\boldsymbol{\rho}_{\beta \alpha}|}{|\boldsymbol{\rho}_{\beta \alpha}|} \left[ \boldsymbol{\rho}_{\beta \alpha} \right]_{\times} + 
-\frac{1 - \text{cos}|\boldsymbol{\rho}_{\beta \alpha}|}{|\boldsymbol{\rho}_{\beta \alpha}|^2} \left[ \boldsymbol{\rho}_{\beta \alpha} \right]^2_{\times}.
-\end{align}
-$$
-
-The reverse transformation is:
-
-$$
-\begin{align}
-\boldsymbol{\rho}_{\beta \alpha} &= \frac{\theta_{\beta \alpha}}{2 \text{sin} (\theta_{\beta \alpha})}
-\left[
-\begin{array}{c}
-\mathbf{R}^{\alpha}_{\beta \ 2,3} - \mathbf{R}^{\alpha}_{\beta \ 3,2} \\
-\mathbf{R}^{\alpha}_{\beta \ 3,1} - \mathbf{R}^{\alpha}_{\beta \ 1,3} \\
-\mathbf{R}^{\alpha}_{\beta \ 1,2} - \mathbf{R}^{\alpha}_{\beta \ 2,1}
-\end{array}                
-\right].
-\end{align}
-$$
-
-## Infinitesimal Rotations
-
-When the transformation matrix and rotation vector represent a small angular perturbation 
-, we can use small angle approximation to get:
-
-$$
-\mathbf{R^{\beta}_{\alpha}}= 
-e^{\left[\boldsymbol{\rho}_{\beta \alpha} \right]_{\times}} \approx 
-\sum^{\infty}_{k=0} \frac{\left[\boldsymbol{\rho}_{\beta \alpha} \right]^k_{\times}}{k!} \approx
-\mathbf{I}_3 + \left[\boldsymbol{\rho}_{\beta \alpha} \right]_{\times}.
-$$
-
-Note that rotation vector and Euler angles are the same in the small angle approximation.

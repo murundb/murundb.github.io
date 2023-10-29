@@ -10,19 +10,9 @@
 
     The two transformations are inverses of each other.
 
-## Rotation Matrix via Direction Cosine Matrix
+## Rotation Matrix and Direction Cosine Matrix
 
-Rotation matrices are also called a **direction cosine matrices**.
-
-Consider two frames $F_\alpha$ and $F_\beta$ with a common origin, and let $\mathbf{x} \in \mathbb{R}^3$ be an arbitrary vector. The vector $\mathbf{x}$ can be expressed in each frame as:
-
-$$
-\mathbf{x} = F_\alpha \mathbf{x}^{\alpha} = F_\beta \mathbf{x}^{\beta},
-$$
-
-where $\mathbf{x}^{\alpha}$ and $\mathbf{x}^{\beta}$ are the column vectors containing the **components** or **coordinates** of $\mathbf{x}$ in the reference frames $F_\alpha$ and $F_\beta$.
-
-$F_\alpha$ and $F_\beta$ are coordinate frames defined by set of orthonormal base vectors:
+Rotation matrices are also called a **direction cosine matrices**. Consider two frames $F_\alpha$ and $F_\beta$ with a common origin, and let $\mathbf{x} \in \mathbb{R}^3$ be an arbitrary vector. $F_\alpha$ and $F_\beta$ are coordinate frames defined by set of orthonormal base vectors:
 
 $$
 \begin{align}
@@ -40,6 +30,15 @@ F_\beta &=
 \right].
 \end{align}
 $$
+
+The vector $\mathbf{x}$ can be expressed in each frame as:
+
+$$
+\mathbf{x} = F_\alpha \mathbf{x}^{\alpha} = F_\beta \mathbf{x}^{\beta},
+$$
+
+where $\mathbf{x}^{\alpha}$ and $\mathbf{x}^{\beta}$ are the column vectors containing the **components** or **coordinates** of $\mathbf{x}$ in the reference frames $F_\alpha$ and $F_\beta$ respectively.
+
 
 The relationship between the two frames can be obtained by:
 
@@ -143,7 +142,7 @@ $$
 \mathbf{R}^{\gamma}_{\alpha} = \mathbf{R}^{\gamma}_{\beta} \mathbf{R}^{\beta}_{\alpha}.
 $$
 
-Let $\mathbf{M}$ be a linear transformation matrix that transforms a vector $\mathbf{a}$ into a vector $\mathbf{b}$. We have:
+Let $\mathbf{M}$ be an affine transformation matrix that transforms a vector $\mathbf{a}$ into a vector $\mathbf{b}$. We have:
 
 $$
 \begin{align}
