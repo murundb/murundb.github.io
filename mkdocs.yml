@@ -89,13 +89,6 @@ nav:
     - Software Implementation:
       - Storage: matrix_theory/software_implementation/storage.md
       - Multiplication: matrix_theory/software_implementation/multiplication.md
-    - Matrix Lie Groups:
-      - Lie Groups and Lie Algebra: matrix_theory/matrix_lie_groups/lie_group_algebra.md 
-      - SO(3): matrix_theory/matrix_lie_groups/so3.md
-      - SE(3): matrix_theory/matrix_lie_groups/se3.md
-      - BCH and Perturbed Rotations: matrix_theory/matrix_lie_groups/bch_and_perturbed_rotations.md
-      - SO(3) Jacobians: matrix_theory/matrix_lie_groups/so3_jacobians.md
-      - SE(3) Jacobians: matrix_theory/matrix_lie_groups/se3_jacobians.md
   - Optimization:
     - References: optimization/references.md
     - Cauchy-Schwartz Inequality: optimization/cauchy_schwarz_inequality.md
@@ -150,9 +143,20 @@ nav:
       - Quaternions: kinematics/rotations/quaternions.md
       - Attitude Visualization: kinematics/rotations/pangolin_visualization.md
       - Time Derivative of Axes: kinematics/rotations/time_derivative_of_axes.md
+    - Lie Theory:
+      - Lie Groups and Lie Algebra: kinematics/lie_groups/lie_group_algebra.md 
+      - Special Orthogonal Group: kinematics/lie_groups/special_orthogonal_group.md
+      - Special Euclidean Group: kinematics/lie_groups/special_euclidean_group.md
+      - Adjoints: kinematics/lie_groups/adjoints.md
+      - Baker-Campbell-Hausdorff: kinematics/lie_groups/bch_and_perturbed_rotations.md
+      - Difference of Rotations: kinematics/lie_groups/difference_of_rotations.md
+      - Interpolation: kinematics/lie_groups/interpolation.md
+      - Perturbed Rotations: kinematics/lie_groups/perturbed_rotations.md
+    - Optimization on Smooth Manifolds:
+      - Jacobians of Rotations: kinematics/optimization_on_smooth_manifolds/jacobians_of_rotations.md
+  
     - Angular Velocity: kinematics/angular_velocity.md
     - Euler Rates: kinematics/euler_rates.md
-    - Perturbation of a Rotation Matrix: kinematics/perturbation_of_rotation_matrix.md
     - Cartesian Position: kinematics/cartesian_position.md
     - Velocity: kinematics/velocity.md
     - Acceleration: kinematics/acceleration.md

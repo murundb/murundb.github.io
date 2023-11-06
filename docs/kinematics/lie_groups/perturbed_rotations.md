@@ -1,22 +1,22 @@
-# Perturbation of a Rotation Matrix
+# Perturbed Rotations
 
-## Overview
+## Perturbation Theory
 
-Given a scalar function, $f(\mathbf{x}) \in \mathbb{R}$ of some vector variable, $\mathbf{x} \in \mathbb{R}^n$, then perturbing $\mathbf{x}$ slightly from its nominal value, $\bar{\mathbf{x}}$, by an amount $\delta \mathbf{x}$ will result a change in the function. Consider a standard Taylor series expansion of $f(\mathbf{x})$ around its nominal value, $\bar{\mathbf{x}}$:
+Given a scalar function, $f(\mathbf{x}) \in \mathbb{R}$ of some vector variable, $\mathbf{x} \in \mathbb{R}^n$, perturbing $\mathbf{x}$ slightly from its nominal value, $\bar{\mathbf{x}}$, by an amount $\delta \mathbf{x}$ will result a change in the function. Consider a standard Taylor series expansion of $f(\mathbf{x})$ around its nominal value, $\bar{\mathbf{x}}$:
 
 $$
 f(\mathbf{x}) \approx \left. f(\mathbf{x}) \right|_{\mathbf{x} = \bar{\mathbf{x}}} + \left. \nabla^T f(\mathbf{x}) \right|_{\mathbf{x} = \bar{\mathbf{x}}} \left( \mathbf{x} - \bar{\mathbf{x}} \right) + \frac{1}{2} \left( \mathbf{x} - \bar{\mathbf{x}} \right)^T \nabla^2 \left. f(\mathbf{x}) \right|_{\mathbf{x} = \bar{\mathbf{x}}} \left(\mathbf{x} - \bar{\mathbf{x}} \right) + \ldots.
 $$
 
-For convergence, we need $\mathbf{x} - \bar{\mathbf{x}}$ to be small in magnitude. Let $\delta \mathbf{x} = \mathbf{x} - \bar{\mathbf{x}}$ (or equivalently $\mathbf{x} = \bar{\mathbf{x}} + \delta \mathbf{x}$). Substituting back and considering first-order approxmation yields to:
+For convergence, we need $\mathbf{x} - \bar{\mathbf{x}}$ to be small in magnitude. Let $\delta \mathbf{x} = \mathbf{x} - \bar{\mathbf{x}}$ (or equivalently $\mathbf{x} = \bar{\mathbf{x}} + \delta \mathbf{x}$). Substituting back and considering only the first-order approxmation yields to:
 
 $$
 f(\bar{\mathbf{x}} + \delta \mathbf{x}) \approx f(\bar{\mathbf{x}}) + \left. \frac{\partial f(\mathbf{x})}{\partial \mathbf{x}} \right|_{\mathbf{x} = \bar{\mathbf{x}}} \delta \mathbf{x}.
 $$
 
-https://stats.stackexchange.com/questions/5782/variance-of-a-function-of-one-random-variable
-
 ## Perturbing a Rotation Matrix
+
+Let $\mathbf{R} = \exp \left( \left[ \boldsymbol{\rho} \right]_\times \right) \in SO(3)$ be a rotation matrix. Perturbing $\boldsymbol{\rho}$ by a little bit results in a new rotation matrix, $\mathbf{R}' = \exp \left( \left[ \boldsymbol{\rho} + \delta \boldsymbol{\rho} \right]_\times \right) \in SO(3)$. 
 
 Most of the rotation representations involve constraints and thus are not easily perturbed (without enforcing the constraint). The notable exceptions are the Euler angle sets. Euler angles representation contains exactly three parameters, and thus each can be varied independently.
 
