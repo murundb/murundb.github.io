@@ -1,6 +1,6 @@
-# Perturbed Rotations
+# Perturbation via Euler Angles
 
-## Perturbation Theory
+## General Perturbation Theory
 
 Given a scalar function, $f(\mathbf{x}) \in \mathbb{R}$ of some vector variable, $\mathbf{x} \in \mathbb{R}^n$, perturbing $\mathbf{x}$ slightly from its nominal value, $\bar{\mathbf{x}}$, by an amount $\delta \mathbf{x}$ will result a change in the function. Consider a standard Taylor series expansion of $f(\mathbf{x})$ around its nominal value, $\bar{\mathbf{x}}$:
 
@@ -14,24 +14,22 @@ $$
 f(\bar{\mathbf{x}} + \delta \mathbf{x}) \approx f(\bar{\mathbf{x}}) + \left. \frac{\partial f(\mathbf{x})}{\partial \mathbf{x}} \right|_{\mathbf{x} = \bar{\mathbf{x}}} \delta \mathbf{x}.
 $$
 
-## Perturbing a Rotation Matrix
-
-Let $\mathbf{R} = \exp \left( \left[ \boldsymbol{\rho} \right]_\times \right) \in SO(3)$ be a rotation matrix. Perturbing $\boldsymbol{\rho}$ by a little bit results in a new rotation matrix, $\mathbf{R}' = \exp \left( \left[ \boldsymbol{\rho} + \delta \boldsymbol{\rho} \right]_\times \right) \in SO(3)$. 
+## Perturbing a Rotation Matrix via Euler Angles
 
 Most of the rotation representations involve constraints and thus are not easily perturbed (without enforcing the constraint). The notable exceptions are the Euler angle sets. Euler angles representation contains exactly three parameters, and thus each can be varied independently.
 
-Consider perturbing $\mathbf{R}(\boldsymbol{\theta}) \mathbf{v}$ with respect to Euler angles $\boldsymbol{\theta}$, where $\mathbf{v}$ is an arbitrary constant vector. Let $\bar{\boldsymbol{\theta}} = (\bar{\theta}_1, \bar{\theta}_2. \bar{\theta}_3)$ be the nominal Euler angles and $\delta \boldsymbol{\theta} = \left(\delta \theta_1, \delta \theta_2, \delta \theta_3 \right)$ be the perturbation angles. Applying a first-order Taylor-series approximation and using identity 4:
+Consider perturbing $\mathbf{R}(\boldsymbol{\theta}) \mathbf{v}$ with respect to Euler angles $\boldsymbol{\theta}$, where $\mathbf{v}$ is an arbitrary constant vector. Let $\bar{\boldsymbol{\theta}} = (\bar{\theta}_1, \bar{\theta}_2. \bar{\theta}_3)$ be the nominal Euler angles and $\delta \boldsymbol{\theta} = \left(\delta \theta_1, \delta \theta_2, \delta \theta_3 \right)$ be the perturbation angles. Applying a first-order Taylor-series approximation and using the previously derived Jacobian:
 
 $$
 \begin{align}
-\mathbf{R}(\bar{\boldsymbol{\theta}} + \delta{\boldsymbol{\theta}}) &\approx
-\mathbf{R}(\bar{\boldsymbol{\theta}})+
+\mathbf{R}(\bar{\boldsymbol{\theta}} + \delta{\boldsymbol{\theta}}) \mathbf{v} &\approx
+\mathbf{R}(\bar{\boldsymbol{\theta}}) \mathbf{v}+
 \left.\frac{\partial (\mathbf{R}(\boldsymbol{\theta})\mathbf{v})}{\partial \boldsymbol{\theta}} \right|_{\bar{\boldsymbol{\theta}}} \delta \boldsymbol{\theta} \\
 &= \mathbf{R}(\bar{\boldsymbol{\theta}}) \mathbf{v} +
 \biggl. \biggl( \left[ \mathbf{R}(\boldsymbol{\theta}) \mathbf{v} \right]_\times \mathbf{S} \left( \theta_2, \theta_3 \right) \biggr) \biggr|_{\bar{\boldsymbol{\theta}}} \ \delta \boldsymbol{\theta} \\
 &= \mathbf{R}(\bar{\boldsymbol{\theta}}) \mathbf{v} + \left[ \mathbf{R}(\bar{\boldsymbol{\theta}}) \mathbf{v} \right]_\times \mathbf{S}(\bar{\theta}_2, \bar{\theta}_3) \delta \boldsymbol{{\theta}} \\
-&= \mathbf{R}(\bar{\boldsymbol{\theta}}) \mathbf{v} - \left[ {S}(\bar{\theta}_2, \bar{\theta}_3) \delta \boldsymbol{{\theta}} \right]_\times \left(\mathbf{R}(\bar{\boldsymbol{\theta}}) \mathbf{v} \right) \\
-&= \biggl( \mathbf{I} - \left[ \mathbf{R}(\bar{\theta}_2, \bar{\theta}_3) \delta \boldsymbol{\theta} \right]_\times \biggr) \mathbf{R}(\bar{\boldsymbol{\theta}}) \mathbf{v}.
+&= \mathbf{R}(\bar{\boldsymbol{\theta}}) \mathbf{v} - \left[ \mathbf{S}(\bar{\theta}_2, \bar{\theta}_3) \delta \boldsymbol{{\theta}} \right]_\times \left(\mathbf{R}(\bar{\boldsymbol{\theta}}) \mathbf{v} \right) \\
+&= \biggl( \mathbf{I} - \left[ \mathbf{S}(\bar{\theta}_2, \bar{\theta}_3) \delta \boldsymbol{\theta} \right]_\times \biggr) \mathbf{R}(\bar{\boldsymbol{\theta}}) \mathbf{v}.
 \end{align}
 $$
 
@@ -44,7 +42,13 @@ $$
 \end{align}
 $$
 
-which is a perturbation of a rotation matrix (in terms of perturbations to its Euler angles) expressed as a linearized rotation.
+where:
+
+$$
+\delta \boldsymbol{\phi} = \mathbf{S}(\bar{\theta}_2, \bar{\theta}_3) \delta \boldsymbol{\theta}.
+$$
+
+This is a perturbation of a rotation matrix (in terms of perturbations to its Euler angles) expressed as a linearized rotation.
 
 ## Example
 

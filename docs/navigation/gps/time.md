@@ -1,3 +1,21 @@
+# Time
+
+## Overview
+
+There are two epochs in UTC that are relevant to GPS and overall software implementation:
+
+1. **Unix Time** - Number of seconds since January 1st, 1970 at 00:00 UTC (Thursday).
+2. **GPS Time (GPST)** - Number of seconds since January 6th, 1980 at 00:00 UTC (The first week in 1980, Sunday).
+
+The difference between the two epochs is exactly 315964800 seconds (two leap years).
+
+The conversion between the two is:
+
+$$
+\begin{align}
+
+\end{align}
+$$
 
 ## Clock
 
@@ -13,7 +31,7 @@ A *sidereal day*, or twenty-four hours of sidereal time, is defined as the time 
 
 ## International Atomic Time (TAI)
 
-The System of Units (SI) second is defined as "the duration of 9,192,631,770" periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the cesium-133 atom". The continuous time scale based on this definition of atomic second is called *International Atomic Time* (TAI). (SI day = 86,400 SI seconds). TAI is a precise and uniform time scale which is not tied to the earth's rotation on its axis or its revolution around the sun. 
+The System of Units (SI) second is defined as "the duration of 9,192,631,770" periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the cesium-133 atom". The continuous time scale based on this definition of atomic second is called *International Atomic Time* (TAI). (SI day = 86,400 SI seconds). TAI is a precise and uniform time scale which is not tied to the earth's rotation on its axis or its revolution around the sun.
 
 ## Coordinated Universal Time (UTC)
 

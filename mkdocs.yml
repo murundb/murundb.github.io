@@ -134,7 +134,6 @@ nav:
         - Modelling Logical Relations: optimization/convex_optimization/integer_programming/modelling_logical_relations.md
   - Kinematics:
     - References: kinematics/references.md
-    - Identities: kinematics/identities/identities.md
     - Rotations:
       - Pose and Attitude: kinematics/rotations/pose_and_attitude.md
       - Rotation Matrices: kinematics/rotations/rotation_matrices.md
@@ -148,12 +147,17 @@ nav:
       - Special Orthogonal Group: kinematics/lie_groups/special_orthogonal_group.md
       - Special Euclidean Group: kinematics/lie_groups/special_euclidean_group.md
       - Adjoints: kinematics/lie_groups/adjoints.md
-      - Baker-Campbell-Hausdorff: kinematics/lie_groups/bch_and_perturbed_rotations.md
-      - Difference of Rotations: kinematics/lie_groups/difference_of_rotations.md
-      - Interpolation: kinematics/lie_groups/interpolation.md
-      - Perturbed Rotations: kinematics/lie_groups/perturbed_rotations.md
+    - Jacobians of Rotations:
+      - Baker-Campbell-Hausdorff: kinematics/jacobians_of_rotations/bch_and_perturbed_rotations.md
+      - Jacobian with Respect to Euler Angles: kinematics/jacobians_of_rotations/jacobian_wrt_euler_angles.md
+      - Jacobian with Respect to Lie Algebra Vector: kinematics/jacobians_of_rotations/jacobian_wrt_lie_algebra_vector.md
+      - Jacobian with Respect to Time: kinematics/jacobians_of_rotations/jacobian_wrt_time.md
+    - Perturbed Rotations:
+      - Perturbation via Euler Angles: kinematics/perturbed_rotations/perturbation_via_euler_angles.md
+      - Perturbation via Rotation Vector: kinematics/perturbed_rotations/perturbation_via_rotation_vector.md
     - Optimization on Smooth Manifolds:
-      - Jacobians of Rotations: kinematics/optimization_on_smooth_manifolds/jacobians_of_rotations.md
+      - Interpolation: kinematics/optimization_on_smooth_manifolds/interpolation.md
+      - Perturbed Rotations: kinematics/optimization_on_smooth_manifolds/perturbed_rotations.md
   
     - Angular Velocity: kinematics/angular_velocity.md
     - Euler Rates: kinematics/euler_rates.md
@@ -237,11 +241,10 @@ nav:
         - Positioning from Passive Ranging: navigation/radio_positioning/ranging/positioning_from_passive_ranging.md
       - Angular Position: navigation/radio_positioning/anglular_position.md
       - Time Standards: navigation/time/time_standards.md
-    - GNSS:
-      - GPS:
-        - GPS Signals: navigation/gnss/gps/gps_signals.md
-        - GPS Receiver: navigation/gnss/gps/gps_receiver.md
-        - GPS Time: navigation/gnss/gps/gps_time.md
+    - GPS:
+        - Time: navigation/gps/time.md
+        - GPS Signals: navigation/gps/gps_signals.md
+        - GPS Receiver: navigation/gps/gps_receiver.md
 
   - Computer Vision:
     - Image Compression:

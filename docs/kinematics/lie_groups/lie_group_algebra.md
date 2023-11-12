@@ -1,11 +1,5 @@
 # Lie Group and Lie Algebra
 
-## Introduction
-
-The set of rotations is not a vector space in the sense of linear algebra. However, rotations do form another mathematical object called a **non-commutative group**, which possess some, but not all of the usual vector space properties.
-
-The special orthogonal group, $SO(3)$, represents rotations, and the special Euclidean group, $SE(3)$, represents poses.
-
 ## Groups
 
 For a set that has only one "well-defined" operation, we call it a group. Formally, a group is a set of elements together with an operation that combines any two of its elements to form a third element also in the set, while satisfying four conditions called the **group axioms**, namely closure, associativity, identity, and invertibility.
@@ -24,9 +18,9 @@ Few examples:
 
 ## Lie Groups
 
-Lie groups refer to a group with continuous (smooth) and differentiable manifold properties. Smoothness implies that we can use differential calculus on the manifold; or roughly, if we change the input to any group operation by a little bit, the output will only change by a little bit.
+The set of rotations is not a vector space in the sense of linear algebra. However, rotations do form another mathematical object called a **non-commutative group**, which possess some, but not all of the usual vector space properties.
 
-The Lie groups in these notes are all real matrix groups; group elements are represented as matrices in $\mathbb{R}^{n \times n}$. As shown in the example above, the groups' multiplication and inversion operations are identically matrix multiplication and inversion, i.e., $G = (SO(n), \cdot)$. Since each group is represented by a specific subclass of non-singular $n \times n$ matrices, there are fewer than $n^2$ degrees of freedom.
+Lie groups refer to a group with continuous (smooth) and differentiable manifold properties. Smoothness implies that we can use differential calculus on the manifold; or roughly, if we change the input to any group operation by a little bit, the output will only change by a little bit. The special orthogonal group, $SO(3)$, represents rotations, and the special Euclidean group, $SE(3)$, represents poses.
 
 ## Lie Algebra
 

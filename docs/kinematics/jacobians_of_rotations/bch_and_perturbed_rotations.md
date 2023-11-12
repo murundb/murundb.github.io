@@ -1,6 +1,6 @@
 # Baker-Campbell-Hausdorff
 
-## Definition
+## BCH Formula
 
 For scalar exponential functions, we have:
 
@@ -57,42 +57,66 @@ $$
 &=
 \left[ \ln \bigl( \exp(\left[ \boldsymbol{\rho}_1 \right]_\times) \exp\left( \left[ \boldsymbol{\rho}_2 \right]_\times \right) \bigr) \right]_{-\times} \\ &\approx 
 \begin{cases}
-\mathbf{J}_l \left( \boldsymbol{\rho}_2 \right)^{-1} \boldsymbol{\rho}_1 + \boldsymbol{\rho}_2, \quad \text{if } \boldsymbol{\rho}_1 \ \text{is a small} \\
-\mathbf{J}_r \left( \boldsymbol{\rho}_1 \right)^{-1} \boldsymbol{\rho}_2 + \boldsymbol{\rho}_1, \quad \text{if } \boldsymbol{\rho}_2 \ \text{is a small},
+\mathbf{J}_l^{-1} \left( \boldsymbol{\rho}_2 \right) \boldsymbol{\rho}_1 + \boldsymbol{\rho}_2, \quad \text{if } \boldsymbol{\rho}_1 \ \text{is a small} \\
+\mathbf{J}_r^{-1} \left( \boldsymbol{\rho}_1 \right) \boldsymbol{\rho}_2 + \boldsymbol{\rho}_1, \quad \text{if } \boldsymbol{\rho}_2 \ \text{is a small},
 \end{cases}
 \end{align}
 $$
 
-where $\mathbf{J}_l$ and $\mathbf{J}_r$ are called the **left and right Jacobians**. The left Jacobian for $\boldsymbol{\rho} = \theta \hat{\mathbf{e}}$ is:
+where $\mathbf{J}_l$ and $\mathbf{J}_r$ are called the **left and right Jacobians**.
 
-$$
-\begin{align}
-\mathbf{J}_l(\boldsymbol{\rho}) &=
-\sum^{\infty}_{n = 0} \frac{1}{(n + 1)!} \left[ \boldsymbol{\rho} \right]^n_{\times} = \int^1_0 \mathbf{R}^\alpha d\alpha\\
-&= \frac{\sin \theta}{\theta} \mathbf{I} + 
-\left( 
-1 - \frac{\sin \theta}{\theta}
-\right) \hat{\mathbf{e}} \hat{\mathbf{e}}^T + \frac{1 - \cos \theta}{\theta} \left[ \hat{\mathbf{e}} \right]_\times.
-\end{align}
-$$
+!!! cnote "BCH for Small Perturbation"
 
-Its inverse is:
+    Suppose we have a rotation $\mathbf{R}$ with corresponding Lie algebra vector $\boldsymbol{\rho}$. The rotation is then left-perturbed $\mathbf{R}$ with $\Delta \mathbf{R}$ with corresponding Lie algebra vector $\Delta \boldsymbol{\rho}$. Then, on Lie group, the result is $\Delta \mathbf{R} \mathbf{R}$, and on the Lie algebra, it will be:
 
-$$
-\mathbf{J}^{-1}_l (\boldsymbol{\rho}) = \frac{\theta}{2} \cot \frac{\theta}{2} \mathbf{I} +
-\left(
-1 - \frac{\theta}{2} \cot \frac{\theta}{2}
-\right) \hat{\mathbf{e}} \hat{\mathbf{e}}^T - \frac{\theta}{2} \left[ \hat{\mathbf{e}} \right]_\times,
-$$
+    $$
+    \begin{align}
+    \Delta \mathbf{R} \mathbf{R} &= \exp\left(\left[\Delta\boldsymbol{\rho} \right]_\times \right) \exp\left(\left[\boldsymbol{\rho} \right]_\times \right) \\
+    &= \exp \bigl( \left[ \boldsymbol{\rho} + \mathbf{J}^{-1}_l (\boldsymbol{\rho}) \Delta \boldsymbol{\rho} \right]_\times \bigr).
+    \end{align}
+    $$
 
-The right Jacobian can be computed from the left as:
+    Conversely, if we do an addition on Lie algebra vector $\boldsymbol{\rho}$ by perturbing it with $\Delta \boldsymbol{\rho}$, then we can approximate the multiplication on the Lie group as:
 
-$$
-\begin{align}
-\mathbf{J}_l (\boldsymbol{\rho}) = \mathbf{R} \mathbf{J}_r (\boldsymbol{\rho}) \\
-\mathbf{J}_r (\boldsymbol{\rho}) = \mathbf{J}_l (-\boldsymbol{\rho}).
-\end{align}
-$$
+    $$
+    \begin{align}
+    \exp \left( \left[\boldsymbol{\rho} + \Delta \boldsymbol{\rho} \right]_\times \right) &= \exp \left( \left[ \mathbf{J}_l \Delta \boldsymbol{\rho} \right]_\times \right) \exp \left( \left[ \boldsymbol{\rho} \right]_\times \right) \\
+    &= \exp \left( \left[\boldsymbol{\rho} \right]_\times \right) \exp \left(\left[ \mathbf{J}_r \Delta \boldsymbol{\rho} \right]_\times \right).
+    \end{align}
+    $$
+
+!!! cnote "Left and Right Jacobians"
+
+    The left Jacobian for $\boldsymbol{\rho} = \theta \hat{\mathbf{e}}$ is:
+
+    $$
+    \begin{align}
+    \mathbf{J}_l(\boldsymbol{\rho}) &=
+    \sum^{\infty}_{n = 0} \frac{1}{(n + 1)!} \left[ \boldsymbol{\rho} \right]^n_{\times} = \int^1_0 \mathbf{R}^\alpha d\alpha\\
+    &= \frac{\sin \theta}{\theta} \mathbf{I} + 
+    \left( 
+    1 - \frac{\sin \theta}{\theta}
+    \right) \hat{\mathbf{e}} \hat{\mathbf{e}}^T + \frac{1 - \cos \theta}{\theta} \left[ \hat{\mathbf{e}} \right]_\times.
+    \end{align}
+    $$
+
+    Its inverse is:
+
+    $$
+    \mathbf{J}^{-1}_l (\boldsymbol{\rho}) = \frac{\theta}{2} \cot \frac{\theta}{2} \mathbf{I} +
+    \left(
+    1 - \frac{\theta}{2} \cot \frac{\theta}{2}
+    \right) \hat{\mathbf{e}} \hat{\mathbf{e}}^T - \frac{\theta}{2} \left[ \hat{\mathbf{e}} \right]_\times,
+    $$
+
+    The right Jacobian can be computed from the left as:
+
+    $$
+    \begin{align}
+    \mathbf{J}_l (\boldsymbol{\rho}) = \mathbf{R} \mathbf{J}_r (\boldsymbol{\rho}) \\
+    \mathbf{J}_r (\boldsymbol{\rho}) = \mathbf{J}_l (-\boldsymbol{\rho}).
+    \end{align}
+    $$
 
 ## Using BCH on Poses
 
@@ -108,23 +132,3 @@ $$
 \end{cases}
 \end{align}
 $$
-
-## Perturbation
-
-### Rotation in Lie Group to Lie Algebra
-
-Suppose we have a rotation $\mathbf{R}$ with Lie algebra tangent vector $\boldsymbol{\rho}$. Let $\Delta \mathbf{R}$ with Lie algebra tangent vector $\Delta \boldsymbol{\rho}$ be a small perturbation to the left. On Lie group $SO(3)$, the yielding rotation result is $\Delta \mathbf{R} \mathbf{R}$. On Lie algebra, via BCH, we have $\mathbf{J}^{-1}_l(\boldsymbol{\rho}) \Delta \boldsymbol{\rho} + \boldsymbol{\rho}$. In order words:
-
-$$
-\Delta \mathbf{R} \mathbf{R} = \exp \left( \left[ \Delta \boldsymbol{\rho} \right]_\times \right) \exp \left( \left[ \boldsymbol{\rho} \right]_\times \right) = \exp \left( \left[ \mathbf{J}^{-1}_l(\boldsymbol{\rho}) \Delta \boldsymbol{\rho} + \boldsymbol{\rho} \right]_\times \right).
-$$
-
-### Rotation in Lie Algebra to Lie Group
-
-Suppose we do addition on Lie algbera by perturbing $\boldsymbol{\rho}$ with $\Delta \boldsymbol{\rho}$. Then the multiplication on the Lie group will be:
-
-$$
-\exp \left(\left[\boldsymbol{\rho} + \Delta \boldsymbol{\rho} \right]_\times \right) = 
-\exp \left(\left[\mathbf{J}_l \Delta \boldsymbol{\rho} \right]_\times \right) \exp \left( \left[ \boldsymbol{\rho} \right]_\times \right) = \exp \left( \left[ \boldsymbol{\rho} \right]_\times \right) \exp \left( \left[\mathbf{J}_r \Delta \boldsymbol{\rho} \right]_\times \right).
-$$
-

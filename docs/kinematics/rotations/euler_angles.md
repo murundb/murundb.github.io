@@ -82,7 +82,7 @@ $$
 which yields to a rotation matrix:
 
 $$
-\mathbf{R}_3 = \mathbf{R}^{\psi}_{\beta} =
+\mathbf{R}^{\psi}_{\beta} =
 \left[
 \begin{array}{ccc}
 \text{cos}(\psi_{\beta \alpha}) & \text{sin}(\psi_{\beta \alpha}) & 0 \\
@@ -105,7 +105,7 @@ $$
 which yields to a rotation matrix:
 
 $$
-\mathbf{R}_2 = \mathbf{R}^{\theta}_{\psi} =
+\mathbf{R}^{\theta}_{\psi} =
 \left[
 \begin{array}{ccc}
 \text{cos}(\theta_{\beta \alpha}) & 0 & -\text{sin}(\theta_{\beta \alpha}) \\
@@ -128,7 +128,7 @@ $$
 which yields to a rotation matrix:
 
 $$
-\mathbf{R}_1 = \mathbf{R}^{\alpha}_{\theta} =
+\mathbf{R}^{\alpha}_{\theta} =
 \left[
 \begin{array}{ccc}
 1 & 0 & 0 \\
@@ -141,7 +141,7 @@ $$
 The rotation matrix from frame $F_\beta$ to $F_\alpha$ is obtained as:
 
 $$
-\mathbf{R}^{\alpha}_{\beta} = \mathbf{R}^{\alpha}_{\phi} \mathbf{R}^{\theta}_{\psi} \mathbf{R}^{\psi}_{\beta} = \mathbf{R}_1 \mathbf{R}_2 \mathbf{R}_3,
+\mathbf{R}^{\alpha}_{\beta} = \mathbf{R}^{\alpha}_{\phi} \mathbf{R}^{\theta}_{\psi} \mathbf{R}^{\psi}_{\beta},
 $$
 
 or equivalently:
@@ -178,9 +178,21 @@ $$
 \end{array}
 \right)
 & \text{cos}(\phi_{\beta \alpha}) \text{cos}(\theta_{\beta \alpha})
-\end{array} 
+\end{array}
 \right].
 $$
+
+The attitude is the rotation matrix from frame $F_\alpha$ to $F_\beta$:
+
+$$
+\begin{align}
+\mathbf{R}^\beta_\alpha &= \left( \mathbf{R}^\alpha_\beta \right)^T \\
+&= \left( \mathbf{R}^{\psi}_{\beta} \right)^T \left( \mathbf{R}^{\theta}_{\psi} \right)^T \left( \mathbf{R}^{\alpha}_{\phi} \right)^T \\
+&= \mathbf{R}_3(\psi_{\beta \alpha}) \mathbf{R}_2(\theta_{\beta \alpha}) \mathbf{R}_1(\phi_{\beta \alpha}),
+\end{align}
+$$
+
+where $\mathbf{R}_1$, $\mathbf{R}_2$, and $\mathbf{R}_3$ are the principal rotation matrices.
 
 ## Rotation Matrix to Euler Angles
 
@@ -195,7 +207,7 @@ $$
 $$
 
 Four-quadrant arctangent functions must be used. Note here that if we are interested in converting between atttiude representations 
-(e.g., between Euler angles $\Psi_{nb}$ and $\mathbf{R^n_{b}}$), then the attitude should be represented as $\mathbf{R}^{\beta}_{\alpha}$ as:
+(e.g., between Euler angles $\Psi_{nb}$ and $\mathbf{R}^n_{b}$), then the attitude should be represented as $\mathbf{R}^{\beta}_{\alpha}$ as:
 
 $$
 \mathbf{R}^{\beta}_{\alpha} = 

@@ -1,36 +1,36 @@
-# Jacobians of Rotations
+# Jacobian with respect to Lie Algebra Vector
 
-## Jacobian with Respect to Arbitrary Vector
+## Derivative with Respect to the Angle of Rotation
 
-Consider a rotation of an arbitrary vector $\mathbf{v} \in \mathbb{R}^3$ with rotation matrix $\mathbf{R} \in SO(3)$. The Jacobian with respect to the rotated vector is simply:
+!!! cnote "Derivative of rotation matrix with respect to the angle of rotation"
+
+    Given a rotation vector $\boldsymbol{\rho} = \phi \hat{\mathbf{a}}$, and the corresponding rotation matrix, $\mathbf{R}$:
+
+    $$
+    \frac{ \partial \mathbf{R}}{\partial \phi} = - \left[ \hat{\mathbf{a}} \right]_\times \mathbf{R}.
+    $$
+
+**Proof**. Rodrigues' formula is:
 
 $$
-\frac{\partial \mathbf{R} \mathbf{v}}{\partial \mathbf{v}} = \mathbf{R}.
+\mathbf{R} = \cos \phi \mathbf{I} + \left( 1- \cos \phi \right) \hat{\mathbf{a}} \hat{\mathbf{a}}^T - \sin \phi \left[ \hat{\mathbf{a}} \right]_\times.
 $$
 
-## Jacobian with Respect to the Euler Angles
-
-Consider a rotation of an arbitrary vector $\mathbf{v} \in \mathbb{R}^3$ with rotation matrix $\mathbf{R} \in SO(3)$. Let $\boldsymbol{\theta} = \left( \theta_3, \theta_2, \theta_1 \right)$ be the 3-2-1 Euler angles associated with $\mathbf{R}$ such that:
-
-$$
-\mathbf{R}(\theta) = \mathbf{R}_3(\theta_3) \mathbf{R}_2 (\theta_2) \mathbf{R}_1 (\theta_1).
-$$
-
-The derivative with respect to the Euler angles is then:
-
-Combine the Euler Rates page and the latter part of Identities.
-
-## Jacobian with Respect to the Rotation Matrix
-
-Differentiation by the rotation parameter is performed by left multipling the rotation by the exponential of a tangent vector and differentiating the resulting expression around the zero perturbation:
+The partial derivative of $\mathbf{R}$ with respect to the rotation angle is:
 
 $$
 \begin{align}
-\frac{ \partial \mathbf{y}}{\partial \mathbf{R}} &=
+\frac{ \partial \mathbf{R}}{\partial \phi} &=
+- \sin \phi \mathbf{I} + \sin \phi \hat{\mathbf{a}} \hat{\mathbf{a}}^T - \cos \phi \left[ \hat{\mathbf{a}} \right]_\times \\ 
+&= \sin \phi \underbrace{\left( -\mathbf{I} + \hat{\mathbf{a}} \hat{\mathbf{a}}^T \right)}_{\left[ \hat{\mathbf{a}} \right]^2_\times} - \cos \phi \left[ \hat{\mathbf{a}} \right]_\times \\
+&= -\cos \phi \left[ \hat{\mathbf{a}} \right]_\times - 
+(1 - \cos \phi) \underbrace{\left[ \hat{\mathbf{a}} \right]_\times \hat{\mathbf{a}}}_{\mathbf{0}}  \hat{\mathbf{a}}^T + \sin \phi \left[ \hat{\mathbf{a}} \right]^2_\times \\
+&= -\left[ \hat{\mathbf{a}} \right]_\times \underbrace{\left(\cos \phi \mathbf{I} + (1 - \cos \phi) \hat{\mathbf{a}} \hat{\mathbf{a}}^T - \sin \phi \left[ \hat{\mathbf{a}} \right]_\times \right)}_{\mathbf{R}} \\
+&= - \left[ \hat{\mathbf{a}} \right]_\times \mathbf{R}.
 \end{align}
 $$
 
-## Jacobian with Respect to Lie Algebra Vector
+## Derivative with Respect to the Rotation Vector
 
 Consider a rotation of an arbitrary vector $\mathbf{v} \in \mathbb{R}^3$ with rotation matrix $\mathbf{R} \in SO(3)$ with Lie Algebra vector $\boldsymbol{\rho} = \left[ \begin{array}{ccc} \rho_1 & \rho_2 & \rho_3 \end{array} \right]^T \in \mathbb{R}^3$. Then the Jacobian of the rotated point with respect to the Lie algebra vector representing the rotation is:
 
@@ -67,7 +67,7 @@ Stacking the three directional derivatives alongside one another yields to the d
     \frac{\partial \left( \mathbf{R} \mathbf{v} \right)}{\partial \boldsymbol{\rho}} = - \left[\mathbf{R} \mathbf{v} \right]_\times \mathbf{J}_l.
     $$
 
-    Note here that the result is a tensor. If $\mathbf{R} \mathbf{v}$ appears inside another scalar function, $u(\mathbf{x})$, with $\mathbf{x} = \mathbf{R} \mathbf{v}$, we can use the chain rule:
+    If $\mathbf{R} \mathbf{v}$ appears inside another scalar function, $u(\mathbf{x})$, with $\mathbf{x} = \mathbf{R} \mathbf{v}$, we can use the chain rule:
 
     $$
     \frac{\partial u}{ \partial \boldsymbol{\rho}} = 
@@ -77,7 +77,7 @@ Stacking the three directional derivatives alongside one another yields to the d
     \left[ \mathbf{R} \mathbf{v} \right]_\times \mathbf{J}_l.
     $$
 
-**Alternate Approach.** We can also take the derivative with respect to the tangent vector directly. Let $\delta \boldsymbol{\rho}$ be a small perturbation. Using the definition of derivative again:
+**Direct derivative method.** We can take the derivative with respect to the tangent vector directly. Let $\delta \boldsymbol{\rho}$ be a small perturbation. Using the definition of derivative again:
 
 $$
 \begin{align}
@@ -94,31 +94,3 @@ $$
 &= - \left[ \mathbf{R} \mathbf{v} \right]_\times \mathbf{J}_l.
 \end{align}
 $$
-
-## Derivative of a Rotation Matrix via Perturbation Model
-
-
-
-
-<!-- ## Derivative of a Rotation Matrix
-
-Given a rotation vector $\boldsymbol{\rho} = \theta \hat{\mathbf{e}}$, we have formulated Rodrigues' formula previously as follows:
-
-$$
-\begin{align}
-\mathbf{R}(\boldsymbol{\rho}) = \mathbf{R}(\hat{\mathbf{e}}, \theta)  &= \mathbf{e}^{\left[ \boldsymbol{\rho} \right]_\times} = \mathbf{I} + \sin \theta \left[ \hat{\mathbf{e}} \right]_\times + \left(1 - \cos \theta \right) \left[ \hat{\mathbf{e}} \right]^2_\times \\
-&= \mathbf{I} + \frac{\sin \theta}{\theta} \left[ \boldsymbol{\rho} \right]_\times + \frac{1 - \cos \theta}{\theta^2} \left[ \boldsymbol{\rho} \right]^2_\times.
-\end{align}
-$$
-
-Derivative of a rotation matrix with respect to a variable of interest (whether it is time or a rotation vector component, $\rho_1$ etc.) can be expressed as:
-
-$$
-\frac{\partial}{\partial x} \mathbf{R}(\boldsymbol{\rho}) = \left[ \mathbf{J} \frac{\partial \boldsymbol{\rho}}{\partial x} \right]_\times \mathbf{R}(\boldsymbol{\rho}),
-$$
-
-where $\mathbf{J}$ is the Jacobian matrix that is derived from the $SE(3)$ exponential map matrix:
-
-$$
-\mathbf{J} = \mathbf{I} + \frac{1 - \cos \theta}{\theta^2} \left[ \boldsymbol{\rho} \right]_\times + \frac{\theta - \sin \theta}{\theta^3} \left[ \boldsymbol{\rho} \right]^2_\times.
-$$ -->

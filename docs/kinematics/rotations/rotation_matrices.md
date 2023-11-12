@@ -212,15 +212,15 @@ We can use similar analogy to obtain three principle rotation matrices:
 
 $$
 \begin{align}
-\mathbf{R}_z(\psi) &= 
+\mathbf{R}_3(\psi) &=
 \left[
 \begin{array}{ccc}
 \text{cos}(\psi) & -\text{sin}(\psi) & 0 \\
 \text{sin}(\psi) & \text{cos}(\psi) & 0 \\
 0 & 0 & 1
-\end{array} 
+\end{array}
 \right] \\ \\
-\mathbf{R}_y(\theta) &= 
+\mathbf{R}_2(\theta) &=
 \left[
 \begin{array}{ccc}
 \text{cos}(\theta) & 0 & \text{sin}(\theta) \\
@@ -228,13 +228,13 @@ $$
 -\text{sin}(\theta) & 0 & \text{cos}(\theta)
 \end{array} 
 \right] \\ \\
-\mathbf{R}_x(\phi) &= 
+\mathbf{R}_1(\phi) &=
 \left[
 \begin{array}{ccc}
 1 & 0 & 0 \\
 0 & \text{cos}(\phi) & -\text{sin}(\phi) \\
 0 & \text{sin}(\phi) & \text{cos}(\phi)
-\end{array} 
+\end{array}
 \right]. \\
 \end{align}
 $$
