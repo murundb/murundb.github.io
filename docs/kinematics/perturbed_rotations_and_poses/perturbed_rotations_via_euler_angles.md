@@ -1,4 +1,4 @@
-# Perturbation via Euler Angles
+# Perturbed Rotations via Euler Angles
 
 ## General Perturbation Theory
 

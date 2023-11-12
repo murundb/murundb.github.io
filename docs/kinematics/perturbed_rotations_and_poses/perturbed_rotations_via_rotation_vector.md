@@ -1,4 +1,4 @@
-# Perturbation via Rotation Vector
+# Perturbed Rotations via Rotation Vector
 
 Perturbation via rotation vector provides a new way of computing the Jacobian of a rotation matrix with respect to the rotation vector. The previous derivation requires to compute the left Jacobian which could be complicated.
 
@@ -21,5 +21,3 @@ $$
 &= -\left[ \mathbf{R} \mathbf{v} \right]_\times.
 \end{align}
 $$
-
-
