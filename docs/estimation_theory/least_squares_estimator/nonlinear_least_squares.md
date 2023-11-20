@@ -97,8 +97,8 @@ $$
 Figure 1 shows the nonlinear least squares estimator using Gauss-Newton method for $N = 100$ points.
 
 <figure markdown>
-  ![curve_fitting_with_gn](/assets/images/estimation_theory/light/curve_fitting_with_gn.png#only-light){ width="800" }
-  ![curve_fitting_with_gn](/assets/images/estimation_theory/dark/curve_fitting_with_gn.png#only-dark){ width="800" }
+  ![curve_fitting_with_gn](/assets/images/estimation_theory/light/curve_fitting_with_gn.png#only-light){ width="500" }
+  ![curve_fitting_with_gn](/assets/images/estimation_theory/dark/curve_fitting_with_gn.png#only-dark){ width="500" }
   <figcaption>Curve fitting with nonlinear LSE using Gauss-Newton method</figcaption>
 </figure>
 

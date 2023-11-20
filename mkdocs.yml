@@ -208,7 +208,7 @@ nav:
       - Linear Weighed Least Squares: estimation_theory/least_squares_estimator/linear_weighted_least_squares.md
       - Linear Recursive Least Squares: estimation_theory/least_squares_estimator/linear_recursive_least_squares.md
       - Nonlinear Least Squares: estimation_theory/least_squares_estimator/nonlinear_least_squares.md
-      - Polynomial Fitting: estimation_theory/least_squares_estimator/polynomial_fitting.md
+      - Least Squares with Dynamics: estimation_theory/least_squares_estimator/least_squares_with_dynamics.md
     - Kalman Filter:
       - Discrete-Time Kalman Filter: estimation_theory/kalman_filter/discrete_time_kalman_filter.md
 
