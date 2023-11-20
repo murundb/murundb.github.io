@@ -1,17 +1,20 @@
-# Weighted Batch Least Squares Estimator
+# Linear Weighted Least Squares
 
-## Problem statement
+## Problem Statement
 
-Given a matrix $\mathbf{H} \in \mathbb{R}^{k \times n}$ and a noisy measurement vector $\mathbf{y} \in \mathbb{R}^k$, where $k > n$, we are interested in finding a **constant** solution $\mathbf{x} \in \mathbb{R}^n$ that satisfies $\mathbf{H} \mathbf{x} = \mathbf{y}$. We assume that each element of $\mathbf{y}$ is a linear combination of the elements of $\mathbf{x}$, with addition of some measurement noise $\boldsymbol{v} \in \mathbb{R}^k$, and the variance of the measurement noise may be different for each element of $\mathbf{y}$:
+Consider a problem of estimating a constant but unknown $\mathbf{x} \in \mathbb{R}^n$ given $m$ measurements, $\mathbf{y} \in \mathbb{R}^m$ where $m > n$. Assume that the measurement model is linear:
 
 $$
-\begin{align}
-\mathbf{y} &= \mathbf{H} \mathbf{x} + \boldsymbol{v} \\
-\mathbb{E} \left[v^2_i \right] &= \sigma^2_i, \quad i = 1, \ldots, k.
-\end{align}
+\mathbf{y} = \mathbf{H} \mathbf{x} + \boldsymbol{v} \label{least_squares_main},
 $$
 
-Assume that the noise for each measurement is zero-mean and independent. The measurement covariance matrix is:
+where $\mathbf{H} \in \mathbb{R}^{m \times n}$ is the linear observation matrix and $\boldsymbol{v} \in \mathbb{R}^m$ is the measurement noise. Assume that the noise for each measurement is zero-mean and independent:
+
+$$
+\mathbb{E} \left[v^2_i \right] = \sigma^2_i, \quad i = 1, \ldots, m.
+$$
+
+The measurement covariance matrix is:
 
 $$
 \begin{align}
@@ -20,7 +23,7 @@ $$
 \begin{array}{ccc}
 \sigma^2_1 & \ldots & 0 \\
 \vdots & \ddots & \vdots \\
-0 & \ldots & \sigma^2_k
+0 & \ldots & \sigma^2_m
 \end{array}
 \right]
 \end{align}
@@ -34,7 +37,7 @@ $$
 
 where $\hat{\mathbf{x}}$ is the "best" estimate of $\mathbf{x}$.
 
-## Solution
+## Solution to Linear Weighted Least Squares
 
 We will define the cost function as a weighted sum of squares of the residuals:
 
@@ -44,22 +47,22 @@ $$
 &=
 \left[
 \begin{array}{ccc}
-\epsilon_{y1} & \ldots & \epsilon_{yk}
+\epsilon_{y1} & \ldots & \epsilon_{ym}
 \end{array}
 \right]
 \left[
 \begin{array}{ccc}
 1/\sigma^2_1 & \ldots & 0 \\
 \vdots & \ddots & \vdots \\
-0 & \ldots & 1/\sigma^2_k
+0 & \ldots & 1/\sigma^2_m
 \end{array}
 \right]
 \left[
 \begin{array}{c}
-\epsilon_{y1} \\ \vdots \\ \epsilon_{yk}
+\epsilon_{y1} \\ \vdots \\ \epsilon_{ym}
 \end{array}
 \right] \\
-&= \epsilon^2_{y1} / \sigma^2_1 + \ldots + \epsilon^2_{yk} / \sigma^2_{k}.
+&= \epsilon^2_{y1} / \sigma^2_1 + \ldots + \epsilon^2_{ym} / \sigma^2_{m}.
 \end{align}
 $$
 
@@ -93,15 +96,4 @@ Solving for $\hat{\mathbf{x}}$ yields to:
 
 $$
 \hat{\mathbf{x}} = \left( \mathbf{H}^T \mathbf{R}^{-1} \mathbf{H} \right)^{-1} \mathbf{H}^T \mathbf{R}^{-1} \mathbf{y}.
-$$
-
-## Relationship to the Maximum Likelihood Estimator
-
-Since the measurement errors $\boldsymbol{v} \in \mathbb{R}^k$ are independent random variables with distribution $v_i \sim \mathcal{N}(0, \sigma^2)$, minimizing the weighted quadratic error is equivalent to maximizing the likelihood function:
-
-$$
-\begin{align}
-L(\mathbf{y} | \mathbf{x}) &= \prod^k_{i = 1} f_\mathbf{x} (\mathbf{y}_i | \mathbf{x}) \\
-&= \frac{1}{(2\pi)^{k / 2} \sigma^k} \exp \left\{-\frac{1}{2\sigma^2} \mathbf{J} \right\}.
-\end{align}
 $$

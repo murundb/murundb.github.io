@@ -56,9 +56,13 @@ markdown_extensions:
   - tables
   - pymdownx.highlight:
       anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
 
 extra_css:
   - assets/stylesheets/extra.css
@@ -89,49 +93,7 @@ nav:
     - Software Implementation:
       - Storage: matrix_theory/software_implementation/storage.md
       - Multiplication: matrix_theory/software_implementation/multiplication.md
-  - Optimization:
-    - References: optimization/references.md
-    - Cauchy-Schwartz Inequality: optimization/cauchy_schwarz_inequality.md
-    - Sets:
-      - Norms, Distance, and Unit Ball: optimization/sets/norms_distance_unit_ball.md
-      - Open and Closed Sets: optimization/sets/open_and_closed_sets.md
-      - Geometry: optimization/sets/geometry.md
-      - Convex Sets: optimization/sets/convex_sets.md
-      - Nonconvex Sets: optimization/sets/nonconvex_sets.md
-    - Functions:
-      - Functions, Gradient, Jacobian, Hessian: optimization/functions/functions.md
-      - Convex Functions: optimization/functions/convex_functions.md
-      - Nonconvex Functions: optimization/functions/nonconvex_functions.md
-    - Perturbation Methods: optimization/perturbation_methods.md
-    - Convex Optimization:
-      - References: optimization/convex_optimization/references.md
-      - Optimization Problem Formulation: optimization/convex_optimization/optimization_problem_formulation.md
-      - Duality Theory: optimization/convex_optimization/duality.md
-      - Unconstrained Optimization:
-        - Optimality Conditions: optimization/convex_optimization/unconstrained_optimization/optimality_conditions.md
-        - Gradient Desent: optimization/convex_optimization/unconstrained_optimization/gradient_descent.md
-        - Newton's Method: optimization/convex_optimization/unconstrained_optimization/newton_method.md
-        - Quasi-Newton Method: optimization/convex_optimization/unconstrained_optimization/quasi_newton_method.md
-        - Gauss-Netwon Method: optimization/convex_optimization/unconstrained_optimization/gauss_newton_method.md
-        - Golden Section: optimization/convex_optimization/unconstrained_optimization/golden_section.md
-        - Quadratic Fit: optimization/convex_optimization/unconstrained_optimization/quadratic_fit.md
-        - Nelder-Mead Method: optimization/convex_optimization/unconstrained_optimization/nelder_mead_method.md
-      - Linear Programming:
-        - Modelling Using Linear Programs: optimization/convex_optimization/linear_programming/modelling_using_linear_programs.md
-        - Algrebraic Aspects: optimization/convex_optimization/linear_programming/algebraic_aspects.md
-        - Simplex Method: optimization/convex_optimization/linear_programming/simplex_method.md
-        - Linear Stochastic Program: optimization/convex_optimization/linear_programming/linear_stochastic_program.md
-        - Nonlinear Program: optimization/convex_optimization/linear_programming/nonlinear_program.md
-        - Robust Optimization: optimization/convex_optimization/linear_programming/robust_optimization.md
-        - Column and Constraint Generation: optimization/convex_optimization/linear_programming/column_and_constraint_generation.md
-        - Dantzig-Wolfe Decomposition: optimization/convex_optimization/linear_programming/dantzig_wolfe_decomposition.md
-      - Nonlinear Programming:
-        - Least Squares: optimization/convex_optimization/nonlinear_programming/least_squares.md
-      - Integer Programming:
-        - Discrete Optimization Models: optimization/convex_optimization/integer_programming/discrete_optimization_models.md
-        - Modelling Nonconvex Functions: optimization/convex_optimization/integer_programming/modelling_nonconvex_functions.md
-        - Modelling Nonconvex Sets: optimization/convex_optimization/integer_programming/modelling_nonconvex_sets.md
-        - Modelling Logical Relations: optimization/convex_optimization/integer_programming/modelling_logical_relations.md
+
   - Kinematics:
     - References: kinematics/references.md
     - Rotations:
@@ -194,6 +156,45 @@ nav:
         - Chi-square Distribution: estimation_theory/probability_theory/continuous_distributions/chi_square_distribution.md
         - Beta Distribution: https://en.wikipedia.org/wiki/Beta_distribution
         - Weibull Distribution: https://en.wikipedia.org/wiki/Weibull_distribution#:~:text=In%20probability%20theory%20and%20statistics,spends%20on%20a%20web%20page.
+    - Optimization:
+      - Sets:
+        - Norms, Distance, and Unit Ball: optimization/sets/norms_distance_unit_ball.md
+        - Open and Closed Sets: optimization/sets/open_and_closed_sets.md
+        - Geometry: optimization/sets/geometry.md
+        - Convex Sets: optimization/sets/convex_sets.md
+        - Nonconvex Sets: optimization/sets/nonconvex_sets.md
+      - Functions:
+        - Functions, Gradient, Jacobian, Hessian: optimization/functions/functions.md
+        - Convex Functions: optimization/functions/convex_functions.md
+        - Nonconvex Functions: optimization/functions/nonconvex_functions.md
+      - Optimization Problem Formulation: optimization/optimization_problem_formulation.md
+      - Duality Theory: optimization/duality.md
+      - Unconstrained Optimization:
+        - Optimality Conditions: optimization/unconstrained_optimization/optimality_conditions.md
+        - Gradient Desent: optimization/unconstrained_optimization/gradient_descent.md
+        - Newton's Method: optimization/unconstrained_optimization/newton_method.md
+        - Quasi-Newton Method: optimization/unconstrained_optimization/quasi_newton_method.md
+        - Gauss-Netwon Method: optimization/unconstrained_optimization/gauss_newton_method.md
+        - Golden Section: optimization/unconstrained_optimization/golden_section.md
+        - Quadratic Fit: optimization/unconstrained_optimization/quadratic_fit.md
+        - Nelder-Mead Method: optimization/unconstrained_optimization/nelder_mead_method.md
+      - Linear Programming:
+        - Modelling Using Linear Programs: optimization/linear_programming/modelling_using_linear_programs.md
+        - Algrebraic Aspects: optimization/linear_programming/algebraic_aspects.md
+        - Simplex Method: optimization/linear_programming/simplex_method.md
+        - Linear Stochastic Program: optimization/linear_programming/linear_stochastic_program.md
+        - Nonlinear Program: optimization/linear_programming/nonlinear_program.md
+        - Robust Optimization: optimization/linear_programming/robust_optimization.md
+        - Column and Constraint Generation: optimization/linear_programming/column_and_constraint_generation.md
+        - Dantzig-Wolfe Decomposition: optimization/linear_programming/dantzig_wolfe_decomposition.md
+      - Nonlinear Programming:
+        - Least Squares: optimization/nonlinear_programming/least_squares.md
+      - Perturbation Methods: optimization/perturbation_methods.md
+      - Integer Programming:
+        - Discrete Optimization Models: optimization/integer_programming/discrete_optimization_models.md
+        - Modelling Nonconvex Functions: optimization/integer_programming/modelling_nonconvex_functions.md
+        - Modelling Nonconvex Sets: optimization/integer_programming/modelling_nonconvex_sets.md
+        - Modelling Logical Relations: optimization/integer_programming/modelling_logical_relations.md
     - Statistical Estimators:
       - Moment-Matching Estimator: estimation_theory/statistical_estimators/moment_matching_estimator.md
       - Maximum Likelihood Estimator: estimation_theory/statistical_estimators/maximum_likelihood_estimator.md
@@ -202,9 +203,11 @@ nav:
       - Bayesian Network: estimation_theory/bayesian_inference/bayesian_network.md
       - Maximum a Posteriori Estimator: estimation_theory/bayesian_inference/maximum_a_posteriori_estimator.md
     - Least Squares Estimator:
-      - Batch Least Squares Estimator: estimation_theory/least_squares_estimator/batch_least_squares_estimator.md
-      - Weighed Batch Least Squares Estimator: estimation_theory/least_squares_estimator/weighted_batch_least_squares_estimator.md
-      - Recursive Least Squares Estimator: estimation_theory/least_squares_estimator/recursive_least_squares_estimator.md
+      - Least Squares: estimation_theory/least_squares_estimator/least_squares.md
+      - Linear Least Squares: estimation_theory/least_squares_estimator/linear_least_squares.md
+      - Linear Weighed Least Squares: estimation_theory/least_squares_estimator/linear_weighted_least_squares.md
+      - Linear Recursive Least Squares: estimation_theory/least_squares_estimator/linear_recursive_least_squares.md
+      - Nonlinear Least Squares: estimation_theory/least_squares_estimator/nonlinear_least_squares.md
       - Polynomial Fitting: estimation_theory/least_squares_estimator/polynomial_fitting.md
     - Kalman Filter:
       - Discrete-Time Kalman Filter: estimation_theory/kalman_filter/discrete_time_kalman_filter.md
@@ -250,6 +253,12 @@ nav:
   - Computer Vision:
     - Image Compression:
       - Compression via Low-Rank Matrix Approximation: computer_vision/image_compression/compression_by_low_rank_matrix_approximation.md
+  - Software:
+    - Concurrency:
+      - OpenMP: 
+        - Basic Usage: software/concurrency/open_mp/basic_usage.md
+        - Examples: 
+          - Calculating PI: software/concurrency/open_mp/examples/calculating_pi.md
   - Papers:
     - Software: papers/software.md
   

@@ -1,10 +1,10 @@
-# Recursive Least Squares Estimator
+# Linear Recursive Least Squares
 
-## Problem statement
+## Problem Statement
 
-If we obtain measurements sequentially and want to update our estimate of the constant $\mathbf{x}$ with each new measurement, we need to augment the observation matrix $\mathbf{H} \in \mathbb{R}^{k \times n}$ matrix and completely recompute the estimate $\hat{\mathbf{x}}$. Recursive least squares avoids this recomputation.
+Suppose we have an estimate $\hat{\mathbf{x}}$ after $(k - 1)$ measurements, and we obtain a new measurement $y_k$ at time $k$. If we obtain measurements sequentially and want to update our estimate of the constant $\mathbf{x}$ with each new measurement, we need to augment the observation matrix $\mathbf{H} \in \mathbb{R}^{k \times n}$ matrix and completely recompute the estimate $\hat{\mathbf{x}}$. Recursive least squares avoids this recomputation.
 
-Suppose we have an estimate $\hat{\mathbf{x}}$ after $(k - 1)$ measurements, and we obtain a new measurement $y_k$. A **linear recursive estimator** can be written as:
+A **linear recursive least squares estimator** can be written as:
 
 $$
 \begin{align}
@@ -15,7 +15,7 @@ $$
 
 where $\mathbf{K}_k$ is the estimator gain matrix. Here, we compute $\hat{\mathbf{x}}_k$ on the basis of the previous estimate $\hat{\mathbf{x}}_{k - 1}$ and the new measurement $y_k$. The correction term $y_k - \mathbf{H}_k \hat{\mathbf{x}}_{k - 1}$ applied to the previous term $\hat{\mathbf{x}}$ is called the residual or innovation.
 
-## Solution
+## Solution to Linear Recursive Least Squares
 
 The estimation error after $k$ measurements can be defined as:
 

@@ -28,6 +28,8 @@ $$
 \frac{\partial \ell (\theta | X_1, \ldots, X_n)}{\partial \theta} = 0, \ \text{s.t.} \ \frac{\partial^2 \ell(\theta | X_1, \ldots, X_n)}{\partial \theta^2} < 0.
 $$
 
+Intuitively, likelihood refers to **"what observation data may be generated in the current state"**. Since we know the observation or the measurement data, the maximum likelihood estimator can be understood as "under what state, it is most likely to produce the data that is currently being observed?".
+
 ## Log-Likelihood
 
 In most cases, maximizing the logarithm of likelihood, **log-likelihood**, is simpler than maximizing the likelihood directly:

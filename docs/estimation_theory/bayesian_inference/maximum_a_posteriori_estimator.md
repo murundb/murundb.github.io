@@ -18,5 +18,6 @@ $$
 L(X; Z) \propto p(Z | X).
 $$
 
-The notation $L(X; Z)$ emphasizes the fact that **the likelihood is a function of $X$ and not $Z$**, which acts merely as a paremeter in this context.
+Bayes' rule tells us that solving the maximum posterior probability is equivalent to the esitmate of the product of maximum likelihood and a priori. The notation $L(X; Z)$ emphasizes the fact that **the likelihood is a function of $X$ and not $Z$**, which acts merely as a paremeter in this context.
 
+If we have no information about the prior, the estimator converts to MLE.

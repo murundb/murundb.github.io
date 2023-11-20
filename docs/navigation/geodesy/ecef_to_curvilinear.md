@@ -1,5 +1,5 @@
 
-## ECEF From Curvilinear Conversion
+# ECEF From Curvilinear Conversion
 
 The meridian (or the north-south motion) radius of curvature, $R_{N}$,  varies with latitude and is smallest at the equator, where the geocentric radius is the largest, and largest at the poles:
 
@@ -32,7 +32,7 @@ z^{e}_{eb}
 \begin{array}{c}
 \left( R_E (L_b) + h_b \right) \text{cos}L_b \text{cos} \lambda_b \\
 \left( R_E (L_b) + h_b \right) \text{cos}L_b \text{sin} \lambda_b \\
-\left[ (1 - e)^2 R_E (L_b) + h_b \right] \text{sin} L_b
+\left[ (1 - e^2) R_E (L_b) + h_b \right] \text{sin} L_b
 \end{array}
 \right],
 \end{align}
