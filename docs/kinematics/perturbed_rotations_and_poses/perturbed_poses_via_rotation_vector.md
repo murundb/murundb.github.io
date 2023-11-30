@@ -28,4 +28,3 @@ $$
 \right].
 \end{align}
 $$
-

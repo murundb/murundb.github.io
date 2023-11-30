@@ -1,0 +1,3 @@
+# Primer on Features
+
+A feature point is composed of two parts: **key point** and **descriptor**. The key point refers to the 2D position of the feature point. Some type of key points also hold other information, such as the orientation and size. The descriptor is usually a vector, describing the information of the pixels around the key point. The descriptor should be designed according to the principle that features with similar appearance should have similar descriptors. 

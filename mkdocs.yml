@@ -251,6 +251,14 @@ nav:
         - GPS Receiver: navigation/gps/gps_receiver.md
 
   - Computer Vision:
+    - Image Processing:
+      - Correlation Filter: computer_vision/image_processing/correlation_filter.md
+    - Image Features:
+      - ORB: computer_vision/image_features/orb.md
+    - Multiple View:
+      - Epipolar Geometry: computer_vision/multiple_view/epipolar_geometry.md
+      - Essential and Fundamental Matrix: computer_vision/multiple_view/essential_and_fundamental_matrix.md
+      - Homography: computer_vision/multiple_view/homography.md
     - Image Compression:
       - Compression via Low-Rank Matrix Approximation: computer_vision/image_compression/compression_by_low_rank_matrix_approximation.md
   - Software:
