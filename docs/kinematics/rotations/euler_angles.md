@@ -1,5 +1,9 @@
 # Euler Angles
 
+## Definition
+
+**Euler angles** are three angles to describe the orientation. Most commonly used Euler angles is the yaw, pitch, roll angles which is equivalent to 3-2-1 or $z-y-x$ rotation.
+
 ## Roll, Pitch, Yaw
 
 A rotation of one frame to yield another frame can be achieved through a sequence of three eigenaxis rotations,

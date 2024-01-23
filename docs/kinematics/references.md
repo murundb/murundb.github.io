@@ -8,3 +8,4 @@ Contents are from:
 4. Barfoot, T., **State Estimation for Robotics**
 5. Gao, X., **Introduction to Visual SLAM: From Theory to Practice**
 6. Eade, E., [**Lie Groups for 2D and 3D Transformations**](https://ethaneade.com/lie.pdf)
+7. Hartley, R., Zisserman, A., **Multiple View Geometry in Computer Vision, Second Edition**

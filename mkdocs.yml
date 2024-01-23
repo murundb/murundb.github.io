@@ -96,8 +96,8 @@ nav:
 
   - Kinematics:
     - References: kinematics/references.md
+    - Kinematic Quantities: kinematics/kinematic_quantities.md
     - Rotations:
-      - Pose and Attitude: kinematics/rotations/pose_and_attitude.md
       - Rotation Matrices: kinematics/rotations/rotation_matrices.md
       - Euler Angles: kinematics/rotations/euler_angles.md
       - Axis-Angle: kinematics/rotations/axis_angle.md
