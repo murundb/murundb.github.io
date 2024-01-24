@@ -109,18 +109,18 @@ nav:
       - Special Orthogonal Group: kinematics/lie_groups/special_orthogonal_group.md
       - Special Euclidean Group: kinematics/lie_groups/special_euclidean_group.md
       - Adjoints: kinematics/lie_groups/adjoints.md
-    - Jacobians of Rotations:
-      - Baker-Campbell-Hausdorff: kinematics/jacobians_of_rotations/bch_and_perturbed_rotations.md
-      - Jacobian with Respect to Euler Angles: kinematics/jacobians_of_rotations/jacobian_wrt_euler_angles.md
-      - Jacobian with Respect to Lie Algebra Vector: kinematics/jacobians_of_rotations/jacobian_wrt_lie_algebra_vector.md
-      - Jacobian with Respect to Time: kinematics/jacobians_of_rotations/jacobian_wrt_time.md
+    - Jacobians of Rotations and Poses:
+      - Baker-Campbell-Hausdorff: kinematics/jacobians_of_rotations_and_poses/bch_and_perturbed_rotations.md
+      - Jacobian with Respect to Euler Angles: kinematics/jacobians_of_rotations_and_poses/jacobian_wrt_euler_angles.md
+      - Jacobian with Respect to Lie Algebra Vector: kinematics/jacobians_of_rotations_and_poses/jacobian_wrt_lie_algebra_vector.md
+      - Jacobian with Respect to Time: kinematics/jacobians_of_rotations_and_poses/jacobian_wrt_time.md
     - Perturbed Rotations and Poses:
       - Perturbed Rotations via Euler Angles: kinematics/perturbed_rotations_and_poses/perturbed_rotations_via_euler_angles.md
       - Perturbed Rotations via Rotation Vector: kinematics/perturbed_rotations_and_poses/perturbed_rotations_via_rotation_vector.md
       - Perturbed Poses via Rotation Vector: kinematics/perturbed_rotations_and_poses/perturbed_poses_via_rotation_vector.md
     - Optimization on Smooth Manifolds:
       - Interpolation: kinematics/optimization_on_smooth_manifolds/interpolation.md
-      - Perturbed Rotations: kinematics/optimization_on_smooth_manifolds/perturbed_rotations.md
+      - Difference of Rotations: kinematics/optimization_on_smooth_manifolds/difference_of_rotations.md
   
     - Angular Velocity: kinematics/angular_velocity.md
     - Euler Rates: kinematics/euler_rates.md

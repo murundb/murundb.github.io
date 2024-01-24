@@ -1,5 +1,7 @@
 # Perturbed Poses via Rotation Vector
 
+## Definition
+
 Suppose a point $\mathbf{v}$ is transformed by $\mathbf{T} \in SE(3)$ with corresponding Lie algebra vector $\boldsymbol{\xi}$, and the result is $\mathbf{T} \mathbf{v}$. Note that $\mathbf{v}$ is in homogeneous coordinates. Left perturb $\mathbf{T}$ with $\Delta \mathbf{T} = \exp \left[ \Delta \boldsymbol{\xi} \right]_\times$ with Lie algebra vector $\Delta \boldsymbol{\xi} = \left[ \begin{array}{cc} \Delta \boldsymbol{\ell} & \Delta \boldsymbol{\rho} \end{array} \right]^T$. We have:
 
 $$

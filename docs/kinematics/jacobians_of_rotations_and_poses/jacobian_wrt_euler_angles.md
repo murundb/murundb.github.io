@@ -10,23 +10,23 @@ $$
 \left[
 \begin{array}{ccc}
 1 & 0 & 0 \\
-0 & \cos \theta_1 & -\sin \theta_1 \\
-0 & \sin \theta_1 & \cos \theta_1
+0 & \cos \theta_1 & \sin \theta_1 \\
+0 & -\sin \theta_1 & \cos \theta_1
 \end{array}
 \right] \\
 \mathbf{R}_2(\theta_2) &=
 \left[
 \begin{array}{ccc}
-\cos \theta_2 & 0 & \sin \theta_2 \\
+\cos \theta_2 & 0 & -\sin \theta_2 \\
 0 & 1 & 0 \\
--\sin \theta_2 & 0 & \cos \theta_2
+\sin \theta_2 & 0 & \cos \theta_2
 \end{array}
 \right] \\
 \mathbf{R}_3(\theta_3) &=
 \left[
 \begin{array}{ccc}
-\cos \theta_3 & -\sin \theta_3 & 0 \\
-\sin \theta_3 & \cos \theta_3 & 0 \\
+\cos \theta_3 & \sin \theta_3 & 0 \\
+-\sin \theta_3 & \cos \theta_3 & 0 \\
 0 & 0 & 1
 \end{array}
 \right].
@@ -41,25 +41,25 @@ $$
 \left[
 \begin{array}{ccc}
 0 & 0 & 0 \\
-0 & -\sin \theta_1 & -\cos \theta_1 \\
-0 & \cos \theta_1 & -\sin \theta_1
+0 & -\sin \theta_1 & \cos \theta_1 \\
+0 & -\cos \theta_1 & -\sin \theta_1
 \end{array}
 \right] &&=
 -\left[\mathbf{I}_1 \right]_\times \mathbf{R}_1 (\theta_1) \\
 \frac{\partial \mathbf{R}_2(\theta_2)}{ \partial \theta_2} &=
 \left[
 \begin{array}{ccc}
--\sin \theta_2 & 0 & \cos \theta_2 \\
+-\sin \theta_2 & 0 & -\cos \theta_2 \\
 0 & 0 & 0\\
--\cos \theta_2 & 0 & -\sin \theta_2
+\cos \theta_2 & 0 & -\sin \theta_2
 \end{array}
 \right] &&=
 -\left[\mathbf{I}_2 \right]_\times \mathbf{R}_2 (\theta_2) \\
 \frac{\partial \mathbf{R}_3(\theta_3)}{ \partial \theta_3} &=
 \left[
 \begin{array}{ccc}
--\sin \theta_3 & -\cos \theta_3 & 0 \\
-\cos \theta_3 & -\sin \theta_3 & 0 \\
+-\sin \theta_3 & \cos \theta_3 & 0 \\
+-\cos \theta_3 & -\sin \theta_3 & 0 \\
 0 & 0 & 0
 \end{array}
 \right] &&=
@@ -67,17 +67,17 @@ $$
 \end{alignat}
 $$
 
-Note that this property holds if we consider the Euler rotation matrices and holds regardless if it is passive or active rotation.
+Note that this property holds regardless if it is passive or active rotation.
 
 ## Derivative with Respect to Euler Angles
 
 Given a reference frame, $F_\beta$, and the object frame, $F_\alpha$, the attitude $\mathbf{R}^\beta_\alpha \in SO(3)$ can be expressed as the product of the principal rotation matrices. Denote $\mathbf{v} \in \mathbb{R}^3$ as an arbitrary constant vector resolved in the object frame.
 
-Consider the 3-2-1 Euler angles and denote it as $\boldsymbol{\theta} = \left( \theta_1, \theta_2, \theta_3 \right)$ corresponding to the roll, pitch, and yaw angles. The attitude of the body can be represented as:
+Consider the 1-2-3 Euler angles and denote it as $\boldsymbol{\theta} = \left( \theta_1, \theta_2, \theta_3 \right)$ corresponding to the roll, pitch, and yaw angles. The attitude of the body can be represented as:
 
 $$
 \begin{align}
-\mathbf{R}^\beta_\alpha = \mathbf{R}(\boldsymbol{\theta}) &= \mathbf{R}_3 (\theta_3) \mathbf{R}_2(\theta_2) \mathbf{R}_1(\theta_1).
+\mathbf{R}^\alpha_\beta = \mathbf{R}(\boldsymbol{\theta}) &= \mathbf{R}_3 (\theta_3) \mathbf{R}_2(\theta_2) \mathbf{R}_1(\theta_1).
 \end{align}
 $$
 

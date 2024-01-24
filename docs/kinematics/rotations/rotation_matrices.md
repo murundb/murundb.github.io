@@ -249,8 +249,8 @@ $$
 **Proof**. Consider a case when $F_\alpha$ is rotated by $\psi$ about the principle 3-axis and a point $P$ as shown in Figure 1.
 
 <figure markdown>
-  ![Fig 2.1 Rotation about $z^\beta$ (Groves, p31)](/assets/images/kinematics/light/active_rotation.png#only-light){ width="500" }
-  ![Fig 2.1 Rotation about $z^\beta$ (Groves, p31)](/assets/images/kinematics/dark/active_rotation.png#only-dark){ width="500" }
+  ![Rotation about $z^\beta$ (Groves, p31)](/assets/images/kinematics/light/frame_rotation.png#only-light){ width="500" }
+  ![Rotation about $z^\beta$ (Groves, p31)](/assets/images/kinematics/dark/frame_rotation.png#only-dark){ width="500" }
   <figcaption>Figure 1 Active rotation about 3-axis</figcaption>
 </figure>
 

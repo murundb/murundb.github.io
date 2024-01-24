@@ -1,20 +1,13 @@
 # Axis-Angle
 
-## Euler's Rotation Theorem
+## Definition
 
-Euler's rotation theorem states that, in three-dimensional space, any displacement of a rigid body such that a point on the rigid body remains fixed, is equivalent to a single rotation about some axis that runs through the fixed point. Elements in $SO(3)$ are non-singular. One of the eigenvalues are always 1 with the other two being complex valued with magnitude of 1. This implies that there exists
-a unit vector (eigenvector) $\hat{\mathbf{e}}$ that remain unchanged following the application of a transformation matrix $\mathbf{R}$. This unit vector is the axis of the rotation that can be used to represent a rotation matrix.
+Elements in $SO(3)$ are non-singular. One of the eigenvalues are always one with the other two being complex valued with magnitude of one. This implies that there exists
+a unit vector (eigenvector) $\hat{\mathbf{e}}$ that remain unchanged following the application of a rotation matrix $\mathbf{R}$. This unit vector is the axis of the rotation that can be used to represent a rotation matrix.
 
 !!! cnote "**Rodrigues' Formula**"
 
-    Let $F_\alpha$ and $F_\beta$ be two frames. A rotation can be represented by a rotation axis $\hat{\mathbf{e}}$ and an angle $\theta$, or equivalently by a 3D vector $\boldsymbol{\rho} = \theta \hat{\mathbf{e}}$.
-    Denote the **axis of rotation** as $\hat{\mathbf{e}} = \left[\begin{array}{ccc} e_1 & e_2 & e_3 \end{array} \right]^T$ and assume that it is a unit vector:
-
-    $$
-    \hat{\mathbf{e}}^T \hat{\mathbf{e}} = e^2_1 + e^2_2 + e^2_3 = 1.
-    $$
-
-    The **angle of rotation** is $\theta$. Then the rotation matrix can be computed via exponential mapping:
+    Let $F_\alpha$ and $F_\beta$ be two frames. A rotation can be represented by a rotation axis $\hat{\mathbf{e}}$ and an angle $\theta$ (from $F_\beta$ to $F_\alpha$), or equivalently by a 3D vector $\boldsymbol{\rho} = \theta \hat{\mathbf{e}}$. The rotation matrix can be computed via exponential mapping:
 
     $$
     \begin{align}
@@ -61,7 +54,6 @@ Let $\hat{\mathbf{e}}^{\alpha / \beta}_{\beta \alpha} = \left[
 e^{\alpha / \beta}_1 & e^{\alpha / \beta}_2 & e^{\alpha / \beta}_2
 \end{array}
 \right]^T$.
-
 
 Via exponential mapping:
 
@@ -170,7 +162,9 @@ $$
 
 Note that rotation vector and Euler angles are the same if we use small angle approximation.
 
-## Rodrigues' Formula Derivation via Geometry
+## Rodrigues' Formula Derivation
+
+### Geometry
 
 <figure markdown>
   ![$z$-$y$-$x$ rotation from left to right (Groves, p34)](/assets/images/kinematics/light/axis_angle.png#only-light){ width="300" }
@@ -258,7 +252,7 @@ $$
 \left[ \hat{\mathbf{e}} \right]^3_\times = \left[ \hat{\mathbf{e}} \right]_\times \left( \hat{\mathbf{e}} \hat{\mathbf{e}}^T - \mathbf{I} \right) = \left[ \hat{\mathbf{e}} \right]_\times \hat{\mathbf{e}} \hat{\mathbf{e}}^T - \left[ \hat{\mathbf{e}} \right]_\times = - \left[ \hat{\mathbf{e}} \right]_\times.
 $$
 
-## Rodigues's Formula Derivation via Lie Algebra
+### Lie Algebra
 
 Every Lie group has an associated Lie algebra, which is the **tangent space** around the identity element of the Lie group. Lie algebra for Lie group $SO(3)$ is $\mathfrak{so}(3)$ where:
 

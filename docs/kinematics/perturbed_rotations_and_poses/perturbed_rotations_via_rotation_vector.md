@@ -1,5 +1,7 @@
 # Perturbed Rotations via Rotation Vector
 
+## Definition
+
 Perturbation via rotation vector provides a new way of computing the Jacobian of a rotation matrix with respect to the rotation vector. The previous derivation requires to compute the left Jacobian which could be complicated.
 
 Consider a left perturbation of a rotation matrix $\mathbf{R}$ with Lie algebra vector $\boldsymbol{\rho}$ by $\Delta \mathbf{R}$ with Lie algebra vector $\Delta \boldsymbol{\rho}$.  The change of result relative to this disturbance for a vector $\mathbf{v} \in \mathbb{R}^3$ is:
@@ -21,3 +23,6 @@ $$
 &= -\left[ \mathbf{R} \mathbf{v} \right]_\times.
 \end{align}
 $$
+
+Note that the calculation of a left Jacobian, $\mathbf{J}_l$ is omitted compared to the direct Lie algebra's derivation. This makes perturbation model much more practical.
+

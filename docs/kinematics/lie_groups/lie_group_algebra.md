@@ -1,5 +1,16 @@
 # Lie Group and Lie Algebra
 
+## Overview
+
+The relationship between Lie group and Lie algebra is shown in Figure 1.
+
+<figure markdown>
+  ![Lie summary](/assets/images/kinematics/light/lie_summary.png#only-light){ width="1000" }
+  ![Lie summary](/assets/images/kinematics/dark/lie_summary.png#only-dark){ width="1000" }
+  <figcaption>Figure 1 Relationship between Lie group and Lie algebra</figcaption>
+</figure>
+
+
 ## Groups
 
 For a set that has only one "well-defined" operation, we call it a group. Formally, a group is a set of elements together with an operation that combines any two of its elements to form a third element also in the set, while satisfying four conditions called the **group axioms**, namely closure, associativity, identity, and invertibility.

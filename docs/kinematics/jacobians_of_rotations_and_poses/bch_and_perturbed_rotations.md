@@ -8,13 +8,13 @@ $$
 \exp(a) \exp(b) = \exp(a + b),
 $$
 
-where $a, b \in \mathbb{R}$. This is not as easy for the matrix case. To compound two matrix exponentials, we use the **Baker-Campbell-Hausdorff (BCH)** formula. The BCH formula provides a solution to $\mathbf{C}$ to the equation:
+where $a, b \in \mathbb{R}$. This is not as easy for the matrix case. To compound two matrix exponentials, we use the **Baker-Campbell-Hausdorff (BCH)** formula. The BCH formula provides a solution to $\mathbf{C}$ for the equation:
 
 $$
 \exp(\mathbf{A}) \exp(\mathbf{B}) = \exp(\mathbf{C}),
 $$
 
-for possible noncommutative $\mathbf{A}$ and $\mathbf{B}$ in the Lie Algebra of a Lie group. The first few terms of the series are:
+for possible noncommutative $\mathbf{A}$ and $\mathbf{B}$ in the Lie algebra of a Lie group. The first few terms of the series are:
 
 $$
 \begin{align}
@@ -32,7 +32,7 @@ $$
 
 BCH formula is useful for perturbing rotations and computing rotation matrix derivatives.
 
-## Using BCH on Rotations
+## BCH on Rotations
 
 Consider $\mathbf{R}_1 = \exp(\left[ \boldsymbol{\rho}_1 \right]_\times), \mathbf{R}_2 = \exp(\left[ \boldsymbol{\rho}_2 \right]_\times) \in SO(3)$ such that:
 
@@ -40,7 +40,7 @@ $$
 \mathbf{R}_1 \mathbf{R}_2 = \exp(\left[ \boldsymbol{\rho}_1 \right]_\times) \exp(\left[ \boldsymbol{\rho}_2 \right]_\times) = \mathbf{R}_3 = \exp(\left[ \boldsymbol{\rho}_3 \right]_\times).
 $$
 
-Then we have:
+Using BCH, we have:
 
 $$
 \begin{align}
@@ -64,26 +64,6 @@ $$
 $$
 
 where $\mathbf{J}_l$ and $\mathbf{J}_r$ are called the **left and right Jacobians**.
-
-!!! cnote "BCH for Small Perturbation"
-
-    Suppose we have a rotation $\mathbf{R}$ with corresponding Lie algebra vector $\boldsymbol{\rho}$. The rotation is then left-perturbed $\mathbf{R}$ with $\Delta \mathbf{R}$ with corresponding Lie algebra vector $\Delta \boldsymbol{\rho}$. Then, on Lie group, the result is $\Delta \mathbf{R} \mathbf{R}$, and on the Lie algebra, it will be:
-
-    $$
-    \begin{align}
-    \Delta \mathbf{R} \mathbf{R} &= \exp\left(\left[\Delta\boldsymbol{\rho} \right]_\times \right) \exp\left(\left[\boldsymbol{\rho} \right]_\times \right) \\
-    &= \exp \bigl( \left[ \boldsymbol{\rho} + \mathbf{J}^{-1}_l (\boldsymbol{\rho}) \Delta \boldsymbol{\rho} \right]_\times \bigr).
-    \end{align}
-    $$
-
-    Conversely, if we do an addition on Lie algebra vector $\boldsymbol{\rho}$ by perturbing it with $\Delta \boldsymbol{\rho}$, then we can approximate the multiplication on the Lie group as:
-
-    $$
-    \begin{align}
-    \exp \left( \left[\boldsymbol{\rho} + \Delta \boldsymbol{\rho} \right]_\times \right) &= \exp \left( \left[ \mathbf{J}_l \Delta \boldsymbol{\rho} \right]_\times \right) \exp \left( \left[ \boldsymbol{\rho} \right]_\times \right) \\
-    &= \exp \left( \left[\boldsymbol{\rho} \right]_\times \right) \exp \left(\left[ \mathbf{J}_r \Delta \boldsymbol{\rho} \right]_\times \right).
-    \end{align}
-    $$
 
 !!! cnote "Left and Right Jacobians"
 
@@ -109,7 +89,7 @@ where $\mathbf{J}_l$ and $\mathbf{J}_r$ are called the **left and right Jacobian
     \right) \hat{\mathbf{e}} \hat{\mathbf{e}}^T - \frac{\theta}{2} \left[ \hat{\mathbf{e}} \right]_\times,
     $$
 
-    The right Jacobian can be computed from the left as:
+    when $\theta$ is not zero. The right Jacobian can be computed from the left as:
 
     $$
     \begin{align}
@@ -118,7 +98,27 @@ where $\mathbf{J}_l$ and $\mathbf{J}_r$ are called the **left and right Jacobian
     \end{align}
     $$
 
-## Using BCH on Poses
+!!! cnote "BCH for Small Perturbation"
+
+    Suppose we have a rotation $\mathbf{R}$ with corresponding Lie algebra vector $\boldsymbol{\rho}$. The rotation is then left-perturbed $\mathbf{R}$ with $\Delta \mathbf{R}$ with corresponding Lie algebra vector $\Delta \boldsymbol{\rho}$. Then, on Lie group, the result is $\Delta \mathbf{R} \mathbf{R}$, and on the Lie algebra, it will be:
+
+    $$
+    \begin{align}
+    \Delta \mathbf{R} \mathbf{R} &= \exp\left(\left[\Delta\boldsymbol{\rho} \right]_\times \right) \exp\left(\left[\boldsymbol{\rho} \right]_\times \right) \\
+    &= \exp \bigl( \left[ \boldsymbol{\rho} + \mathbf{J}^{-1}_l (\boldsymbol{\rho}) \Delta \boldsymbol{\rho} \right]_\times \bigr).
+    \end{align}
+    $$
+
+    Conversely, if we do an addition on Lie algebra vector $\boldsymbol{\rho}$ by perturbing it with $\Delta \boldsymbol{\rho}$, then we can approximate the multiplication on the Lie group as:
+
+    $$
+    \begin{align}
+    \exp \left( \left[\boldsymbol{\rho} + \Delta \boldsymbol{\rho} \right]_\times \right) &= \exp \left( \left[ \mathbf{J}_l \Delta \boldsymbol{\rho} \right]_\times \right) \exp \left( \left[ \boldsymbol{\rho} \right]_\times \right) \\
+    &= \exp \left( \left[\boldsymbol{\rho} \right]_\times \right) \exp \left(\left[ \mathbf{J}_r \Delta \boldsymbol{\rho} \right]_\times \right).
+    \end{align}
+    $$
+
+## BCH on Poses
 
 Similarly, for $SE(3)$, we have:
 
@@ -128,7 +128,7 @@ $$
 &\approx
 \begin{cases}
 \boldsymbol{J}_l \left( \boldsymbol{\xi}_2 \right)^{-1} \boldsymbol{\xi}_1 + \boldsymbol{\xi}_2, \quad \text{if } \boldsymbol{\xi}_1 \ \text{is a small} \\
-\boldsymbol{J}_r \left( \boldsymbol{\xi}_1 \right)^{-1} \boldsymbol{\xi}_2 + \boldsymbol{\xi}_1, \quad \text{if } \boldsymbol{\xi}_2 \ \text{is a small},
+\boldsymbol{J}_r \left( \boldsymbol{\xi}_1 \right)^{-1} \boldsymbol{\xi}_2 + \boldsymbol{\xi}_1, \quad \text{if } \boldsymbol{\xi}_2 \ \text{is a small}.
 \end{cases}
 \end{align}
 $$
