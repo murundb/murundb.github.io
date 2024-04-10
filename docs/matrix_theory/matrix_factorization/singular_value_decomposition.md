@@ -29,15 +29,15 @@
     \mathbf{U}^T \mathbf{A} \mathbf{V} = \boldsymbol{\Sigma} = \text{diag} \left(\sigma_1, \ldots, \sigma_p \right) \in \mathbb{R}^{m \times n}, \quad p = \min \left\{m, n \right\},
     $$
 
-    where $\sigma_1 \geq \sigma_2 \geq \ldots \geq \sigma_p \geq 0$.
+    where $\sigma_1 \geq \sigma_2 \geq \ldots \geq \sigma_p \geq 0$. Equivalently:
 
-Hence, the SVD of matrix $\mathbf{A} \in \mathbb{R}^{m \times n}$ is:
+    $$
+    \mathbf{A} = \mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^T.
+    $$
 
-$$
-\mathbf{A} = \mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^T.
-$$
+The number of non-zero singular values is equal to the rank of $\mathbf{A}$. The columns of $\mathbf{U}$ and the columns of $\mathbf{V}$ are called left-singular vectors and right-singular vectors of $\mathbf{A}$, respectively. They form two sets of orthonormal bases $\mathbf{u}_1, \ldots, \mathbf{u}_m$ and $\mathbf{v}_1, \ldots, \mathbf{v}_n$. 
 
-The number of non-zero singular values is equal to the rank of $\mathbf{A}$. The columns of $\mathbf{U}$ and the columns of $\mathbf{V}$ are called left-singular vectors and right-singular vectors of $\mathbf{A}$, respectively. They form two sets of orthonormal bases $\mathbf{u}_1, \ldots, \mathbf{u}_m$ and $\mathbf{v}_1, \ldots, \mathbf{v}_n$, and if they are sorted so that the singular values of $\sigma_i$ with value zero are all in the highest-numbered columns, the SVD can be written as:
+For a square matrix $\mathbf{A}$, if they are sorted so that the singular values of $\sigma_i$ with value zero are all in the highest-numbered columns, the SVD can be written as:
 
 $$
 \mathbf{A} = \sum^{r}_{i = 1} \sigma_i \mathbf{u}_i \mathbf{v}^T_i,
@@ -49,7 +49,7 @@ Separate visualizations of the SVD are required depending upon whether $\mathbf{
 
 $$
 \begin{align}
-\left[
+&\left[
 \begin{array}{ccc}
 u_{11} & u_{12} & u_{13} \\
 u_{21} & u_{22} & u_{23} \\
@@ -76,7 +76,7 @@ v_{21} & v_{22} \\
 0 & 0 \\
 \end{array}
 \right], \\ 
-\left[
+&\left[
 \begin{array}{cc}
 u_{11} & u_{12} \\
 u_{21} & u_{22} \\
@@ -176,6 +176,8 @@ where $\ddagger$ implies inverting every non-zero diagonal element. See [Least S
 Given a real square matrix $\mathbf{A}$, the orthogonal matrix $\mathbf{O}$ closest to $\mathbf{A}$ is $\mathbf{U} \mathbf{V}^T$. The closeness of fit is measured by the Frobenius norm of $\mathbf{O} - \mathbf{A}$. The orthogonal matrix would have the decomposition $\mathbf{O} = \mathbf{U} \mathbf{I} \mathbf{V}^T$, so that if $\mathbf{A} = \mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^T$, then the product $\mathbf{A} = \mathbf{U} \mathbf{V}^T$ amounts to replacing the singular values with ones.
 
 ### Kabsch Algorithm
+
+See [Kabsch Algorithm](https://en.wikipedia.org/wiki/Kabsch_algorithm).
 
 ### Low-Rank Matrix Approximation
 

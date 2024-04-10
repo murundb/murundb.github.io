@@ -97,7 +97,13 @@ nav:
   - Kinematics:
     - References: kinematics/references.md
     - Kinematic Quantities: kinematics/kinematic_quantities.md
-    - Rotations:
+    - Rotations and Cross-Relations:
+      - Lie Group and Lie Algebra: kinematics/rotations/lie_group_and_lie_algebra.md
+      - Rotation Group SO(3):
+        - Rotation Matrices: kinematics/rotations/rotation_matrices.md
+        - Euler Angles: kinematics/rotations/euler_angles.md
+        - Axis-Angle: kinematics/rotations/axis_angle.md
+        - Quaternions: kinematics/rotations/quaternions.md
       - Rotation Matrices: kinematics/rotations/rotation_matrices.md
       - Euler Angles: kinematics/rotations/euler_angles.md
       - Axis-Angle: kinematics/rotations/axis_angle.md

@@ -1,3 +1,11 @@
+## Kernel
+
+Operating system is the one program that runs at all times on the coputer - usually called the kernel.
+
+## System Calls
+
+System calls provide an interface to the services made available by an OS.
+
 ## Device Controller and Device Driver
 
 Device Controller is responsible for moving the data between peripheral devices that it controls and its local buffer storage. Typically, operating systems have a device driver for each device controller. This device driver understands the device controller and provides the rest of the operating system with a uniform interface to the device.
@@ -38,3 +46,9 @@ Multiprogramming increases CPU utilization, as well as keeping users satisfied, 
 
 A single-threaded process has one **program counter** specifying the next instruction to execute. The execution of such a process must be sequential. The CPU executes one instruction of the process after another, until the process completes. Further, at any time, one instruction at most is executed on behalf of the process. Thus, although, two processes may be associated with the same program, they are nevertheless considered two separate execution sequences. A multithreaded process has multiple program counters, each pointing to the next instruction to execute for a given thread.
 
+## Bootloader
+
+A small piece of computer porgram that is responsible for booting a computer. 
+
+
+p71
