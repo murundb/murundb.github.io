@@ -39,19 +39,3 @@ With every matrix Lie group is associated a Lie algebra, which consists of a vec
 The vector space of a Lie algebra is the **tangent space** of the associated Lie group at the identity element of the group, and it completely captures the local structure of the group
 
 An example is cross product defined on the 3D vector in $\mathbb{R}^3$ is a lie bracket.
-
-## Exponential Map and Logarithm Map
-
-The expononential map takes elements in the Lie algebra to elements in the Lie group. Intuitively, it walks along the group manifold in the differential direction specified by the tangent vector in the Lie algebra. The matrix exponential is given by:
-
-$$
-\exp \left( \mathbf{A} \right) = \mathbf{I} + \mathbf{A} + \frac{1}{2!} \mathbf{A}^2 + \frac{1}{3!} \mathbf{A}^3 + \ldots = \sum^{\infty}_{n = 0} \frac{1}{n!} \mathbf{A}^n,
-$$
-
-where $\mathbf{A} \in \mathbb{R}^{M \times M}$ is a square matrix.
-
-The inverse conversion is the logarithm map:
-
-$$
-\ln \left( \mathbf{A} \right) = \sum^{\infty}_{n = 1} \frac{(-1)^{n - 1}}{n} (\mathbf{A} - \mathbf{I})^n.
-$$

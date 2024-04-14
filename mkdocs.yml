@@ -97,24 +97,19 @@ nav:
   - Kinematics:
     - References: kinematics/references.md
     - Kinematic Quantities: kinematics/kinematic_quantities.md
+    - Sophus:
+        - Lie Group and Lie Algebra: kinematics/sophus/lie_group_and_lie_algebra.md
+        - Exponential and Logarithmic Mapping: kinematics/sophus/exponential_and_logarithmic_map.md
+        - Special Orthogonal Group: kinematics/sophus/special_orthogonal_group.md
+        - Special Euclidean Group: kinematics/sophus/special_euclidean_group.md
+        - Adjoints: kinematics/sophus/adjoints.md
     - Rotations and Cross-Relations:
-      - Lie Group and Lie Algebra: kinematics/rotations/lie_group_and_lie_algebra.md
-      - Rotation Group SO(3):
-        - Rotation Matrices: kinematics/rotations/rotation_matrices.md
-        - Euler Angles: kinematics/rotations/euler_angles.md
-        - Axis-Angle: kinematics/rotations/axis_angle.md
-        - Quaternions: kinematics/rotations/quaternions.md
       - Rotation Matrices: kinematics/rotations/rotation_matrices.md
       - Euler Angles: kinematics/rotations/euler_angles.md
       - Axis-Angle: kinematics/rotations/axis_angle.md
       - Quaternions: kinematics/rotations/quaternions.md
-      - Attitude Visualization: kinematics/rotations/pangolin_visualization.md
-      - Time Derivative of Axes: kinematics/rotations/time_derivative_of_axes.md
-    - Lie Theory:
-      - Lie Groups and Lie Algebra: kinematics/lie_groups/lie_group_algebra.md 
-      - Special Orthogonal Group: kinematics/lie_groups/special_orthogonal_group.md
-      - Special Euclidean Group: kinematics/lie_groups/special_euclidean_group.md
-      - Adjoints: kinematics/lie_groups/adjoints.md
+      - Time Derivative and Angular Velocity: kinematics/rotations/time_derivative_of_rotation_matrix.md
+      - Time Derivative of Euler Angles: kinematics/rotations/time_derivative_of_euler_angles.md
     - Jacobians of Rotations and Poses:
       - Baker-Campbell-Hausdorff: kinematics/jacobians_of_rotations_and_poses/bch_and_perturbed_rotations.md
       - Jacobian with Respect to Euler Angles: kinematics/jacobians_of_rotations_and_poses/jacobian_wrt_euler_angles.md
@@ -127,9 +122,6 @@ nav:
     - Optimization on Smooth Manifolds:
       - Interpolation: kinematics/optimization_on_smooth_manifolds/interpolation.md
       - Difference of Rotations: kinematics/optimization_on_smooth_manifolds/difference_of_rotations.md
-  
-    - Angular Velocity: kinematics/angular_velocity.md
-    - Euler Rates: kinematics/euler_rates.md
     - Cartesian Position: kinematics/cartesian_position.md
     - Velocity: kinematics/velocity.md
     - Acceleration: kinematics/acceleration.md

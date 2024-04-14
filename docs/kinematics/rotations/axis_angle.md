@@ -2,8 +2,7 @@
 
 ## Definition
 
-Elements in $SO(3)$ are non-singular. One of the eigenvalues are always one with the other two being complex valued with magnitude of one. This implies that there exists
-a unit vector (eigenvector) $\hat{\mathbf{e}}$ that remain unchanged following the application of a rotation matrix $\mathbf{R}$. This unit vector is the axis of the rotation that can be used to represent a rotation matrix.
+Elements in $SO(3)$ are non-singular. One of the eigenvalues are always one with the other two being complex valued with magnitude of one. This implies that there exists a unit vector (eigenvector) $\hat{\mathbf{e}}$ that remain unchanged following the application of a rotation matrix $\mathbf{R}$. This unit vector is the axis of the rotation that can be used to represent a rotation matrix.
 
 !!! cnote "**Rodrigues' Formula**"
 

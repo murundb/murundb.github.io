@@ -5,7 +5,7 @@
 Velocity is defined as the rate of change of the position of the origin of an object frame, $F_\alpha$ with respect to the origin of a reference frame, $F_\beta$, resolved around the axes of $F_\beta$:
 
 $$
-\mathbf{v}^{\beta}_{\beta \alpha} = \dot{\mathbf{r}}^{\beta}_{\beta \alpha}. \label{5.1}
+\mathbf{v}^{\beta}_{\beta \alpha} \triangleq \dot{\mathbf{r}}^{\beta}_{\beta \alpha}. \label{5.1}
 $$
 
 This may, in turn, be resolved about the axes of a third frame, $F_\gamma$ using the rotation matrix:

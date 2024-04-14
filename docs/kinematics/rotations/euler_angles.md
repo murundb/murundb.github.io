@@ -2,17 +2,13 @@
 
 ## Definition
 
-**Euler angles** are three angles to describe the orientation. Most commonly used Euler angles is the yaw, pitch, roll angles which is equivalent to $3-2-1$ or $z-y-x$ rotation. Successive rotation is done through a sequence of three eigenaxis rotations, where each eigenaxis is chosen to be an axis of the frame resulting from the preceding rotation.
-
-## 3-2-1 Euler Angles
-
-Given an object frame $F_\alpha$ and a reference frame $F_\beta$, we can describe the orientation of $F_\alpha$ with respect to $F_\beta$ via roll $\phi_{\beta \alpha}$, pitch $\theta_{\beta \alpha}$, and yaw $\psi_{\beta \alpha}$ Euler angles as shown in Figure 1. We are only concerned with $z-y-x$ or $3-2-1$ sequence of rotations, i.e:
+Most commonly used Euler angles are yaw, pitch, and roll angles. Given an object frame $F_\alpha$ and a reference frame $F_\beta$, we can describe the orientation of $F_\alpha$ with respect to $F_\beta$ via roll $\phi_{\beta \alpha}$, pitch $\theta_{\beta \alpha}$, and yaw $\psi_{\beta \alpha}$ Euler angles as shown in Figure 1. We are only concerned with $z-y-x$ or $3-2-1$ sequence of rotations, i.e:
 
 1. Rotation through the yaw angle $\psi_{\beta \alpha}$ about the common $z$ axis of the $F_\beta$ frame and the first **intermediate** frame.
 2. Rotation through the pitch angle $\theta_{\beta \alpha}$ about the common $y$ axis of the first and second **intermediate** frame.
 3. Rotation through the roll angle $\phi_{\beta \alpha}$ about the common $x$ axis of the second frame and the $F_\alpha$ frame.
 
-Note that the successive rotations here are always about the new axis provided by the preceeding rotation and not about the fixed axis of $F_\beta$.
+Note that the successive rotations here are always about the new axis provided by the preceeding rotation and not about the fixed axis of $F_\beta$. This is called an **intrinsic** rotation.
 
 <figure markdown>
   ![$z-y-x$ rotation from left to right (Groves, p34)](/assets/images/kinematics/light/euler_angles.png#only-light){ width="600" }
@@ -64,76 +60,7 @@ Hence, Euler angles are more suited for visualization and interpretation rather 
     In the specific case in which the Euler angles describe the attitude of the body frame with respect to the local navigation frame, the roll rotation is known as 
     **bank**, the pitch rotation is known as **elevation**, and the yaw rotation is known as **heading** or **azimuth**. The bank and elevation are also collectively known as **tilts**.
 
-## Attitude Representation via Euler Angles
-
-Let $\mathbf{R}^{\alpha}_{\beta}$ be the rotation matrix from frame $F_\beta$ to $F_\alpha$. From Figure 1, the first rotation will be through the yaw angle $\psi_{\beta \alpha}$ about the common $z$ axis of the $\beta$ frame to yield the first intermediate axes $(x^\psi, y^\psi, z^\psi)$:
-
-$$
-\begin{align}
-& x^{\psi} = x^{\beta} \text{cos}(\psi_{\beta \alpha}) + y^{\beta} \text{sin}(\psi_{\beta \alpha}) \\
-& y^{\psi} = -x^{\beta} \text{sin}(\psi_{\beta \alpha}) + y^{\beta} \text{cos}(\psi_{\beta \alpha}) \\
-& z^{\psi} = z^{\beta},
-\end{align}
-$$
-
-which yields to a rotation matrix:
-
-$$
-\mathbf{R}^{\psi}_{\beta} =
-\left[
-\begin{array}{ccc}
-\text{cos}(\psi_{\beta \alpha}) & \text{sin}(\psi_{\beta \alpha}) & 0 \\
--\text{sin}(\psi_{\beta \alpha}) & \text{cos}(\psi_{\beta \alpha}) & 0 \\
-0 & 0 & 1
-\end{array}
-\right].
-$$
-
-The second rotation will be through the pitch angle $\theta_{\beta \alpha}$ about the common $y$ axis of the first and second intermediate frames:
-
-$$
-\begin{align}
-& x^{\theta} = x^{\psi} \text{cos}(\theta_{\beta \alpha}) - z^{\psi} \text{sin}(\theta_{\beta \alpha}) \\
-& y^{\theta} = y^{\psi} \\
-& z^{\theta} = x^{\psi} \text{sin}(\theta_{\beta \alpha}) + z^{\psi} \text{cos}(\theta_{\beta \alpha}),
-\end{align}
-$$
-
-which yields to a rotation matrix:
-
-$$
-\mathbf{R}^{\theta}_{\psi} =
-\left[
-\begin{array}{ccc}
-\text{cos}(\theta_{\beta \alpha}) & 0 & -\text{sin}(\theta_{\beta \alpha}) \\
-0 & 1 & 0 \\
-\text{sin}(\theta_{\beta \alpha}) & 0 & \text{cos}(\theta_{\beta \alpha})
-\end{array}
-\right].
-$$
-
-The third and the last rotation will be through the roll angle $\phi_{\beta \alpha}$ about the common $x$ axis of the second frame and the $\alpha$ frame:
-
-$$
-\begin{align}
-& x^{\alpha} = x^{\theta} \\
-& y^{\alpha} = y^{\theta} \text{cos}(\phi_{\beta \alpha}) + z^{\theta} \text{sin}(\phi_{\beta \alpha}) \\
-& z^{\alpha} = -y^{\theta} \text{sin}(\phi_{\beta \alpha}) + z^{\theta} \text{cos}(\phi_{\beta \alpha}),
-\end{align}
-$$
-
-which yields to a rotation matrix:
-
-$$
-\mathbf{R}^{\alpha}_{\theta} =
-\left[
-\begin{array}{ccc}
-1 & 0 & 0 \\
-0 & \text{cos}(\phi_{\beta \alpha}) & \text{sin}(\phi_{\beta \alpha}) \\
-0 & -\text{sin}(\phi_{\beta \alpha}) & \text{cos}(\phi_{\beta \alpha})
-\end{array}
-\right],
-$$
+## Euler Angles to Rotation Matrix
 
 The rotation matrix from frame $F_\beta$ to $F_\alpha$ is obtained as:
 
@@ -184,26 +111,11 @@ The attitude is the rotation matrix from frame $F_\alpha$ to $F_\beta$:
 $$
 \begin{align}
 \mathbf{R}^\beta_\alpha &= \left( \mathbf{R}^\alpha_\beta \right)^T \\
-&= \left( \mathbf{R}^{\psi}_{\beta} \right)^T \left( \mathbf{R}^{\theta}_{\psi} \right)^T \left( \mathbf{R}^{\alpha}_{\phi} \right)^T.
+&= \left( \mathbf{R}^{\psi}_{\beta} \right)^T \left( \mathbf{R}^{\theta}_{\psi} \right)^T \left( \mathbf{R}^{\alpha}_{\phi} \right)^T,
 \end{align}
 $$
 
-## Rotation Matrix to Euler Angles
-
-Given $\mathbf{R}^\alpha_{\beta}$, conversion to Euler angles can be obtained as:
-
-$$
-\begin{align}
-\phi_{\beta \alpha} &= \text{arctan}_2 \left( \mathbf{R}^{\alpha}_{\beta \ 2,3}, \mathbf{R}^{\alpha}_{\beta \ 3,3} \right) \\
-\theta_{\beta \alpha} &= -\text{arcsin}\left( \mathbf{R}^{\alpha}_{\beta \ 1,3}\right) \\
-\psi_{\beta \alpha} &= \text{arctan}_2 \left( \mathbf{R}^{\alpha}_{\beta \ 1,2}, \mathbf{R}^{\alpha}_{\beta \ 1,1} \right),
-\end{align}
-$$
-
-where four-quadrant arctangent functions must be used.
-
-Note here that if we are interested in converting between atttiude representations 
-(e.g., between Euler angles $\Psi_{nb}$ and $\mathbf{R}^n_{b}$), then the attitude should be represented as $\mathbf{R}^{\beta}_{\alpha}$ as:
+which yields to:
 
 $$
 \mathbf{R}^{\beta}_{\alpha} = 
@@ -245,7 +157,90 @@ $$
 \right],
 $$
 
-and the conversion to Euler angles can be obtained as:
+??? cnote "Proof"
+
+    From Figure 1, the first rotation will be through the yaw angle $\psi_{\beta \alpha}$ about the common $z$ axis of the $\beta$ frame to yield the first intermediate axes $(x^\psi, y^\psi, z^\psi)$:
+
+    $$
+    \begin{align}
+    & x^{\psi} = x^{\beta} \text{cos}(\psi_{\beta \alpha}) + y^{\beta} \text{sin}(\psi_{\beta \alpha}) \\
+    & y^{\psi} = -x^{\beta} \text{sin}(\psi_{\beta \alpha}) + y^{\beta} \text{cos}(\psi_{\beta \alpha}) \\
+    & z^{\psi} = z^{\beta},
+    \end{align}
+    $$
+
+    which yields to a rotation matrix:
+
+    $$
+    \mathbf{R}^{\psi}_{\beta} =
+    \left[
+    \begin{array}{ccc}
+    \text{cos}(\psi_{\beta \alpha}) & \text{sin}(\psi_{\beta \alpha}) & 0 \\
+    -\text{sin}(\psi_{\beta \alpha}) & \text{cos}(\psi_{\beta \alpha}) & 0 \\
+    0 & 0 & 1
+    \end{array}
+    \right].
+    $$
+
+    The second rotation will be through the pitch angle $\theta_{\beta \alpha}$ about the common $y$ axis of the first and second intermediate frames:
+
+    $$
+    \begin{align}
+    & x^{\theta} = x^{\psi} \text{cos}(\theta_{\beta \alpha}) - z^{\psi} \text{sin}(\theta_{\beta \alpha}) \\
+    & y^{\theta} = y^{\psi} \\
+    & z^{\theta} = x^{\psi} \text{sin}(\theta_{\beta \alpha}) + z^{\psi} \text{cos}(\theta_{\beta \alpha}),
+    \end{align}
+    $$
+
+    which yields to a rotation matrix:
+
+    $$
+    \mathbf{R}^{\theta}_{\psi} =
+    \left[
+    \begin{array}{ccc}
+    \text{cos}(\theta_{\beta \alpha}) & 0 & -\text{sin}(\theta_{\beta \alpha}) \\
+    0 & 1 & 0 \\
+    \text{sin}(\theta_{\beta \alpha}) & 0 & \text{cos}(\theta_{\beta \alpha})
+    \end{array}
+    \right].
+    $$
+
+    The third and the last rotation will be through the roll angle $\phi_{\beta \alpha}$ about the common $x$ axis of the second frame and the $\alpha$ frame:
+
+    $$
+    \begin{align}
+    & x^{\alpha} = x^{\theta} \\
+    & y^{\alpha} = y^{\theta} \text{cos}(\phi_{\beta \alpha}) + z^{\theta} \text{sin}(\phi_{\beta \alpha}) \\
+    & z^{\alpha} = -y^{\theta} \text{sin}(\phi_{\beta \alpha}) + z^{\theta} \text{cos}(\phi_{\beta \alpha}),
+    \end{align}
+    $$
+
+    which yields to a rotation matrix:
+
+    $$
+    \mathbf{R}^{\alpha}_{\theta} =
+    \left[
+    \begin{array}{ccc}
+    1 & 0 & 0 \\
+    0 & \text{cos}(\phi_{\beta \alpha}) & \text{sin}(\phi_{\beta \alpha}) \\
+    0 & -\text{sin}(\phi_{\beta \alpha}) & \text{cos}(\phi_{\beta \alpha})
+    \end{array}
+    \right].
+    $$
+
+## Rotation Matrix to Euler Angles
+
+Given $\mathbf{R}^\alpha_{\beta}$, conversion to Euler angles can be obtained as:
+
+$$
+\begin{align}
+\phi_{\beta \alpha} &= \text{arctan}_2 \left( \mathbf{R}^{\alpha}_{\beta \ 2,3}, \mathbf{R}^{\alpha}_{\beta \ 3,3} \right) \\
+\theta_{\beta \alpha} &= -\text{arcsin}\left( \mathbf{R}^{\alpha}_{\beta \ 1,3}\right) \\
+\psi_{\beta \alpha} &= \text{arctan}_2 \left( \mathbf{R}^{\alpha}_{\beta \ 1,2}, \mathbf{R}^{\alpha}_{\beta \ 1,1} \right),
+\end{align}
+$$
+
+where four-quadrant arctangent functions must be used. For an attitude $\mathbf{R}^{\beta}_{\alpha}$, the Euler angles are:
 
 $$
 \begin{align}
@@ -294,5 +289,4 @@ $$
 \right]^T,
 $$
 
-is the Euler rotation vector.
-
+is the Euler rotation vector. Noe that the form of the rotation matrix for infinitesimal rotations does not depend on the order in which the rotations are performed.

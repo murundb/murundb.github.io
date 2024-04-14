@@ -1,4 +1,6 @@
-# Euler Rates
+# Time Derivative of Euler Angles
+
+## Euler Rates
 
 Recall that:
 
@@ -42,6 +44,39 @@ $$
 
 where $\mathbf{I}_i$ os column $i$ of $\mathbf{I}_{3 \times 3}$.
 
+??? cnote "Proof"
+    The principle rotation matrix about the third axis is given as:
+
+    $$
+    \mathbf{R}_3 = 
+    \left[
+    \begin{array}{ccc}
+    \cos \psi & \sin \psi & 0 \\
+    -\sin \psi & \cos \psi & 0 \\
+    0 & 0 & 1.
+    \end{array}
+    \right]
+    $$
+
+    The time derivative of $\mathbf{R}_3$ is:
+    
+    $$
+    \dot{\mathbf{R}}_3 = 
+    \left[
+    \begin{array}{ccc}
+    -\dot{\psi} \sin \psi & \dot{\psi} \cos \psi & 0 \\
+    -\dot{\psi} \cos \psi & - \dot{\psi} \sin \psi & 0 \\
+    0 & 0 & 0
+    \end{array}
+    \right].
+    $$
+
+    Then:
+
+    $$
+    -\dot{\mathbf{R}}_3 \mathbf{R}^T_3 = \left[ \mathbf{I}_3 \right]_\times \dot{\psi}.
+    $$
+
 Consider the 3-2-1 Euler angle sequence for frames, $F_\alpha$ and $F_\beta$, and its associated rotation matrix:
 
 $$
@@ -65,7 +100,13 @@ $$
 \end{align}
 $$
 
-Using identity 2, eq ($\ref{2}$) becomes:
+Given:
+
+$$
+\left[ \mathbf{R} \mathbf{r} \right]_\times = \mathbf{R} \left[ \mathbf{r} \right]_\times \mathbf{R}^T,
+$$
+
+for any vector $\mathbf{r} \in \mathbb{R}^3$, eq ($\ref{2}$) becomes:
 
 $$
 \begin{align}
@@ -76,7 +117,7 @@ $$
 \end{align}
 $$
 
-which can be simplified to
+which can be simplified to:
 
 $$
 \begin{align}
@@ -97,7 +138,7 @@ $$
 \end{align}
 $$
 
-which gives the angular velocity in terms of **Euler rates**. The matrix $\mathbf{S}$ will be:
+which gives the angular velocity in terms of **Euler rates**. The matrix $\mathbf{S}$ is:
 
 $$
 \mathbf{S}(\phi_{\beta \alpha}, \theta_{\beta \alpha}) =
@@ -105,7 +146,7 @@ $$
 \begin{array}{ccc}
 1 & 0 & -\sin \theta_{\beta \alpha} \\
 0 & \cos \phi_{\beta \alpha} & \sin \phi_{\beta \alpha} \cos \theta_{\beta \alpha} \\
-0 & -sin \phi_{\beta \alpha} & \cos \phi_{\beta \alpha} \cos \theta_{\beta \alpha}
+0 & -\sin \phi_{\beta \alpha} & \cos \phi_{\beta \alpha} \cos \theta_{\beta \alpha}
 \end{array}
 \right].
 $$

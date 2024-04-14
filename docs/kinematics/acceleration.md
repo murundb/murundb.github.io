@@ -5,7 +5,7 @@
 Acceleration is defined as the second time derivative of the position of the origin of one frame with respect to the origin and axes of another frame:
 
 $$
-\mathbf{a}^{\beta}_{\beta \alpha} = \ddot{\mathbf{r}}^{\beta}_{\beta \alpha}. \label{6.1}
+\mathbf{a}^{\beta}_{\beta \alpha} \triangleq \ddot{\mathbf{r}}^{\beta}_{\beta \alpha}. \label{6.1}
 $$
 
 The resolving axes can be changed via transformation matrix:
@@ -110,7 +110,7 @@ $$
 \mathbf{a}^{\gamma}_{\beta \alpha} = \mathbf{R}^{\gamma}_{\delta} \mathbf{a}^{\delta}_{\beta \alpha}. \label{6.11}
 $$
 
-## Rotation Reference Frame
+## Rotating Reference Frame
 
 Consider an object frame, $F_\alpha$, that is stationary with respect to a reference frame, $F_\beta$, that is rotating at a constant rate, $\omega_{ i \beta}$ , with respect to an inertial frame, $F_i$. 
 An observer in inertial frame will see the object moving in circle centered about the axis of rotation of the rotating frame. The position of the object with respect

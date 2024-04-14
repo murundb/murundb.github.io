@@ -153,7 +153,7 @@
 .md-typeset .admonition.cnote,
 .md-typeset details.cnote {
 border-color: rgb(255, 145, 0);
-font-size: 16px;
+font-size: 0.8rem;
 }
 .md-typeset .cnote > .admonition-title,
 .md-typeset .cnote > summary {
