@@ -110,15 +110,13 @@ nav:
       - Quaternions: kinematics/rotations/quaternions.md
       - Time Derivative and Angular Velocity: kinematics/rotations/time_derivative_of_rotation_matrix.md
       - Time Derivative of Euler Angles: kinematics/rotations/time_derivative_of_euler_angles.md
-    - Jacobians of Rotations and Poses:
-      - Baker-Campbell-Hausdorff: kinematics/jacobians_of_rotations_and_poses/bch_and_perturbed_rotations.md
+    - Jacobians and Perturbation of Rotations and Poses:
       - Jacobian with Respect to Euler Angles: kinematics/jacobians_of_rotations_and_poses/jacobian_wrt_euler_angles.md
+      - Perturbed Rotations via Euler Angles: kinematics/jacobians_of_rotations_and_poses/perturbed_rotations_via_euler_angles.md
+      - BCH, Left and Right Jacobians: kinematics/jacobians_of_rotations_and_poses/bch_and_perturbed_rotations.md
       - Jacobian with Respect to Lie Algebra Vector: kinematics/jacobians_of_rotations_and_poses/jacobian_wrt_lie_algebra_vector.md
-      - Jacobian with Respect to Time: kinematics/jacobians_of_rotations_and_poses/jacobian_wrt_time.md
-    - Perturbed Rotations and Poses:
-      - Perturbed Rotations via Euler Angles: kinematics/perturbed_rotations_and_poses/perturbed_rotations_via_euler_angles.md
-      - Perturbed Rotations via Rotation Vector: kinematics/perturbed_rotations_and_poses/perturbed_rotations_via_rotation_vector.md
-      - Perturbed Poses via Rotation Vector: kinematics/perturbed_rotations_and_poses/perturbed_poses_via_rotation_vector.md
+      - Perturbed Rotations via Rotation Vector: kinematics/jacobians_of_rotations_and_poses/perturbed_rotations_via_rotation_vector.md
+      - Perturbed Poses via Rotation Vector: kinematics/jacobians_of_rotations_and_poses/perturbed_poses_via_rotation_vector.md
     - Optimization on Smooth Manifolds:
       - Interpolation: kinematics/optimization_on_smooth_manifolds/interpolation.md
       - Difference of Rotations: kinematics/optimization_on_smooth_manifolds/difference_of_rotations.md

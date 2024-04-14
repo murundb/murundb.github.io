@@ -1,6 +1,6 @@
-# Jacobian with respect to Euler Angles
+# Jacobian with Respect to Euler Angles
 
-## Principle Rotation Derivatives
+## Principle Rotation Matrix Derivatives
 
 The principle rotation matrices are:
 
@@ -71,17 +71,15 @@ Note that this property holds regardless if it is passive or active rotation.
 
 ## Derivative with Respect to Euler Angles
 
-Given a reference frame, $F_\beta$, and the object frame, $F_\alpha$, the attitude $\mathbf{R}^\beta_\alpha \in SO(3)$ can be expressed as the product of the principal rotation matrices. Denote $\mathbf{v} \in \mathbb{R}^3$ as an arbitrary constant vector resolved in the object frame.
-
-Consider the 1-2-3 Euler angles and denote it as $\boldsymbol{\theta} = \left( \theta_1, \theta_2, \theta_3 \right)$ corresponding to the roll, pitch, and yaw angles. The attitude of the body can be represented as:
+Consider the 1-2-3 Euler angles and denote it as $\boldsymbol{\theta} = \left( \theta_1, \theta_2, \theta_3 \right)$ corresponding to the roll, pitch, and yaw angles. The rotation matrix can be represented as:
 
 $$
 \begin{align}
-\mathbf{R}^\alpha_\beta = \mathbf{R}(\boldsymbol{\theta}) &= \mathbf{R}_3 (\theta_3) \mathbf{R}_2(\theta_2) \mathbf{R}_1(\theta_1).
+\mathbf{R}(\boldsymbol{\theta}) &= \mathbf{R}_3 (\theta_3) \mathbf{R}_2(\theta_2) \mathbf{R}_1(\theta_1).
 \end{align}
 $$
 
-Taking the derivative of the rotation matrix with the Euler angles yields to:
+Taking the derivative of the rotation matrix with respect to the Euler angles yields to:
 
 $$
 \begin{alignat}{2}
