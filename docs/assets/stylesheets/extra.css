@@ -87,6 +87,14 @@
             display: initial;
     }
 
+    [data-md-color-scheme="dark"] strong, [data-md-color-scheme="dark"] .md-nav__title, h4 {
+        color:  hsl(17, 92%, 56%);
+      }
+
+    [data-md-color-scheme="default"] strong, [data-md-color-scheme="default"] .md-nav__title, [data-md-color-scheme="default"] h4 {
+    color:  hsl(17, 92%, 56%);
+    }
+
     /*
     [data-md-color-switching] *, [data-md-color-switching] *::before, [data-md-color-switching] *::after {
             transition-duration: 0ms !important;

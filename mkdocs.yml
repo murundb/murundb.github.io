@@ -90,6 +90,8 @@ nav:
     - Matrix Calculus:
       - Identities: matrix_theory/matrix_calculus/matrix_calculus_identities.md
       - Matrix Calculus: matrix_theory/matrix_calculus/matrix_calculus.md
+    - Matrix Groups:
+      - Matrix Groups: matrix_theory/matrix_groups/matrix_groups.md
     - Software Implementation:
       - Storage: matrix_theory/software_implementation/storage.md
       - Multiplication: matrix_theory/software_implementation/multiplication.md
