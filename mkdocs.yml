@@ -102,13 +102,12 @@ nav:
 
   - Kinematics:
     - References: kinematics/references.md
-    - Kinematic Quantities: kinematics/kinematic_quantities.md
+    - Angular Velocity: kinematics/angular_velocity.md
     - Rotations and Cross-Relations:
       - Rotation Matrices: kinematics/rotations/rotation_matrices.md
       - Euler Angles: kinematics/rotations/euler_angles.md
       - Axis-Angle: kinematics/rotations/axis_angle.md
       - Quaternions: kinematics/rotations/quaternions.md
-      - Time Derivative and Angular Velocity: kinematics/rotations/time_derivative_of_rotation_matrix.md
       - Time Derivative of Euler Angles: kinematics/rotations/time_derivative_of_euler_angles.md
     - Jacobians and Perturbation of Rotations and Poses:
       - Jacobian with Respect to Euler Angles: kinematics/jacobians_of_rotations_and_poses/jacobian_wrt_euler_angles.md
