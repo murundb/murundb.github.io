@@ -1,12 +1,12 @@
 # Matrix Groups
 
-## Group Definition
-
 !!! cnote "Group Relationships"
 
     $$
     SO(n) \subset O(n) \subset GL(n), \quad SE(n) \subset E(n) \subset A(n) \subset GL(n + 1).
     $$
+
+## Group Definition
 
 A group is a set $G$ with an operation $\circ$ that maps $G \times G \rightarrow G$ such that it satisfies the group axioms:
 
@@ -81,7 +81,7 @@ The above shows that for any orthogonal matrix $\mathbf{R}$, we have $\text{det}
 
 The subgroup of $O(n)$ with $\text{det}(\mathbf{R}) = +1$ is called the **special orthogonal group** $SO(n)$. Note that $SO(n) = O(n) \cap SL(n)$.
 
-## The Euclidean Group
+## Euclidean Group
 
 A Euclidean transformation $L$ from $\mathbb{R}^n \rightarrow \mathbb{R}^n$ is defined by an orthogonal matrix $\mathbf{R} \in O(n)$ and a vector $\mathbf{t} \in \mathbf{R}^n$ such that:
 

@@ -90,8 +90,12 @@ nav:
     - Matrix Calculus:
       - Identities: matrix_theory/matrix_calculus/matrix_calculus_identities.md
       - Matrix Calculus: matrix_theory/matrix_calculus/matrix_calculus.md
-    - Matrix Groups:
+    - Matrix Groups: 
       - Matrix Groups: matrix_theory/matrix_groups/matrix_groups.md
+      - Lie Group and Lie Algebra: matrix_theory/matrix_groups/lie_group_and_lie_algebra.md
+      - Exponential and Logarithmic Mapping: matrix_theory/matrix_groups/exponential_and_logarithmic_map.md
+      - Special Orthogonal Group: matrix_theory/matrix_groups/special_orthogonal_group.md
+      - Special Euclidean Group: matrix_theory/matrix_groups/special_euclidean_group.md
     - Software Implementation:
       - Storage: matrix_theory/software_implementation/storage.md
       - Multiplication: matrix_theory/software_implementation/multiplication.md
@@ -99,12 +103,6 @@ nav:
   - Kinematics:
     - References: kinematics/references.md
     - Kinematic Quantities: kinematics/kinematic_quantities.md
-    - Sophus:
-        - Lie Group and Lie Algebra: kinematics/sophus/lie_group_and_lie_algebra.md
-        - Exponential and Logarithmic Mapping: kinematics/sophus/exponential_and_logarithmic_map.md
-        - Special Orthogonal Group: kinematics/sophus/special_orthogonal_group.md
-        - Special Euclidean Group: kinematics/sophus/special_euclidean_group.md
-        - Adjoints: kinematics/sophus/adjoints.md
     - Rotations and Cross-Relations:
       - Rotation Matrices: kinematics/rotations/rotation_matrices.md
       - Euler Angles: kinematics/rotations/euler_angles.md
@@ -125,6 +123,8 @@ nav:
     - Cartesian Position: kinematics/cartesian_position.md
     - Velocity: kinematics/velocity.md
     - Acceleration: kinematics/acceleration.md
+    - Camera Motion:
+      - Camera Pose: kinematics/camera_motion/camera_pose.md
   
   - Estimation Theory:
     - References: estimation_theory/references.md

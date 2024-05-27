@@ -37,7 +37,7 @@ $$
 \end{align}
 $$
 
-which is the **Rodrigues' formula** derived previously. The exponential map yields a rotation by $\theta$ radians around the axis given by $\boldsymbol{\rho}$. 
+which is the **Rodrigues' formula**. The exponential map yields a rotation by $\theta$ radians around the axis given by $\boldsymbol{\rho}$. 
 
 The exponential map can be inverted to give the logarithm mapping, going from $SO(3)$ to $\mathfrak{so}(3)$:
 
