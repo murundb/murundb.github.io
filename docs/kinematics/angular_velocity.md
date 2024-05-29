@@ -1,14 +1,12 @@
 # Angular Velocity
 
-## Definition and Properties
-
 The angular velocity vector, $\boldsymbol{\omega}^{\gamma}_{\beta \alpha}$, is the rate of rotation of the frame $F_\alpha$ axes with respect
 to the frame $F_\beta$ axes, resolved about the frame $F_\gamma$ axes. The rotation is within the plane perpendicular to the angular rate vector, and  the angular rate vector direction follows the right-hand rule.
 
-| Properties  |  |
+| Properties of Angular Velocity  |  |
 | ----- | --------------------------------------- |
-| Reverse Rotation | $\boldsymbol{\omega}^{\gamma}_{\beta \alpha} = -\boldsymbol{\omega}^{\gamma}_{\alpha \beta}$ |
+| Reverse Angular Rate | $\boldsymbol{\omega}^{\gamma}_{\beta \alpha} = -\boldsymbol{\omega}^{\gamma}_{\alpha \beta}$ |
 | Addition | $\boldsymbol{\omega}^{\gamma}_{\beta \alpha} = \boldsymbol{\omega}^{\gamma}_{\beta \delta} + \boldsymbol{\omega}^{\gamma}_{\delta \alpha}$ |
-| Change in Resolving Axes | $\boldsymbol{\omega}^{\gamma}_{\beta \alpha} = \mathbf{R}^{\gamma}_{\delta} \boldsymbol{\omega}^{\delta}_{\beta \alpha}$ |
-| Skew | $\boldsymbol{\Omega}^{\gamma}_{\beta \alpha} = \left[ \boldsymbol{\omega}^{\gamma}_{\beta \alpha} \right]_\times = \left[ \begin{array}{ccc} 0 & -\omega^{\gamma}_{\beta \alpha, 3} & \omega^{\gamma}_{\beta \alpha, 2} \\ \omega^{\gamma}_{\beta \alpha, 3} & 0 & -\omega^{\gamma}_{\beta \alpha, 1} \\ -\omega^{\gamma}_{\beta \alpha, 2} & -\omega^{\gamma}_{\beta \alpha, 1} & 0 \\ \end{array} \right]$ |
-| Skew Transform | $\boldsymbol{\Omega}^{\gamma}_{\beta \alpha} = \mathbf{R}^{\gamma}_{\delta} \boldsymbol{\Omega}^{\delta}_{\beta \alpha} \mathbf{R}^{\delta}_{\gamma}$ |
+| Resolving Axes Transform | $\boldsymbol{\omega}^{\gamma}_{\beta \alpha} = \mathbf{R}^{\gamma}_{\delta} \boldsymbol{\omega}^{\delta}_{\beta \alpha}$ |
+| Skew | $\boldsymbol{\Omega}^{\gamma}_{\beta \alpha} = \left[ \boldsymbol{\omega}^{\gamma}_{\beta \alpha} \right]_\times = \left[ \begin{array}{ccc} 0 & -\omega^{\gamma}_{\beta \alpha, 3} & \omega^{\gamma}_{\beta \alpha, 2} \\ \omega^{\gamma}_{\beta \alpha, 3} & 0 & -\omega^{\gamma}_{\beta \alpha, 1} \\ -\omega^{\gamma}_{\beta \alpha, 2} & \omega^{\gamma}_{\beta \alpha, 1} & 0 \\ \end{array} \right]$ |
+| Skew Axes Transform | $\boldsymbol{\Omega}^{\gamma}_{\beta \alpha} = \mathbf{R}^{\gamma}_{\delta} \boldsymbol{\Omega}^{\delta}_{\beta \alpha} \mathbf{R}^{\delta}_{\gamma}$ |

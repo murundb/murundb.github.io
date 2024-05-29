@@ -130,7 +130,7 @@ $$
     \end{align} \label{3.9}
     $$
 
-    which is known as the Poisson's equation (derived in Sophus section as well).
+    which is the Poisson's equation.
 
     Note that if the above steps are repeated under the assumption that $F_\beta$ is rotating and $F_\alpha$ is stionary, the result 
     $\dot{\mathbf{R}}^\alpha_\beta = -\mathbf{R}^\alpha_\beta \boldsymbol{\Omega}^\beta_{\beta \alpha}$ is obtained. However, the results are equivalent.
