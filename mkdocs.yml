@@ -90,23 +90,23 @@ nav:
     - Matrix Calculus:
       - Identities: matrix_theory/matrix_calculus/matrix_calculus_identities.md
       - Matrix Calculus: matrix_theory/matrix_calculus/matrix_calculus.md
-    - Matrix Groups: 
-      - Matrix Groups: matrix_theory/matrix_groups/matrix_groups.md
-      - Lie Group and Lie Algebra: matrix_theory/matrix_groups/lie_group_and_lie_algebra.md
-      - Exponential and Logarithmic Mapping: matrix_theory/matrix_groups/exponential_and_logarithmic_map.md
-      - Special Orthogonal Group: matrix_theory/matrix_groups/special_orthogonal_group.md
-      - Special Euclidean Group: matrix_theory/matrix_groups/special_euclidean_group.md
     - Software Implementation:
       - Storage: matrix_theory/software_implementation/storage.md
       - Multiplication: matrix_theory/software_implementation/multiplication.md
 
   - Kinematics:
-    - Angular Velocity: kinematics/angular_velocity.md
     - Rotations and Cross-Relations:
-      - Rotation Matrices: kinematics/rotations/rotation_matrices.md
+      - Angular Velocity: kinematics/rotations/angular_velocity.md
+      - Rotation Matrix: kinematics/rotations/rotation_matrix.md
       - Euler Angles: kinematics/rotations/euler_angles.md
       - Axis-Angle: kinematics/rotations/axis_angle.md
       - Quaternions: kinematics/rotations/quaternions.md
+    - Matrix Groups: 
+      - Matrix Groups and Cross-Relations: kinematics/matrix_groups/matrix_groups_and_cross_relations.md
+      - Lie Group and Lie Algebra: kinematics/matrix_groups/lie_group_and_lie_algebra.md
+      - Exponential and Logarithmic Mapping: kinematics/matrix_groups/exponential_and_logarithmic_map.md
+      - Special Orthogonal Group: kinematics/matrix_groups/special_orthogonal_group.md
+      - Special Euclidean Group: kinematics/matrix_groups/special_euclidean_group.md
     - Jacobians:
       - Definition of Derivatives: kinematics/jacobians/definition_of_derivatives.md
       - Jacobian with Respect to Euler Angles: kinematics/jacobians_of_rotations_and_poses/jacobian_wrt_euler_angles.md
@@ -211,9 +211,9 @@ nav:
 
     - Extended Kalman Filter:
       - Continuous-Time EKF: estimation_theory/continuous_time_ekf.md
-    - Factor Graph:
-      - Factor Graph Overview: estimation_theory/factor_graph/factor_graph_overview.md
-      - Factor Graph Equivalences: estimation_theory/factor_graph/factor_graph_equivalences.md
+    - Factor Graphs:
+      - Definition: estimation_theory/factor_graph/definition.md
+      - Representations: estimation_theory/factor_graph/representations.md
       - Using Factor Graph:
         - Simple Averaging: estimation_theory/factor_graph/using_factor_graph/simple_averaging.md
         - Weighted Averaging: estimation_theory/factor_graph/using_factor_graph/weighted_averaging.md
@@ -230,6 +230,10 @@ nav:
       - Rotation of Earth: navigation/geodesy/rotation_of_earth.md
       - Gravity Models: navigation/geodesy/gravity_models.md
       - Frame Transformations: navigation/geodesy/frame_transformations.md
+    - IMU and Gravity Models: 
+      - IMU Measurements: navigation/imu_and_gravity_models/imu_measurements.md
+      - IMU Error Models: navigation/imu_and_gravity_models/imu_error_models.md
+      - Inertial Navigation Equations: navigation/imu_and_gravity_models/inertial_navigation_equations.md
     - Inertial Navigation:
       - IMU: navigation/inertial_navigation/imu.md
       - Architecture: navigation/inertial_navigation/inertial_navigation_architecture.md
@@ -248,14 +252,15 @@ nav:
         - GPS Receiver: navigation/gps/gps_receiver.md
 
   - Computer Vision:
+    - Termanologies: computer_vision/termanologies.md
     - Image Processing:
       - Correlation Filter: computer_vision/image_processing/correlation_filter.md
     - Image Features:
       - ORB: computer_vision/image_features/orb.md
-    - Multiple View:
-      - Epipolar Geometry: computer_vision/multiple_view/epipolar_geometry.md
-      - Essential and Fundamental Matrix: computer_vision/multiple_view/essential_and_fundamental_matrix.md
-      - Homography: computer_vision/multiple_view/homography.md
+    - Two-View Geometry:
+      - Epipolar Geometry: computer_vision/two_view_geometry/epipolar_geometry.md
+      - Essential and Fundamental Matrix: computer_vision/two_view_geometry/essential_and_fundamental_matrix.md
+      - Homography: computer_vision/two_view_geometry/homography.md
     - Image Compression:
       - Compression via Low-Rank Matrix Approximation: computer_vision/image_compression/compression_by_low_rank_matrix_approximation.md
   - Software:

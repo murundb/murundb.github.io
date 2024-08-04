@@ -1,6 +1,6 @@
 # Euler Angles
 
-## 321 vs. 123 Euler Angles
+## Definition
 
 Figiure 1 shows a 321 rotation of reference frame $F_\beta$ to object frame $F_\alpha$ with roll $\phi_{\beta \alpha}$, pitch $\theta_{\beta \alpha}$, and yaw $\psi_{\beta \alpha}$ Euler angles.
 

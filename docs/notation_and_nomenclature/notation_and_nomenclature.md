@@ -41,3 +41,5 @@ $\left[ \ \cdot \ \right]^{-}_{\times} \quad \text{Inverse skew matrix operator}
 $\hat{x} \quad\quad \ \ \text{Estimated quantity of } x$
 
 $\tilde{x} \quad\quad \ \ \text{Measured quantity of } x$
+
+$|| \mathbf{x} ||^2_{\mathbf{A}} \quad \text{2-norm of } \mathbf{x} \ \text{weighted by the covariance matrix } \mathbf{A}. \ \text{Equivalent to } \mathbf{x}^T \mathbf{A}^{-1} \mathbf{x}.$
