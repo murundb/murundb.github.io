@@ -101,12 +101,10 @@ nav:
       - Euler Angles: kinematics/rotations/euler_angles.md
       - Axis-Angle: kinematics/rotations/axis_angle.md
       - Quaternions: kinematics/rotations/quaternions.md
-    - Matrix Groups: 
-      - Matrix Groups and Cross-Relations: kinematics/matrix_groups/matrix_groups_and_cross_relations.md
-      - Lie Group and Lie Algebra: kinematics/matrix_groups/lie_group_and_lie_algebra.md
-      - Exponential and Logarithmic Mapping: kinematics/matrix_groups/exponential_and_logarithmic_map.md
-      - Special Orthogonal Group: kinematics/matrix_groups/special_orthogonal_group.md
-      - Special Euclidean Group: kinematics/matrix_groups/special_euclidean_group.md
+    - Pose, Rotation, and Matrix Groups: 
+      - Matrix Groups and Lie Theory: kinematics/pose_rotation_and_matrix_groups/matrix_groups_and_lie_theory.md
+      - Special Orthogonal and Special Euclidean Groups: kinematics/pose_rotation_and_matrix_groups/special_orthogonal_and_special_euclidean_groups.md
+      - Exponential and Logarithmic Mapping: kinematics/pose_rotation_and_matrix_groups/exponential_and_logarithmic_map.md
     - Jacobians:
       - Definition of Derivatives: kinematics/jacobians/definition_of_derivatives.md
       - Jacobian with Respect to Euler Angles: kinematics/jacobians_of_rotations_and_poses/jacobian_wrt_euler_angles.md

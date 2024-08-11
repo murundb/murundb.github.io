@@ -8,11 +8,11 @@ Given frames $F_\alpha$ and $F_\beta$, $\boldsymbol{\rho}_{\beta \alpha} = \thet
 
 | Axis-Angle Representation | |
 | ----- | --------------------------------------- |
-|  Rodrigues' Formula | $\begin{align*} \mathbf{R}^{\beta}_{\alpha} &= \exp{\left( \left[ \boldsymbol{\rho}_{\beta \alpha} \right]_\times \right)} \\ &= \mathbf{I} + \sin \theta \left[ \hat{\mathbf{e}} \right]_\times + \left(1 - \cos \theta \right) \left[ \hat{\mathbf{e}} \right]^2_\times \\ &= \cos \theta \mathbf{I} + \left(1 - \cos \theta \right) \hat{\mathbf{e}} \hat{\mathbf{e}}^T + \sin \theta \left[ \hat{\mathbf{e}} \right]_\times \end{align*}$ |
-| Logarithmic Mapping | $\begin{align*} \left[ \boldsymbol{\rho}_{\beta \alpha} \right]_\times &= \ln \left( \mathbf{R}^\beta_{\alpha} \right) = \sum^{\infty}_{k=0} \frac{(-1)^k}{k + 1} \left( \mathbf{R}^{\beta}_{\alpha} - \mathbf{I} \right)^{k + 1}  \end{align*}$ |
-| Closed-Form Rotation Angle | $\begin{align*} \theta_{\beta \alpha} &= \text{arccos} \left( \frac{\text{tr} \left( \mathbf{R}^{\beta}_{\alpha}\right) - 1}{2} \right) \\ &= \text{arccos} \left( \frac{1}{2} \left( \mathbf{R}^{\beta}_{\alpha \ 1,1} + \mathbf{R}^{\beta}_{\alpha \ 2, 2} + \mathbf{R}^{\beta}_{\alpha \ 1,1} - 1\right) \right) \end{align*}$ |
-| Closed-Form Rotation Vector | $\begin{align*} \boldsymbol{\rho}_{\beta \alpha} &= \frac{\theta_{\beta \alpha}}{2 \text{sin} (\theta_{\beta \alpha})} \left[ \begin{array}{c} \mathbf{R}^{\alpha}_{\beta \ 2,3} - \mathbf{R}^{\alpha}_{\beta \ 3,2} \\ \mathbf{R}^{\alpha}_{\beta \ 3,1} - \mathbf{R}^{\alpha}_{\beta \ 1,3} \\ \mathbf{R}^{\alpha}_{\beta \ 1,2} - \mathbf{R}^{\alpha}_{\beta \ 2,1} \end{array} \right]. \end{align*}$ |
-| Infinitesimal Rotations | $\begin{align*} \mathbf{R^{\beta}_{\alpha}}=  e^{\left[\boldsymbol{\rho}_{\beta \alpha} \right]_{\times}} \approx  \sum^{\infty}_{k=0} \frac{\left[\boldsymbol{\rho}_{\beta \alpha} \right]^k_{\times}}{k!} \approx \mathbf{I}_3 + \left[\boldsymbol{\rho}_{\beta \alpha} \right]_{\times} \end{align*}$ |
+|  Rodrigues' Formula | $\begin{align*} \mathbf{R}^{\alpha}_{\beta} &= \exp{\left( \left[ \boldsymbol{\rho}_{\beta \alpha} \right]_\times \right)} \\ &= \mathbf{I} + \sin \theta \left[ \hat{\mathbf{e}} \right]_\times + \left(1 - \cos \theta \right) \left[ \hat{\mathbf{e}} \right]^2_\times \\ &= \cos \theta \mathbf{I} + \left(1 - \cos \theta \right) \hat{\mathbf{e}} \hat{\mathbf{e}}^T + \sin \theta \left[ \hat{\mathbf{e}} \right]_\times \end{align*}$ |
+| Logarithmic Mapping | $\begin{align*} \left[ \boldsymbol{\rho}_{\beta \alpha} \right]_\times &= \ln \left( \mathbf{R}^\alpha_{\beta} \right) = \sum^{\infty}_{k=0} \frac{(-1)^k}{k + 1} \left( \mathbf{R}^{\alpha}_{\beta} - \mathbf{I} \right)^{k + 1}  \end{align*}$ |
+| Closed-Form Rotation Angle | $\begin{align*} \theta_{\beta \alpha} &= \text{arccos} \left( \frac{\text{tr} \left( \mathbf{R}^{\alpha}_{\beta}\right) - 1}{2} \right) \\ &= \text{arccos} \left( \frac{1}{2} \left( \mathbf{R}^{\alpha}_{\beta \ 1,1} + \mathbf{R}^{\alpha}_{\beta \ 2, 2} + \mathbf{R}^{\alpha}_{\beta \ 1,1} - 1\right) \right) \end{align*}$ |
+| Closed-Form Rotation Vector | $\begin{align*} \boldsymbol{\rho}_{\alpha \beta} &= \frac{\theta_{\beta \alpha}}{2 \text{sin} (\theta_{\beta \alpha})} \left[ \begin{array}{c} \mathbf{R}^{\beta}_{\alpha \ 2,3} - \mathbf{R}^{\beta}_{\alpha \ 3,2} \\ \mathbf{R}^{\beta}_{\alpha \ 3,1} - \mathbf{R}^{\beta}_{\alpha \ 1,3} \\ \mathbf{R}^{\alpha}_{\beta \ 1,2} - \mathbf{R}^{\alpha}_{\beta \ 2,1} \end{array} \right]. \end{align*}$ |
+| Infinitesimal Rotations | $\begin{align*} \mathbf{R^{\alpha}_{\beta}}=  e^{\left[\boldsymbol{\rho}_{\beta \alpha} \right]_{\times}} \approx  \sum^{\infty}_{k=0} \frac{\left[\boldsymbol{\rho}_{\beta \alpha} \right]^k_{\times}}{k!} \approx \mathbf{I}_3 + \left[\boldsymbol{\rho}_{\beta \alpha} \right]_{\times} \end{align*}$ |
 
 Note that rotation vector and Euler angles are identical for small perturbation.
 
@@ -24,7 +24,7 @@ Note that rotation vector and Euler angles are identical for small perturbation.
 
     $$
     \begin{align}
-    \mathbf{R}^\beta_{\alpha} =e^{\left[\boldsymbol{\rho} \right]_\times} &= e^{ \left[ \theta \hat{\mathbf{e}} \right]_\times} = \sum^{\infty}_{k = 0} \frac{1}{k!} \left(\theta \left[\hat{\mathbf{e}} \right]_\times \right)^k \\
+    \mathbf{R}^\alpha{\beta} =e^{\left[\boldsymbol{\rho} \right]_\times} &= e^{ \left[ \theta \hat{\mathbf{e}} \right]_\times} = \sum^{\infty}_{k = 0} \frac{1}{k!} \left(\theta \left[\hat{\mathbf{e}} \right]_\times \right)^k \\
     &= \mathbf{I} + \theta \left[ \hat{\mathbf{e}} \right]_\times + \frac{\theta^2}{2} \left[ \hat{\mathbf{e}} \right]^2_\times + 
     \frac{\theta^3}{3!} \left[ \hat{\mathbf{e}} \right]^2_\times + \ldots \\
     &= \mathbf{I} + \left( \theta - \frac{\theta^3}{3!} + \ldots \right) \left[ \hat{\mathbf{e}} \right]_\times + \left( \frac{\theta^2}{2} - \frac{\theta^4}{4!} + \ldots \right) \left[ \hat{\mathbf{e}} \right]^2_\times \\
