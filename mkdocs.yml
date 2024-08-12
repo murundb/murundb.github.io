@@ -104,7 +104,7 @@ nav:
     - Pose, Rotation, and Matrix Groups: 
       - Matrix Groups and Lie Theory: kinematics/pose_rotation_and_matrix_groups/matrix_groups_and_lie_theory.md
       - Special Orthogonal and Special Euclidean Groups: kinematics/pose_rotation_and_matrix_groups/special_orthogonal_and_special_euclidean_groups.md
-      - Exponential and Logarithmic Mapping: kinematics/pose_rotation_and_matrix_groups/exponential_and_logarithmic_map.md
+      - Difference, Interpolation, and Perturbation: kinematics/pose_rotation_and_matrix_groups/difference_interpolation_and_perturbation.md 
     - Jacobians:
       - Definition of Derivatives: kinematics/jacobians/definition_of_derivatives.md
       - Jacobian with Respect to Euler Angles: kinematics/jacobians_of_rotations_and_poses/jacobian_wrt_euler_angles.md
