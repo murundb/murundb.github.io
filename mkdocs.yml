@@ -101,15 +101,15 @@ nav:
       - Euler Angles: kinematics/rotations/euler_angles.md
       - Axis-Angle: kinematics/rotations/axis_angle.md
       - Quaternions: kinematics/rotations/quaternions.md
-    - Pose, Rotation, and Matrix Groups: 
-      - Matrix Groups and Lie Theory: kinematics/pose_rotation_and_matrix_groups/matrix_groups_and_lie_theory.md
-      - Special Orthogonal and Special Euclidean Groups: kinematics/pose_rotation_and_matrix_groups/special_orthogonal_and_special_euclidean_groups.md
-      - Difference, Interpolation, and Perturbation: kinematics/pose_rotation_and_matrix_groups/difference_interpolation_and_perturbation.md 
+    - Lie Group and Lie Algebra: 
+      - Matrix Groups and Lie Theory: kinematics/lie_group_and_lie_algebra/matrix_groups_and_lie_theory.md
+      - Special Orthogonal and Special Euclidean Groups: kinematics/lie_group_and_lie_algebra/special_orthogonal_and_special_euclidean_groups.md
+      - Derivativeand Perturbation Definitions: kinematics/lie_group_and_lie_algebra/derivative_and_perturbation_definitions.md
+      - Jacobians: kinematics/lie_group_and_lie_algebra/jacobians.md
+      - Perturbations: kinematics/lie_group_and_lie_algebra/perturbations.md
+      - Difference, Interpolation, and Perturbation: kinematics/lie_group_and_lie_algebra/difference_interpolation_and_perturbation.md 
     - Jacobians:
-      - Definition of Derivatives: kinematics/jacobians/definition_of_derivatives.md
-      - Jacobian with Respect to Euler Angles: kinematics/jacobians_of_rotations_and_poses/jacobian_wrt_euler_angles.md
       - Perturbed Rotations via Euler Angles: kinematics/jacobians_of_rotations_and_poses/perturbed_rotations_via_euler_angles.md
-      - Jacobian with Respect to Lie Algebra Vector: kinematics/jacobians_of_rotations_and_poses/jacobian_wrt_lie_algebra_vector.md
       - Perturbed Rotations via Rotation Vector: kinematics/jacobians_of_rotations_and_poses/perturbed_rotations_via_rotation_vector.md
       - Perturbed Poses via Rotation Vector: kinematics/jacobians_of_rotations_and_poses/perturbed_poses_via_rotation_vector.md
     - Optimization on Smooth Manifolds:
