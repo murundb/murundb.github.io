@@ -2,40 +2,45 @@
 
 ## Definition
 
-The set of quaternions, denoted by $\mathbb{H}$, is defined as:
+There are two quaternion conventions commonly in use, Hamilton quaternions and JPL quaternions. The set of Hamilton quaternions, $\mathbb{H}$, and the set of JPL quaternions, $\mathbb{S}$ are defined as:
 
 $$
-\mathbb{H} = \mathbb{C} + \mathbb{C}j, \quad k \triangleq ij, \quad i^2 = j^2 = k^2 = ijk = -1.
+\begin{alignat}{3}
+\mathbb{H} &= \mathbb{C} + \mathbb{C}j, &&\quad k \triangleq ij = -ji, \quad &&&i^2 = j^2 = k^2 = ijk = -1 \\
+\mathbb{S} &= \mathbb{C} - \mathbb{C}j, &&\quad k \triangleq ji = -ij, \quad &&&i^2 = j^2 = k^2 = ijk = -1.
+\end{alignat}
 $$
 
-
-Elements of $\mathbb{H}$ are of the form:
-
-$$
-\mathbf{q} = q_w + q_x \mathbf{i} + q_y \mathbf{j} + q_z \mathbf{k} = q_w + \mathbf{q}_v \in \mathbb{H}.
-$$
-
-The Hamilton notation (right-handed) and JPL notation (left-handed) are related by:
+Elements of $\mathbb{H}$ and $\mathbb{S}$ are of the form:
 
 $$
-\mathbf{q}_{\text{left}} = \mathbf{q}^*_{\text{right}}.
+\begin{align}
+\mathbf{q}_{\mathbb{H}} &= q_w + q_x \mathbf{i} + q_y \mathbf{j} + q_z \mathbf{k} = q_w + \mathbf{q}_v \in \mathbb{H} \\
+\mathbf{q}_{\mathbb{S}} &= q_x \mathbf{i} + q_y \mathbf{j} + q_z \mathbf{k} + q_w = \mathbf{q}_v + q_w \in \mathbb{S}.
+\end{align}
+$$
+
+Note that we can conclude $\mathbf{q}_{\mathbb{S}} = \mathbf{q}_{\mathbb{H}}$, but the equality is only present in the quaternion values and the two quaternions, when employed in formulas, mean and represent different things. The Hamilton notation (right-handed) and JPL notation (left-handed) are related by:
+
+$$
+\mathbf{q}_{\mathbb{S}} = \mathbf{q}^*_{\mathbb{H}}.
 $$
 
 |  Quaternion Type  | Hamilton | JPL |
 | ----- | --------------------------------------- | |
 |  Definition | $\mathbf{q} =  \left[ \begin{array}{cc} q_w & \mathbf{q}_v \end{array} \right]^T$  | $\mathbf{q} =  \left[ \begin{array}{cc} \mathbf{q}_v & q_w \end{array} \right]^T$ |
-| Algebra Handedness | Right-handed, i.e., $\mathbf{i} \mathbf{j} = \mathbf{k}$ | Left-handed, i.e., $\mathbf{i} \mathbf{j} = -\mathbf{k}$ |
 | Conjugate | $\mathbf{q}^{*} = \left[ \begin{array}{cc} q_w & - \mathbf{q}_v \end{array} \right]^T$ | $\mathbf{q}^{*} = \left[ \begin{array}{cc} -\mathbf{q}_v & q_w \end{array} \right]^T$ |
 | Inverse | $\mathbf{q}^{-1} = \mathbf{q}^* / \left\|\mathbf{q}\right\|^2$ |
 | Attitude Representation Constraint | $\mathbf{q}^{-1} = \mathbf{q}^*$ with $\left\|\mathbf{q} \right\| = \sqrt{\mathbf{q} \otimes \mathbf{q}^*} = 1$ |
-| Multiplication | $\mathbf{q}_1 \otimes \mathbf{q}_2 = \left[ \mathbf{q}_1 \right]_L \mathbf{q}_2 = \left[ \mathbf{q}_2\right]_R \mathbf{q}_1$ |
+| Multiplication | $\mathbf{q}\otimes \mathbf{p} = \left[ \mathbf{q} \right]_L \mathbf{p} = \left[ \mathbf{p}\right]_R \mathbf{q}$ | $\mathbf{q} \otimes \mathbf{p} = \left[ \mathbf{q} \right]_L \mathbf{p} = \left[ \mathbf{p} \right]_R \mathbf{q}$ |
 | Left Product Matrix | $\left[ \mathbf{q} \right]_L = \left[ \begin{array}{cccc} q_w & -q_x & -q_y & -q_z \\ q_x & q_w & - q_z & q_y \\ q_y & q_z & q_w & -q_x \\ q_z & -q_y & q_x & q_w \end{array}\right]$ | $\left[ \mathbf{q} \right]_L = \left[ \begin{array}{cccc} q_w & q_z & -q_y & q_x \\ -q_z & q_w & q_x & q_y \\ q_y & -q_x & q_w & q_z \\ -q_x & -q_y & -q_z & q_w \end{array}\right]$ |
 | Right Product Matrix | $\left[\mathbf{q} \right]_R= \left[ \begin{array}{cccc} q_w & -q_x & -q_y & -q_z \\ q_x & q_w & q_z & -q_y \\ q_y & -q_z & q_w & q_x \\ q_z & q_y & -q_x & q_w \end{array}\right]$ | $\left[\mathbf{q} \right]_R= \left[ \begin{array}{cccc} q_w & -q_z & q_y & q_x \\ q_z & q_w & -q_x & q_y \\ -q_y & q_x & q_w & q_z \\ -q_x & -q_y & -q_z & q_w \end{array}\right]$ |
 | Rotation Type | Passive | Passive |
-| Rotation Vector | $\mathbf{q}^g_l = \cos(\phi / 2) + \mathbf{u} \sin(\phi / 2)$ | $\mathbf{q}^l_g = -\mathbf{u} \sin (\phi / 2) + \cos (\phi / 2)$ |
+| Rotation Vector | $\mathbf{q}^g_l = \cos(\phi / 2) + \mathbf{u} \sin(\phi / 2)$ | $\begin{align*} \mathbf{q}^l_g &= \mathbf{u} \sin (\phi / 2) + \cos (\phi / 2) \\ &= \left[ \begin{array}{1} \mathbf{u} \sin(\phi / 2) \\ \cos (\phi / 2) \end{array} \right] \end{align*}$, where $\mathbf{u}$ is expressed in $F_l$ |
 | Rotation Representation | Local-to-Global, i.e., $\mathbf{q} \triangleq \mathbf{q}^g_l$ | Global-to-Local, i.e., $\mathbf{q} \triangleq \mathbf{q}^l_g$ |
 | Default Operation | $\mathbf{x}^g_{a  b} = \mathbf{q} \otimes \mathbf{x}^{l}_{a  b} \otimes \mathbf{q}^*$ | $\mathbf{x}^l_{a  b} = \mathbf{q} \otimes \mathbf{x}^{g}_{a  b} \otimes \mathbf{q}^*$ |
-| Corresponding Rotation Matrix | $\mathbf{R}^g_l = \left[ \begin{array}{ccc} q^2_w + q^2_x - q^2_y - q^2_z & 2(q_x q_y - q_w q_z) & 2(q_x q_z + q_w q_y) \\ 2(q_x q_y + q_w q_z) & q^2_w - q^2_x + q^2_y - q^2_z & 2(q_y q_z - q_w q_x) \\ 2(q_x q_z - q_w q_y) & 2(q_y q_z + q_w q_x) & q^2_w - q^2_x - q^2_y + q^2_z  \end{array}\right]$ | $\mathbf{R}^l_g = \left[ \begin{array}{ccc} q^2_x - q^2_y - q^2_z + q^2_w & 2(q_x q_y + q_z q_w) & 2(q_x q_z - q_y q_w) \\ 2(q_x q_y - q_z q_w) & -q^2_x + q^2_y - q^2_z + q^2_w & 2(q_y q_z + q_x q_w) \\ 2(q_x q_z + q_y q_w) & 2(q_y q_z - q_x q_w) & -q^2_x - q^2_y + q^2_z + q^2_w \end{array} \right]$ |
+| Corresponding Rotation Matrix | $\begin{align*}\mathbf{R}^g_l &= \left[ \begin{array}{ccc} q^2_w + q^2_x - q^2_y - q^2_z & 2(q_x q_y - q_w q_z) & 2(q_x q_z + q_w q_y) \\ 2(q_x q_y + q_w q_z) & q^2_w - q^2_x + q^2_y - q^2_z & 2(q_y q_z - q_w q_x) \\ 2(q_x q_z - q_w q_y) & 2(q_y q_z + q_w q_x) & q^2_w - q^2_x - q^2_y + q^2_z  \end{array}\right] \\ &= \left(q^2_w - \mathbf{q}^T_v \mathbf{q}_v \right)\mathbf{I} + 2 \mathbf{q}_v \mathbf{q}^T_v + 2 q_w \left[ \mathbf{q}_v \right]_\times \end{align*}$ | $\begin{align*} \mathbf{R}^l_g &= \left[ \begin{array}{ccc} q^2_x - q^2_y - q^2_z + q^2_w & 2(q_x q_y + q_z q_w) & 2(q_x q_z - q_y q_w) \\ 2(q_x q_y - q_z q_w) & -q^2_x + q^2_y - q^2_z + q^2_w & 2(q_y q_z + q_x q_w) \\ 2(q_x q_z + q_y q_w) & 2(q_y q_z - q_x q_w) & -q^2_x - q^2_y + q^2_z + q^2_w \end{array} \right] \\ &= \left(2q^2_w - 1 \right) \mathbf{I} - 2q_w \left[ \mathbf{q}_v \right]_\times + 2 \mathbf{q}_v \mathbf{q}^T_v  \\ &= \exp \left( -\left[ \mathbf{u} \right]_\times \phi \right)  \end{align*}$ |
+| Rortation Matrix Properties | $\begin{align*} \mathbf{R}\left\{ -\mathbf{q} \right\} &= \mathbf{R}\left\{\mathbf{q} \right\} \\ \mathbf{R}\left\{ \mathbf{q}^* \right\} &= \mathbf{R}\left\{ \mathbf{q} \right\}^T \\ \mathbf{R}\left\{ \mathbf{q} \otimes \mathbf{p} \right\} &= \mathbf{R}\left\{ \mathbf{q} \right\} \mathbf{R} \left\{ \mathbf{p} \right\}\end{align*}$ |
 
 ## Cross-Relations to Rotation Matrix
 
