@@ -269,8 +269,8 @@ nav:
   - Sensors:
     - GNSS: 
       - References: sensors/gnss/references.md
-      - Constellations: sensors/gnss/test.md
-      - Signal Model: sensors/gnss/gnss_signal_model.md
+      - Constellations: sensors/gnss/constellations.md
+      - GPS Signals: sensors/gnss/gps_signals.md
 
   - Papers:
     - Software: papers/software.md
