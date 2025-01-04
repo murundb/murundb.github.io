@@ -268,7 +268,10 @@ nav:
           - Calculating PI: software/concurrency/open_mp/examples/calculating_pi.md
   - Sensors:
     - DSP Notes:
+      - References: sensors/dsp_notes/references.md
       - Sampling: sensors/dsp_notes/sampling.md
+      - DFT: sensors/dsp_notes/dft.md
+      - DFT Example: assets/jupyter/dft/dft.ipynb
     - GNSS: 
       - References: sensors/gnss/references.md
       - Constellations: sensors/gnss/constellations.md
