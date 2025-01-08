@@ -270,8 +270,10 @@ nav:
     - DSP Notes:
       - References: sensors/dsp_notes/references.md
       - Sampling: sensors/dsp_notes/sampling.md
-      - DFT: sensors/dsp_notes/dft.md
-      - DFT Example: assets/jupyter/dft/dft.ipynb
+      - DFT: 
+        - DFT Overview: sensors/dsp_notes/dft.md
+        - DFT Example: assets/jupyter/dft/dft.ipynb
+      - FIR Filters: sensors/dsp_notes/fir_filters.md
     - GNSS: 
       - References: sensors/gnss/references.md
       - Constellations: sensors/gnss/constellations.md
