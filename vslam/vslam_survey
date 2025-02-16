@@ -1,0 +1,102 @@
+FROM Taketomi et al. Visual-SLAM Algorithms: a Survey from 2010 to 2016, 2017
+
+
+One of the most important requirements in VSLAM is real-time response. Although VSLAM algorithms have been proposed for different purposes in differentr
+research communities, they basically share overall parts of technical core ideas and can be used to achieve different purposes.
+
+- Feature-based approach
+- Direct Approach
+- RGB-D camera-based approach
+
+
+2. Elements of VSLAM
+
+2.1 Basic modules
+
+VSLAM framework is mainly composed of:
+A. Initialization
+
+VSLAM needs to define a global coordinate system and a part of the environment is reconstructed as an initial map in the global coordinate system.
+
+B. Tracking
+
+The reconstructed map is tracked in the image to estimate the camera pose of the image with respect to the map. To do this, 2D-3D correspondences between
+the image and the map are first obtained from feature matching or feature tracking in the image. Then the camera pose is computed from the correspondences by solving
+the Perspective-n-Point (PnP) problem. 
+
+C. Mapping
+
+Map is expanded by computing the 3D structure of an environment when the camera observes unknown regions where the mapping is not performed before.
+
+2.2 Additional modules for stable and accurate VSLAM
+
+D. Relocalization
+Relocalization is required when the tracking is failed due to fast camera motion or some disturbances. When this happens, it is necessary to compute the camera pose with
+respect to the map again.
+
+E. Global Map Optimization
+The map includes accumulative estimation error (drift) according to the distance of camera movement. In order to supress the error, the global map
+optimization is normally performed. In this process, the map is refined by considering the consistency of whole map information. When a map is
+revisited such that a starting region is captured again after some camera movement, reference information that represents the accumulative error from
+the beginning ot the present can be computed. Then a loop constraint from the reference information is used as a constraint to suppress the error in the global
+optimization.
+
+Loop closing is a technique to acquire the reference information. In the loop closing, a closed loop is first searched by matching a current image with previously
+acquired images. If the loop is detected, it means that the camera captures one of previously observed views. In this case, the accumulative error occured during
+camera movement can be estimated. Note that the closed-loop detection procedure can be done by using the same techniques as relocalization.
+Basically, relocalization is done for recovering camera pose and loop detection is done for obtaining geometrically consistent map.
+
+Pose-graph optimization has widely been used to supress the accumulated error by optimizing camera poses. In this method, the relationship between camera poses
+is represented as a graph and the consistent graph is built to suppress the error in the optimization. Bundle adjustment (BA) is also used to
+minimize the reprojection error of the map by optimizing both the map and the camera poses. 
+
+
+
+3. VSLAM vs VO
+VSLAM = VO + global map optimization
+
+4. Feature-based methods
+
+Two types of methods are:
+- Filter-based methods
+- BA-based methods
+
+4.1 MonoSLAM (Davison et al. 2003)
+MonoSLAM is considered as a representative method in filter-based vSLAM algorithms. In MonoSLAM, camera motion and 3D structure of an unknown
+environment are simultaneously estimated using an EKF. 6 DoF camera motion and 3D positions of feature points are represented as a state vector in EKF.
+Uniform motion is assumed in a prediction model, and a result of feature point tracking is used as observation. Depending on camera movement, new feature points are
+added to the state vector. Note that the initial map is created by observing a known object where a global coordinate system is defined. In summary, MonoSLAM is composed of:
+
+- Map initialization is done by using a known object
+- Camera motion and 3D positions of feature points are estimated using EKF
+
+Downsides - Size of the state vector blows up because the number of feature points start growing in large environments. Hence, real-time performance is difficult here.
+
+4.2 PTAM (TAM -Tracking and Mapping)
+
+PTAM split the tracking and the mapping into different threads on CPU to solve the problem of MonoSLAM computational cost. The two threads are
+executed in parallel so that the computational cost of the mapping doesn't affect the tracking. As a result, BA that needs a computational cost in the
+optimization can be used in the mapping. PTAM is the first method which incorporates BA into the real-time VSLAM algorithms. After PTAM, most VSLAM algorithms follow
+this type of multi-threading approaches.
+
+In PTAM, the initial map is reconstructed using the five-point algorithm. In the tracking, mapped points are projected onto an image to make 2D-3D correspondes using texture matching.
+From the correspondences, camera poses can be computed. In the mapping, 3D positions of new feature points are computed using triangulation at certain frames called keyframes.
+One of the key contributions of PTAM is to introduce this keyframe-based mapping in VSLAM. 
+
+PTAM:
+
+- Map initialization is done by the five-point algorithm
+- Camera poses are estimated from matched feature points between map points and the input image.
+- 3D positions of feature points are estimated by triangulation, and estimated 3D positions are optimized by BA.
+- The tracking process is recovered by a randomized tree-based searching.
+
+Compared to MonoSLAM, PTAM can handle thousands of feature points by splitting the tracking and mapping into different threads on CPU.
+
+
+
+
+
+FROM C. Cesar, L. Carlone, H. C., Y. Latif, D. Scaramuzza, J. Neira, I. D. Reid, and L. John J., “Past, present, and future of simultaneous localization and mapping: Towards the robust-perception age,” arXiv preprint arXiv:1606.05830, 2016.
+
+ORB-SLAM is an extension of PTAM and includes BA, vision-based closed-loop detection, and 7 DoF pose-graph optimization. ORB-SLAM is the most complete feature-based monocular VSLAM system.
+ORB-SLAM is extended to the stereo VSLAM and the RGB-D VSLAM.
