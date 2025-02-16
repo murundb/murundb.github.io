@@ -169,3 +169,4 @@ Consider a rotation matrix $\mathbf{R} \in SO(3)$ with Lie algebra $\left[ \bold
 
 1. Barfoot, T., **State Estimation for Robotics**
 2. Solà, J., **Quaternion Kinematics for the Error-State Kalman Filter, 2017**
+3. Solà et al. **A Micro Lie Theory for State Estimation in Robotics, 2021**

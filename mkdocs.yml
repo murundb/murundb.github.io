@@ -78,21 +78,74 @@ extra:
 ## Navigation Tree
 nav:
   - Home: index.md
-  - Matrix Theory: 
-    - References: matrix_theory/references.md
-    - Norms:
-      - Vector Norms: matrix_theory/norms/vector_norms.md
-      - Matrix Norms: matrix_theory/norms/matrix_norms.md
+  - Prerequisites: 
+    - References: prerequisites/references.md
+    - Norms: prerequisites/norms.md
+    - Sets:
+      - Open and Closed Sets: prerequisites/sets/open_and_closed_sets.md
+      - Geometry: prerequisites/sets/geometry.md
+      - Convex Sets: prerequisites/sets/convex_sets.md
+    - Functions: prerequisites/functions.md
+    - Matrix Properties: prerequisites/matrix_properties.md
+    - Matrix Calculus: prerequisites/matrix_calculus.md
+    - Gradient, Jacobian, Hessian: prerequisites/gradient_jacobian_hessian.md
     - Matrix Factorization:
-      - Singular Value Decomposition: matrix_theory/matrix_factorization/singular_value_decomposition.md
-      - QR Decomposition: matrix_theory/matrix_factorization/qr_decomposition.md
-      - Cholesky Decomposition: matrix_theory/matrix_factorization/cholesky_decomposition.md
+      - Singular Value Decomposition: prerequisites/matrix_factorization/singular_value_decomposition.md
+      - QR Decomposition: prerequisites/matrix_factorization/qr_decomposition.md
+      - Cholesky Decomposition: prerequisites/matrix_factorization/cholesky_decomposition.md
     - Matrix Calculus:
-      - Identities: matrix_theory/matrix_calculus/matrix_calculus_identities.md
-      - Matrix Calculus: matrix_theory/matrix_calculus/matrix_calculus.md
+      - Identities: prerequisites/matrix_calculus/matrix_calculus_identities.md
     - Software Implementation:
-      - Storage: matrix_theory/software_implementation/storage.md
-      - Multiplication: matrix_theory/software_implementation/multiplication.md
+      - Storage: prerequisites/software_implementation/storage.md
+      - Multiplication: prerequisites/software_implementation/multiplication.md
+    - Gram-Schmidt Process: prerequisites/gram_schmidt_process.md
+    - Probability Theory:
+      - Terminologies: probability_theory/terminologies.md
+      - Variability Measures: probability_theory/sample_variability_measures.md
+      - Random Variables: probability_theory/random_variables/random_variables.md
+      - Multivariate Random Variables: probability_theory/random_variables/multivariate_random_variables.md
+      - Distributions: probability_theory/distributions.md
+      - Chi-Square Distributions: probability_theory/chi_square_distribution.md
+      - Observations as Time Series: probability_theory/observations_as_time_series.md
+      - Transformations of Random Variables: probability_theory/random_variables/transformations_of_random_variables.md
+    - DSP:
+      - References: prerequisites/dsp_notes/references.md
+      - Complex Exponential: prerequisites/dsp_notes/complex_exponential.md
+      - Decibels: prerequisites/dsp_notes/decibels.md
+      - Harmonics: prerequisites/dsp_notes/harmonics.md
+      - Sampling Theorem: prerequisites/dsp_notes/sampling_theorem.md
+      - Discrete Fourier Transform: prerequisites/dsp_notes/discrete_fourier_transform.md
+      - Discrete-Time Fourier Transform: prerequisites/dsp_notes/discrete_time_fourier_transform.md
+      - FIR Filters: prerequisites/dsp_notes/fir_filters.md
+    - Optimization:
+      - Optimization Problem Formulation: optimization/optimization_problem_formulation.md
+      - Duality Theory: optimization/duality.md
+      - Unconstrained Optimization:
+        - Optimality Conditions: optimization/unconstrained_optimization/optimality_conditions.md
+        - Gradient Desent: optimization/unconstrained_optimization/gradient_descent.md
+        - Newton's Method: optimization/unconstrained_optimization/newton_method.md
+        - Quasi-Newton Method: optimization/unconstrained_optimization/quasi_newton_method.md
+        - Gauss-Netwon Method: optimization/unconstrained_optimization/gauss_newton_method.md
+        - Golden Section: optimization/unconstrained_optimization/golden_section.md
+        - Quadratic Fit: optimization/unconstrained_optimization/quadratic_fit.md
+        - Nelder-Mead Method: optimization/unconstrained_optimization/nelder_mead_method.md
+      - Linear Programming:
+        - Modelling Using Linear Programs: optimization/linear_programming/modelling_using_linear_programs.md
+        - Algrebraic Aspects: optimization/linear_programming/algebraic_aspects.md
+        - Simplex Method: optimization/linear_programming/simplex_method.md
+        - Linear Stochastic Program: optimization/linear_programming/linear_stochastic_program.md
+        - Nonlinear Program: optimization/linear_programming/nonlinear_program.md
+        - Robust Optimization: optimization/linear_programming/robust_optimization.md
+        - Column and Constraint Generation: optimization/linear_programming/column_and_constraint_generation.md
+        - Dantzig-Wolfe Decomposition: optimization/linear_programming/dantzig_wolfe_decomposition.md
+      - Nonlinear Programming:
+        - Least Squares: optimization/nonlinear_programming/least_squares.md
+      - Perturbation Methods: optimization/perturbation_methods.md
+      - Integer Programming:
+        - Discrete Optimization Models: optimization/integer_programming/discrete_optimization_models.md
+        - Modelling Nonconvex Functions: optimization/integer_programming/modelling_nonconvex_functions.md
+        - Modelling Nonconvex Sets: optimization/integer_programming/modelling_nonconvex_sets.md
+        - Modelling Logical Relations: optimization/integer_programming/modelling_logical_relations.md
 
   - Kinematics:
     - Rotations and Cross-Relations:
@@ -124,71 +177,6 @@ nav:
   
   - Estimation Theory:
     - References: estimation_theory/references.md
-    - Probability Theory:
-      - Terminologies: estimation_theory/probability_theory/terminologies.md
-      - Mean and Mode: estimation_theory/probability_theory/sample_mean_and_mode.md
-      - Variability Measures: estimation_theory/probability_theory/sample_variability_measures.md
-      - Univariate Sample Example: assets/jupyter/probability/cellarea_analysis.ipynb
-      - Multivariate Sample Properties: estimation_theory/probability_theory/multivariate_sample_properties.md
-      - Observations as Time Series: estimation_theory/probability_theory/observations_as_time_series.md
-      - Probability: estimation_theory/probability_theory/probability.md
-      - Bayes' Rule: estimation_theory/probability_theory/bayes_rule.md
-      - Random Variables: estimation_theory/probability_theory/random_variables/random_variables.md
-      - Transformations of Random Variables: estimation_theory/probability_theory/random_variables/transformations_of_random_variables.md
-      - Multiple Random Variables: estimation_theory/probability_theory/random_variables/multiple_random_variables.md
-      - Distributions:
-        - Discrete Uniform Distribution: estimation_theory/probability_theory/discrete_distributions/discrete_uniform_distribution.md
-        - Uniform Distribution: estimation_theory/probability_theory/continuous_distributions/uniform_distribution.md
-        - Bernoulli and Binomial Distributions: estimation_theory/probability_theory/discrete_distributions/bernoulli_and_binomial_distributions.md
-        - Poisson Distribution: estimation_theory/probability_theory/discrete_distributions/poisson_distribution.md
-        - Geometric Distribution: https://en.wikipedia.org/wiki/Geometric_distribution
-        - Multinomial Distribution: https://en.wikipedia.org/wiki/Multinomial_distribution
-        - Exponential Distribution: estimation_theory/probability_theory/continuous_distributions/exponential_distribution.md
-        - Gamma Distribution: estimation_theory/probability_theory/continuous_distributions/gamma_distribution.md
-        - Logistic Distribution: https://en.wikipedia.org/wiki/Logistic_distribution
-        - Normal Distribution: estimation_theory/probability_theory/continuous_distributions/normal_distribution.md
-        - Chi-square Distribution: estimation_theory/probability_theory/continuous_distributions/chi_square_distribution.md
-        - Beta Distribution: https://en.wikipedia.org/wiki/Beta_distribution
-        - Weibull Distribution: https://en.wikipedia.org/wiki/Weibull_distribution#:~:text=In%20probability%20theory%20and%20statistics,spends%20on%20a%20web%20page.
-    - Optimization:
-      - Sets:
-        - Norms, Distance, and Unit Ball: optimization/sets/norms_distance_unit_ball.md
-        - Open and Closed Sets: optimization/sets/open_and_closed_sets.md
-        - Geometry: optimization/sets/geometry.md
-        - Convex Sets: optimization/sets/convex_sets.md
-        - Nonconvex Sets: optimization/sets/nonconvex_sets.md
-      - Functions:
-        - Functions, Gradient, Jacobian, Hessian: optimization/functions/functions.md
-        - Convex Functions: optimization/functions/convex_functions.md
-        - Nonconvex Functions: optimization/functions/nonconvex_functions.md
-      - Optimization Problem Formulation: optimization/optimization_problem_formulation.md
-      - Duality Theory: optimization/duality.md
-      - Unconstrained Optimization:
-        - Optimality Conditions: optimization/unconstrained_optimization/optimality_conditions.md
-        - Gradient Desent: optimization/unconstrained_optimization/gradient_descent.md
-        - Newton's Method: optimization/unconstrained_optimization/newton_method.md
-        - Quasi-Newton Method: optimization/unconstrained_optimization/quasi_newton_method.md
-        - Gauss-Netwon Method: optimization/unconstrained_optimization/gauss_newton_method.md
-        - Golden Section: optimization/unconstrained_optimization/golden_section.md
-        - Quadratic Fit: optimization/unconstrained_optimization/quadratic_fit.md
-        - Nelder-Mead Method: optimization/unconstrained_optimization/nelder_mead_method.md
-      - Linear Programming:
-        - Modelling Using Linear Programs: optimization/linear_programming/modelling_using_linear_programs.md
-        - Algrebraic Aspects: optimization/linear_programming/algebraic_aspects.md
-        - Simplex Method: optimization/linear_programming/simplex_method.md
-        - Linear Stochastic Program: optimization/linear_programming/linear_stochastic_program.md
-        - Nonlinear Program: optimization/linear_programming/nonlinear_program.md
-        - Robust Optimization: optimization/linear_programming/robust_optimization.md
-        - Column and Constraint Generation: optimization/linear_programming/column_and_constraint_generation.md
-        - Dantzig-Wolfe Decomposition: optimization/linear_programming/dantzig_wolfe_decomposition.md
-      - Nonlinear Programming:
-        - Least Squares: optimization/nonlinear_programming/least_squares.md
-      - Perturbation Methods: optimization/perturbation_methods.md
-      - Integer Programming:
-        - Discrete Optimization Models: optimization/integer_programming/discrete_optimization_models.md
-        - Modelling Nonconvex Functions: optimization/integer_programming/modelling_nonconvex_functions.md
-        - Modelling Nonconvex Sets: optimization/integer_programming/modelling_nonconvex_sets.md
-        - Modelling Logical Relations: optimization/integer_programming/modelling_logical_relations.md
     - Statistical Estimators:
       - Moment-Matching Estimator: estimation_theory/statistical_estimators/moment_matching_estimator.md
       - Maximum Likelihood Estimator: estimation_theory/statistical_estimators/maximum_likelihood_estimator.md
@@ -267,20 +255,13 @@ nav:
         - Examples: 
           - Calculating PI: software/concurrency/open_mp/examples/calculating_pi.md
   - Sensors:
-    - DSP Notes:
-      - References: sensors/dsp_notes/references.md
-      - Sampling: sensors/dsp_notes/sampling.md
-      - DFT: 
-        - DFT Overview: sensors/dsp_notes/dft.md
-        - DFT Example: assets/jupyter/dft/dft.ipynb
-      - FIR Filters: sensors/dsp_notes/fir_filters.md
     - GNSS: 
       - References: sensors/gnss/references.md
       - Constellations: sensors/gnss/constellations.md
       - GPS Signals: sensors/gnss/gps_signals.md
 
-  - Papers:
-    - Software: papers/software.md
+  - Deep Learning:
+    - Variational AutoEncoders: deep_learning/variational_autoencoders/variational_autoencoders.md
   
   - Notation and Nomenclature: notation_and_nomenclature/notation_and_nomenclature.md
 
